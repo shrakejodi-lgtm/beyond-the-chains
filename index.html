@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond the Chains</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8f5;
+  color: #403936;
+}
+.hero {
+  background: #fff8f5;
+  text-align: center;
+  padding: 25px 15px 20px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.hero h1 {
+  color: #4b3b35;
+  margin: 5px 0;
+  font-size: 30px;
+}
+
+.hero p {
+  color: #5b9f9a;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+.quote {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 3px 12px #0001;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border: none;
+  border-radius: 18px;
+  padding: 25px 15px;
+  box-shadow: 0 3px 12px #0001;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card .emoji {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.back {
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.day {
+  background: white;
+  padding: 18px;
+  border-radius: 18px;
+  margin: 12px 0;
+  box-shadow: 0 2px 8px #0001;
+}
+
+button.complete {
+  background: #69b8b2;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.progress {
+  height: 14px;
+  background: #eadfd8;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #f4a7c1;
+}
+
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<<header class="hero">
+  <img src="file_0000000069f4822fa3dbc47f5a5b266f.png"
+       alt="Beyond the Chains"
+       class="logo">
+
+  <h1>Beyond the Chains</h1>
+
+  <p>Breaking Free. Growing Strong. Walking with Purpose.</p>
+</header>
+
+<div class="container">
+
+<!-- HOME -->
+
+<div id="home" class="screen active">
+
+  <div class="quote">
+    <strong>You don't have to become who you were before.</strong>
+    <br>
+    You can become who God is calling you to be.
+  </div>
+
+  <div class="buttons">
+
+    <button class="card" onclick="showScreen('workouts')">
+      <span class="emoji">💪</span>
+      <strong>WORKOUT</strong>
+      <br>
+      Build a stronger body.
+    </button>
+
+    <button class="card" onclick="showScreen('faith')">
+      <span class="emoji">✝️</span>
+      <strong>FAITH</strong>
+      <br>
+      Strength for the journey.
+    </button>
+
+    <button class="card" onclick="showScreen('recovery')">
+      <span class="emoji">🔓</span>
+      <strong>RECOVERY</strong>
+      <br>
+      One day at a time.
+    </button>
+
+    <button class="card" onclick="showScreen('progress')">
+      <span class="emoji">📈</span>
+      <strong>MY PROGRESS</strong>
+      <br>
+      Small steps count.
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- WORKOUTS -->
+
+<div id="workouts" class="screen">
+
+<button class="back" onclick="showScreen('home')">← Home</button>
+
+<h2>💪 30-Day Foundation Program</h2>
+
+<div id="dayList"></div>
+
+</div>
+
+
+<!-- DAY -->
+
+<div id="day" class="screen">
+
+<button class="back" onclick="showScreen('workouts')">
+← Back to Workouts
+</button>
+
+<div id="dayContent"></div>
+
+</div>
+
+
+<!-- FAITH -->
+
+<div id="faith" class="screen">
+
+<button class="back" onclick="showScreen('home')">← Home</button>
+
+<h2>✝️ Faith</h2>
+
+<div class="day">
+
+<h3>📖 Today's Reminder</h3>
+
+<p>
+Be strong and courageous. Do not be afraid.
+</p>
+
+<p>
+God is with you in the rebuilding.
+</p>
+
+</div>
+
+<div class="day">
+
+<h3>🙏 My Prayer</h3>
+
+<textarea id="prayer"
+placeholder="Write your prayer here..."></textarea>
+
+<button class="complete" onclick="saveText('prayer')">
+Save Prayer
+</button>
+
+</div>
+
+</div>
+
+
+<!-- RECOVERY -->
+
+<div id="recovery" class="screen">
+
+<button class="back" onclick="showScreen('home')">← Home</button>
+
+<h2>🔓 Recovery</h2>
+
+<div class="day">
+
+<h3>🌱 Daily Check-In</h3>
+
+<label>How are you doing today?</label>
+
+<select id="mood">
+
+<option>😊 Great</option>
+<option>🙂 Good</option>
+<option>😐 Okay</option>
+<option>😔 Struggling</option>
+<option>🆘 I need support</option>
+
+</select>
+
+<label>One thing I'm grateful for:</label>
+
+<textarea id="gratitude"></textarea>
+
+<label>One thing I'm proud of today:</label>
+
+<textarea id="proud"></textarea>
+
+<button class="complete" onclick="saveCheckin()">
+Save Check-In
+</button>
+
+</div>
+
+<div class="day">
+
+<h3>🔥 Craving Tracker</h3>
+
+<p>
+A craving is a moment, not a command.
+Pause. Breathe. Choose your next step.
+</p>
+
+<textarea id="craving"
+placeholder="What happened? What helped?"></textarea>
+
+<button class="complete" onclick="saveText('craving')">
+Save
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div id="progress" class="screen">
+
+<button class="back" onclick="showScreen('home')">
+← Home
+</button>
+
+<h2>📈 My Progress</h2>
+
+<div class="day">
+
+<h3 id="progressText">
+0 / 30 days complete
+</h3>
+
+<div class="progress">
+
+<div id="progressBar"
+class="progress-bar"></div>
+
+</div>
+
+<p id="chainMessage">
+🔗 Your chain is waiting for its first link.
+</p>
+
+</div>
+
+<div class="day">
+
+<h3>🎯 My Goal</h3>
+
+<textarea id="goal"
+placeholder="What are you working toward?"></textarea>
+
+<button class="complete" onclick="saveText('goal')">
+Save Goal
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Beyond the Chains • Your next step matters. 🌸
+</footer>
+
+
+<script>
+
+const workouts = [
+
+["Day 1","Walking Forward",
+["5 minute easy warm-up",
+"1 minute brisk walk + 2 minutes easy walk × 7",
+"5 minute cooldown"],
+"You don't have to run. You just have to take the next step."],
+
+["Day 2","Build Your Foundation",
+["3 rounds",
+"10 bodyweight squats",
+"10 glute bridges",
+"8 wall or incline push-ups",
+"10 bent-over rows",
+"20 second plank"],
+"Show up. That's the beginning."],
+
+["Day 3","Keep Moving",
+["5 minute warm-up",
+"90 second brisk walk + 2 minute easy walk × 7",
+"5 minute cooldown"],
+"Keep walking. You don't have to see the whole road."],
+
+["Day 4","Recovery",
+["10 minute easy walk",
+"10 minutes stretching",
+"Hydrate",
+"Journal"],
+"Rest isn't quitting. Rest is part of rebuilding."],
+
+["Day 5","Cardio",
+["5 minute warm-up",
+"2 minute brisk + 2 minute easy × 6",
+"5 minute cooldown"],
+"One step becomes a path."],
+
+["Day 6","Stronger",
+["3 rounds",
+"12 squats",
+"12 glute bridges",
+"10 incline push-ups",
+"12 rows",
+"10 step-ups each leg",
+"20 second plank"],
+"Strength is built one repetition at a time."],
+
+["Day 7","Rest + God",
+["Rest",
+"Write 3 things you're thankful for",
+"Write 1 thing you're proud of"],
+"Progress doesn't disappear because you rested."]
+
+];
+
+function showScreen(screen) {
+
+document.querySelectorAll(".screen")
+.forEach(x => x.classList.remove("active"));
+
+document.getElementById(screen)
+.classList.add("active");
+
+if(screen === "workouts") {
+renderDays();
+}
+
+updateProgress();
+
+}
+
+
+function renderDays() {
+
+let html = "";
+
+for(let i = 0; i < workouts.length; i++) {
+
+let completed =
+localStorage.getItem("day" + i);
+
+html += `
+
+<div class="day">
+
+<h3>
+🔗 ${workouts[i][0]} • ${workouts[i][1]}
+</h3>
+
+<button class="complete"
+onclick="openDay(${i})">
+
+${completed ? "✓ Completed" : "Open Workout"}
+
+</button>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("dayList")
+.innerHTML = html;
+
+}
+
+
+function openDay(i) {
+
+showScreen("day");
+
+let workout = workouts[i];
+
+let list = "";
+
+workout[2].forEach(item => {
+
+list += `<li>${item}</li>`;
+
+});
+
+document.getElementById("dayContent")
+.innerHTML = `
+
+<h2>${workout[0]} • ${workout[1]}</h2>
+
+<div class="day">
+
+<h3>Today's Plan</h3>
+
+<ul>
+${list}
+</ul>
+
+<p>
+<strong>✝️ ${workout[3]}</strong>
+</p>
+
+<button class="complete"
+onclick="completeDay(${i})">
+
+Mark Complete
+
+</button>
+
+</div>
+
+`;
+
+}
+
+
+function completeDay(i) {
+
+localStorage.setItem("day" + i,"1");
+
+openDay(i);
+
+updateProgress();
+
+}
+
+
+function updateProgress() {
+
+let completed = 0;
+
+for(let i = 0; i < workouts.length; i++) {
+
+if(localStorage.getItem("day" + i)) {
+
+completed++;
+
+}
+
+}
+
+let percent =
+(completed / 30) * 100;
+
+document.getElementById("progressText")
+.innerText =
+completed + " / 30 days complete";
+
+document.getElementById("progressBar")
+.style.width = percent + "%";
+
+if(completed === 0) {
+
+document.getElementById("chainMessage")
+.innerText =
+"🔗 Your chain is waiting for its first link.";
+
+}
+
+else {
+
+document.getElementById("chainMessage")
+.innerText =
+"🔗 ".repeat(Math.min(completed,10))
++ completed +
+" links built!";
+
+}
+
+}
+
+
+function saveText(id) {
+
+localStorage.setItem(
+id,
+document.getElementById(id).value
+);
+
+alert("Saved!");
+
+}
+
+
+function saveCheckin() {
+
+["mood","gratitude","proud"]
+.forEach(id => {
+
+localStorage.setItem(
+id,
+document.getElementById(id).value
+);
+
+});
+
+alert("Check-in saved!");
+
+}
+
+
+updateProgress();
+
+</script>
+
+</body>
+</html>
