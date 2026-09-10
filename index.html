@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#d98fa3">
 <title>Beyond the Chains</title>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -19,1316 +18,582 @@ body {
   color: #403936;
 }
 
-.hero {
-  background: linear-gradient(180deg, #fff8f5 0%, #fdf0ed 100%);
+header {
   text-align: center;
-  padding: 20px 15px 15px;
+  padding: 25px 15px 18px;
+  background: linear-gradient(180deg, #fff8f5, #fde8e9);
 }
 
 .logo {
   width: 100%;
   max-width: 430px;
-  height: auto;
   display: block;
-  margin: 0 auto 5px;
+  margin: auto;
 }
 
-.hero h1 {
-  color: #4b3b35;
-  margin: 5px 0;
-  font-size: 30px;
-}
-
-.hero p {
+.tagline {
   color: #5b9f9a;
   font-weight: bold;
-  margin: 5px 0;
+  font-size: 15px;
+  margin: 8px auto;
 }
 
-.container {
-  max-width: 700px;
+main {
+  padding: 15px;
+  max-width: 600px;
   margin: auto;
-  padding: 18px;
-}
-
-.screen {
-  display: none;
-}
-
-.screen.active {
-  display: block;
-}
-
-.quote {
-  background: white;
-  padding: 22px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 3px 12px #0001;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.quote strong {
-  color: #5b9f9a;
-  font-size: 18px;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
 }
 
 .card {
   background: white;
-  border: none;
-  border-radius: 20px;
-  padding: 25px 12px;
-  box-shadow: 0 3px 12px #0001;
-  font-size: 16px;
-  cursor: pointer;
-  color: #403936;
-  transition: 0.2s;
+  border-radius: 22px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 18px rgba(80,60,55,.10);
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px #0002;
+.welcome {
+  background: linear-gradient(135deg, #f5d5dc, #d8eeee);
 }
 
-.card .emoji {
-  font-size: 34px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.back {
-  border: none;
-  background: none;
-  color: #5b9f9a;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 10px;
-  padding: 5px 0;
-}
-
-h2 {
+h1 {
+  margin-top: 0;
+  font-size: 27px;
   color: #4b3b35;
 }
 
-h3 {
+h2 {
   color: #5b9f9a;
+  margin-top: 5px;
+}
+
+p {
+  line-height: 1.5;
 }
 
 .day {
-  background: white;
-  padding: 18px;
-  border-radius: 20px;
-  margin: 12px 0;
-  box-shadow: 0 2px 10px #0001;
+  font-size: 14px;
+  font-weight: bold;
+  color: #b56f82;
 }
 
-.day ul {
-  padding-left: 22px;
-  line-height: 1.8;
-}
-
-.complete {
-  background: #69b8b2;
-  color: white;
+button {
+  width: 100%;
   border: none;
-  border-radius: 12px;
-  padding: 12px 18px;
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 15px;
 }
 
-.complete:hover {
-  background: #559f9a;
+.primary {
+  background: #d98fa3;
+  color: white;
 }
 
-.completed {
-  background: #f4a7c1;
+.secondary {
+  background: #8dbfba;
+  color: white;
 }
 
-.progress {
-  height: 16px;
-  background: #eadfd8;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 12px 0;
+.soft {
+  background: #f5e3df;
+  color: #4b3b35;
 }
 
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #f4a7c1, #69b8b2);
-  transition: width 0.4s;
+.nav {
+  position: sticky;
+  bottom: 0;
+  background: rgba(255,248,245,.97);
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding: 10px 5px;
+  border-top: 1px solid #ead8d3;
 }
 
-.progress-number {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  color: #5b9f9a;
+.nav button {
+  background: transparent;
+  color: #4b3b35;
+  padding: 8px 3px;
+  margin: 0;
+  font-size: 12px;
 }
 
-textarea,
-select {
-  width: 100%;
+.nav span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+.hidden {
+  display: none;
+}
+
+.exercise {
+  background: #fff5f2;
   padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  margin-top: 8px;
-  margin-bottom: 12px;
-  font: inherit;
-  background: #fff;
+  border-radius: 13px;
+  margin: 8px 0;
+}
+
+.quote {
+  font-style: italic;
+  color: #5b9f9a;
+  border-left: 4px solid #d98fa3;
+  padding-left: 12px;
+}
+
+.progress-box {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg,#f8dce3,#d9eeee);
+  border-radius: 20px;
+}
+
+.big-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #b56f82;
+}
+
+.chain {
+  font-size: 30px;
+  letter-spacing: 4px;
 }
 
 textarea {
-  min-height: 100px;
-  resize: vertical;
+  width: 100%;
+  min-height: 120px;
+  border: 2px solid #ead8d3;
+  border-radius: 15px;
+  padding: 12px;
+  font-family: Arial;
+  font-size: 15px;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 10px;
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
 }
 
-.tip {
-  background: #fff1f6;
-  border-left: 5px solid #f4a7c1;
-  padding: 15px;
-  border-radius: 12px;
-  margin: 15px 0;
+.check input {
+  width: 22px;
+  height: 22px;
 }
-
-.motivation {
-  text-align: center;
-  color: #5b9f9a;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 30px 15px;
-  font-size: 13px;
-  color: #777;
-}
-
-@media (max-width: 500px) {
-
-  .buttons {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero h1 {
-    font-size: 27px;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-
+<header>
   <img
     src="file_0000000069f4822fa3dbc47f5a5b266f.png"
     alt="Beyond the Chains"
-    class="logo"
-  >
-
-  <h1>Beyond the Chains</h1>
-
-  <p>Breaking Free. Growing Strong. Walking with Purpose.</p>
-
+    class="logo">
+  <div class="tagline">
+    Breaking Free. Growing Strong. Walking with Purpose.
+  </div>
 </header>
 
-
-<div class="container">
-
+<main>
 
 <!-- HOME -->
+<section id="home">
 
-<div id="home" class="screen active">
-
-  <div class="quote">
-
-    <strong>
-      You don't have to become who you were before.
-    </strong>
-
-    <br>
-
-    You can become who God is calling you to be.
-
+  <div class="card welcome">
+    <div class="day">YOUR JOURNEY STARTS HERE</div>
+    <h1>Welcome to Beyond the Chains 🦋</h1>
+    <p>
+      Breaking free doesn't happen all at once.
+      It happens one choice, one step, one day at a time.
+    </p>
   </div>
 
-
-  <div class="buttons">
-
-    <button class="card" onclick="showScreen('workouts')">
-      <span class="emoji">💪</span>
-      <strong>WORKOUT</strong>
-      <br>
-      Build a stronger body.
+  <div class="card">
+    <div class="day">TODAY'S JOURNEY</div>
+    <h2>Day 1 • Walking Forward</h2>
+    <p>
+      You don't have to run. You just have to take the next step.
+    </p>
+    <button class="primary" onclick="showPage('move')">
+      START TODAY →
     </button>
-
-
-    <button class="card" onclick="showScreen('faith')">
-      <span class="emoji">✝️</span>
-      <strong>FAITH</strong>
-      <br>
-      Strength for the journey.
-    </button>
-
-
-    <button class="card" onclick="showScreen('recovery')">
-      <span class="emoji">🔓</span>
-      <strong>RECOVERY</strong>
-      <br>
-      One day at a time.
-    </button>
-
-
-    <button class="card" onclick="showScreen('progress')">
-      <span class="emoji">📈</span>
-      <strong>MY PROGRESS</strong>
-      <br>
-      Small steps count.
-    </button>
-
   </div>
 
+  <div class="card">
+    <h2>💗 Today's Check-In</h2>
 
-  <div class="tip">
+    <div class="check">
+      <input type="checkbox" id="workoutCheck">
+      <label for="workoutCheck">I moved my body today</label>
+    </div>
 
-    🌱 <strong>Remember:</strong>
+    <div class="check">
+      <input type="checkbox" id="faithCheck">
+      <label for="faithCheck">I spent time with God</label>
+    </div>
 
-    You don't have to fix your whole life today.
+    <div class="check">
+      <input type="checkbox" id="recoveryCheck">
+      <label for="recoveryCheck">I made one healthy choice</label>
+    </div>
 
-    Just take the next right step.
-
+    <button class="secondary" onclick="saveCheckIn()">
+      SAVE MY CHECK-IN
+    </button>
   </div>
 
-</div>
+  <div class="card">
+    <h2>✝️ Today's Thought</h2>
+    <p class="quote">
+      “You are not who you used to be.
+      You are becoming who you were meant to be.”
+    </p>
+  </div>
+
+</section>
 
 
+<!-- MOVE -->
+<section id="move" class="hidden">
 
-<!-- WORKOUTS -->
+  <div class="card">
+    <div class="day">MOVE • 30 DAYS</div>
+    <h1>💪 Your Foundation</h1>
+    <p>
+      Start where you are. Build strength. Keep walking.
+    </p>
+  </div>
 
-<div id="workouts" class="screen">
+  <div class="card">
+    <h2>Day 1 • Walking Forward</h2>
 
-  <button class="back" onclick="showScreen('home')">
-    ← Home
-  </button>
+    <div class="exercise">
+      <b>Warm-up</b><br>
+      5 minute easy walk
+    </div>
 
-  <h2>💪 30-Day Foundation</h2>
+    <div class="exercise">
+      <b>Main Workout</b><br>
+      1 minute brisk walk<br>
+      2 minutes easy walk<br>
+      Repeat 7 times
+    </div>
 
-  <p>
-    Move your body. Build your strength.
-    Keep showing up.
-  </p>
+    <div class="exercise">
+      <b>Cool Down</b><br>
+      5 minute easy walk
+    </div>
 
-  <div id="dayList"></div>
+    <p class="quote">
+      You don't have to run. You just have to take the next step.
+    </p>
 
-</div>
+    <button class="primary" onclick="completeWorkout()">
+      ✓ WORKOUT COMPLETE
+    </button>
+  </div>
 
+  <div class="card">
+    <h2>Choose Your Workout</h2>
 
+    <button class="soft">🏋️ Gym</button>
+    <button class="soft">🏠 At Home</button>
+    <button class="soft">✨ No Equipment</button>
+    <button class="soft">💪 With Equipment</button>
+  </div>
 
-<!-- INDIVIDUAL DAY -->
-
-<div id="day" class="screen">
-
-  <button class="back" onclick="showScreen('workouts')">
-    ← Back to Workouts
-  </button>
-
-  <div id="dayContent"></div>
-
-</div>
-
+</section>
 
 
 <!-- FAITH -->
+<section id="faith" class="hidden">
 
-<div id="faith" class="screen">
+  <div class="card">
+    <div class="day">BELIEVE</div>
+    <h1>✝️ Walking With God</h1>
 
-  <button class="back" onclick="showScreen('home')">
-    ← Home
-  </button>
-
-  <h2>✝️ Faith</h2>
-
-
-  <div class="day">
-
-    <h3>📖 Today's Reminder</h3>
-
-    <p>
-      Be strong and courageous. Do not be afraid.
+    <p class="quote">
+      “Be strong and courageous. Do not be afraid;
+      do not be discouraged, for the Lord your God
+      will be with you wherever you go.”
     </p>
 
-    <p>
-      God is with you in the rebuilding.
-    </p>
-
+    <p><b>Joshua 1:9</b></p>
   </div>
 
+  <div class="card">
+    <h2>🙏 Today's Prayer</h2>
 
-  <div class="day">
+    <p>
+      Lord, help me take the next right step today.
+      Give me strength when I feel weak, peace when
+      I feel overwhelmed, and courage to keep moving
+      forward. Help me remember that I am never walking
+      alone. Amen.
+    </p>
 
-    <h3>🙏 My Prayer</h3>
-
-    <textarea
-      id="prayer"
-      placeholder="Write your prayer here..."
-    ></textarea>
-
-    <button
-      class="complete"
-      onclick="saveText('prayer')"
-    >
-      Save Prayer
+    <button class="secondary" onclick="faithComplete()">
+      ✓ I SPENT TIME WITH GOD
     </button>
-
   </div>
 
+  <div class="card">
+    <h2>💗 Gratitude</h2>
+    <p>What are three things you're thankful for today?</p>
 
-  <div class="day">
+    <textarea id="gratitude"
+      placeholder="Write your three things here..."></textarea>
 
-    <h3>🌸 Scripture & Strength</h3>
-
-    <p>
-      "I can do all things through Christ who strengthens me."
-    </p>
-
-    <p>
-      <strong>Philippians 4:13</strong>
-    </p>
-
+    <button class="primary" onclick="saveGratitude()">
+      SAVE GRATITUDE
+    </button>
   </div>
 
-</div>
-
+</section>
 
 
 <!-- RECOVERY -->
+<section id="recovery" class="hidden">
 
-<div id="recovery" class="screen">
-
-  <button class="back" onclick="showScreen('home')">
-    ← Home
-  </button>
-
-  <h2>🔓 Recovery</h2>
-
-
-  <div class="day">
-
-    <h3>🌱 Daily Check-In</h3>
-
-    <label>How are you doing today?</label>
-
-    <select id="mood">
-
-      <option>😊 Great</option>
-      <option>🙂 Good</option>
-      <option>😐 Okay</option>
-      <option>😔 Struggling</option>
-      <option>🆘 I need support</option>
-
-    </select>
-
-
-    <label>
-      One thing I'm grateful for:
-    </label>
-
-    <textarea
-      id="gratitude"
-      placeholder="Today I'm grateful for..."
-    ></textarea>
-
-
-    <label>
-      One thing I'm proud of today:
-    </label>
-
-    <textarea
-      id="proud"
-      placeholder="Today I'm proud that I..."
-    ></textarea>
-
-
-    <button
-      class="complete"
-      onclick="saveCheckin()"
-    >
-      Save Check-In
-    </button>
-
-  </div>
-
-
-  <div class="day">
-
-    <h3>🔥 Craving Tracker</h3>
+  <div class="card">
+    <div class="day">HEAL</div>
+    <h1>🔓 Recovery</h1>
 
     <p>
-      A craving is a moment, not a command.
-      Pause. Breathe. Choose your next step.
+      Recovery isn't about being perfect.
+      It's about choosing yourself again.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>How am I feeling?</h2>
+
+    <button class="soft" onclick="mood('😊')">😊 Good</button>
+    <button class="soft" onclick="mood('😐')">😐 Okay</button>
+    <button class="soft" onclick="mood('😔')">😔 Struggling</button>
+    <button class="soft" onclick="mood('🔥')">🔥 Fighting</button>
+
+    <p id="moodResult"></p>
+  </div>
+
+  <div class="card">
+    <h2>📝 Journal</h2>
+
+    <p>
+      What am I leaving behind, and what kind of woman
+      am I becoming?
     </p>
 
-    <textarea
-      id="craving"
-      placeholder="What happened? What helped?"
-    ></textarea>
+    <textarea id="journal"
+      placeholder="Write honestly. This is your space."></textarea>
 
-    <button
-      class="complete"
-      onclick="saveText('craving')"
-    >
-      Save
+    <button class="primary" onclick="saveJournal()">
+      SAVE JOURNAL
     </button>
-
   </div>
 
+  <div class="card">
+    <h2>🏆 Today's Win</h2>
 
-  <div class="day">
+    <textarea id="win"
+      placeholder="Even a small win counts..."></textarea>
 
-    <h3>🧠 When Things Get Hard</h3>
-
-    <ol>
-
-      <li>Stop and take a breath.</li>
-
-      <li>Give yourself a few minutes.</li>
-
-      <li>Think about what you really need.</li>
-
-      <li>Reach out to someone safe if you need support.</li>
-
-      <li>Take the next healthy step.</li>
-
-    </ol>
-
+    <button class="secondary" onclick="saveWin()">
+      SAVE MY WIN
+    </button>
   </div>
 
-</div>
-
+</section>
 
 
 <!-- PROGRESS -->
+<section id="progress" class="hidden">
 
-<div id="progress" class="screen">
+  <div class="card">
+    <div class="day">GROW</div>
+    <h1>📈 My Progress</h1>
 
-  <button class="back" onclick="showScreen('home')">
-    ← Home
+    <div class="progress-box">
+      <div class="big-number" id="days">0</div>
+      <b>DAYS COMPLETED</b>
+
+      <div class="chain" id="chain">
+        🔗 🔗 🔗 🔗 🔗
+      </div>
+
+      <p id="progressMessage">
+        Every step counts.
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>My Journey</h2>
+
+    <p>💪 Workouts completed: <b id="workouts">0</b></p>
+    <p>✝️ Faith check-ins: <b id="faithDays">0</b></p>
+    <p>💗 Recovery check-ins: <b id="recoveryDays">0</b></p>
+
+    <button class="primary" onclick="resetProgress()">
+      RESET DEMO PROGRESS
+    </button>
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- NAVIGATION -->
+
+<nav class="nav">
+
+  <button onclick="showPage('home')">
+    <span>🏠</span>
+    Home
   </button>
 
-  <h2>📈 My Progress</h2>
+  <button onclick="showPage('move')">
+    <span>💪</span>
+    Move
+  </button>
 
+  <button onclick="showPage('faith')">
+    <span>✝️</span>
+    Believe
+  </button>
 
-  <div class="day">
+  <button onclick="showPage('recovery')">
+    <span>🔓</span>
+    Heal
+  </button>
 
-    <div
-      id="progressNumber"
-      class="progress-number"
-    >
-      0%
-    </div>
-
-    <h3 id="progressText">
-      0 / 30 days complete
-    </h3>
-
-
-    <div class="progress">
-
-      <div
-        id="progressBar"
-        class="progress-bar"
-      ></div>
-
-    </div>
-
-
-    <p
-      id="chainMessage"
-      class="motivation"
-    >
-      🔗 Your chain is waiting for its first link.
-    </p>
-
-  </div>
-
-
-  <div class="day">
-
-    <h3>🎯 My Goal</h3>
-
-    <textarea
-      id="goal"
-      placeholder="What are you working toward?"
-    ></textarea>
-
-    <button
-      class="complete"
-      onclick="saveText('goal')"
-    >
-      Save Goal
-    </button>
-
-  </div>
-
-
-  <div class="day">
-
-    <h3>🌸 Keep Going</h3>
-
-    <p>
-      Missing a day doesn't erase your progress.
-    </p>
-
-    <p>
-      Start again. Keep going. Your story isn't over.
-    </p>
-
-  </div>
-
-</div>
-
-
-</div>
-
-
-<footer>
-
-  Beyond the Chains • Your next step matters. 🌸
-
-</footer>
-
-
+</nav>
 
 <script>
 
-
-/* ================================
-   30 DAY WORKOUT PROGRAM
-================================ */
-
-const workouts = [
-
-[
-"Day 1",
-"Walking Forward",
-[
-"5 minute easy warm-up",
-"1 minute brisk walk + 2 minutes easy walk × 7",
-"5 minute cooldown"
-],
-"You don't have to run. You just have to take the next step."
-],
-
-[
-"Day 2",
-"Build Your Foundation",
-[
-"3 rounds",
-"10 bodyweight squats",
-"10 glute bridges",
-"8 wall or incline push-ups",
-"10 bent-over rows",
-"20 second plank"
-],
-"Show up. That's the beginning."
-],
-
-[
-"Day 3",
-"Keep Moving",
-[
-"5 minute warm-up",
-"90 second brisk walk + 2 minute easy walk × 7",
-"5 minute cooldown"
-],
-"Keep walking. You don't have to see the whole road."
-],
-
-[
-"Day 4",
-"Recovery",
-[
-"10 minute easy walk",
-"10 minutes stretching",
-"Hydrate",
-"Journal"
-],
-"Rest isn't quitting. Rest is part of rebuilding."
-],
-
-[
-"Day 5",
-"Cardio",
-[
-"5 minute warm-up",
-"2 minute brisk walk + 2 minute easy walk × 6",
-"5 minute cooldown"
-],
-"One step becomes a path."
-],
-
-[
-"Day 6",
-"Stronger",
-[
-"3 rounds",
-"12 squats",
-"12 glute bridges",
-"10 incline push-ups",
-"12 rows",
-"10 step-ups each leg",
-"20 second plank"
-],
-"Strength is built one repetition at a time."
-],
-
-[
-"Day 7",
-"Rest + God",
-[
-"Rest",
-"Write 3 things you're thankful for",
-"Write 1 thing you're proud of"
-],
-"Progress doesn't disappear because you rested."
-],
-
-[
-"Day 8",
-"Walk It Out",
-[
-"5 minute warm-up",
-"2 minute brisk walk + 90 seconds easy × 8",
-"5 minute cooldown"
-],
-"Keep putting one foot in front of the other."
-],
-
-[
-"Day 9",
-"Lower Body",
-[
-"3 rounds",
-"12 squats",
-"12 reverse lunges",
-"15 glute bridges",
-"15 calf raises",
-"30 second wall sit"
-],
-"Your body is stronger than yesterday."
-],
-
-[
-"Day 10",
-"Cardio Builder",
-[
-"5 minute warm-up",
-"2 minute brisk + 1 minute easy × 8",
-"5 minute cooldown"
-],
-"Ten days of showing up is powerful."
-],
-
-[
-"Day 11",
-"Upper Body",
-[
-"3 rounds",
-"10 incline push-ups",
-"12 bent-over rows",
-"10 shoulder presses",
-"12 biceps curls",
-"10 triceps extensions"
-],
-"Strong women are built through consistent choices."
-],
-
-[
-"Day 12",
-"Easy Movement",
-[
-"20 minute comfortable walk",
-"5 minutes stretching",
-"Drink water",
-"Take a few quiet minutes"
-],
-"Slow progress is still progress."
-],
-
-[
-"Day 13",
-"Full Body",
-[
-"3 rounds",
-"12 squats",
-"10 push-ups",
-"12 rows",
-"12 glute bridges",
-"20 second plank"
-],
-"You are building more than muscles."
-],
-
-[
-"Day 14",
-"Rest + Reflection",
-[
-"Rest",
-"Write about your first two weeks",
-"Write one thing you have overcome",
-"Thank God for another day"
-],
-"Look how far you've already come."
-],
-
-[
-"Day 15",
-"Halfway Strong",
-[
-"5 minute warm-up",
-"3 minute brisk + 2 minute easy × 6",
-"5 minute cooldown"
-],
-"Halfway isn't the finish line. It's proof you can keep going."
-],
-
-[
-"Day 16",
-"Leg Day",
-[
-"3 rounds",
-"15 squats",
-"10 lunges each leg",
-"15 glute bridges",
-"15 calf raises",
-"30 second wall sit"
-],
-"Strong legs carry you into your next chapter."
-],
-
-[
-"Day 17",
-"Cardio",
-[
-"5 minute warm-up",
-"3 minute brisk + 2 minute easy × 6",
-"5 minute cooldown"
-],
-"Breathe. Move. Keep going."
-],
-
-[
-"Day 18",
-"Upper Body Strength",
-[
-"3 rounds",
-"12 incline push-ups",
-"12 rows",
-"12 shoulder presses",
-"12 biceps curls",
-"12 triceps extensions"
-],
-"Strength isn't just physical."
-],
-
-[
-"Day 19",
-"Recovery Walk",
-[
-"20 minute easy walk",
-"10 minutes stretching",
-"Hydrate",
-"Write down how you feel"
-],
-"Your body deserves care, not punishment."
-],
-
-[
-"Day 20",
-"Full Body",
-[
-"3 rounds",
-"15 squats",
-"12 glute bridges",
-"10 push-ups",
-"12 rows",
-"20 second plank"
-],
-"Twenty days. Keep building."
-],
-
-[
-"Day 21",
-"Rest + Faith",
-[
-"Rest",
-"Read a Bible passage",
-"Write three blessings",
-"Pray about your next chapter"
-],
-"Your faith can be part of your strength."
-],
-
-[
-"Day 22",
-"Cardio Push",
-[
-"5 minute warm-up",
-"4 minute brisk + 2 minute easy × 5",
-"5 minute cooldown"
-],
-"You are capable of more than you think."
-],
-
-[
-"Day 23",
-"Lower Body",
-[
-"3 rounds",
-"15 squats",
-"12 reverse lunges each leg",
-"15 glute bridges",
-"20 calf raises",
-"30 second wall sit"
-],
-"Your strength is showing."
-],
-
-[
-"Day 24",
-"Movement Day",
-[
-"25 minute walk",
-"5 minutes stretching",
-"Deep breathing",
-"Hydrate"
-],
-"Movement is a celebration of what your body can do."
-],
-
-[
-"Day 25",
-"Full Body Strength",
-[
-"3 rounds",
-"15 squats",
-"12 incline push-ups",
-"15 rows",
-"15 glute bridges",
-"30 second plank"
-],
-"Twenty-five days of choosing yourself."
-],
-
-[
-"Day 26",
-"Cardio",
-[
-"5 minute warm-up",
-"4 minute brisk + 90 second easy × 6",
-"5 minute cooldown"
-],
-"Don't quit because it's hard."
-],
-
-[
-"Day 27",
-"Strength",
-[
-"3 rounds",
-"15 squats",
-"12 lunges each leg",
-"12 push-ups",
-"15 rows",
-"30 second plank"
-],
-"Every repetition is a vote for the woman you're becoming."
-],
-
-[
-"Day 28",
-"Rest + Reset",
-[
-"Rest",
-"Stretch",
-"Drink plenty of water",
-"Write one thing you want to leave behind",
-"Write one thing you want to carry forward"
-],
-"You are allowed to start fresh."
-],
-
-[
-"Day 29",
-"Final Push",
-[
-"5 minute warm-up",
-"5 minute brisk + 2 minute easy × 5",
-"5 minute cooldown"
-],
-"Almost there. Finish strong."
-],
-
-[
-"Day 30",
-"Beyond the Chains",
-[
-"5 minute warm-up",
-"20 minute walk or workout of your choice",
-"5 minute cooldown",
-"Celebrate completing 30 days"
-],
-"You didn't just complete a program. You proved you can keep showing up."
-]
-
-];
-
-
-
-/* ================================
-   SCREEN NAVIGATION
-================================ */
-
-function showScreen(screen) {
-
-  document
-    .querySelectorAll(".screen")
-    .forEach(x => x.classList.remove("active"));
-
-  document
-    .getElementById(screen)
-    .classList.add("active");
-
-  if (screen === "workouts") {
-    renderDays();
-  }
-
-  if (screen === "progress") {
-    loadSavedText();
-  }
-
-  updateProgress();
-
-  window.scrollTo(0, 0);
-}
-
-
-
-/* ================================
-   WORKOUT LIST
-================================ */
-
-function renderDays() {
-
-  let html = "";
-
-  for (let i = 0; i < workouts.length; i++) {
-
-    let completed =
-      localStorage.getItem("day" + i);
-
-    html += `
-
-      <div class="day">
-
-        <h3>
-          ${completed ? "✅" : "🔗"}
-          ${workouts[i][0]} • ${workouts[i][1]}
-        </h3>
-
-        <button
-          class="complete ${completed ? "completed" : ""}"
-          onclick="openDay(${i})"
-        >
-
-          ${completed ? "✓ Completed" : "Open Workout"}
-
-        </button>
-
-      </div>
-
-    `;
-  }
-
-  document.getElementById("dayList").innerHTML = html;
-}
-
-
-
-/* ================================
-   OPEN WORKOUT
-================================ */
-
-function openDay(i) {
-
-  showScreen("day");
-
-  let workout = workouts[i];
-
-  let list = "";
-
-  workout[2].forEach(item => {
-
-    list += `<li>${item}</li>`;
-
+let workouts = Number(localStorage.getItem("workouts") || 0);
+let faithDays = Number(localStorage.getItem("faithDays") || 0);
+let recoveryDays = Number(localStorage.getItem("recoveryDays") || 0);
+let days = Number(localStorage.getItem("days") || 0);
+
+function showPage(page) {
+
+  document.querySelectorAll("main section").forEach(section => {
+    section.classList.add("hidden");
   });
 
+  document.getElementById(page).classList.remove("hidden");
 
-  let completed =
-    localStorage.getItem("day" + i);
-
-
-  document.getElementById("dayContent").innerHTML = `
-
-    <h2>
-      ${workout[0]} • ${workout[1]}
-    </h2>
-
-    <div class="day">
-
-      <h3>Today's Plan</h3>
-
-      <ul>
-        ${list}
-      </ul>
-
-      <div class="tip">
-        ✝️ <strong>Today's Message</strong>
-        <br><br>
-        ${workout[3]}
-      </div>
-
-      <button
-        class="complete"
-        onclick="completeDay(${i})"
-      >
-
-        ${completed ? "✓ Completed" : "Mark Complete"}
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-
-/* ================================
-   COMPLETE DAY
-================================ */
-
-function completeDay(i) {
-
-  localStorage.setItem("day" + i, "1");
-
-  openDay(i);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
   updateProgress();
-
 }
 
+function completeWorkout() {
+  workouts++;
+  localStorage.setItem("workouts", workouts);
 
+  alert("Workout complete! 💪🦋 Keep walking.");
+  updateProgress();
+}
 
-/* ================================
-   PROGRESS
-================================ */
+function faithComplete() {
+  faithDays++;
+  localStorage.setItem("faithDays", faithDays);
+
+  alert("Beautiful. ✝️ Keep walking with God.");
+  updateProgress();
+}
+
+function saveCheckIn() {
+  recoveryDays++;
+  localStorage.setItem("recoveryDays", recoveryDays);
+
+  days++;
+  localStorage.setItem("days", days);
+
+  alert("Check-in saved! 💗 One day at a time.");
+  updateProgress();
+}
+
+function mood(value) {
+  document.getElementById("moodResult").innerText =
+    "You checked in: " + value + "  Remember, you don't have to hide how you feel.";
+}
+
+function saveGratitude() {
+  localStorage.setItem(
+    "gratitude",
+    document.getElementById("gratitude").value
+  );
+
+  alert("Gratitude saved. 💗");
+}
+
+function saveJournal() {
+  localStorage.setItem(
+    "journal",
+    document.getElementById("journal").value
+  );
+
+  alert("Your journal entry is saved. 🦋");
+}
+
+function saveWin() {
+  localStorage.setItem(
+    "win",
+    document.getElementById("win").value
+  );
+
+  alert("WIN SAVED! 🏆 Every victory counts.");
+}
 
 function updateProgress() {
 
-  let completed = 0;
+  document.getElementById("days").innerText = days;
+  document.getElementById("workouts").innerText = workouts;
+  document.getElementById("faithDays").innerText = faithDays;
+  document.getElementById("recoveryDays").innerText = recoveryDays;
 
-  for (let i = 0; i < workouts.length; i++) {
+  let links = "";
 
-    if (localStorage.getItem("day" + i)) {
-      completed++;
-    }
-
+  for(let i = 0; i < Math.min(days,30); i++) {
+    links += "🔗 ";
   }
 
-
-  let percent =
-    Math.round((completed / 30) * 100);
-
-
-  let progressText =
-    document.getElementById("progressText");
-
-  let progressBar =
-    document.getElementById("progressBar");
-
-  let progressNumber =
-    document.getElementById("progressNumber");
-
-  let chainMessage =
-    document.getElementById("chainMessage");
-
-
-  if (progressText) {
-
-    progressText.innerText =
-      completed + " / 30 days complete";
-
+  if(days >= 30) {
+    links += "🔓";
+    document.getElementById("progressMessage").innerText =
+      "CHAIN BROKEN! YOU DIDN'T GIVE UP. 🦋";
+  } else {
+    document.getElementById("progressMessage").innerText =
+      "Every step counts.";
   }
 
-
-  if (progressBar) {
-
-    progressBar.style.width =
-      percent + "%";
-
-  }
-
-
-  if (progressNumber) {
-
-    progressNumber.innerText =
-      percent + "%";
-
-  }
-
-
-  if (chainMessage) {
-
-    if (completed === 0) {
-
-      chainMessage.innerText =
-        "🔗 Your chain is waiting for its first link.";
-
-    }
-
-    else if (completed < 10) {
-
-      chainMessage.innerText =
-        "🔗 ".repeat(completed) +
-        " Keep building your chain!";
-
-    }
-
-    else if (completed < 20) {
-
-      chainMessage.innerText =
-        "🔗 ".repeat(10) +
-        " You're building something strong!";
-
-    }
-
-    else if (completed < 30) {
-
-      chainMessage.innerText =
-        "🔗 ".repeat(10) +
-        " You're almost Beyond the Chains!";
-
-    }
-
-    else {
-
-      chainMessage.innerText =
-        "🔓 YOU DID IT! 30 DAYS COMPLETE!";
-
-    }
-
-  }
-
+  document.getElementById("chain").innerText =
+    links || "🔗 🔗 🔗 🔗 🔗";
 }
 
+function resetProgress() {
 
-
-/* ================================
-   SAVE TEXT
-================================ */
-
-function saveText(id) {
-
-  let element =
-    document.getElementById(id);
-
-  localStorage.setItem(
-    id,
-    element.value
-  );
-
-  alert("Saved! 🌸");
-
+  if(confirm("Reset your demo progress?")) {
+    localStorage.clear();
+    workouts = 0;
+    faithDays = 0;
+    recoveryDays = 0;
+    days = 0;
+    updateProgress();
+  }
 }
-
-
-
-/* ================================
-   SAVE CHECK-IN
-================================ */
-
-function saveCheckin() {
-
-  ["mood", "gratitude", "proud"]
-    .forEach(id => {
-
-      localStorage.setItem(
-        id,
-        document.getElementById(id).value
-      );
-
-    });
-
-  alert("Check-in saved! 🌱");
-
-}
-
-
-
-/* ================================
-   LOAD SAVED INFORMATION
-================================ */
-
-function loadSavedText() {
-
-  ["prayer", "goal", "craving",
-   "gratitude", "proud", "mood"]
-    .forEach(id => {
-
-      let saved =
-        localStorage.getItem(id);
-
-      let element =
-        document.getElementById(id);
-
-      if (saved && element) {
-        element.value = saved;
-      }
-
-    });
-
-}
-
-
-
-/* ================================
-   START APP
-================================ */
-
-loadSavedText();
 
 updateProgress();
 
