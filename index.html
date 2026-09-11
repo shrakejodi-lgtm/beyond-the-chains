@@ -1484,7 +1484,11 @@ document.addEventListener(
 
   }
 );
-
+document.querySelectorAll(".nav button[data-page]").forEach(button => {
+  button.addEventListener("click", function() {
+    showPage(this.dataset.page);
+  });
+});
 </script>
   
 
