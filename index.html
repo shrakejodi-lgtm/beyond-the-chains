@@ -269,70 +269,955 @@ function showPage(id){
 function setLevel(v){state.level=v;saveState();["level1","level2","level3"].forEach(x=>document.getElementById(x).classList.remove("selected"));document.getElementById(v==="beginner"?"level1":v==="building"?"level2":"level3").classList.add("selected");renderDays()}
 function setSetting(v){state.setting=v;saveState();document.getElementById("homeChoice").classList.toggle("selected",v==="home");document.getElementById("gymChoice").classList.toggle("selected",v==="gym");}
 function renderDays(){
- const el=document.getElementById("dayList");el.innerHTML="";
- daysData.forEach((d,i)=>{
-  const n=i+1,done=state.completed.includes(n);
-  const div=document.createElement("div");div.className="dayCard";
-  div.innerHTML=`<div class="dayRow"><div class="dayNum">${n}</div><div><h3>${d[0]}</h3><div class="meta">${d[1]} • ${done?"✓ Complete":"Ready when you are"}</div></div></div><p>${d[2]}</p><button class="btn ${done?"soft":"primary"}" onclick="openDay(${n})">${done?"REPEAT DAY":"OPEN DAY →"}</button>`;
-  el.appendChild(div);
- });
+ const /* =========================================================
+   BEYOND THE CHAINS
+   HOME + GYM WORKOUT ENGINE
+   ========================================================= */
+
+const workoutPlans = {
+
+  1: {
+    title: "Walking Forward",
+    type: "Cardio",
+    home: [
+      ["Brisk Walk", "20 minutes", "5 min easy + 10 min brisk + 5 min easy", "Walking shoes"],
+      ["Standing Knee Lifts", "2 × 30 sec", "Controlled pace", "None"],
+      ["Calf Raises", "2 × 15", "Hold a wall if needed", "None"]
+    ],
+    gym: [
+      ["Treadmill Walk", "25 minutes", "5 min easy + 15 min brisk + 5 min easy", "Treadmill"],
+      ["Incline Treadmill Walk", "5 minutes", "Easy/moderate incline", "Treadmill"],
+      ["Standing Calf Raise", "3 × 15", "Slow controlled reps", "Calf machine"]
+    ]
+  },
+
+  2: {
+    title: "Build Your Foundation",
+    type: "Strength",
+    home: [
+      ["Chair Squat", "3 × 10", "Sit back toward a chair, stand tall", "Chair"],
+      ["Glute Bridge", "3 × 12", "Squeeze at the top", "None"],
+      ["Wall Push-Up", "3 × 10", "Keep body straight", "Wall"],
+      ["Bent-Over Row", "3 × 10", "Use dumbbells or bands", "Dumbbells/Band"],
+      ["Dead Bug", "2 × 8 each side", "Move slowly", "None"]
+    ],
+    gym: [
+      ["Leg Press", "3 × 10", "Controlled weight", "Leg Press"],
+      ["Seated Leg Curl", "3 × 12", "Squeeze hamstrings", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled reps", "Machine"],
+      ["Seated Cable Row", "3 × 10", "Pull toward your ribs", "Cable"],
+      ["Dead Bug", "2 × 8 each side", "Slow and controlled", "Mat"]
+    ]
+  },
+
+  3: {
+    title: "Strong Legs",
+    type: "Strength",
+    home: [
+      ["Goblet Squat", "3 × 10", "Keep chest tall", "Dumbbell/Kettlebell"],
+      ["Reverse Lunge", "3 × 8 each leg", "Hold support if needed", "None"],
+      ["Glute Bridge", "3 × 15", "Pause at top", "None"],
+      ["Step-Up", "3 × 8 each leg", "Use a sturdy step", "Step"],
+      ["Wall Sit", "3 × 20 sec", "Keep knees comfortable", "Wall"]
+    ],
+    gym: [
+      ["Leg Press", "3 × 10", "Feet shoulder-width", "Leg Press"],
+      ["Leg Extension", "3 × 12", "Don't swing the weight", "Machine"],
+      ["Seated Leg Curl", "3 × 12", "Slow return", "Machine"],
+      ["Cable Glute Kickback", "3 × 12 each leg", "Keep hips square", "Cable"],
+      ["Hip Abduction", "3 × 15", "Controlled outward movement", "Machine"]
+    ]
+  },
+
+  4: {
+    title: "Move & Recover",
+    type: "Recovery",
+    home: [
+      ["Easy Walk", "15 minutes", "Comfortable pace", "None"],
+      ["Cat-Cow", "2 × 8", "Move with your breathing", "Mat"],
+      ["Hip Flexor Stretch", "2 × 30 sec each", "Gentle stretch", "None"],
+      ["Child's Pose", "2 × 30 sec", "Relax and breathe", "Mat"]
+    ],
+    gym: [
+      ["Easy Treadmill Walk", "15 minutes", "Recovery pace", "Treadmill"],
+      ["Light Bike", "10 minutes", "Easy resistance", "Bike"],
+      ["Hip Flexor Stretch", "2 × 30 sec each", "Gentle stretch", "None"],
+      ["Upper Back Stretch", "2 × 30 sec", "Easy breathing", "None"]
+    ]
+  },
+
+  5: {
+    title: "Upper Body Power",
+    type: "Strength",
+    home: [
+      ["Dumbbell Row", "3 × 10 each", "Keep back flat", "Dumbbells"],
+      ["Incline Push-Up", "3 × 10", "Use counter or bench", "Counter/Bench"],
+      ["Shoulder Press", "3 × 10", "Don't arch your back", "Dumbbells"],
+      ["Biceps Curl", "3 × 12", "Control the lowering", "Dumbbells"],
+      ["Triceps Kickback", "3 × 12", "Keep elbows still", "Dumbbells"]
+    ],
+    gym: [
+      ["Lat Pulldown", "3 × 10", "Pull toward upper chest", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled reps", "Machine"],
+      ["Shoulder Press", "3 × 10", "Keep core tight", "Machine"],
+      ["Cable Biceps Curl", "3 × 12", "Slow return", "Cable"],
+      ["Cable Triceps Pushdown", "3 × 12", "Keep elbows close", "Cable"]
+    ]
+  },
+
+  6: {
+    title: "Cardio Push",
+    type: "Cardio",
+    home: [
+      ["March in Place", "5 minutes", "Easy warm-up", "None"],
+      ["Brisk Walk", "15 minutes", "Steady pace", "None"],
+      ["Step-Ups", "3 × 10", "Alternate legs", "Step"],
+      ["March in Place", "5 minutes", "Cool down", "None"]
+    ],
+    gym: [
+      ["Treadmill", "20 minutes", "Steady brisk pace", "Treadmill"],
+      ["Stair Climber", "8 minutes", "Moderate pace", "Stair Climber"],
+      ["Bike", "7 minutes", "Easy cool-down", "Bike"]
+    ]
+  },
+
+  7: {
+    title: "Reset & Reflect",
+    type: "Recovery",
+    home: [
+      ["Easy Walk", "20 minutes", "Relaxed pace", "None"],
+      ["Bird Dog", "2 × 8 each side", "Move slowly", "Mat"],
+      ["Glute Stretch", "2 × 30 sec each", "Gentle", "Mat"],
+      ["Deep Breathing", "3 minutes", "Slow breaths", "None"]
+    ],
+    gym: [
+      ["Treadmill Walk", "20 minutes", "Easy pace", "Treadmill"],
+      ["Bird Dog", "2 × 8 each side", "Controlled", "Mat"],
+      ["Stretching", "10 minutes", "Full-body gentle stretch", "Mat"]
+    ]
+  },
+
+  8: {
+    title: "Build",
+    type: "Strength",
+    home: [
+      ["Goblet Squat", "3 × 12", "Controlled", "Kettlebell/Dumbbell"],
+      ["Dumbbell Romanian Deadlift", "3 × 10", "Hinge at hips", "Dumbbells"],
+      ["Glute Bridge", "3 × 15", "Pause at top", "None"],
+      ["Band Row", "3 × 12", "Squeeze shoulder blades", "Band"],
+      ["Plank", "3 × 20 sec", "Brace your core", "Mat"]
+    ],
+    gym: [
+      ["Leg Press", "3 × 12", "Controlled", "Machine"],
+      ["Romanian Deadlift", "3 × 10", "Hinge at hips", "Barbell/Dumbbells"],
+      ["Hip Thrust", "3 × 12", "Squeeze glutes", "Bench/Barbell"],
+      ["Cable Row", "3 × 12", "Controlled", "Cable"],
+      ["Plank", "3 × 25 sec", "Brace core", "Mat"]
+    ]
+  },
+
+  9: {
+    title: "Core & Stability",
+    type: "Core",
+    home: [
+      ["Dead Bug", "3 × 8 each side", "Slow movement", "Mat"],
+      ["Bird Dog", "3 × 8 each side", "Keep hips level", "Mat"],
+      ["Glute Bridge", "3 × 15", "Squeeze glutes", "Mat"],
+      ["Plank", "3 × 20 sec", "Brace your stomach", "Mat"]
+    ],
+    gym: [
+      ["Cable Pallof Press", "3 × 10 each side", "Resist rotation", "Cable"],
+      ["Dead Bug", "3 × 8 each side", "Slow movement", "Mat"],
+      ["Back Extension", "3 × 10", "Controlled range", "Machine"],
+      ["Plank", "3 × 25 sec", "Brace core", "Mat"]
+    ]
+  },
+
+  10: {
+    title: "Cardio & Confidence",
+    type: "Cardio",
+    home: [
+      ["Walk", "25 minutes", "Moderate pace", "None"],
+      ["Step-Ups", "3 × 10", "Controlled", "Step"],
+      ["March", "3 × 1 minute", "Strong pace", "None"]
+    ],
+    gym: [
+      ["Treadmill", "25 minutes", "Moderate pace", "Treadmill"],
+      ["Incline Walk", "8 minutes", "Moderate incline", "Treadmill"],
+      ["Stair Climber", "5 minutes", "Steady pace", "Machine"]
+    ]
+  },
+
+  11: {
+    title: "Lower Body Builder",
+    type: "Strength",
+    home: [
+      ["Squat", "3 × 12", "Controlled", "Bodyweight/Dumbbell"],
+      ["Reverse Lunge", "3 × 10 each", "Controlled", "None"],
+      ["Romanian Deadlift", "3 × 10", "Hinge at hips", "Dumbbells"],
+      ["Calf Raise", "3 × 15", "Slow", "None"]
+    ],
+    gym: [
+      ["Leg Press", "4 × 10", "Controlled", "Machine"],
+      ["Leg Extension", "3 × 12", "Controlled", "Machine"],
+      ["Leg Curl", "3 × 12", "Controlled", "Machine"],
+      ["Calf Raise", "3 × 15", "Full range", "Machine"]
+    ]
+  },
+
+  12: {
+    title: "Upper Body Builder",
+    type: "Strength",
+    home: [
+      ["Dumbbell Row", "3 × 12", "Controlled", "Dumbbells"],
+      ["Push-Up", "3 × 8", "Modify as needed", "None"],
+      ["Shoulder Press", "3 × 12", "Controlled", "Dumbbells"],
+      ["Biceps Curl", "3 × 12", "Controlled", "Dumbbells"],
+      ["Triceps Extension", "3 × 12", "Controlled", "Dumbbell"]
+    ],
+    gym: [
+      ["Lat Pulldown", "4 × 10", "Controlled", "Machine"],
+      ["Chest Press", "3 × 12", "Controlled", "Machine"],
+      ["Shoulder Press", "3 × 10", "Controlled", "Machine"],
+      ["Cable Curl", "3 × 12", "Controlled", "Cable"],
+      ["Triceps Pushdown", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  13: {
+    title: "Glutes & Core",
+    type: "Strength",
+    home: [
+      ["Glute Bridge", "4 × 12", "Pause at top", "None"],
+      ["Donkey Kick", "3 × 12 each", "Controlled", "Mat"],
+      ["Fire Hydrant", "3 × 12 each", "Controlled", "Mat"],
+      ["Dead Bug", "3 × 10 each", "Slow", "Mat"],
+      ["Plank", "3 × 25 sec", "Brace core", "Mat"]
+    ],
+    gym: [
+      ["Hip Thrust", "4 × 10", "Pause at top", "Barbell"],
+      ["Cable Kickback", "3 × 12 each", "Controlled", "Cable"],
+      ["Hip Abduction", "3 × 15", "Controlled", "Machine"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"],
+      ["Plank", "3 × 30 sec", "Brace core", "Mat"]
+    ]
+  },
+
+  14: {
+    title: "Rest & Restore",
+    type: "Recovery",
+    home: [
+      ["Easy Walk", "20 minutes", "Relaxed", "None"],
+      ["Full Body Stretch", "10 minutes", "Gentle", "Mat"],
+      ["Deep Breathing", "3 minutes", "Slow breathing", "None"]
+    ],
+    gym: [
+      ["Easy Walk", "20 minutes", "Relaxed", "Treadmill"],
+      ["Bike", "10 minutes", "Easy resistance", "Bike"],
+      ["Stretch", "10 minutes", "Gentle", "Mat"]
+    ]
+  },
+
+  15: {
+    title: "Halfway Strong",
+    type: "Full Body",
+    home: [
+      ["Goblet Squat", "3 × 12", "Controlled", "Dumbbell"],
+      ["Dumbbell Row", "3 × 12", "Controlled", "Dumbbells"],
+      ["Incline Push-Up", "3 × 10", "Controlled", "Counter"],
+      ["Glute Bridge", "3 × 15", "Pause", "None"],
+      ["Plank", "3 × 25 sec", "Brace", "Mat"]
+    ],
+    gym: [
+      ["Leg Press", "3 × 12", "Controlled", "Machine"],
+      ["Lat Pulldown", "3 × 12", "Controlled", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled", "Machine"],
+      ["Hip Thrust", "3 × 12", "Pause", "Machine/Barbell"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  16: {
+    title: "Keep Moving",
+    type: "Cardio",
+    home: [
+      ["Brisk Walk", "30 minutes", "Steady pace", "None"],
+      ["Step-Ups", "3 × 12", "Controlled", "Step"],
+      ["March", "3 × 1 minute", "Strong pace", "None"]
+    ],
+    gym: [
+      ["Treadmill", "30 minutes", "Steady pace", "Treadmill"],
+      ["Incline Walk", "10 minutes", "Moderate", "Treadmill"],
+      ["Bike", "5 minutes", "Cool down", "Bike"]
+    ]
+  },
+
+  17: {
+    title: "Strong Legs",
+    type: "Strength",
+    home: [
+      ["Squat", "4 × 10", "Controlled", "Dumbbell"],
+      ["Reverse Lunge", "3 × 10 each", "Controlled", "Dumbbells"],
+      ["Romanian Deadlift", "3 × 12", "Hinge", "Dumbbells"],
+      ["Glute Bridge", "3 × 15", "Pause", "None"]
+    ],
+    gym: [
+      ["Leg Press", "4 × 10", "Controlled", "Machine"],
+      ["Leg Curl", "3 × 12", "Controlled", "Machine"],
+      ["Leg Extension", "3 × 12", "Controlled", "Machine"],
+      ["Hip Thrust", "3 × 12", "Pause", "Machine"]
+    ]
+  },
+
+  18: {
+    title: "Strong Upper Body",
+    type: "Strength",
+    home: [
+      ["Dumbbell Row", "4 × 10", "Controlled", "Dumbbells"],
+      ["Push-Up", "3 × 10", "Modify if needed", "None"],
+      ["Shoulder Press", "3 × 10", "Controlled", "Dumbbells"],
+      ["Biceps Curl", "3 × 12", "Controlled", "Dumbbells"],
+      ["Triceps Kickback", "3 × 12", "Controlled", "Dumbbells"]
+    ],
+    gym: [
+      ["Lat Pulldown", "4 × 10", "Controlled", "Machine"],
+      ["Seated Row", "3 × 12", "Controlled", "Cable"],
+      ["Chest Press", "3 × 10", "Controlled", "Machine"],
+      ["Shoulder Press", "3 × 10", "Controlled", "Machine"],
+      ["Triceps Pushdown", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  19: {
+    title: "Core Strong",
+    type: "Core",
+    home: [
+      ["Dead Bug", "3 × 10 each", "Slow", "Mat"],
+      ["Bird Dog", "3 × 10 each", "Controlled", "Mat"],
+      ["Plank", "3 × 30 sec", "Brace core", "Mat"],
+      ["Side Plank", "2 × 20 sec each", "Modify on knees", "Mat"]
+    ],
+    gym: [
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"],
+      ["Pallof Press", "3 × 10 each", "Resist rotation", "Cable"],
+      ["Back Extension", "3 × 12", "Controlled", "Machine"],
+      ["Plank", "3 × 30 sec", "Brace core", "Mat"]
+    ]
+  },
+
+  20: {
+    title: "Cardio Challenge",
+    type: "Cardio",
+    home: [
+      ["Walk", "30 minutes", "Moderate/brisk", "None"],
+      ["Step-Ups", "4 × 10", "Controlled", "Step"],
+      ["March", "3 × 1 minute", "Strong pace", "None"]
+    ],
+    gym: [
+      ["Treadmill", "30 minutes", "Brisk pace", "Treadmill"],
+      ["Stair Climber", "10 minutes", "Moderate", "Machine"],
+      ["Bike", "5 minutes", "Cool down", "Bike"]
+    ]
+  },
+
+  21: {
+    title: "Recover & Believe",
+    type: "Recovery",
+    home: [
+      ["Easy Walk", "20 minutes", "Relaxed", "None"],
+      ["Mobility Flow", "10 minutes", "Gentle", "Mat"],
+      ["Deep Breathing", "3 minutes", "Slow breathing", "None"]
+    ],
+    gym: [
+      ["Treadmill Walk", "20 minutes", "Relaxed", "Treadmill"],
+      ["Bike", "10 minutes", "Easy", "Bike"],
+      ["Mobility", "10 minutes", "Gentle", "Mat"]
+    ]
+  },
+
+  22: {
+    title: "Get Strong",
+    type: "Full Body",
+    home: [
+      ["Goblet Squat", "4 × 10", "Controlled", "Kettlebell"],
+      ["Dumbbell Row", "4 × 10", "Controlled", "Dumbbells"],
+      ["Push-Up", "3 × 10", "Modify as needed", "None"],
+      ["Romanian Deadlift", "3 × 10", "Hinge", "Dumbbells"],
+      ["Plank", "3 × 30 sec", "Brace", "Mat"]
+    ],
+    gym: [
+      ["Leg Press", "4 × 10", "Controlled", "Machine"],
+      ["Lat Pulldown", "4 × 10", "Controlled", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled", "Machine"],
+      ["Romanian Deadlift", "3 × 10", "Hinge", "Barbell"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  23: {
+    title: "Glutes & Legs",
+    type: "Strength",
+    home: [
+      ["Squat", "4 × 12", "Controlled", "Dumbbell"],
+      ["Reverse Lunge", "3 × 10 each", "Controlled", "Dumbbells"],
+      ["Glute Bridge", "4 × 15", "Pause", "None"],
+      ["Step-Up", "3 × 10 each", "Controlled", "Step"]
+    ],
+    gym: [
+      ["Leg Press", "4 × 12", "Controlled", "Machine"],
+      ["Hip Thrust", "4 × 10", "Pause", "Machine/Barbell"],
+      ["Leg Curl", "3 × 12", "Controlled", "Machine"],
+      ["Hip Abduction", "3 × 15", "Controlled", "Machine"]
+    ]
+  },
+
+  24: {
+    title: "Upper Body",
+    type: "Strength",
+    home: [
+      ["Dumbbell Row", "4 × 10", "Controlled", "Dumbbells"],
+      ["Push-Up", "3 × 10", "Controlled", "None"],
+      ["Shoulder Press", "3 × 12", "Controlled", "Dumbbells"],
+      ["Curl", "3 × 12", "Controlled", "Dumbbells"],
+      ["Triceps Extension", "3 × 12", "Controlled", "Dumbbell"]
+    ],
+    gym: [
+      ["Lat Pulldown", "4 × 10", "Controlled", "Machine"],
+      ["Chest Press", "4 × 10", "Controlled", "Machine"],
+      ["Shoulder Press", "3 × 10", "Controlled", "Machine"],
+      ["Cable Curl", "3 × 12", "Controlled", "Cable"],
+      ["Triceps Pushdown", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  25: {
+    title: "Walk With Purpose",
+    type: "Cardio",
+    home: [
+      ["Brisk Walk", "35 minutes", "Strong steady pace", "None"],
+      ["Step-Ups", "3 × 12", "Controlled", "Step"]
+    ],
+    gym: [
+      ["Treadmill", "35 minutes", "Brisk steady pace", "Treadmill"],
+      ["Incline Walk", "10 minutes", "Moderate incline", "Treadmill"]
+    ]
+  },
+
+  26: {
+    title: "Full Body Strong",
+    type: "Full Body",
+    home: [
+      ["Goblet Squat", "4 × 10", "Controlled", "Dumbbell"],
+      ["Dumbbell Row", "4 × 10", "Controlled", "Dumbbells"],
+      ["Push-Up", "3 × 10", "Controlled", "None"],
+      ["Romanian Deadlift", "3 × 10", "Hinge", "Dumbbells"],
+      ["Glute Bridge", "3 × 15", "Pause", "None"],
+      ["Plank", "3 × 30 sec", "Brace", "Mat"]
+    ],
+    gym: [
+      ["Leg Press", "4 × 10", "Controlled", "Machine"],
+      ["Lat Pulldown", "4 × 10", "Controlled", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled", "Machine"],
+      ["Romanian Deadlift", "3 × 10", "Hinge", "Barbell"],
+      ["Hip Thrust", "3 × 12", "Pause", "Machine"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  27: {
+    title: "Recovery Walk",
+    type: "Recovery",
+    home: [
+      ["Easy Walk", "25 minutes", "Relaxed pace", "None"],
+      ["Stretch", "10 minutes", "Gentle", "Mat"],
+      ["Breathing", "3 minutes", "Slow breathing", "None"]
+    ],
+    gym: [
+      ["Treadmill Walk", "25 minutes", "Relaxed", "Treadmill"],
+      ["Bike", "10 minutes", "Easy", "Bike"],
+      ["Stretch", "10 minutes", "Gentle", "Mat"]
+    ]
+  },
+
+  28: {
+    title: "Final Push",
+    type: "Strength",
+    home: [
+      ["Goblet Squat", "4 × 12", "Controlled", "Dumbbell"],
+      ["Reverse Lunge", "3 × 10 each", "Controlled", "Dumbbells"],
+      ["Dumbbell Row", "4 × 10", "Controlled", "Dumbbells"],
+      ["Push-Up", "3 × 10", "Modify as needed", "None"],
+      ["Glute Bridge", "4 × 15", "Pause", "None"],
+      ["Plank", "3 × 30 sec", "Brace", "Mat"]
+    ],
+    gym: [
+      ["Leg Press", "4 × 12", "Controlled", "Machine"],
+      ["Leg Curl", "3 × 12", "Controlled", "Machine"],
+      ["Lat Pulldown", "4 × 10", "Controlled", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled", "Machine"],
+      ["Hip Thrust", "4 × 10", "Pause", "Machine"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  29: {
+    title: "Finish Strong",
+    type: "Cardio + Strength",
+    home: [
+      ["Brisk Walk", "20 minutes", "Strong pace", "None"],
+      ["Squat", "3 × 12", "Controlled", "Dumbbell"],
+      ["Dumbbell Row", "3 × 12", "Controlled", "Dumbbells"],
+      ["Glute Bridge", "3 × 15", "Pause", "None"],
+      ["Plank", "3 × 30 sec", "Brace", "Mat"]
+    ],
+    gym: [
+      ["Treadmill", "20 minutes", "Brisk pace", "Treadmill"],
+      ["Leg Press", "3 × 12", "Controlled", "Machine"],
+      ["Lat Pulldown", "3 × 12", "Controlled", "Machine"],
+      ["Hip Thrust", "3 × 12", "Pause", "Machine"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"]
+    ]
+  },
+
+  30: {
+    title: "CHAIN BROKEN",
+    type: "Celebration",
+    home: [
+      ["Walk", "30 minutes", "Walk with purpose", "None"],
+      ["Squat", "3 × 10", "Celebrate your strength", "Bodyweight"],
+      ["Glute Bridge", "3 × 15", "Controlled", "None"],
+      ["Push-Up", "3 × 10", "Your level", "None"],
+      ["Plank", "3 × 30 sec", "Finish strong", "Mat"]
+    ],
+    gym: [
+      ["Treadmill Walk", "30 minutes", "Walk with purpose", "Treadmill"],
+      ["Leg Press", "3 × 10", "Controlled", "Machine"],
+      ["Lat Pulldown", "3 × 10", "Controlled", "Machine"],
+      ["Chest Press", "3 × 10", "Controlled", "Machine"],
+      ["Cable Crunch", "3 × 12", "Controlled", "Cable"]
+    ]
+  }
+};
+
+
+/* ---------------------------------------------------------
+   VIDEO DEMONSTRATIONS
+   Direct demonstrations where available.
+   Otherwise opens a focused exercise-video search.
+--------------------------------------------------------- */
+
+const exerciseVideos = {
+  "Glute Bridge": "https://www.youtube.com/embed/wPM8icPu6H8",
+  "Reverse Lunge": "https://www.youtube.com/embed/xrPteyQLGAo",
+  "Step-Up": "https://www.youtube.com/embed/bm4SNkE7RvM"
+};
+
+function videoSearch(name) {
+  return "https://www.youtube.com/results?search_query=" +
+    encodeURIComponent(name + " proper form exercise");
 }
-function openDay(n){
- const d=daysData[n-1];showPage("dayDetail");
- document.getElementById("detailKicker").textContent=`DAY ${n} • ${d[1].toUpperCase()}`;
- document.getElementById("detailTitle").textContent=d[0];
- document.getElementById("detailSummary").textContent=d[2];
- document.getElementById("detailTime").textContent=n===30?"30":n%7===0?"Rest":"25";
- document.getElementById("detailLevel").textContent=state.level==="beginner"?"Beginner":state.level==="building"?"Building":"Strong";
- renderExercises(n);
+
+
+/* ---------------------------------------------------------
+   EXERCISE CARD
+--------------------------------------------------------- */
+
+function workoutExerciseCard(ex, index) {
+
+  const name = ex[0];
+  const amount = ex[1];
+  const description = ex[2];
+  const equipment = ex[3];
+
+  const directVideo = exerciseVideos[name];
+
+  return `
+    <div class="exercise-card" style="
+      background:#fff;
+      border:1px solid #eadbd7;
+      border-radius:18px;
+      padding:18px;
+      margin:12px 0;
+      box-shadow:0 8px 24px rgba(73,53,48,.07);
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        align-items:flex-start;
+      ">
+
+        <div>
+          <div style="
+            font-size:18px;
+            font-weight:800;
+            color:#3f3533;
+          ">
+            ${index + 1}. ${name}
+          </div>
+
+          <div style="
+            margin-top:6px;
+            color:#b96f86;
+            font-weight:800;
+          ">
+            ${amount}
+          </div>
+        </div>
+
+        <span style="
+          background:#cfe6e3;
+          color:#315f5c;
+          padding:6px 10px;
+          border-radius:20px;
+          font-size:11px;
+          font-weight:800;
+          white-space:nowrap;
+        ">
+          ${equipment}
+        </span>
+
+      </div>
+
+      <div style="
+        color:#766b68;
+        margin:12px 0;
+        line-height:1.5;
+      ">
+        ${description}
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+
+        <button
+          class="btn"
+          onclick="${directVideo
+            ? `showExerciseVideo('${directVideo}','${name.replace(/'/g,"\\'")}')`
+            : `window.open('${videoSearch(name)}','_blank')`
+          }"
+          style="flex:1;min-width:145px;"
+        >
+          ▶ WATCH DEMO
+        </button>
+
+        <button
+          class="btn"
+          onclick="toast('${name.replace(/'/g,"\\'")} completed ✓')"
+          style="flex:1;min-width:145px;"
+        >
+          ✓ DONE
+        </button>
+
+      </div>
+
+    </div>
+  `;
 }
-function exercise(name,reps,desc,video,search){
- let media=video?`<div class="video"><iframe src="${video}" title="${name} demonstration" allowfullscreen loading="lazy"></iframe></div>`:`<a class="videoBtn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(search||("how to "+name+" exercise"))}">▶ WATCH ${name.toUpperCase()} DEMO</a>`;
- return `<div class="exercise"><div class="exerciseTop"><h3>${name}</h3><span class="reps">${reps}</span></div><p>${desc}</p>${media}</div>`;
+
+
+/* ---------------------------------------------------------
+   SHOW VIDEO INSIDE THE APP
+--------------------------------------------------------- */
+
+function showExerciseVideo(url, name) {
+
+  let modal = document.getElementById("exerciseVideoModal");
+
+  if (!modal) {
+
+    modal = document.createElement("div");
+
+    modal.id = "exerciseVideoModal";
+
+    modal.style = `
+      position:fixed;
+      inset:0;
+      background:rgba(25,20,20,.82);
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    `;
+
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div style="
+      background:#fff9f6;
+      width:min(720px,100%);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:0 20px 60px rgba(0,0,0,.3);
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:12px;
+      ">
+
+        <strong style="font-size:18px;color:#3f3533;">
+          ${name}
+        </strong>
+
+        <button
+          onclick="document.getElementById('exerciseVideoModal').remove()"
+          style="
+            border:0;
+            background:#e7b8c5;
+            border-radius:50%;
+            width:36px;
+            height:36px;
+            font-size:20px;
+            cursor:pointer;
+          "
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div style="
+        position:relative;
+        padding-bottom:56.25%;
+        height:0;
+        overflow:hidden;
+        border-radius:15px;
+      ">
+
+        <iframe
+          src="${url}"
+          title="${name} demonstration"
+          style="
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            border:0;
+          "
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+    </div>
+  `;
+
 }
-function renderExercises(n){
- let level=state.level, setting=state.setting;
- let list="";
- if(daysData[n-1][1]==="Cardio"){
-   list+=exercise("Warm-up","5 min","Easy walking. Gradually raise your pace.",null,"beginner walking warm up");
-   list+=exercise("Brisk / Easy Intervals",n>=22?"5 min brisk + 2 min easy ×4":"Intervals","Keep the brisk pace controlled. Level 1 can stay easy; Level 2 increases pace; Level 3 can add short jogs.",null,"beginner interval walking workout");
-   list+=exercise("Cool-down","5 min","Easy walking until breathing settles.",null,"walking cool down stretch");
- }else if(daysData[n-1][1]==="Strength"){
-   let mult=level==="beginner"?1:level==="building"?1.25:1.5;
-   list+=exercise("Squat",`${Math.round(10*mult)} reps × 3`,"Beginner: chair/bench squat. Building: bodyweight. Strong: add a dumbbell or gym load.",null,"how to squat exercise proper form");
-   list+=exercise("Glute Bridge",`${Math.round(10*mult)} reps × 3`,"Squeeze the glutes at the top without over-arching your back.",videos.bridge);
-   list+=exercise(setting==="gym"?"Cable or Dumbbell Row":"Bent-Over Row",`${Math.round(10*mult)} reps × 3`,"Keep your back neutral and pull toward your ribs.",null,"how to bent over row exercise proper form");
-   list+=exercise("Push-Up",`${Math.round(8*mult)} reps × 3`,"Beginner: wall. Building: counter/bench. Strong: floor push-up.",null,"how to wall push up exercise proper form");
-   list+=exercise(n%2?"Step-Up":"Reverse Lunge",`${Math.round(10*mult)} each side`,"Use support if needed. Keep the movement controlled.",n%2?videos.stepUp:videos.reverseLunge);
-   list+=exercise("Plank","20–30 sec × 3","Beginner: elevated surface or knees. Strong: full plank.",null,"how to plank proper form");
- }else if(daysData[n-1][1]==="Recovery"){
-   list+=exercise("Easy Walk","10–20 min","Comfortable pace. This is recovery, not a punishment.",null,"beginner walking workout");
-   list+=exercise("Gentle Stretch","5–10 min","Move slowly and never force a painful range.",null,"gentle full body stretch beginner");
- }else if(daysData[n-1][1]==="Rest"){
-   list+=`<div class="note">Today is intentionally lighter. Hydrate, breathe, reflect and let your body recover.</div>`;
- }else{
-   list+=exercise("Your Choice","20–30 min","Choose a favorite safe activity that makes you feel strong and proud.",null,"beginner full body workout women");
- }
- document.getElementById("exerciseList").innerHTML=list;
+
+
+/* ---------------------------------------------------------
+   REPLACE YOUR OLD renderExercises FUNCTION WITH THIS
+--------------------------------------------------------- */
+
+function renderExercises(dayNumber) {
+
+  const container = document.getElementById("exerciseList");
+
+  if (!container) return;
+
+  const day = workoutPlans[dayNumber];
+
+  if (!day) {
+    container.innerHTML = "<p>Workout not found.</p>";
+    return;
+  }
+
+  const setting = state.setting || "home";
+
+  const exercises = day[setting] || day.home;
+
+  const settingName =
+    setting === "gym"
+      ? "🏋️ GYM WORKOUT"
+      : "🏠 HOME WORKOUT";
+
+  const levelName =
+    state.level === "strong"
+      ? "🔥 STRONG"
+      : state.level === "building"
+      ? "💪 BUILDING"
+      : "🌱 BEGINNER";
+
+  container.innerHTML = `
+
+    <div style="
+      background:linear-gradient(135deg,#fff9f6,#cfe6e3);
+      border-radius:20px;
+      padding:18px;
+      margin-bottom:18px;
+    ">
+
+      <div style="
+        color:#b96f86;
+        font-weight:900;
+        font-size:12px;
+        letter-spacing:1px;
+      ">
+        ${settingName}
+      </div>
+
+      <h2 style="
+        margin:6px 0;
+        color:#3f3533;
+      ">
+        ${day.title}
+      </h2>
+
+      <div style="color:#766b68;">
+        ${day.type} • ${levelName}
+      </div>
+
+    </div>
+
+    ${exercises.map((ex,i) =>
+      workoutExerciseCard(ex,i)
+    ).join("")}
+
+    <div style="
+      margin-top:20px;
+      padding:16px;
+      background:#fff;
+      border-radius:18px;
+      border:1px solid #eadbd7;
+      text-align:center;
+    ">
+      <strong>💗 Remember</strong>
+      <p style="margin:8px 0 0;color:#766b68;">
+        You don't have to be perfect. You just have to keep showing up.
+      </p>
+    </div>
+  `;
+
 }
-function completeDay(){let n=Number(document.getElementById("detailKicker").textContent.match(/\d+/)[0]);if(!state.completed.includes(n))state.completed.push(n);saveState();toast(`Day ${n} complete. Keep walking. 🦋`);renderDays();showPage("progress")}
-function completeFaith(){state.faith++;saveState();toast("Faith check-in saved ✝️")}
-function saveCheckin(){state.checkins++;saveState();toast("Today's check-in is saved 💗")}
-function saveText(id,msg){localStorage.setItem("btc_"+id,document.getElementById(id).value);toast(msg)}
-function mood(v){document.getElementById("moodResult").textContent="Checked in: "+v+". You are allowed to be honest about where you are today."}
-function updateStats(){
- const d=state.completed.length;
- document.getElementById("pDays").textContent=d;
- document.getElementById("pWorkouts").textContent=d;
- document.getElementById("pFaith").textContent=state.faith;
- document.getElementById("homeDay").textContent=Math.min(d+1,30);
- document.getElementById("todayNumber").textContent=Math.min(d+1,30);
- document.getElementById("streakBadge").textContent=d+" day"+(d===1?"":"s")+" completed";
- document.getElementById("chain").textContent=d?Array.from({length:d},(_,i)=>i===29?"🔓":"🔗").join(" "):"🔗 🔗 🔗";
- document.getElementById("progressMessage").textContent=d>=30?"CHAIN BROKEN. YOU DIDN'T GIVE UP. 🦋":"Every completed day adds another link.";
+
+
+/* ---------------------------------------------------------
+   MAKE THE HOME / GYM BUTTONS VISUALLY UPDATE
+--------------------------------------------------------- */
+
+function setSetting(setting) {
+
+  state.setting = setting;
+  saveState();
+
+  const home = document.getElementById("homeChoice");
+  const gym = document.getElementById("gymChoice");
+
+  if (home) {
+    home.classList.toggle("selected", setting === "home");
+  }
+
+  if (gym) {
+    gym.classList.toggle("selected", setting === "gym");
+  }
+
+  if (typeof currentDay !== "undefined" && currentDay) {
+    renderExercises(currentDay);
+  }
+
+  toast(
+    setting === "gym"
+      ? "🏋️ Gym workouts selected"
+      : "🏠 Home workouts selected"
+  );
 }
-function loadText(id){const v=localStorage.getItem("btc_"+id);if(v)document.getElementById(id).value=v}
-renderDays();updateStats();["gratitude","journal","win","suggestion"].forEach(loadText);
+
+
+/* ---------------------------------------------------------
+   LEVEL SETTINGS
+--------------------------------------------------------- */
+
+function setLevel(level) {
+
+  state.level = level;
+  saveState();
+
+  document
+    .querySelectorAll("[id^='level']")
+    .forEach(el => el.classList.remove("selected"));
+
+  if (level === "beginner") {
+    document.getElementById("level1")?.classList.add("selected");
+  }
+
+  if (level === "building") {
+    document.getElementById("level2")?.classList.add("selected");
+  }
+
+  if (level === "strong") {
+    document.getElementById("level3")?.classList.add("selected");
+  }
+
+  toast(
+    level === "beginner"
+      ? "🌱 Beginner level selected"
+      : level === "building"
+      ? "💪 Building level selected"
+      : "🔥 Strong level selected"
+  );
+}
+
+
+/* ---------------------------------------------------------
+   SAFER DAY OPENING
+--------------------------------------------------------- */
+
+let currentDay = null;
+
+function openDay(dayNumber) {
+
+  currentDay = dayNumber;
+
+  const day = workoutPlans[dayNumber];
+
+  if (!day) return;
+
+  const title = document.getElementById("dayTitle");
+
+  if (title) {
+    title.textContent =
+      `Day ${dayNumber}: ${day.title}`;
+  }
+
+  const type = document.getElementById("dayType");
+
+  if (type) {
+    type.textContent = day.type;
+  }
+
+  renderExercises(dayNumber);
+
+  if (typeof showPage === "function") {
+    showPage("dayDetail");
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   LOAD THE CORRECT WORKOUT WHEN DAY DETAIL OPENS
+--------------------------------------------------------- */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  if (state.setting !== "gym" && state.setting !== "home") {
+    state.setting = "home";
+  }
+
+  if (state.level !== "beginner" &&
+      state.level !== "building" &&
+      state.level !== "strong") {
+    state.level = "beginner";
+  }
+
+  saveState();
+
+});
 </script>
 </body>
 </html>
