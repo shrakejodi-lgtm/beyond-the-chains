@@ -339,9 +339,66 @@ function openDay(n){
  document.getElementById("detailLevel").textContent=state.level==="beginner"?"Beginner":state.level==="building"?"Building":"Strong";
  renderExercises(n);
 }
-function exercise(name,reps,desc,video,search){
- let media=video?`<div class="video"><iframe src="${video}" title="${name} demonstration" allowfullscreen loading="lazy"></iframe></div>`:`<a class="videoBtn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(search||("how to "+name+" exercise"))}">▶ WATCH ${name.toUpperCase()} DEMO</a>`;
- return `<div class="exercise"><div class="exerciseTop"><h3>${name}</h3><span class="reps">${reps}</span></div><p>${desc}</p>${media}</div>`;
+function exercise(name,reps,desc,videoKey){
+  const setting = state.setting || "home";
+  const video = videos[videoKey] ? videos[videoKey][setting] : "";
+
+  let media = "";
+
+  if(video){
+    media = `
+      <div class="video">
+        <iframe
+          src="${video}"
+          title="${name} ${setting} demonstration"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    `;
+  } else {
+    media = `
+      <div class="video demoPlaceholder">
+        <div style="
+          padding:28px 15px;
+          text-align:center;
+          color:#fff;
+          background:linear-gradient(135deg,#b96f86,#4e8e89);
+        ">
+          <div style="font-size:34px;margin-bottom:8px;">
+            ${setting === "home" ? "🏠" : "🏋️"}
+          </div>
+
+          <strong>
+            ${setting === "home"
+              ? "AT HOME DEMONSTRATION"
+              : "AT THE GYM DEMONSTRATION"}
+          </strong>
+
+          <div style="
+            font-size:12px;
+            margin-top:7px;
+            opacity:.9;
+          ">
+            Demonstration video coming next
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="exercise">
+      <div class="exerciseTop">
+        <h3>${name}</h3>
+        <span class="reps">${reps}</span>
+      </div>
+
+      <p>${desc}</p>
+
+      ${media}
+    </div>
+  `;
 }
 function renderExercises(n){
  let level=state.level, setting=state.setting;
