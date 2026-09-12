@@ -398,33 +398,146 @@ function exercise(name,reps,desc,videoKey){
 
       ${media}
     </div>
-  `;
+  `;function renderExercises(n){
+  const level = state.level;
+  const setting = state.setting;
+
+  let list = "";
+
+  if(daysData[n-1][1] === "Cardio"){
+
+    list += exercise(
+      "Warm-up",
+      "5 min",
+      "Start easy and gradually raise your pace. Keep your shoulders relaxed and breathe comfortably.",
+      "walking"
+    );
+
+    list += exercise(
+      "Brisk / Easy Intervals",
+      n >= 22 ? "5 min brisk + 2 min easy ×4" : "Intervals",
+      "Keep the brisk pace controlled. Beginner: comfortable walking. Building: faster walking. Strong: add short jogs if comfortable.",
+      "walking"
+    );
+
+    list += exercise(
+      "Cool-down",
+      "5 min",
+      "Slow your pace gradually until your breathing returns to normal.",
+      "walking"
+    );
+
+  } else if(daysData[n-1][1] === "Strength"){
+
+    const mult =
+      level === "beginner" ? 1 :
+      level === "building" ? 1.25 :
+      1.5;
+
+    list += exercise(
+      "Squat",
+      `${Math.round(10 * mult)} reps × 3`,
+      setting === "home"
+        ? "Home: use a chair for support if needed. Keep your chest lifted and sit your hips back."
+        : "Gym: use bodyweight, a dumbbell, or an appropriate machine/load for your level.",
+      "squat"
+    );
+
+    list += exercise(
+      "Glute Bridge",
+      `${Math.round(10 * mult)} reps × 3`,
+      "Lie on your back with knees bent. Drive through your feet and squeeze your glutes at the top.",
+      "bridge"
+    );
+
+    list += exercise(
+      setting === "gym" ? "Cable or Dumbbell Row" : "Bent-Over Row",
+      `${Math.round(10 * mult)} reps × 3`,
+      setting === "gym"
+        ? "Keep your back neutral and pull the weight toward your ribs."
+        : "Use dumbbells or household weights. Keep your back neutral and pull toward your ribs.",
+      "row"
+    );
+
+    list += exercise(
+      "Push-Up",
+      `${Math.round(8 * mult)} reps × 3`,
+      setting === "home"
+        ? "Home: beginner wall push-up, building counter push-up, strong floor push-up."
+        : "Gym: use a bench, Smith bar, or floor depending on your level.",
+      "pushup"
+    );
+
+    if(n % 2){
+
+      list += exercise(
+        "Step-Up",
+        `${Math.round(10 * mult)} each side`,
+        setting === "home"
+          ? "Use a sturdy step or low platform. Hold a wall or railing if needed."
+          : "Use a stable gym step or platform. Add weight only when your form is solid.",
+        "stepUp"
+      );
+
+    } else {
+
+      list += exercise(
+        "Reverse Lunge",
+        `${Math.round(10 * mult)} each side`,
+        "Step backward under control. Keep your front knee tracking over your foot.",
+        "reverseLunge"
+      );
+
+    }
+
+    list += exercise(
+      "Plank",
+      "20–30 sec × 3",
+      setting === "home"
+        ? "Home: use knees or an elevated surface if needed."
+        : "Gym: use a mat or elevated surface for your level.",
+      "plank"
+    );
+
+  } else if(daysData[n-1][1] === "Recovery"){
+
+    list += exercise(
+      "Easy Walk",
+      "10–20 min",
+      "Comfortable pace. Recovery should feel refreshing, not punishing.",
+      "walking"
+    );
+
+    list += exercise(
+      "Gentle Stretch",
+      "5–10 min",
+      "Move slowly and never force a painful range of motion.",
+      "stretch"
+    );
+
+  } else if(daysData[n-1][1] === "Rest"){
+
+    list += `
+      <div class="note">
+        Today is intentionally lighter. Hydrate, breathe, reflect,
+        and let your body recover. ❤️
+      </div>
+    `;
+
+  } else {
+
+    list += exercise(
+      "Your Choice",
+      "20–30 min",
+      "Choose a safe activity that makes you feel strong and proud.",
+      "walking"
+    );
+  }
+
+  document.getElementById("exerciseList").innerHTML = list;
+  }
 }
-function renderExercises(n){
- let level=state.level, setting=state.setting;
- let list="";
- if(daysData[n-1][1]==="Cardio"){
-   list+=exercise("Warm-up","5 min","Easy walking. Gradually raise your pace.",null,"beginner walking warm up");
-   list+=exercise("Brisk / Easy Intervals",n>=22?"5 min brisk + 2 min easy ×4":"Intervals","Keep the brisk pace controlled. Level 1 can stay easy; Level 2 increases pace; Level 3 can add short jogs.",null,"beginner interval walking workout");
-   list+=exercise("Cool-down","5 min","Easy walking until breathing settles.",null,"walking cool down stretch");
- }else if(daysData[n-1][1]==="Strength"){
-   let mult=level==="beginner"?1:level==="building"?1.25:1.5;
-   list+=exercise("Squat",`${Math.round(10*mult)} reps × 3`,"Beginner: chair/bench squat. Building: bodyweight. Strong: add a dumbbell or gym load.",null,"how to squat exercise proper form");
-   list+=exercise("Glute Bridge",`${Math.round(10*mult)} reps × 3`,"Squeeze the glutes at the top without over-arching your back.",videos.bridge);
-   list+=exercise(setting==="gym"?"Cable or Dumbbell Row":"Bent-Over Row",`${Math.round(10*mult)} reps × 3`,"Keep your back neutral and pull toward your ribs.",null,"how to bent over row exercise proper form");
-   list+=exercise("Push-Up",`${Math.round(8*mult)} reps × 3`,"Beginner: wall. Building: counter/bench. Strong: floor push-up.",null,"how to wall push up exercise proper form");
-   list+=exercise(n%2?"Step-Up":"Reverse Lunge",`${Math.round(10*mult)} each side`,"Use support if needed. Keep the movement controlled.",n%2?videos.stepUp:videos.reverseLunge);
-   list+=exercise("Plank","20–30 sec × 3","Beginner: elevated surface or knees. Strong: full plank.",null,"how to plank proper form");
- }else if(daysData[n-1][1]==="Recovery"){
-   list+=exercise("Easy Walk","10–20 min","Comfortable pace. This is recovery, not a punishment.",null,"beginner walking workout");
-   list+=exercise("Gentle Stretch","5–10 min","Move slowly and never force a painful range.",null,"gentle full body stretch beginner");
- }else if(daysData[n-1][1]==="Rest"){
-   list+=`<div class="note">Today is intentionally lighter. Hydrate, breathe, reflect and let your body recover.</div>`;
- }else{
-   list+=exercise("Your Choice","20–30 min","Choose a favorite safe activity that makes you feel strong and proud.",null,"beginner full body workout women");
- }
- document.getElementById("exerciseList").innerHTML=list;
-}
+
 function completeDay(){let n=Number(document.getElementById("detailKicker").textContent.match(/\d+/)[0]);if(!state.completed.includes(n))state.completed.push(n);saveState();toast(`Day ${n} complete. Keep walking. 🦋`);renderDays();showPage("progress")}
 function completeFaith(){state.faith++;saveState();toast("Faith check-in saved ✝️")}
 function saveCheckin(){state.checkins++;saveState();toast("Today's check-in is saved 💗")}
