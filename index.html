@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -287,11 +287,6 @@ function goTo(id){
 }
 function showPage(id){
  return goTo(id);
-}
- document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===id));
- window.scrollTo(0,0);updateStats();
 }
 function setLevel(v){state.level=v;saveState();["level1","level2","level3"].forEach(x=>document.getElementById(x).classList.remove("selected"));document.getElementById(v==="beginner"?"level1":v==="building"?"level2":"level3").classList.add("selected");renderDays()}
 function setSetting(v){state.setting=v;saveState();document.getElementById("homeChoice").classList.toggle("selected",v==="home");document.getElementById("gymChoice").classList.toggle("selected",v==="gym");}
