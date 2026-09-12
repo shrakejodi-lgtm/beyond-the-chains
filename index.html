@@ -339,123 +339,67 @@ function openDay(n){
  document.getElementById("detailLevel").textContent=state.level==="beginner"?"Beginner":state.level==="building"?"Building":"Strong";
  renderExercises(n);
 }
-function exercise(name,reps,desc,videoKey){
+ back neutral and pull the weight toward your ribs."
+        : "Use dumbbells or household weights. Keep your back neutral and pull toward your ribs.",
+      "row"
+    );
+
+    list += exercise(
+    function renderExercises(n){
+  const level = state.level || "beginner";
   const setting = state.setting || "home";
-  const video = videos[videoKey] ? videos[videoKey][setting] : "";
-
-  let media = "";
-
-  if(video){
-    media = `
-      <div class="video">
-        <iframe
-          src="${video}"
-          title="${name} ${setting} demonstration"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-      </div>
-    `;
-  } else {
-    media = `
-      <div class="video demoPlaceholder">
-        <div style="
-          padding:28px 15px;
-          text-align:center;
-          color:#fff;
-          background:linear-gradient(135deg,#b96f86,#4e8e89);
-        ">
-          <div style="font-size:34px;margin-bottom:8px;">
-            ${setting === "home" ? "🏠" : "🏋️"}
-          </div>
-
-          <strong>
-            ${setting === "home"
-              ? "AT HOME DEMONSTRATION"
-              : "AT THE GYM DEMONSTRATION"}
-          </strong>
-
-          <div style="
-            font-size:12px;
-            margin-top:7px;
-            opacity:.9;
-          ">
-            Demonstration video coming next
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  return `
-    <div class="exercise">
-      <div class="exerciseTop">
-        <h3>${name}</h3>
-        <span class="reps">${reps}</span>
-      </div>
-
-      <p>${desc}</p>
-
-      ${media}
-    </div>
-  `;function renderExercises(n){
-  const level = state.level;
-  const setting = state.setting;
+  const type = daysData[n-1][1];
 
   let list = "";
 
-  if(daysData[n-1][1] === "Cardio"){
-
+  if(type === "Cardio"){
     list += exercise(
       "Warm-up",
       "5 min",
-      "Start easy and gradually raise your pace. Keep your shoulders relaxed and breathe comfortably.",
+      "Easy walking. Gradually raise your pace.",
       "walking"
     );
 
     list += exercise(
       "Brisk / Easy Intervals",
-      n >= 22 ? "5 min brisk + 2 min easy ×4" : "Intervals",
-      "Keep the brisk pace controlled. Beginner: comfortable walking. Building: faster walking. Strong: add short jogs if comfortable.",
+      "Intervals",
+      "Keep the brisk pace controlled. Beginner stays at an easy walking pace. Building increases the pace. Strong can add short jogs.",
       "walking"
     );
 
     list += exercise(
       "Cool-down",
       "5 min",
-      "Slow your pace gradually until your breathing returns to normal.",
+      "Slow your pace until your breathing settles.",
       "walking"
     );
 
-  } else if(daysData[n-1][1] === "Strength"){
+  } else if(type === "Strength"){
 
     const mult =
       level === "beginner" ? 1 :
-      level === "building" ? 1.25 :
-      1.5;
+      level === "building" ? 1.25 : 1.5;
 
     list += exercise(
       "Squat",
       `${Math.round(10 * mult)} reps × 3`,
       setting === "home"
-        ? "Home: use a chair for support if needed. Keep your chest lifted and sit your hips back."
-        : "Gym: use bodyweight, a dumbbell, or an appropriate machine/load for your level.",
+        ? "Use a sturdy chair for support if needed."
+        : "Use bodyweight, a dumbbell, or an appropriate gym load.",
       "squat"
     );
 
     list += exercise(
       "Glute Bridge",
       `${Math.round(10 * mult)} reps × 3`,
-      "Lie on your back with knees bent. Drive through your feet and squeeze your glutes at the top.",
+      "Squeeze your glutes at the top while keeping your ribs relaxed.",
       "bridge"
     );
 
     list += exercise(
       setting === "gym" ? "Cable or Dumbbell Row" : "Bent-Over Row",
       `${Math.round(10 * mult)} reps × 3`,
-      setting === "gym"
-        ? "Keep your back neutral and pull the weight toward your ribs."
-        : "Use dumbbells or household weights. Keep your back neutral and pull toward your ribs.",
+      "Keep your back neutral and pull toward your ribs.",
       "row"
     );
 
@@ -463,19 +407,17 @@ function exercise(name,reps,desc,videoKey){
       "Push-Up",
       `${Math.round(8 * mult)} reps × 3`,
       setting === "home"
-        ? "Home: beginner wall push-up, building counter push-up, strong floor push-up."
-        : "Gym: use a bench, Smith bar, or floor depending on your level.",
+        ? "Beginner: wall. Building: counter. Strong: floor."
+        : "Use a bench or other elevated surface if needed.",
       "pushup"
     );
 
-    if(n % 2){
+    if(n % 2 === 1){
 
       list += exercise(
         "Step-Up",
         `${Math.round(10 * mult)} each side`,
-        setting === "home"
-          ? "Use a sturdy step or low platform. Hold a wall or railing if needed."
-          : "Use a stable gym step or platform. Add weight only when your form is solid.",
+        "Use a stable step or platform and hold support if needed.",
         "stepUp"
       );
 
@@ -484,43 +426,42 @@ function exercise(name,reps,desc,videoKey){
       list += exercise(
         "Reverse Lunge",
         `${Math.round(10 * mult)} each side`,
-        "Step backward under control. Keep your front knee tracking over your foot.",
+        "Step backward under control and keep the front knee tracking over the foot.",
         "reverseLunge"
       );
-
     }
 
     list += exercise(
       "Plank",
       "20–30 sec × 3",
       setting === "home"
-        ? "Home: use knees or an elevated surface if needed."
-        : "Gym: use a mat or elevated surface for your level.",
+        ? "Use your knees or an elevated surface if needed."
+        : "Use a mat or elevated surface for your level.",
       "plank"
     );
 
-  } else if(daysData[n-1][1] === "Recovery"){
+  } else if(type === "Recovery"){
 
     list += exercise(
       "Easy Walk",
       "10–20 min",
-      "Comfortable pace. Recovery should feel refreshing, not punishing.",
+      "Comfortable recovery pace.",
       "walking"
     );
 
     list += exercise(
       "Gentle Stretch",
       "5–10 min",
-      "Move slowly and never force a painful range of motion.",
+      "Move slowly and never force a painful range.",
       "stretch"
     );
 
-  } else if(daysData[n-1][1] === "Rest"){
+  } else if(type === "Rest"){
 
-    list += `
+    list = `
       <div class="note">
-        Today is intentionally lighter. Hydrate, breathe, reflect,
-        and let your body recover. ❤️
+        Today is intentionally lighter. Hydrate, breathe,
+        reflect, and let your body recover. ❤️
       </div>
     `;
 
@@ -534,7 +475,10 @@ function exercise(name,reps,desc,videoKey){
     );
   }
 
-  document.getElementById("exerciseList").innerHTML = list;
+  const exerciseList = document.getElementById("exerciseList");
+
+  if(exerciseList){
+    exerciseList.innerHTML = list;
   }
 }
 
