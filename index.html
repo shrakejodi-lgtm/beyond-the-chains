@@ -4,1038 +4,1298 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#b96f86">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>Beyond the Chains</title>
 
 <style>
 :root{
   --rose:#b96f86;
-  --rose2:#e7b8c5;
-  --teal:#4e8e89;
-  --teal2:#cfe6e3;
-  --cream:#fff9f6;
-  --ink:#3f3533;
-  --muted:#766b68;
-  --white:#fff;
-  --line:#eadbd7;
-  --shadow:0 12px 35px rgba(73,53,48,.10);
+  --rose-dark:#8f4d65;
+  --pink:#f3c7d3;
+  --pink-light:#fff0f4;
+  --teal:#5f9e9a;
+  --teal-dark:#397875;
+  --cream:#fff9f4;
+  --brown:#594942;
+  --brown-light:#806f67;
+  --white:#ffffff;
+  --green:#719b76;
+  --gold:#d8aa55;
+  --shadow:0 8px 25px rgba(89,73,66,.12);
+  --radius:22px;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
+  font-family:Arial,Helvetica,sans-serif;
   background:var(--cream);
-  color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif
+  color:var(--brown);
+  padding-bottom:90px;
 }
 
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
+button,
+input,
+textarea{
+  font:inherit;
+}
 
-.app{
-  max-width:680px;
+button{
+  cursor:pointer;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,249,244,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #f0dfe3;
+  padding:12px 16px;
+}
+
+.header-inner{
+  max-width:900px;
   margin:auto;
-  padding-bottom:86px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  border-radius:14px;
+}
+
+.text-logo{
+  display:none;
+  font-weight:900;
+  color:var(--rose-dark);
+  line-height:1;
+}
+
+.text-logo span{
+  display:block;
+  color:var(--teal-dark);
+  font-size:9px;
+  letter-spacing:1px;
+  margin-top:4px;
+}
+
+.streak{
+  background:var(--pink-light);
+  color:var(--rose-dark);
+  border:1px solid #efc8d3;
+  padding:9px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:18px 15px 35px;
+}
+
+.page{
+  display:none;
+  animation:fadeIn .25s ease;
+}
+
+.page.active{
+  display:block;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .hero{
-  padding:22px 18px 18px;
-  text-align:center;
-  background:linear-gradient(180deg,#fff9f6 0%,#f7e2e6 100%)
+  background:
+    radial-gradient(circle at 10% 20%,#ffdce7 0 10%,transparent 30%),
+    radial-gradient(circle at 90% 10%,#d9f1ef 0 10%,transparent 30%),
+    linear-gradient(135deg,#fff,#fff0f4);
+  border-radius:30px;
+  padding:28px 22px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
 }
 
-.logo{
-  width:100%;
-  max-width:430px;
-  height:auto;
-  display:block;
-  margin:auto
+.hero h1{
+  margin:0 0 8px;
+  font-size:32px;
+  color:var(--rose-dark);
 }
 
-.tagline{
-  font-weight:700;
-  color:var(--teal);
-  letter-spacing:.2px;
-  font-size:14px;
-  margin:7px 0 0
+.hero p{
+  margin:0;
+  line-height:1.5;
+  color:var(--brown-light);
 }
 
-.topline{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 18px 12px;
-  font-size:12px;
-  color:var(--muted)
+.section-title{
+  font-size:22px;
+  margin:25px 0 12px;
+  color:var(--brown);
 }
-
-.badge{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:99px;
-  padding:7px 10px
-}
-
-main{padding:12px 15px}
-
-.page{display:none}
-.page.active{display:block}
 
 .card{
-  background:#fff;
-  border:1px solid rgba(234,219,215,.75);
-  border-radius:24px;
-  padding:20px;
-  margin:0 0 15px;
-  box-shadow:var(--shadow)
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  margin-bottom:15px;
 }
 
-.heroCard{
-  background:linear-gradient(135deg,#f5d7df,#d8ece9)
+.card h3{
+  margin:0 0 7px;
 }
 
-.kicker{
-  text-transform:uppercase;
-  letter-spacing:1.6px;
-  color:var(--rose);
-  font-size:11px;
-  font-weight:800
+.card p{
+  line-height:1.5;
 }
 
-h1{
+.progress-track{
+  height:13px;
+  background:#f0e3df;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--rose),var(--teal));
+  border-radius:999px;
+  transition:.4s;
+}
+
+.progress-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+  font-weight:800;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+@media(min-width:700px){
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+.menu-card{
+  min-height:115px;
+  border:0;
+  text-align:left;
+  padding:18px;
+  border-radius:20px;
+  background:white;
+  box-shadow:var(--shadow);
+  color:var(--brown);
+  transition:.2s;
+}
+
+.menu-card:hover{
+  transform:translateY(-3px);
+}
+
+.menu-card .icon{
   font-size:30px;
-  line-height:1.08;
-  margin:7px 0 10px
+  display:block;
+  margin-bottom:8px;
 }
 
-h2{
-  font-size:21px;
-  margin:4px 0 9px
+.menu-card strong{
+  display:block;
+  font-size:15px;
 }
 
-h3{
-  font-size:17px;
-  margin:3px 0 7px
-}
-
-p{
-  line-height:1.52;
-  margin:7px 0;
-  color:var(--muted)
-}
-
-.quote{
-  border-left:4px solid var(--rose);
-  padding-left:12px;
-  font-style:italic
+.menu-card small{
+  color:var(--brown-light);
 }
 
 .btn{
   border:0;
   border-radius:15px;
-  padding:13px 15px;
+  padding:13px 17px;
   font-weight:800;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.btn-primary{
+  background:var(--rose);
+  color:white;
+}
+
+.btn-teal{
+  background:var(--teal);
+  color:white;
+}
+
+.btn-soft{
+  background:var(--pink-light);
+  color:var(--rose-dark);
+}
+
+.btn-green{
+  background:var(--green);
+  color:white;
+}
+
+.btn-gold{
+  background:#f4e7c6;
+  color:#765b25;
+}
+
+.btn-full{
   width:100%;
-  margin-top:9px
 }
 
-.primary{background:var(--rose);color:#fff}
-.teal{background:var(--teal);color:#fff}
-.soft{background:#f8eeeb;color:var(--ink)}
-.outline{background:#fff;color:var(--rose);border:1px solid var(--rose)}
-
-.grid2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px
+.button-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
 }
 
-.grid3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px
+.level-buttons,
+.setting-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:10px 0;
 }
 
-.choice{
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:16px;
-  padding:12px;
-  text-align:center;
+.level-btn,
+.setting-btn{
+  border:1px solid #ead9d4;
+  background:white;
+  color:var(--brown);
+  padding:10px 14px;
+  border-radius:999px;
   font-weight:800;
-  color:var(--ink)
 }
 
-.choice.selected{
-  border:2px solid var(--teal);
-  background:#edf8f6
+.level-btn.active,
+.setting-btn.active{
+  background:var(--teal);
+  color:white;
+  border-color:var(--teal);
 }
 
-.choice small{
-  display:block;
-  color:var(--muted);
-  font-weight:500;
-  margin-top:3px
+.workout-list{
+  display:grid;
+  gap:10px;
 }
 
-.sectionTitle{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin:18px 2px 9px
-}
-
-.dayCard{
-  border:1px solid var(--line);
-  border-radius:20px;
+.workout-day{
+  border:0;
+  background:white;
+  border-radius:18px;
+  box-shadow:var(--shadow);
   padding:16px;
-  background:#fff;
-  margin:10px 0
+  text-align:left;
+  color:var(--brown);
 }
 
-.dayRow{
+.workout-day-top{
   display:flex;
-  gap:12px;
-  align-items:center
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
 }
 
-.dayNum{
-  min-width:48px;
-  height:48px;
-  border-radius:15px;
-  background:var(--teal2);
+.day-number{
+  min-width:43px;
+  height:43px;
+  border-radius:50%;
   display:grid;
   place-items:center;
+  background:var(--pink-light);
+  color:var(--rose-dark);
   font-weight:900;
-  color:var(--teal)
 }
 
-.meta{
-  font-size:12px;
-  color:var(--muted)
+.workout-meta{
+  flex:1;
+}
+
+.workout-meta strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+.workout-meta small{
+  color:var(--brown-light);
+}
+
+.done-check{
+  color:var(--green);
+  font-size:23px;
 }
 
 .exercise{
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px;
-  margin:10px 0;
-  background:#fff
+  background:#fffaf8;
+  border:1px solid #f0dfdb;
+  border-radius:19px;
+  padding:15px;
+  margin-bottom:12px;
 }
 
-.exerciseTop{
+.exercise-header{
   display:flex;
-  justify-content:space-between;
-  gap:8px
+  gap:12px;
+  align-items:flex-start;
 }
 
-.reps{
-  font-size:12px;
-  font-weight:800;
-  color:var(--rose);
-  white-space:nowrap
+.exercise-number{
+  width:34px;
+  height:34px;
+  flex:none;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--rose);
+  color:white;
+  font-weight:900;
 }
 
-.video{
-  margin-top:12px;
-  border-radius:16px;
+.exercise-info{
+  flex:1;
+}
+
+.exercise-info h3{
+  margin:0 0 4px;
+}
+
+.exercise-target{
+  color:var(--brown-light);
+  font-size:14px;
+}
+
+.demo{
+  height:160px;
+  margin:14px 0;
+  border-radius:17px;
+  background:linear-gradient(145deg,#f8dbe4,#d9efed);
+  position:relative;
   overflow:hidden;
-  background:#201b1a
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.video video{
-  width:100%;
-  display:block;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  background:#201b1a
+.demo-label{
+  position:absolute;
+  top:9px;
+  left:10px;
+  background:rgba(255,255,255,.82);
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:900;
+  color:var(--rose-dark);
 }
 
-.videoTitle{
-  padding:9px 12px;
-  background:#201b1a;
-  color:#fff;
-  font-size:12px;
-  font-weight:800
+.person{
+  width:70px;
+  height:110px;
+  position:relative;
+  animation:movePerson 1.7s infinite ease-in-out;
 }
 
-.videoPlaceholder{
-  padding:22px 15px;
-  text-align:center;
-  color:#fff;
-  background:linear-gradient(135deg,#b96f86,#4e8e89)
+.person .head{
+  width:25px;
+  height:25px;
+  background:#c98568;
+  border-radius:50%;
+  position:absolute;
+  left:22px;
+  top:0;
 }
 
-.weightBox{
-  margin-top:12px;
-  padding:13px;
+.person .hair{
+  width:30px;
+  height:17px;
+  background:#594039;
+  border-radius:50% 50% 30% 30%;
+  position:absolute;
+  left:19px;
+  top:-3px;
+}
+
+.person .body{
+  width:30px;
+  height:48px;
+  background:var(--rose);
+  border-radius:14px 14px 8px 8px;
+  position:absolute;
+  left:20px;
+  top:25px;
+}
+
+.person .arm,
+.person .leg{
+  position:absolute;
+  background:#c98568;
+  border-radius:10px;
+  transform-origin:top center;
+}
+
+.person .arm{
+  width:9px;
+  height:42px;
+  top:29px;
+}
+
+.person .arm.left{
+  left:14px;
+  transform:rotate(25deg);
+}
+
+.person .arm.right{
+  left:48px;
+  transform:rotate(-25deg);
+}
+
+.person .leg{
+  width:11px;
+  height:47px;
+  top:67px;
+}
+
+.person .leg.left{
+  left:22px;
+  transform:rotate(12deg);
+}
+
+.person .leg.right{
+  left:39px;
+  transform:rotate(-12deg);
+}
+
+@keyframes movePerson{
+  0%,100%{
+    transform:translateY(5px) scale(.97);
+  }
+  50%{
+    transform:translateY(-5px) scale(1.03);
+  }
+}
+
+.weight-box{
+  background:#f3eeea;
   border-radius:13px;
-  background:#f3e5ea;
-  color:#403936;
-  font-weight:700
+  padding:10px;
+  font-size:13px;
+  margin-top:8px;
 }
 
-.weightBox small{
-  display:block;
-  margin-top:5px;
-  color:var(--muted);
-  font-weight:500
+.weight-box strong{
+  color:var(--rose-dark);
 }
 
-.note{
-  font-size:12px;
-  background:#fff6f3;
-  border-radius:14px;
-  padding:11px;
-  color:var(--muted)
+.exercise-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
 }
 
-textarea,input{
+.timer-box{
+  text-align:center;
+  background:linear-gradient(145deg,#fff0f4,#e3f3f1);
+  border-radius:28px;
+  padding:28px 18px;
+  box-shadow:var(--shadow);
+}
+
+.timer-type{
+  color:var(--brown-light);
+  font-weight:800;
+}
+
+.timer-number{
+  font-size:76px;
+  line-height:1;
+  font-weight:900;
+  color:var(--rose-dark);
+  margin:20px 0;
+}
+
+.timer-progress{
+  height:9px;
+  background:#e8ded9;
+  border-radius:99px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.timer-progress div{
+  height:100%;
+  width:0;
+  background:var(--teal);
+  transition:.2s;
+}
+
+.quote{
+  background:linear-gradient(135deg,#f6dce5,#e0f1ef);
+  border-radius:22px;
+  padding:20px;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.5;
+}
+
+textarea,
+input[type="text"]{
   width:100%;
-  border:1px solid var(--line);
-  border-radius:15px;
+  border:1px solid #e4d6d1;
+  border-radius:14px;
   padding:13px;
-  background:#fff;
-  color:var(--ink);
-  outline:none
+  background:white;
+  color:var(--brown);
+  outline:none;
+}
+
+textarea:focus,
+input:focus{
+  border-color:var(--teal);
 }
 
 textarea{
   min-height:120px;
-  resize:vertical
+  resize:vertical;
 }
 
-.statGrid{
+.form-group{
+  margin-bottom:13px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.check-list{
+  display:grid;
+  gap:10px;
+}
+
+.check-item{
+  background:#fffaf8;
+  border:1px solid #eee0dc;
+  padding:13px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.check-item input{
+  width:19px;
+  height:19px;
+  accent-color:var(--rose);
+}
+
+.mood-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:9px
+  gap:9px;
+}
+
+.mood{
+  border:1px solid #e9dcd8;
+  background:white;
+  border-radius:16px;
+  padding:13px 5px;
+  text-align:center;
+  font-weight:800;
+}
+
+.mood.active{
+  background:var(--pink-light);
+  border-color:var(--rose);
+}
+
+.community-post{
+  background:white;
+  border-radius:18px;
+  padding:15px;
+  margin-bottom:10px;
+  box-shadow:0 5px 18px rgba(89,73,66,.08);
+}
+
+.community-post strong{
+  color:var(--rose-dark);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
 }
 
 .stat{
-  background:#faf1ee;
+  background:white;
+  padding:18px;
   border-radius:18px;
-  padding:14px;
-  text-align:center
+  text-align:center;
+  box-shadow:var(--shadow);
 }
 
-.stat strong{
-  display:block;
-  font-size:27px;
-  color:var(--rose)
+.stat-number{
+  font-size:29px;
+  font-weight:900;
+  color:var(--rose-dark);
 }
 
 .chain{
-  font-size:23px;
-  line-height:1.6;
-  word-break:break-word
+  text-align:center;
+  font-size:31px;
+  line-height:1.45;
+  word-break:break-word;
 }
 
-.communityPost{
-  border-top:1px solid var(--line);
-  padding:13px 0
+.challenge-week{
+  border-left:5px solid var(--teal);
+  padding-left:13px;
+  margin:13px 0;
 }
 
-.avatar{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:var(--teal2);
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  color:var(--teal)
-}
-
-.postHead{
-  display:flex;
-  gap:10px;
-  align-items:center
-}
-
-.nav{
+.bottom-nav{
   position:fixed;
+  bottom:0;
   left:0;
   right:0;
-  bottom:0;
-  background:rgba(255,249,246,.97);
-  backdrop-filter:blur(10px);
-  border-top:1px solid var(--line);
-  z-index:50
-}
-
-.navInner{
-  max-width:680px;
-  margin:auto;
+  z-index:150;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #eadbd7;
+  padding:7px 5px calc(7px + env(safe-area-inset-bottom));
   display:grid;
-  grid-template-columns:repeat(6,1fr)
+  grid-template-columns:repeat(6,1fr);
+  box-shadow:0 -5px 20px rgba(89,73,66,.08);
 }
 
-.nav button{
-  background:none;
+.nav-btn{
   border:0;
-  padding:9px 2px 8px;
-  color:var(--muted);
+  background:none;
+  color:#806f67;
   font-size:10px;
-  font-weight:800
+  font-weight:800;
+  padding:5px 1px;
 }
 
-.nav button.active{color:var(--rose)}
-
-.navIcon{
+.nav-btn .nav-icon{
   display:block;
   font-size:21px;
-  margin-bottom:2px
+  margin-bottom:2px;
+}
+
+.nav-btn.active{
+  color:var(--rose-dark);
 }
 
 .back{
-  border:0;
-  background:none;
-  color:var(--rose);
+  margin-bottom:12px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.small{
+  font-size:13px;
+  color:var(--brown-light);
+}
+
+.center{
+  text-align:center;
+}
+
+.success{
+  color:var(--green);
+  font-weight:900;
+}
+
+.warning{
+  color:#9b7229;
   font-weight:800;
-  padding:0;
-  margin-bottom:10px
 }
 
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:78px;
-  transform:translateX(-50%);
-  background:#302725;
-  color:#fff;
-  padding:12px 16px;
-  border-radius:14px;
-  display:none;
-  z-index:80;
-  font-size:13px
-}
-
-@media(min-width:700px){
-  .nav{
-    left:50%;
-    right:auto;
-    width:680px;
-    transform:translateX(-50%);
-    border-radius:18px 18px 0 0
-  }
+.divider{
+  border:0;
+  border-top:1px solid #eee0dc;
+  margin:18px 0;
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-wrap">
 
-<header class="hero">
+      <img
+        class="logo-img"
+        id="logoImage"
+        src="file_0000000069f4822fa3dbc47f5a5b266f.png"
+        alt="Beyond the Chains"
+        onerror="this.style.display='none';document.getElementById('textLogo').style.display='block';"
+      >
 
-  <div class="topline">
-    <span>YOUR JOURNEY</span>
-    <span class="badge" id="streakBadge">0 day streak</span>
+      <div class="text-logo" id="textLogo">
+        BEYOND THE CHAINS
+        <span>BREAKING FREE • GROWING STRONG • WALKING WITH PURPOSE</span>
+      </div>
+
+    </div>
+
+    <div class="streak">
+      🔥 <span id="streakCount">0</span> day
+    </div>
   </div>
-
-  <img
-    class="logo"
-    src="file_0000000069f4822fa3dbc47f5a5b266f.png"
-    alt="Beyond the Chains"
-  >
-
-  <div class="tagline">
-    Breaking Free. Growing Strong. Walking with Purpose.
-  </div>
-
 </header>
 
 <main>
 
-<section id="home" class="page active">
+<!-- HOME -->
+<section id="homePage" class="page active">
 
-  <div class="card heroCard">
-
-    <div class="kicker">Welcome to your journey</div>
-
-    <h1>
-      One choice. One step. One day at a time.
-    </h1>
-
+  <div class="hero">
+    <h1>Welcome, Chain Breaker 💗</h1>
     <p>
-      This is your place to move, believe, heal and grow.
-      Start where you are. There is room here for every woman.
+      This is your place to move, heal, believe, grow and become the woman
+      you were created to be.
     </p>
-
-    <button class="btn primary" onclick="openDay(1)">
-      START TODAY'S WORKOUT →
-    </button>
-
-  </div>
-
-  <div class="sectionTitle">
-    <h2>Today</h2>
-    <span class="meta">
-      Day <b id="homeDay">1</b> of 30
-    </span>
   </div>
 
   <div class="card">
 
-    <div class="kicker">Walking Forward</div>
+    <div class="progress-row">
+      <span>30-Day Journey</span>
+      <span id="homeProgressText">0 / 30</span>
+    </div>
 
-    <h2>
-      Day <span id="todayNumber">1</span>
-    </h2>
-
-    <p id="todaySummary">
-      Start with a comfortable walk and build confidence.
-    </p>
-
-    <div class="grid2">
-
-      <button class="btn teal" onclick="showPage('move')">
-        💪 MOVE
-      </button>
-
-      <button class="btn soft" onclick="showPage('faith')">
-        ✝️ BELIEVE
-      </button>
-
+    <div class="progress-track">
+      <div class="progress-fill" id="homeProgress"></div>
     </div>
 
   </div>
 
   <div class="card">
 
-    <h2>Quick Menu</h2>
+    <h3>Today's Move 💪</h3>
 
-    <div class="grid2">
+    <p id="todayWorkoutName">
+      Strong Start
+    </p>
 
-      <button class="btn teal" onclick="goTo('move')">
-        💪 MOVE
-      </button>
+    <button class="btn btn-primary btn-full" onclick="openWorkout(state.currentDay)">
+      Start Today's Workout
+    </button>
 
-      <button class="btn soft" onclick="goTo('faith')">
-        ✝️ BELIEVE
-      </button>
+  </div>
 
-      <button class="btn soft" onclick="goTo('heal')">
-        🔓 HEAL
-      </button>
+  <h2 class="section-title">Your Space</h2>
 
-      <button class="btn primary" onclick="goTo('community')">
-        🦋 COMMUNITY
-      </button>
+  <div class="grid">
+
+    <button class="menu-card" onclick="showPage('move')">
+      <span class="icon">💪</span>
+      <strong>Move</strong>
+      <small>Workouts & challenges</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('believe')">
+      <span class="icon">🙏</span>
+      <strong>Believe</strong>
+      <small>Faith & encouragement</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('heal')">
+      <span class="icon">🌸</span>
+      <strong>Heal</strong>
+      <small>Self-care & reflection</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('community')">
+      <span class="icon">💞</span>
+      <strong>Community</strong>
+      <small>Women lifting women</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('grow')">
+      <span class="icon">🌱</span>
+      <strong>Progress</strong>
+      <small>See how far you've come</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('message')">
+      <span class="icon">💌</span>
+      <strong>Message Jodi</strong>
+      <small>Talk directly to Jodi</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('challenge')">
+      <span class="icon">🔥</span>
+      <strong>30-Day Challenge</strong>
+      <small>See the whole journey</small>
+    </button>
+
+    <button class="menu-card" onclick="showPage('nextChallenge')">
+      <span class="icon">🚀</span>
+      <strong>Next Challenge</strong>
+      <small>What's waiting next?</small>
+    </button>
+
+  </div>
+
+  <h2 class="section-title">Daily Check-In</h2>
+
+  <div class="card">
+
+    <div class="check-list">
+
+      <label class="check-item">
+        <input type="checkbox" id="checkMove" onchange="saveCheckIn()">
+        I moved my body today 💪
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" id="checkFaith" onchange="saveCheckIn()">
+        I spent time with God 🙏
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" id="checkChoice" onchange="saveCheckIn()">
+        I made one healthy choice 🌱
+      </label>
 
     </div>
 
-    <button class="btn outline" onclick="goTo('progress')">
-      📈 MY PROGRESS
-    </button>
-
   </div>
 
-  <div class="card">
-
-    <h2>🦋 Today's check-in</h2>
-
-    <label>
-      <input type="checkbox" id="cMove">
-      I moved my body
-    </label>
-
-    <br><br>
-
-    <label>
-      <input type="checkbox" id="cFaith">
-      I spent time with God
-    </label>
-
-    <br><br>
-
-    <label>
-      <input type="checkbox" id="cHeal">
-      I made one healthy choice
-    </label>
-
-    <button class="btn primary" onclick="saveCheckin()">
-      SAVE CHECK-IN
-    </button>
-
-  </div>
-
-  <div class="card">
-
-    <div class="kicker">A reminder</div>
-
-    <p class="quote">
-      You do not have to fix your whole life today.
-      You only have to take today's step.
-    </p>
-
+  <div class="quote">
+    “You don't have to become someone else. You get to become more fully you.”
   </div>
 
 </section>
 
 
-<section id="move" class="page">
+<!-- MOVE -->
+<section id="movePage" class="page">
 
-  <button class="back" onclick="showPage('home')">
+  <button class="btn btn-soft back" onclick="showPage('home')">
     ← Home
   </button>
 
-  <div class="card heroCard">
-
-    <div class="kicker">Move</div>
-
-    <h1>30-Day Foundation</h1>
-
+  <div class="hero">
+    <h1>Let's Move 🔥</h1>
     <p>
-      Choose your level and your setting.
-      Your workout should meet you where you are.
+      No boring routine. Every day brings something different.
+      Dance, strength, cardio, boxing, mobility, core and more.
     </p>
-
-  </div>
-
-  <div class="sectionTitle">
-    <h2>1. Choose your level</h2>
-  </div>
-
-  <div class="grid3">
-
-    <button
-      class="choice selected"
-      id="level1"
-      onclick="setLevel('beginner')"
-    >
-      🌱<br>
-      Beginner
-      <small>Low impact</small>
-    </button>
-
-    <button
-      class="choice"
-      id="level2"
-      onclick="setLevel('building')"
-    >
-      💪<br>
-      Building
-      <small>Moderate</small>
-    </button>
-
-    <button
-      class="choice"
-      id="level3"
-      onclick="setLevel('strong')"
-    >
-      🔥<br>
-      Strong
-      <small>Challenge</small>
-    </button>
-
-  </div>
-
-  <div class="sectionTitle">
-    <h2>2. Choose your setting</h2>
-  </div>
-
-  <div class="grid2">
-
-    <button
-      class="choice selected"
-      id="homeChoice"
-      onclick="setSetting('home')"
-    >
-      🏠<br>
-      At Home
-      <small>No gym required</small>
-    </button>
-
-    <button
-      class="choice"
-      id="gymChoice"
-      onclick="setSetting('gym')"
-    >
-      🏋️<br>
-      At the Gym
-      <small>Equipment options</small>
-    </button>
-
-  </div>
-
-  <div class="sectionTitle">
-
-    <h2>Your 30 days</h2>
-
-    <span class="meta">
-      Tap a day
-    </span>
-
-  </div>
-
-  <div id="dayList"></div>
-
-</section>
-
-
-<section id="dayDetail" class="page">
-
-  <button class="back" onclick="showPage('move')">
-    ← Back to 30 days
-  </button>
-
-  <div class="card heroCard">
-
-    <div class="kicker" id="detailKicker">
-      Day 1
-    </div>
-
-    <h1 id="detailTitle">
-      Walking Forward
-    </h1>
-
-    <p id="detailSummary"></p>
-
-    <div class="grid2">
-
-      <div class="stat">
-        <strong id="detailTime">25</strong>
-        <span>min</span>
-      </div>
-
-      <div class="stat">
-        <strong id="detailLevel">Beginner</strong>
-        <span>level</span>
-      </div>
-
-    </div>
-
   </div>
 
   <div class="card">
 
-    <h2>Choose your version</h2>
+    <h3>Your Level</h3>
 
-    <div class="grid2">
+    <div class="level-buttons">
 
-      <button
-        id="detailHomeBtn"
-        class="choice"
-        onclick="chooseDaySetting('home')"
-      >
+      <button class="level-btn active" id="levelBeginner"
+        onclick="setLevel('beginner')">
+        Beginner
+      </button>
+
+      <button class="level-btn" id="levelBuilding"
+        onclick="setLevel('building')">
+        Building
+      </button>
+
+      <button class="level-btn" id="levelStrong"
+        onclick="setLevel('strong')">
+        Strong
+      </button>
+
+    </div>
+
+    <h3>Where are we working?</h3>
+
+    <div class="setting-buttons">
+
+      <button class="setting-btn active" id="settingHome"
+        onclick="setSetting('home')">
+        🏠 At Home
+      </button>
+
+      <button class="setting-btn" id="settingGym"
+        onclick="setSetting('gym')">
+        🏋️ At Gym
+      </button>
+
+    </div>
+
+    <button class="btn btn-teal btn-full" onclick="surpriseWorkout()">
+      🎲 Surprise Me
+    </button>
+
+  </div>
+
+  <h2 class="section-title">30 Days of Workouts</h2>
+
+  <div id="workoutList" class="workout-list"></div>
+
+</section>
+
+
+<!-- WORKOUT DETAIL -->
+<section id="workoutPage" class="page">
+
+  <button class="btn btn-soft back" onclick="showPage('move')">
+    ← Back to Workouts
+  </button>
+
+  <div class="hero">
+
+    <h1 id="workoutTitle"></h1>
+
+    <p id="workoutSubtitle"></p>
+
+    <div class="setting-buttons">
+
+      <button class="setting-btn active" id="detailHome"
+        onclick="changeWorkoutSetting('home')">
         🏠 Home
       </button>
 
-      <button
-        id="detailGymBtn"
-        class="choice"
-        onclick="chooseDaySetting('gym')"
-      >
+      <button class="setting-btn" id="detailGym"
+        onclick="changeWorkoutSetting('gym')">
         🏋️ Gym
       </button>
 
     </div>
 
-    <p class="note">
-      Your exercises, modifications and gym weights update
-      automatically when you change this.
-    </p>
-
   </div>
 
-  <div class="card">
+  <div id="exerciseList"></div>
 
-    <h2>Today's exercises</h2>
+  <button class="btn btn-primary btn-full" onclick="startWorkout()">
+    ▶ Start Full Workout
+  </button>
 
-    <div id="exerciseList"></div>
+</section>
 
-    <button class="btn primary" onclick="completeDay()">
-      ✓ MARK DAY COMPLETE
-    </button>
+
+<!-- TIMER -->
+<section id="timerPage" class="page">
+
+  <div class="timer-box">
+
+    <div class="timer-type" id="timerType">
+      GET READY
+    </div>
+
+    <div class="small" id="timerExercise">
+      Let's go!
+    </div>
+
+    <div class="timer-number" id="timerNumber">
+      10
+    </div>
+
+    <div class="timer-progress">
+      <div id="timerProgress"></div>
+    </div>
+
+    <div class="small" id="timerSet">
+      Set 1
+    </div>
+
+    <div class="button-row" style="justify-content:center;margin-top:18px;">
+
+      <button class="btn btn-primary" id="pauseButton"
+        onclick="togglePause()">
+        ⏸ Pause
+      </button>
+
+      <button class="btn btn-teal"
+        onclick="skipTimer()">
+        ⏭ Skip
+      </button>
+
+      <button class="btn btn-soft"
+        onclick="stopWorkout()">
+        ✕ Stop
+      </button>
+
+    </div>
 
   </div>
 
 </section>
 
 
-<section id="faith" class="page">
+<!-- BELIEVE -->
+<section id="believePage" class="page">
 
-  <button class="back" onclick="showPage('home')">
+  <button class="btn btn-soft back" onclick="showPage('home')">
     ← Home
   </button>
 
-  <div class="card heroCard">
+  <div class="hero">
+    <h1>Believe 🙏</h1>
+    <p>
+      Strong bodies matter. Strong hearts matter too.
+    </p>
+  </div>
 
-    <div class="kicker">Believe</div>
+  <div class="card">
 
-    <h1>Walking With God</h1>
+    <h3>Today's Word</h3>
+
+    <div class="quote">
+      “I can do all things through Christ who strengthens me.”
+      <br><br>
+      <small>Philippians 4:13</small>
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>Today's Prayer</h3>
 
     <p>
-      You can bring your whole self here:
-      the strong days, the hard days and everything between.
+      Lord, help me release what I cannot control, strengthen me for what
+      I can change, and remind me that I don't have to walk this road alone.
+      Give me courage for today and hope for tomorrow. Amen. 💗
     </p>
 
   </div>
 
   <div class="card">
 
-    <div class="kicker">Today's verse</div>
-
-    <p class="quote">
-      “Be strong and courageous. Do not be afraid;
-      do not be discouraged, for the Lord your God
-      will be with you wherever you go.”
-    </p>
-
-    <p><b>Joshua 1:9</b></p>
-
-  </div>
-
-  <div class="card">
-
-    <h2>🙏 Today's prayer</h2>
-
-    <p>
-      Lord, help me take the next right step today.
-      Give me strength when I feel weak, peace when I feel
-      overwhelmed, and courage to keep moving forward.
-      Help me remember that I am never walking alone.
-      Amen.
-    </p>
-
-    <button class="btn teal" onclick="completeFaith()">
-      ✓ I SPENT TIME WITH GOD
-    </button>
-
-  </div>
-
-  <div class="card">
-
-    <h2>💗 Gratitude</h2>
+    <h3>Gratitude</h3>
 
     <textarea
       id="gratitude"
-      placeholder="Three things I'm thankful for..."
-    ></textarea>
-
-    <button
-      class="btn primary"
-      onclick="saveText('gratitude','Gratitude saved 💗')"
-    >
-      SAVE GRATITUDE
-    </button>
+      placeholder="What are you thankful for today?"
+      oninput="saveJournal()"></textarea>
 
   </div>
 
 </section>
 
 
-<section id="heal" class="page">
+<!-- HEAL -->
+<section id="healPage" class="page">
 
-  <button class="back" onclick="showPage('home')">
+  <button class="btn btn-soft back" onclick="showPage('home')">
     ← Home
   </button>
 
-  <div class="card heroCard">
-
-    <div class="kicker">Heal</div>
-
-    <h1>Recovery & Reflection</h1>
-
+  <div class="hero">
+    <h1>Heal 🌸</h1>
     <p>
-      Progress is not perfection.
-      Every honest check-in is a step forward.
+      Progress isn't only what happens in the gym.
+      Sometimes progress is drinking water, resting, praying,
+      forgiving yourself and starting again.
     </p>
-
   </div>
 
   <div class="card">
 
-    <h2>How am I feeling?</h2>
+    <h3>How are you feeling?</h3>
 
-    <div class="grid2">
+    <div class="mood-grid">
 
-      <button class="choice" onclick="mood('😊 Good')">
-        😊 Good
+      <button class="mood" onclick="setMood(this,'Strong 💪')">
+        💪<br>Strong
       </button>
 
-      <button class="choice" onclick="mood('🙂 Okay')">
-        🙂 Okay
+      <button class="mood" onclick="setMood(this,'Good 😊')">
+        😊<br>Good
       </button>
 
-      <button class="choice" onclick="mood('😔 Struggling')">
-        😔 Struggling
+      <button class="mood" onclick="setMood(this,'Tired 😴')">
+        😴<br>Tired
       </button>
 
-      <button class="choice" onclick="mood('🔥 Fighting')">
-        🔥 Fighting
+      <button class="mood" onclick="setMood(this,'Overwhelmed 🌧️')">
+        🌧️<br>Overwhelmed
+      </button>
+
+      <button class="mood" onclick="setMood(this,'Hopeful 🌱')">
+        🌱<br>Hopeful
+      </button>
+
+      <button class="mood" onclick="setMood(this,'Proud ❤️')">
+        ❤️<br>Proud
       </button>
 
     </div>
 
-    <p id="moodResult"></p>
+  </div>
+
+  <div class="card">
+
+    <h3>Self-Care Check</h3>
+
+    <div class="check-list">
+
+      <label class="check-item">
+        <input type="checkbox" onchange="saveSelfCare()">
+        💧 I drank enough water
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" onchange="saveSelfCare()">
+        🥗 I gave my body nourishing food
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" onchange="saveSelfCare()">
+        😴 I allowed myself to rest
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" onchange="saveSelfCare()">
+        🧠 I protected my peace
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" onchange="saveSelfCare()">
+        🙏 I made space for faith
+      </label>
+
+    </div>
 
   </div>
 
   <div class="card">
 
-    <h2>📝 Journal</h2>
-
-    <p>
-      What am I leaving behind,
-      and what kind of woman am I becoming?
-    </p>
+    <h3>Journal</h3>
 
     <textarea
       id="journal"
-      placeholder="Write honestly. This is your space."
-    ></textarea>
-
-    <button
-      class="btn primary"
-      onclick="saveText('journal','Journal saved 🦋')"
-    >
-      SAVE JOURNAL
-    </button>
+      placeholder="Write whatever is on your heart..."
+      oninput="saveJournal()"></textarea>
 
   </div>
 
   <div class="card">
 
-    <h2>🏆 Today's win</h2>
+    <h3>Today's Win 🏆</h3>
 
     <textarea
       id="win"
-      placeholder="Even a small win counts..."
-    ></textarea>
-
-    <button
-      class="btn teal"
-      onclick="saveText('win','Win saved 🏆')"
-    >
-      SAVE MY WIN
-    </button>
+      placeholder="Even the smallest win counts."
+      oninput="saveJournal()"></textarea>
 
   </div>
 
 </section>
 
 
-<section id="community" class="page">
+<!-- COMMUNITY -->
+<section id="communityPage" class="page">
 
-  <button class="back" onclick="showPage('home')">
+  <button class="btn btn-soft back" onclick="showPage('home')">
     ← Home
   </button>
 
-  <div class="card heroCard">
-
-    <div class="kicker">Community</div>
-
-    <h1>🦋 The Chain Breakers</h1>
-
+  <div class="hero">
+    <h1>Community 💞</h1>
     <p>
-      A place for encouragement, accountability,
-      prayer and celebrating the wins.
+      Nobody has to grow alone.
+      This is a space for encouragement, wins and starting again.
     </p>
+  </div>
+
+  <div class="card">
+
+    <h3>Chain Breaker Reminder</h3>
+
+    <div class="quote" id="communityQuote">
+      Your story isn't over. Keep going.
+    </div>
 
   </div>
 
   <div class="card">
 
-    <h2>Today's conversation</h2>
-
-    <div class="communityPost">
-
-      <div class="postHead">
-
-        <div class="avatar">S</div>
-
-        <div>
-          <b>Sarah</b>
-          <div class="meta">Today</div>
-        </div>
-
-      </div>
-
-      <p>
-        Day 8 done! I almost skipped it,
-        but I got up and did it. 🔥
-      </p>
-
-    </div>
-
-    <div class="communityPost">
-
-      <div class="postHead">
-
-        <div class="avatar">A</div>
-
-        <div>
-          <b>Amanda</b>
-          <div class="meta">Today</div>
-        </div>
-
-      </div>
-
-      <p>
-        That's a win! One day at a time. ❤️
-      </p>
-
-    </div>
+    <h3>Share Your Win</h3>
 
     <textarea
-      id="communityPost"
-      placeholder="Encourage another woman..."
-    ></textarea>
+      id="communityInput"
+      placeholder="Tell the Chain Breakers what you're proud of today..."></textarea>
 
     <button
-      class="btn primary"
-      onclick="toast('Community posting will be connected when the secure community backend is turned on.')"
-    >
-      POST
+      class="btn btn-primary btn-full"
+      style="margin-top:10px"
+      onclick="shareWin()">
+      Share My Win 💗
     </button>
 
   </div>
 
-  <div class="card">
+  <h2 class="section-title">Chain Breakers</h2>
 
-    <h2>💌 Message Jodi</h2>
-
-    <p>
-      Questions about your workout, motivation
-      or your journey? Send Jodi a private message.
-    </p>
-
-    <textarea
-      id="jodiMessage"
-      placeholder="Write your question here..."
-    ></textarea>
-
-    <button
-      class="btn teal"
-      onclick="toast('Private messaging is ready for the secure backend connection.')"
-    >
-      SEND PRIVATE MESSAGE
-    </button>
-
-  </div>
+  <div id="communityFeed"></div>
 
   <div class="card">
 
-    <h2>💡 Suggestion Box</h2>
+    <h3>Have an Idea?</h3>
 
-    <p>
-      What would make Beyond the Chains better for you?
+    <p class="small">
+      Tell Jodi what you'd love to see inside Beyond the Chains.
     </p>
 
     <textarea
       id="suggestion"
-      placeholder="Your idea, request or suggestion..."
-    ></textarea>
+      placeholder="Workout idea, feature idea, encouragement, anything..."></textarea>
 
     <button
-      class="btn primary"
-      onclick="saveText('suggestion','Suggestion saved 💡')"
-    >
-      SEND SUGGESTION
+      class="btn btn-teal btn-full"
+      style="margin-top:10px"
+      onclick="sendSuggestion()">
+      Send Suggestion
     </button>
 
   </div>
@@ -1043,699 +1303,1085 @@ textarea{
 </section>
 
 
-<section id="progress" class="page">
+<!-- GROW -->
+<section id="growPage" class="page">
 
-  <button class="back" onclick="showPage('home')">
+  <button class="btn btn-soft back" onclick="showPage('home')">
     ← Home
   </button>
 
-  <div class="card heroCard">
-
-    <div class="kicker">Grow</div>
-
-    <h1>Your Progress</h1>
-
+  <div class="hero">
+    <h1>Look How Far You've Come 🌱</h1>
     <p>
-      Every completed day adds another link to your journey.
+      Don't compare your chapter to somebody else's.
+      Look at your own growth.
     </p>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <div class="stat-number" id="statDays">0</div>
+      <div>Days Completed</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-number" id="statWorkouts">0</div>
+      <div>Workouts</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-number" id="statFaith">0</div>
+      <div>Faith Check-Ins</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-number" id="statSelfCare">0</div>
+      <div>Self-Care Days</div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:15px">
+
+    <h3>Your Broken Chain</h3>
+
+    <p class="small">
+      Every completed day adds another link.
+    </p>
+
+    <div class="chain" id="chainVisual">
+      ⛓️
+    </div>
 
   </div>
 
   <div class="card">
 
-    <div class="statGrid">
+    <h3>30-Day Progress</h3>
 
-      <div class="stat">
-        <strong id="pDays">0</strong>
-        <span>days</span>
-      </div>
+    <div class="progress-row">
+      <span>Journey</span>
+      <span id="growProgressText">0%</span>
+    </div>
 
-      <div class="stat">
-        <strong id="pWorkouts">0</strong>
-        <span>workouts</span>
-      </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="growProgress"></div>
+    </div>
 
-      <div class="stat">
-        <strong id="pFaith">0</strong>
-        <span>faith</span>
-      </div>
+  </div>
+
+</section>
+
+
+<!-- CHALLENGE -->
+<section id="challengePage" class="page">
+
+  <button class="btn btn-soft back" onclick="showPage('home')">
+    ← Home
+  </button>
+
+  <div class="hero">
+    <h1>30-Day Challenge 🔥</h1>
+    <p>
+      Thirty days. Thirty chances to choose yourself.
+    </p>
+  </div>
+
+  <div id="challengeList" class="workout-list"></div>
+
+</section>
+
+
+<!-- MESSAGE JODI -->
+<section id="messagePage" class="page">
+
+  <button class="btn btn-soft back" onclick="showPage('home')">
+    ← Home
+  </button>
+
+  <div class="hero">
+    <h1>Message Jodi 💌</h1>
+    <p>
+      Have a question, encouragement, idea or something you'd like to share?
+      Send it directly to Jodi.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <div class="form-group">
+
+      <label>Your Name</label>
+
+      <input
+        type="text"
+        id="messageName"
+        placeholder="Your name">
 
     </div>
 
-    <h2 style="margin-top:20px">
-      Your chain
-    </h2>
+    <div class="form-group">
 
-    <div class="chain" id="chain"></div>
+      <label>Your Message</label>
 
-    <p id="progressMessage">
-      Your next step is waiting.
+      <textarea
+        id="messageText"
+        placeholder="Write your message here..."></textarea>
+
+    </div>
+
+    <button
+      class="btn btn-primary btn-full"
+      onclick="messageJodi()">
+      💌 Message Jodi
+    </button>
+
+    <p class="small center" style="margin-top:12px">
+      Your email app will open with the message ready to send.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- NEXT CHALLENGE -->
+<section id="nextChallengePage" class="page">
+
+  <button class="btn btn-soft back" onclick="showPage('home')">
+    ← Home
+  </button>
+
+  <div class="hero">
+
+    <h1>Next Challenge 🚀</h1>
+
+    <p>
+      When you finish your first 30 days, you don't stop.
+      You rise.
     </p>
 
   </div>
 
   <div class="card">
 
-    <h2>🔓 Day 30</h2>
+    <h3>RISE & REBUILD</h3>
 
     <p>
-      Finish all 30 days and your journey becomes:
+      A four-week challenge built around strength, confidence,
+      consistency and purpose.
     </p>
 
-    <h1>CHAIN BROKEN</h1>
+    <div class="challenge-week">
+      <strong>Week 1 • RESET</strong>
+      <p>Clean up your routine and reconnect with your why.</p>
+    </div>
 
-    <p class="quote">
-      You didn't give up. You kept walking.
-    </p>
+    <div class="challenge-week">
+      <strong>Week 2 • BUILD</strong>
+      <p>Start challenging your body and your comfort zone.</p>
+    </div>
+
+    <div class="challenge-week">
+      <strong>Week 3 • BREAK THROUGH</strong>
+      <p>Push past the excuses that used to stop you.</p>
+    </div>
+
+    <div class="challenge-week">
+      <strong>Week 4 • RISE</strong>
+      <p>Celebrate the woman you're becoming.</p>
+    </div>
 
   </div>
 
 </section>
 
 </main>
-</div>
 
 
-<nav class="nav">
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
 
-  <div class="navInner">
+  <button class="nav-btn active" id="navHome"
+    onclick="showPage('home')">
+    <span class="nav-icon">🏠</span>
+    Home
+  </button>
 
-    <button onclick="goTo('home')" data-page="home">
-      <span class="navIcon">⌂</span>
-      Home
-    </button>
+  <button class="nav-btn" id="navMove"
+    onclick="showPage('move')">
+    <span class="nav-icon">💪</span>
+    Move
+  </button>
 
-    <button onclick="goTo('move')" data-page="move">
-      <span class="navIcon">💪</span>
-      Move
-    </button>
+  <button class="nav-btn" id="navBelieve"
+    onclick="showPage('believe')">
+    <span class="nav-icon">🙏</span>
+    Believe
+  </button>
 
-    <button onclick="goTo('faith')" data-page="faith">
-      <span class="navIcon">✝</span>
-      Believe
-    </button>
+  <button class="nav-btn" id="navHeal"
+    onclick="showPage('heal')">
+    <span class="nav-icon">🌸</span>
+    Heal
+  </button>
 
-    <button onclick="goTo('heal')" data-page="heal">
-      <span class="navIcon">🔓</span>
-      Heal
-    </button>
+  <button class="nav-btn" id="navGrow"
+    onclick="showPage('grow')">
+    <span class="nav-icon">🌱</span>
+    Grow
+  </button>
 
-    <button onclick="goTo('progress')" data-page="progress">
-      <span class="navIcon">📈</span>
-      Grow
-    </button>
-
-    <button onclick="goTo('community')" data-page="community">
-      <span class="navIcon">🦋</span>
-      Community
-    </button>
-
-  </div>
+  <button class="nav-btn" id="navCommunity"
+    onclick="showPage('community')">
+    <span class="nav-icon">💞</span>
+    Community
+  </button>
 
 </nav>
 
 
-<div class="toast" id="toast"></div>
-
-
 <script>
 
-const daysData = [
+/* =========================================================
+   BEYOND THE CHAINS
+   OWNER EMAIL
+   ========================================================= */
 
-["Walking Forward","Cardio","5 min warm-up • 1 min brisk + 2 min easy ×7 • 5 min cool-down"],
+const JODI_EMAIL = "jodicrowe1724@gmail.com";
 
-["Build Your Foundation","Strength","Strength workout • squats • glute bridges • rows • push-ups • plank"],
 
-["Keep Moving","Cardio","5 min warm-up • 90 sec brisk + 2 min easy ×7 • 5 min cool-down"],
+/* =========================================================
+   WORKOUT DATA
+   ========================================================= */
 
-["Recovery","Recovery","10–20 min easy walk • gentle stretching"],
+const workouts = [
 
-["Cardio","Cardio","5 min warm-up • 2 min brisk + 2 min easy ×6 • 5 min cool-down"],
+{
+day:1,
+title:"Strong Start",
+type:"Strength",
+setting:"gym",
+exercises:[
+{name:"Goblet Squat",sets:3,target:"12 reps",weights:["10 lb","20 lb","30 lb"],motion:"squat"},
+{name:"Dumbbell Chest Press",sets:3,target:"10 reps",weights:["8 lb each","15 lb each","25 lb each"],motion:"press"},
+{name:"Seated Cable Row",sets:3,target:"12 reps",weights:["25 lb","40 lb","60 lb"],motion:"row"},
+{name:"Walking Lunges",sets:3,target:"10 each leg",weights:["Bodyweight","10 lb each","20 lb each"],motion:"lunge"},
+{name:"Dead Bug",sets:3,target:"10 each side",weights:null,motion:"core"}
+]
+},
 
-["Stronger","Strength","Strength workout • squats • bridges • rows • push-ups • step-ups • plank"],
+{
+day:2,
+title:"Cardio Party",
+type:"Cardio",
+setting:"home",
+exercises:[
+{name:"Step Touch + Punch",sets:3,target:"45 sec",weights:null,motion:"cardio"},
+{name:"Standing Knee Drives",sets:3,target:"40 sec",weights:null,motion:"knee"},
+{name:"Skater Steps",sets:3,target:"40 sec",weights:null,motion:"skater"},
+{name:"Shadow Boxing",sets:4,target:"45 sec",weights:null,motion:"boxing"},
+{name:"Fast Feet",sets:4,target:"20 sec",weights:null,motion:"cardio"}
+]
+},
 
-["Rest + God","Rest","Rest • gratitude • reflection"],
+{
+day:3,
+title:"Booty Builder",
+type:"Glutes",
+setting:"gym",
+exercises:[
+{name:"Hip Thrust",sets:4,target:"10 reps",weights:["45 lb","75 lb","115 lb"],motion:"thrust"},
+{name:"Leg Press",sets:3,target:"12 reps",weights:["70 lb","120 lb","180 lb"],motion:"press"},
+{name:"Cable Kickback",sets:3,target:"15 each",weights:["5 lb","10 lb","20 lb"],motion:"kick"},
+{name:"Romanian Deadlift",sets:3,target:"10 reps",weights:["10 lb each","20 lb each","30 lb each"],motion:"hinge"},
+{name:"Banded Side Steps",sets:3,target:"20 each way",weights:["Light band","Medium band","Heavy band"],motion:"side"}
+]
+},
 
-["Cardio","Cardio","5 min warm-up • 2 min brisk + 90 sec easy ×8 • 5 min cool-down"],
+{
+day:4,
+title:"Core & Confidence",
+type:"Core",
+setting:"home",
+exercises:[
+{name:"Bear Plank Shoulder Tap",sets:3,target:"12 each",weights:null,motion:"core"},
+{name:"Bicycle Crunch",sets:3,target:"16 each",weights:null,motion:"core"},
+{name:"Plank Reach",sets:3,target:"10 each",weights:null,motion:"core"},
+{name:"Glute Bridge March",sets:3,target:"16 total",weights:null,motion:"bridge"},
+{name:"Dead Bug Press",sets:3,target:"10 each",weights:null,motion:"core"}
+]
+},
 
-["Strength","Strength","Strength workout • squats • bridges • rows • push-ups • lunges • plank"],
+{
+day:5,
+title:"Upper Body Glow-Up",
+type:"Upper Body",
+setting:"gym",
+exercises:[
+{name:"Lat Pulldown",sets:3,target:"12 reps",weights:["30 lb","50 lb","70 lb"],motion:"pull"},
+{name:"Dumbbell Shoulder Press",sets:3,target:"10 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"press"},
+{name:"Cable Triceps Pushdown",sets:3,target:"15 reps",weights:["10 lb","20 lb","30 lb"],motion:"push"},
+{name:"Dumbbell Curl",sets:3,target:"12 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"curl"},
+{name:"Battle Rope Waves",sets:4,target:"30 sec",weights:null,motion:"rope"}
+]
+},
 
-["Cardio","Cardio","5 min warm-up • 2 min brisk + 1 min easy ×10 • 5 min cool-down"],
+{
+day:6,
+title:"Fun Sweat Circuit",
+type:"Full Body",
+setting:"home",
+exercises:[
+{name:"Squat + Knee Lift",sets:3,target:"16 total",weights:null,motion:"squat"},
+{name:"Shadow Boxing Combo",sets:3,target:"45 sec",weights:null,motion:"boxing"},
+{name:"Curtsy Lunges",sets:3,target:"12 each",weights:null,motion:"lunge"},
+{name:"Inchworm",sets:3,target:"8 reps",weights:null,motion:"core"},
+{name:"Lateral Shuffle",sets:4,target:"30 sec",weights:null,motion:"cardio"}
+]
+},
 
-["Recovery","Recovery","15 min easy walk • stretch • journal"],
+{
+day:7,
+title:"Recovery & Reset",
+type:"Recovery",
+setting:"home",
+exercises:[
+{name:"Cat Cow",sets:2,target:"10 reps",weights:null,motion:"stretch"},
+{name:"World's Greatest Stretch",sets:2,target:"6 each",weights:null,motion:"stretch"},
+{name:"Glute Bridge",sets:3,target:"15 reps",weights:null,motion:"bridge"},
+{name:"Bird Dog",sets:3,target:"10 each",weights:null,motion:"core"},
+{name:"Standing Side Stretch",sets:2,target:"8 each",weights:null,motion:"stretch"}
+]
+},
 
-["Cardio","Cardio","5 min warm-up • 3 min brisk + 2 min easy ×6 • 5 min cool-down"],
+{
+day:8,
+title:"Back & Core Power",
+type:"Back + Core",
+setting:"gym",
+exercises:[
+{name:"Lat Pulldown",sets:3,target:"10 reps",weights:["30 lb","50 lb","75 lb"],motion:"pull"},
+{name:"Single Arm Dumbbell Row",sets:3,target:"12 each",weights:["10 lb","20 lb","30 lb"],motion:"row"},
+{name:"Pallof Press",sets:3,target:"12 each",weights:["10 lb","20 lb","30 lb"],motion:"press"},
+{name:"Back Extension",sets:3,target:"12 reps",weights:["Bodyweight","10 lb","20 lb"],motion:"hinge"},
+{name:"Farmer Carry",sets:3,target:"30 sec",weights:["10 lb each","20 lb each","30 lb each"],motion:"carry"}
+]
+},
 
-["Strength","Strength","Strength workout • squats • bridges • rows • push-ups • step-ups • plank"],
+{
+day:9,
+title:"Dance Cardio",
+type:"Dance",
+setting:"home",
+exercises:[
+{name:"Grapevine + Reach",sets:3,target:"45 sec",weights:null,motion:"dance"},
+{name:"Salsa Steps",sets:3,target:"45 sec",weights:null,motion:"dance"},
+{name:"Knee Repeater",sets:3,target:"40 sec",weights:null,motion:"knee"},
+{name:"Squat Pulse + Arms",sets:3,target:"40 sec",weights:null,motion:"squat"},
+{name:"Dance Freestyle",sets:2,target:"90 sec",weights:null,motion:"dance"}
+]
+},
 
-["Rest + Reflection","Rest","Rest • gratitude • reflection"],
+{
+day:10,
+title:"Leg Day Remix",
+type:"Legs",
+setting:"gym",
+exercises:[
+{name:"Bulgarian Split Squat",sets:3,target:"10 each",weights:["Bodyweight","10 lb each","20 lb each"],motion:"lunge"},
+{name:"Seated Leg Curl",sets:3,target:"12 reps",weights:["25 lb","40 lb","60 lb"],motion:"curl"},
+{name:"Leg Extension",sets:3,target:"12 reps",weights:["20 lb","35 lb","50 lb"],motion:"extension"},
+{name:"Cable Pull Through",sets:3,target:"15 reps",weights:["20 lb","35 lb","50 lb"],motion:"hinge"},
+{name:"Standing Calf Raise",sets:3,target:"15 reps",weights:["Bodyweight","20 lb","40 lb"],motion:"calf"}
+]
+},
 
-["Cardio","Cardio","5 min warm-up • 3 min brisk + 90 sec easy ×7 • 5 min cool-down"],
+{
+day:11,
+title:"Boxing & Burn",
+type:"Boxing",
+setting:"home",
+exercises:[
+{name:"Jab + Cross",sets:4,target:"40 sec",weights:null,motion:"boxing"},
+{name:"Hook Combo",sets:4,target:"40 sec",weights:null,motion:"boxing"},
+{name:"Uppercuts",sets:3,target:"40 sec",weights:null,motion:"boxing"},
+{name:"Squat Punches",sets:3,target:"40 sec",weights:null,motion:"squat"},
+{name:"Mountain Climbers",sets:3,target:"30 sec",weights:null,motion:"core"}
+]
+},
 
-["Strength","Strength","Strength workout • squats • bridges • rows • push-ups • lunges • plank"],
+{
+day:12,
+title:"Kettlebell Flow",
+type:"Kettlebell",
+setting:"gym",
+exercises:[
+{name:"Kettlebell Deadlift",sets:3,target:"12 reps",weights:["15 lb","25 lb","35 lb"],motion:"hinge"},
+{name:"Kettlebell Swing",sets:4,target:"15 reps",weights:["15 lb","25 lb","35 lb"],motion:"swing"},
+{name:"Goblet Squat",sets:3,target:"12 reps",weights:["10 lb","20 lb","30 lb"],motion:"squat"},
+{name:"Kettlebell Clean + Press",sets:3,target:"8 each",weights:["10 lb","15 lb","25 lb"],motion:"press"},
+{name:"Suitcase Carry",sets:3,target:"30 sec each",weights:["10 lb","20 lb","30 lb"],motion:"carry"}
+]
+},
 
-["Cardio","Cardio","5 min warm-up • 4 min brisk + 2 min easy ×5 • 5 min cool-down"],
+{
+day:13,
+title:"Push Power",
+type:"Chest + Shoulders",
+setting:"gym",
+exercises:[
+{name:"Incline Dumbbell Press",sets:3,target:"10 reps",weights:["8 lb each","15 lb each","25 lb each"],motion:"press"},
+{name:"Chest Fly",sets:3,target:"12 reps",weights:["10 lb","20 lb","30 lb"],motion:"fly"},
+{name:"Lateral Raise",sets:3,target:"15 reps",weights:["3 lb each","5 lb each","10 lb each"],motion:"raise"},
+{name:"Overhead Triceps Extension",sets:3,target:"12 reps",weights:["5 lb","10 lb","15 lb"],motion:"push"},
+{name:"Incline Push-Up",sets:3,target:"10 reps",weights:null,motion:"push"}
+]
+},
 
-["Recovery","Recovery","20 min comfortable walk • stretching"],
+{
+day:14,
+title:"Mobility + Faith",
+type:"Mobility",
+setting:"home",
+exercises:[
+{name:"90/90 Hip Switch",sets:2,target:"10 reps",weights:null,motion:"stretch"},
+{name:"Hip Flexor Stretch",sets:2,target:"30 sec each",weights:null,motion:"stretch"},
+{name:"Thoracic Rotation",sets:2,target:"8 each",weights:null,motion:"stretch"},
+{name:"Hamstring Sweep",sets:2,target:"10 each",weights:null,motion:"stretch"},
+{name:"Slow Breathing",sets:3,target:"45 sec",weights:null,motion:"breath"}
+]
+},
 
-["Cardio","Cardio","1 min brisk + 2 min easy ×8 • cool-down"],
+{
+day:15,
+title:"Full Body Ladder",
+type:"Full Body",
+setting:"gym",
+exercises:[
+{name:"Dumbbell Squat to Press",sets:3,target:"10 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"squat"},
+{name:"Dumbbell Row",sets:3,target:"12 reps",weights:["10 lb each","20 lb each","30 lb each"],motion:"row"},
+{name:"Step-Ups",sets:3,target:"10 each",weights:["Bodyweight","10 lb each","20 lb each"],motion:"step"},
+{name:"Romanian Deadlift",sets:3,target:"10 reps",weights:["10 lb each","20 lb each","30 lb each"],motion:"hinge"},
+{name:"Plank Dumbbell Drag",sets:3,target:"8 each",weights:["5 lb","10 lb","15 lb"],motion:"core"}
+]
+},
 
-["Strength","Strength","Strength workout • squats • bridges • rows • push-ups • step-ups • plank"],
+{
+day:16,
+title:"Cardio Kickbox",
+type:"Kickboxing",
+setting:"home",
+exercises:[
+{name:"Jab Cross",sets:3,target:"45 sec",weights:null,motion:"boxing"},
+{name:"Front Kicks",sets:3,target:"40 sec",weights:null,motion:"kick"},
+{name:"Knee Strikes",sets:3,target:"40 sec",weights:null,motion:"knee"},
+{name:"Lateral Punches",sets:3,target:"40 sec",weights:null,motion:"boxing"},
+{name:"Fast Feet",sets:4,target:"20 sec",weights:null,motion:"cardio"}
+]
+},
 
-["Rest","Rest","Rest • reflect • recover"],
+{
+day:17,
+title:"Hamstrings & Glutes",
+type:"Glutes + Hamstrings",
+setting:"gym",
+exercises:[
+{name:"Romanian Deadlift",sets:4,target:"10 reps",weights:["10 lb each","20 lb each","30 lb each"],motion:"hinge"},
+{name:"Seated Leg Curl",sets:3,target:"12 reps",weights:["25 lb","40 lb","60 lb"],motion:"curl"},
+{name:"Hip Thrust",sets:3,target:"12 reps",weights:["45 lb","75 lb","115 lb"],motion:"thrust"},
+{name:"Reverse Lunge",sets:3,target:"10 each",weights:["Bodyweight","10 lb each","20 lb each"],motion:"lunge"},
+{name:"Hip Abduction",sets:3,target:"15 reps",weights:["30 lb","50 lb","70 lb"],motion:"side"}
+]
+},
 
-["Cardio","Cardio","5 min warm-up • 5 min brisk + 2 min easy ×4"],
+{
+day:18,
+title:"Core + Cardio",
+type:"Core + Cardio",
+setting:"home",
+exercises:[
+{name:"Dead Bug",sets:3,target:"10 each",weights:null,motion:"core"},
+{name:"Heel Taps",sets:3,target:"20 total",weights:null,motion:"core"},
+{name:"Mountain Climbers",sets:4,target:"30 sec",weights:null,motion:"core"},
+{name:"Low Impact Plank Jack",sets:3,target:"30 sec",weights:null,motion:"core"},
+{name:"Bear Crawl",sets:3,target:"30 sec",weights:null,motion:"core"}
+]
+},
 
-["Strength","Strength","4 rounds • squats • bridges • rows • push-ups • lunges • plank"],
+{
+day:19,
+title:"Back & Biceps",
+type:"Pull",
+setting:"gym",
+exercises:[
+{name:"Lat Pulldown",sets:3,target:"12 reps",weights:["30 lb","50 lb","70 lb"],motion:"pull"},
+{name:"Seated Cable Row",sets:3,target:"12 reps",weights:["25 lb","40 lb","60 lb"],motion:"row"},
+{name:"Face Pull",sets:3,target:"15 reps",weights:["10 lb","20 lb","30 lb"],motion:"pull"},
+{name:"Incline Dumbbell Curl",sets:3,target:"12 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"curl"},
+{name:"Hammer Curl",sets:3,target:"12 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"curl"}
+]
+},
 
-["Cardio","Cardio","4 min brisk + 1 min easy ×6"],
+{
+day:20,
+title:"Low-Impact Sweat",
+type:"Low Impact",
+setting:"home",
+exercises:[
+{name:"March + Arms",sets:3,target:"60 sec",weights:null,motion:"cardio"},
+{name:"Side Step + Reach",sets:3,target:"45 sec",weights:null,motion:"side"},
+{name:"Chair Squat",sets:3,target:"12 reps",weights:null,motion:"squat"},
+{name:"Step Back + Reach",sets:3,target:"12 each",weights:null,motion:"step"},
+{name:"Standing Knee Crunch",sets:3,target:"16 total",weights:null,motion:"knee"}
+]
+},
 
-["Recovery","Recovery","20 min easy walk • stretching"],
+{
+day:21,
+title:"Recovery Flow",
+type:"Recovery",
+setting:"home",
+exercises:[
+{name:"Cat Cow",sets:2,target:"10 reps",weights:null,motion:"stretch"},
+{name:"Child's Pose",sets:2,target:"45 sec",weights:null,motion:"stretch"},
+{name:"Bird Dog",sets:3,target:"10 each",weights:null,motion:"core"},
+{name:"Glute Bridge",sets:3,target:"15 reps",weights:null,motion:"bridge"},
+{name:"Box Breathing",sets:3,target:"60 sec",weights:null,motion:"breath"}
+]
+},
 
-["Cardio Challenge","Cardio","5 min warm-up • 5 min brisk + 2 min easy ×4"],
+{
+day:22,
+title:"Strong Legs",
+type:"Legs",
+setting:"gym",
+exercises:[
+{name:"Smith Machine Squat",sets:3,target:"10 reps",weights:["45 lb","65 lb","95 lb"],motion:"squat"},
+{name:"Leg Press",sets:3,target:"12 reps",weights:["70 lb","120 lb","180 lb"],motion:"press"},
+{name:"Walking Lunges",sets:3,target:"12 each",weights:["Bodyweight","10 lb each","20 lb each"],motion:"lunge"},
+{name:"Leg Extension",sets:3,target:"15 reps",weights:["20 lb","35 lb","50 lb"],motion:"extension"},
+{name:"Calf Raise",sets:3,target:"18 reps",weights:["Bodyweight","20 lb","40 lb"],motion:"calf"}
+]
+},
 
-["Final Strength","Strength","4 rounds • squats • bridges • push-ups • rows • step-ups • plank"],
+{
+day:23,
+title:"Cardio Carnival",
+type:"Cardio",
+setting:"home",
+exercises:[
+{name:"Dance Step",sets:3,target:"45 sec",weights:null,motion:"dance"},
+{name:"Skater Reach",sets:3,target:"40 sec",weights:null,motion:"skater"},
+{name:"Punch Party",sets:3,target:"45 sec",weights:null,motion:"boxing"},
+{name:"Knee Drives",sets:3,target:"40 sec",weights:null,motion:"knee"},
+{name:"Toe Taps",sets:4,target:"30 sec",weights:null,motion:"cardio"}
+]
+},
 
-["Rest + Reflection","Rest","Rest • reflect on the woman you are becoming"],
+{
+day:24,
+title:"Dumbbell Full Body",
+type:"Full Body",
+setting:"home",
+exercises:[
+{name:"Dumbbell Thruster",sets:3,target:"10 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"squat"},
+{name:"Dumbbell RDL",sets:3,target:"12 reps",weights:["10 lb each","20 lb each","30 lb each"],motion:"hinge"},
+{name:"Dumbbell Row",sets:3,target:"12 reps",weights:["10 lb each","20 lb each","30 lb each"],motion:"row"},
+{name:"Reverse Lunge",sets:3,target:"10 each",weights:["Bodyweight","10 lb each","20 lb each"],motion:"lunge"},
+{name:"Floor Press",sets:3,target:"10 reps",weights:["8 lb each","15 lb each","25 lb each"],motion:"press"}
+]
+},
 
-["Your Choice","Choice","Choose cardio, strength, home workout or long walk"],
+{
+day:25,
+title:"Glute Focus",
+type:"Glutes",
+setting:"gym",
+exercises:[
+{name:"Hip Thrust",sets:4,target:"10 reps",weights:["45 lb","75 lb","115 lb"],motion:"thrust"},
+{name:"Step-Up",sets:3,target:"10 each",weights:["Bodyweight","10 lb each","20 lb each"],motion:"step"},
+{name:"Cable Kickback",sets:3,target:"15 each",weights:["5 lb","10 lb","20 lb"],motion:"kick"},
+{name:"Hip Abduction",sets:3,target:"20 reps",weights:["30 lb","50 lb","70 lb"],motion:"side"},
+{name:"Frog Pumps",sets:3,target:"20 reps",weights:["Bodyweight","10 lb","20 lb"],motion:"bridge"}
+]
+},
 
-["Break the Chain","Celebration","10 min easy walk • enjoyable activity 20–30 min • next goal"]
+{
+day:26,
+title:"Core Crusher",
+type:"Core",
+setting:"home",
+exercises:[
+{name:"Forearm Plank",sets:3,target:"30 sec",weights:null,motion:"core"},
+{name:"Reverse Crunch",sets:3,target:"12 reps",weights:null,motion:"core"},
+{name:"Bicycle Crunch",sets:3,target:"20 total",weights:null,motion:"core"},
+{name:"Toe Taps",sets:3,target:"20 total",weights:null,motion:"core"},
+{name:"Side Plank",sets:2,target:"25 sec each",weights:null,motion:"core"}
+]
+},
+
+{
+day:27,
+title:"Upper Body Sculpt",
+type:"Upper Body",
+setting:"gym",
+exercises:[
+{name:"Lat Pulldown",sets:3,target:"10 reps",weights:["30 lb","50 lb","70 lb"],motion:"pull"},
+{name:"Incline Chest Press",sets:3,target:"10 reps",weights:["8 lb each","15 lb each","25 lb each"],motion:"press"},
+{name:"Lateral Raise",sets:3,target:"15 reps",weights:["3 lb each","5 lb each","10 lb each"],motion:"raise"},
+{name:"Seated Row",sets:3,target:"12 reps",weights:["25 lb","40 lb","60 lb"],motion:"row"},
+{name:"Triceps Rope Pushdown",sets:3,target:"15 reps",weights:["10 lb","20 lb","30 lb"],motion:"push"},
+{name:"Dumbbell Curl",sets:3,target:"12 reps",weights:["5 lb each","10 lb each","15 lb each"],motion:"curl"}
+]
+},
+
+{
+day:28,
+title:"Adventure Circuit",
+type:"Circuit",
+setting:"home",
+exercises:[
+{name:"Step-Ups",sets:3,target:"45 sec",weights:null,motion:"step"},
+{name:"Suitcase March",sets:3,target:"40 sec",weights:["Light","Medium","Heavy"],motion:"carry"},
+{name:"Squat + Reach",sets:3,target:"45 sec",weights:null,motion:"squat"},
+{name:"Bear Crawl",sets:3,target:"30 sec",weights:null,motion:"core"},
+{name:"Shadow Boxing",sets:3,target:"45 sec",weights:null,motion:"boxing"}
+]
+},
+
+{
+day:29,
+title:"Your Favorite Moves",
+type:"Choose Your Favorites",
+setting:"home",
+exercises:[
+{name:"Favorite Squat",sets:3,target:"12 reps",weights:null,motion:"squat"},
+{name:"Favorite Upper Body Move",sets:3,target:"12 reps",weights:null,motion:"press"},
+{name:"Favorite Cardio Move",sets:3,target:"45 sec",weights:null,motion:"cardio"},
+{name:"Favorite Core Move",sets:3,target:"15 reps",weights:null,motion:"core"},
+{name:"Favorite Finisher",sets:3,target:"45 sec",weights:null,motion:"cardio"}
+]
+},
+
+{
+day:30,
+title:"CHAIN BREAKER CELEBRATION",
+type:"Celebration",
+setting:"home",
+exercises:[
+{name:"Victory Walk",sets:1,target:"120 sec",weights:null,motion:"cardio"},
+{name:"Dance Party",sets:3,target:"60 sec",weights:null,motion:"dance"},
+{name:"Squat + Reach",sets:3,target:"15 reps",weights:null,motion:"squat"},
+{name:"Shadow Boxing",sets:3,target:"45 sec",weights:null,motion:"boxing"},
+{name:"Core Finisher",sets:3,target:"30 sec",weights:null,motion:"core"},
+{name:"Victory Stretch",sets:2,target:"60 sec",weights:null,motion:"stretch"}
+]
+}
 
 ];
 
 
-/*
-VIDEO LIBRARY
+/* =========================================================
+   APP STATE
+   ========================================================= */
 
-The squat file you already uploaded is used for the
-home squat demonstration.
+let state = JSON.parse(
+  localStorage.getItem("btc_state") || "null"
+) || {
 
-Other demonstrations use openly licensed/public-domain
-exercise media when available.
+  currentDay:1,
+  completedDays:[],
+  workoutsCompleted:0,
+  faithCheckins:0,
+  selfCareDays:0,
+  streak:0,
+  level:"beginner",
+  setting:"home",
+  mood:"",
+  gratitude:"",
+  journal:"",
+  win:"",
+  checkMove:false,
+  checkFaith:false,
+  checkChoice:false,
+  community:[]
+};
 
-If a video does not load in Grit, the workout itself
-still works and we can swap that video later.
-*/
+let selectedWorkout = null;
 
-const videos = {
-
-  squat:{
-    home:"Muscle_Strengthening_at_Home_-_Half_squat.webm",
-
-    gym:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Squat%20-%20exercise%20demonstration%20video.webm"
-  },
-
-  bridge:{
-    home:"",
-    gym:""
-  },
-
-  row:{
-    home:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bent-over%20row%20-%20exercise%20demonstration%20video.webm",
-
-    gym:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bent-over%20row%20-%20exercise%20demonstration%20video.webm"
-  },
-
-  pushup:{
-    home:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Army%20Combat%20Fitness%20Test-%20Hand-Release%20Push-Up%20%28HRP%29%20%28Event%203%29.webm",
-
-    gym:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Army%20Combat%20Fitness%20Test-%20Hand-Release%20Push-Up%20%28HRP%29%20%28Event%203%29.webm"
-  },
-
-  reverseLunge:{
-    home:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dead%20Snatch%20into%20Reverse%20Lunge.webm",
-
-    gym:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dead%20Snatch%20into%20Reverse%20Lunge.webm"
-  },
-
-  stepUp:{
-    home:"",
-    gym:""
-  },
-
-  plank:{
-    home:"",
-    gym:""
-  },
-
-  walking:{
-    home:"",
-    gym:""
-  },
-
-  stretch:{
-    home:"",
-    gym:""
-  }
-
+let timer = {
+  running:false,
+  paused:false,
+  interval:null,
+  mode:"rep",
+  seconds:0,
+  total:0,
+  exerciseIndex:0,
+  setIndex:1,
+  workout:null
 };
 
 
-let state = JSON.parse(
-  localStorage.getItem("btcState") ||
-  '{"level":"beginner","setting":"home","completed":[],"faith":0,"checkins":0}'
-);
-
-state.completed =
-  Array.isArray(state.completed)
-  ? state.completed
-  : [];
-
-state.faith = Number(state.faith || 0);
-state.checkins = Number(state.checkins || 0);
-
+/* =========================================================
+   SAVE
+   ========================================================= */
 
 function saveState(){
 
   localStorage.setItem(
-    "btcState",
+    "btc_state",
     JSON.stringify(state)
   );
 
-  updateStats();
+  updateAll();
+
 }
 
 
-function toast(msg){
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
-  const t = document.getElementById("toast");
+function showPage(name){
 
-  t.textContent = msg;
-  t.style.display = "block";
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.remove("active");
+  });
 
-  clearTimeout(window.tt);
+  const page = document.getElementById(name+"Page");
 
-  window.tt = setTimeout(
-    () => t.style.display = "none",
-    2200
-  );
-}
-
-
-function goTo(id){
-
-  const target = document.getElementById(id);
-
-  if(!target){
-    return false;
+  if(page){
+    page.classList.add("active");
   }
 
-  document
-    .querySelectorAll(".page")
-    .forEach(x => x.classList.remove("active"));
+  document.querySelectorAll(".nav-btn").forEach(btn=>{
+    btn.classList.remove("active");
+  });
 
-  target.classList.add("active");
+  const nav = document.getElementById("nav"+capitalize(name));
 
-  document
-    .querySelectorAll(".nav button")
-    .forEach(x =>
-      x.classList.toggle(
-        "active",
-        x.dataset.page === id
-      )
-    );
-
-  window.scrollTo(0,0);
-
-  updateStats();
-
-  return false;
-}
-
-
-function showPage(id){
-  return goTo(id);
-}
-
-
-function setLevel(v){
-
-  state.level = v;
-
-  saveState();
-
-  document
-    .querySelectorAll("#level1,#level2,#level3")
-    .forEach(x =>
-      x.classList.remove("selected")
-    );
-
-  const id =
-    v === "beginner"
-      ? "level1"
-      : v === "building"
-      ? "level2"
-      : "level3";
-
-  document
-    .getElementById(id)
-    .classList.add("selected");
-
-  renderDays();
-
-  if(state.currentDay){
-    renderExercises(state.currentDay);
+  if(nav){
+    nav.classList.add("active");
   }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  updateAll();
 }
 
 
-function setSetting(v){
-
-  state.setting = v;
-
-  saveState();
-
-  document
-    .getElementById("homeChoice")
-    .classList.toggle(
-      "selected",
-      v === "home"
-    );
-
-  document
-    .getElementById("gymChoice")
-    .classList.toggle(
-      "selected",
-      v === "gym"
-    );
-
-  if(state.currentDay){
-
-    renderExercises(state.currentDay);
-
-    updateDaySettingButtons();
-
-  }
+function capitalize(str){
+  return str.charAt(0).toUpperCase()+str.slice(1);
 }
 
 
-function chooseDaySetting(v){
+/* =========================================================
+   LEVEL / SETTING
+   ========================================================= */
 
-  state.setting = v;
+function setLevel(level){
 
-  saveState();
+  state.level = level;
 
-  updateDaySettingButtons();
+  document.querySelectorAll(".level-btn")
+    .forEach(btn=>btn.classList.remove("active"));
 
-  renderExercises(state.currentDay);
-
-  toast(
-    v === "home"
-      ? "🏠 Home workout selected"
-      : "🏋️ Gym workout selected"
+  const btn = document.getElementById(
+    "level"+capitalize(level)
   );
 
+  if(btn){
+    btn.classList.add("active");
+  }
+
+  saveState();
+
+  renderWorkoutList();
+
+  if(selectedWorkout){
+    renderWorkoutDetail();
+  }
 }
 
 
-function updateDaySettingButtons(){
+function setSetting(setting){
 
-  const home =
-    document.getElementById("detailHomeBtn");
+  state.setting = setting;
 
-  const gym =
-    document.getElementById("detailGymBtn");
+  document.querySelectorAll(".setting-btn")
+    .forEach(btn=>{
+      if(btn.id.includes("detail")){
+        return;
+      }
+    });
 
-  if(home){
-    home.classList.toggle(
-      "selected",
-      state.setting === "home"
-    );
-  }
+  document.getElementById("settingHome")
+    ?.classList.toggle("active",setting==="home");
 
-  if(gym){
-    gym.classList.toggle(
-      "selected",
-      state.setting === "gym"
-    );
-  }
+  document.getElementById("settingGym")
+    ?.classList.toggle("active",setting==="gym");
 
+  saveState();
+
+  renderWorkoutList();
 }
 
 
-function renderDays(){
+function changeWorkoutSetting(setting){
 
-  const el =
-    document.getElementById("dayList");
+  state.setting = setting;
 
-  if(!el){
+  document.getElementById("detailHome")
+    ?.classList.toggle("active",setting==="home");
+
+  document.getElementById("detailGym")
+    ?.classList.toggle("active",setting==="gym");
+
+  saveState();
+
+  renderWorkoutDetail();
+}
+
+
+/* =========================================================
+   WORKOUT LIST
+   ========================================================= */
+
+function renderWorkoutList(){
+
+  const list = document.getElementById("workoutList");
+
+  if(!list){
     return;
   }
 
-  el.innerHTML = "";
+  list.innerHTML = workouts.map(day=>{
 
-  daysData.forEach((d,i)=>{
+    const completed =
+      state.completedDays.includes(day.day);
 
-    const n = i + 1;
+    const isCurrent =
+      day.day === state.currentDay;
 
-    const done =
-      state.completed.includes(n);
-
-    const div =
-      document.createElement("div");
-
-    div.className = "dayCard";
-
-    div.innerHTML = `
-
-      <div class="dayRow">
-
-        <div class="dayNum">
-          ${n}
-        </div>
-
-        <div>
-
-          <h3>
-            ${d[0]}
-          </h3>
-
-          <div class="meta">
-            ${d[1]} •
-            ${done ? "✓ Complete" : "Ready when you are"}
-          </div>
-
-        </div>
-
-      </div>
-
-      <p>
-        ${d[2]}
-      </p>
+    return `
 
       <button
-        class="btn ${done ? "soft" : "primary"}"
-        onclick="openDay(${n})"
-      >
-        ${done ? "REPEAT DAY" : "OPEN DAY →"}
+        class="workout-day"
+        onclick="openWorkout(${day.day})">
+
+        <div class="workout-day-top">
+
+          <div class="day-number">
+            ${day.day}
+          </div>
+
+          <div class="workout-meta">
+
+            <strong>
+              ${day.title}
+            </strong>
+
+            <small>
+              ${day.type}
+              • ${day.setting==="gym"?"🏋️ Gym":"🏠 Home"}
+            </small>
+
+            ${
+              isCurrent
+              ? `<small style="display:block;color:var(--rose-dark);font-weight:900;margin-top:4px">
+                   ⭐ TODAY
+                 </small>`
+              :""
+            }
+
+          </div>
+
+          ${
+            completed
+            ? `<div class="done-check">✓</div>`
+            :""
+          }
+
+        </div>
+
       </button>
-
     `;
 
-    el.appendChild(div);
-
-  });
+  }).join("");
 
 }
 
 
-function openDay(n){
+/* =========================================================
+   OPEN WORKOUT
+   ========================================================= */
 
-  state.currentDay = n;
+function openWorkout(dayNumber){
 
-  saveState();
+  selectedWorkout =
+    workouts.find(w=>w.day===dayNumber);
 
-  const d =
-    daysData[n - 1];
+  if(!selectedWorkout){
+    return;
+  }
 
-  showPage("dayDetail");
+  state.currentDay = dayNumber;
 
-  document
-    .getElementById("detailKicker")
-    .textContent =
-      `DAY ${n} • ${d[1].toUpperCase()}`;
+  showPage("workout");
 
-  document
-    .getElementById("detailTitle")
-    .textContent =
-      d[0];
-
-  document
-    .getElementById("detailSummary")
-    .textContent =
-      d[2];
-
-  document
-    .getElementById("detailTime")
-    .textContent =
-      n === 30
-        ? "30"
-        : n % 7 === 0
-        ? "Rest"
-        : "25";
-
-  document
-    .getElementById("detailLevel")
-    .textContent =
-      state.level === "beginner"
-        ? "Beginner"
-        : state.level === "building"
-        ? "Building"
-        : "Strong";
-
-  updateDaySettingButtons();
-
-  renderExercises(n);
+  renderWorkoutDetail();
 
 }
 
 
-function exercise(
-  name,
-  reps,
-  desc,
-  videoKey,
-  weights = null
-){
+/* =========================================================
+   WORKOUT DETAIL
+   ========================================================= */
 
-  const setting =
-    state.setting || "home";
+function renderWorkoutDetail(){
 
-  const level =
-    state.level || "beginner";
-
-  const video =
-    videos[videoKey]
-      ? videos[videoKey][setting]
-      : "";
-
-  let media = "";
-
-  if(video){
-
-    media = `
-
-      <div class="video">
-
-        <video
-          controls
-          playsinline
-          preload="metadata"
-        >
-
-          <source
-            src="${video}"
-            type="video/webm"
-          >
-
-          Your browser does not support
-          this video.
-          
-        </video>
-
-        <div class="videoTitle">
-          ▶ ${name} demonstration
-        </div>
-
-      </div>
-
-    `;
-
-  }else{
-
-    media = `
-
-      <div class="video">
-
-        <div class="videoPlaceholder">
-
-          <div style="font-size:30px">
-            ${setting === "home" ? "🏠" : "🏋️"}
-          </div>
-
-          <strong>
-            ${setting === "home"
-              ? "HOME DEMONSTRATION"
-              : "GYM DEMONSTRATION"}
-          </strong>
-
-          <div style="
-            font-size:12px;
-            margin-top:6px;
-            opacity:.9;
-          ">
-            Follow the written form cues below.
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-
+  if(!selectedWorkout){
+    return;
   }
 
+  document.getElementById("workoutTitle").textContent =
+    `Day ${selectedWorkout.day}: ${selectedWorkout.title}`;
 
-  let weightHTML = "";
+  document.getElementById("workoutSubtitle").textContent =
+    `${selectedWorkout.type} • ${
+      selectedWorkout.setting==="gym"
+      ?"Gym workout"
+      :"At-home workout"
+    } • ${levelName()}`;
+
+  document.getElementById("detailHome")
+    ?.classList.toggle(
+      "active",
+      state.setting==="home"
+    );
+
+  document.getElementById("detailGym")
+    ?.classList.toggle(
+      "active",
+      state.setting==="gym"
+    );
+
+  const container =
+    document.getElementById("exerciseList");
+
+  container.innerHTML =
+    selectedWorkout.exercises.map((ex,index)=>{
+
+      const weight =
+        ex.weights
+        ? ex.weights[levelIndex()]
+        : null;
+
+      return `
+
+        <div class="exercise">
+
+          <div class="exercise-header">
+
+            <div class="exercise-number">
+              ${index+1}
+            </div>
+
+            <div class="exercise-info">
+
+              <h3>
+                ${ex.name}
+              </h3>
+
+              <div class="exercise-target">
+                ${ex.sets} sets • ${ex.target}
+              </div>
+
+            </div>
+
+          </div>
+
+          ${demoHTML(ex.motion)}
+
+          ${
+            weight
+            ? `
+              <div class="weight-box">
+                Suggested ${levelName()} weight:
+                <strong>${weight}</strong>
+              </div>
+            `
+            :""
+          }
+
+        </div>
+      `;
+
+    }).join("");
+
+}
 
 
-  if(
-    setting === "gym" &&
-    weights &&
-    weights[level]
-  ){
+function levelName(){
 
-    weightHTML = `
-
-      <div class="weightBox">
-
-        🏋️ Starting weight:
-        ${weights[level]}
-
-        <small>
-          Start at the lower end if you're new.
-          The weight should feel challenging while
-          allowing every rep to stay controlled.
-        </small>
-
-      </div>
-
-    `;
-
+  if(state.level==="beginner"){
+    return "Beginner";
   }
 
+  if(state.level==="building"){
+    return "Building";
+  }
+
+  return "Strong";
+}
+
+
+function levelIndex(){
+
+  if(state.level==="beginner"){
+    return 0;
+  }
+
+  if(state.level==="building"){
+    return 1;
+  }
+
+  return 2;
+}
+
+
+/* =========================================================
+   DEMO
+   ========================================================= */
+
+function demoHTML(motion){
 
   return `
 
-    <div class="exercise">
+    <div class="demo">
 
-      <div class="exerciseTop">
-
-        <h3>
-          ${name}
-        </h3>
-
-        <span class="reps">
-          ${reps}
-        </span>
-
+      <div class="demo-label">
+        DEMO PREVIEW • AI-READY
       </div>
 
-      <p>
-        ${desc}
-      </p>
+      <div class="person">
 
-      ${weightHTML}
+        <div class="head"></div>
+        <div class="hair"></div>
+        <div class="body"></div>
 
-      ${media}
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+
+      </div>
 
     </div>
 
@@ -1744,534 +2390,910 @@ function exercise(
 }
 
 
-function renderExercises(n){
+/* =========================================================
+   SURPRISE ME
+   ========================================================= */
 
-  const level =
-    state.level || "beginner";
+function surpriseWorkout(){
 
-  const setting =
-    state.setting || "home";
+  const available =
+    workouts.filter(w=>
+      w.setting===state.setting
+    );
+
+  const random =
+    available[
+      Math.floor(
+        Math.random()*available.length
+      )
+    ];
+
+  openWorkout(random.day);
+
+}
+
+
+/* =========================================================
+   FULL WORKOUT TIMER
+   ========================================================= */
+
+function startWorkout(){
+
+  if(!selectedWorkout){
+    return;
+  }
+
+  timer.workout =
+    selectedWorkout;
+
+  timer.exerciseIndex = 0;
+  timer.setIndex = 1;
+  timer.running = true;
+  timer.paused = false;
+
+  showPage("timer");
+
+  beginExercise();
+
+}
+
+
+function beginExercise(){
+
+  if(!timer.workout){
+    return;
+  }
+
+  const exercise =
+    timer.workout.exercises[
+      timer.exerciseIndex
+    ];
+
+  if(!exercise){
+
+    finishWorkout();
+
+    return;
+  }
+
+  const target =
+    exercise.target;
+
+  let seconds =
+    parseTargetSeconds(target);
+
+  timer.mode =
+    seconds
+    ? "time"
+    : "rep";
+
+  timer.seconds =
+    seconds || parseRepCount(target);
+
+  timer.total =
+    timer.seconds;
+
+  updateTimerDisplay();
+
+  clearInterval(timer.interval);
+
+  timer.interval =
+    setInterval(()=>{
+
+      if(
+        !timer.running ||
+        timer.paused
+      ){
+        return;
+      }
+
+      timer.seconds--;
+
+      updateTimerDisplay();
+
+      if(timer.seconds<=0){
+
+        clearInterval(timer.interval);
+
+        restPeriod();
+
+      }
+
+    },1000);
+
+}
+
+
+function parseTargetSeconds(target){
+
+  const match =
+    target.match(/(\d+)\s*sec/i);
+
+  if(match){
+    return Number(match[1]);
+  }
+
+  const match2 =
+    target.match(/(\d+)\s*min/i);
+
+  if(match2){
+    return Number(match2[1])*60;
+  }
+
+  return null;
+}
+
+
+function parseRepCount(target){
+
+  const match =
+    target.match(/(\d+)/);
+
+  if(match){
+    return Number(match[1]);
+  }
+
+  return 10;
+}
+
+
+/* =========================================================
+   REST
+   ========================================================= */
+
+function restPeriod(){
+
+  timer.mode="rest";
+  timer.seconds=20;
+  timer.total=20;
+
+  updateTimerDisplay();
+
+  clearInterval(timer.interval);
+
+  timer.interval =
+    setInterval(()=>{
+
+      if(
+        !timer.running ||
+        timer.paused
+      ){
+        return;
+      }
+
+      timer.seconds--;
+
+      updateTimerDisplay();
+
+      if(timer.seconds<=0){
+
+        clearInterval(timer.interval);
+
+        advanceExercise();
+
+      }
+
+    },1000);
+
+}
+
+
+function advanceExercise(){
+
+  const exercise =
+    timer.workout.exercises[
+      timer.exerciseIndex
+    ];
+
+  if(timer.setIndex < exercise.sets){
+
+    timer.setIndex++;
+
+    beginExercise();
+
+    return;
+
+  }
+
+  timer.exerciseIndex++;
+  timer.setIndex=1;
+
+  beginExercise();
+
+}
+
+
+/* =========================================================
+   TIMER DISPLAY
+   ========================================================= */
+
+function updateTimerDisplay(){
 
   const type =
-    daysData[n - 1][1];
+    document.getElementById("timerType");
 
-  let list = "";
+  const exerciseName =
+    document.getElementById("timerExercise");
 
+  const number =
+    document.getElementById("timerNumber");
 
-  if(type === "Cardio"){
+  const set =
+    document.getElementById("timerSet");
 
-    const cardio =
-      level === "beginner"
-        ? {
-            interval:"1 min brisk + 2 min easy × 6",
-            total:"20–25 minutes"
-          }
-        : level === "building"
-        ? {
-            interval:"2 min brisk + 1 min easy × 8",
-            total:"25–30 minutes"
-          }
-        : {
-            interval:"3 min brisk + 1 min easy × 8",
-            total:"30–35 minutes"
-          };
+  const progress =
+    document.getElementById("timerProgress");
 
+  if(!number){
+    return;
+  }
 
-    list += exercise(
-      "Warm-Up Walk",
-      "5 minutes",
-      "Start at an easy pace. Gradually increase your speed.",
-      "walking"
-    );
+  if(timer.mode==="rest"){
 
+    type.textContent="REST & BREATHE 🌸";
 
-    list += exercise(
-      "Brisk Walk / Jog Intervals",
-      cardio.interval,
-      level === "beginner"
-        ? "Stay at a comfortable walking pace. No jogging required."
-        : level === "building"
-        ? "Walk briskly. Add short jogs only if comfortable."
-        : "Walk briskly and add short controlled jogs if desired.",
-      "walking"
-    );
+    exerciseName.textContent="Recover for the next round";
 
+  }else{
 
-    list += exercise(
-      "Cool-Down",
-      "5 minutes",
-      "Slow your pace gradually and allow your breathing to settle.",
-      "walking"
-    );
+    const exercise =
+      timer.workout?.exercises[
+        timer.exerciseIndex
+      ];
 
+    type.textContent =
+      timer.mode==="time"
+      ? "MOVE!"
+      :"REPS!";
 
-    list += `
-
-      <div class="note">
-        ⏱️ Target workout time:
-        <b>${cardio.total}</b>
-      </div>
-
-    `;
+    exerciseName.textContent =
+      exercise?.name || "";
 
   }
 
+  number.textContent =
+    timer.seconds;
 
-  else if(type === "Strength"){
+  set.textContent =
+    timer.mode==="rest"
+    ? "Rest"
+    : `Set ${timer.setIndex}`;
 
-    const workouts = {
+  const percentage =
+    timer.total
+    ? ((timer.total-timer.seconds)/timer.total)*100
+    : 0;
 
-      beginner:{
-        squat:"10 reps × 3 sets",
-        bridge:"12 reps × 3 sets",
-        row:"10 reps × 3 sets",
-        pushup:"8 reps × 3 sets",
-        leg:"8 each side × 3 sets",
-        plank:"20 seconds × 3 sets"
-      },
+  progress.style.width =
+    Math.min(100,Math.max(0,percentage))+"%";
 
-      building:{
-        squat:"12 reps × 3 sets",
-        bridge:"15 reps × 3 sets",
-        row:"12 reps × 3 sets",
-        pushup:"10 reps × 3 sets",
-        leg:"10 each side × 3 sets",
-        plank:"30 seconds × 3 sets"
-      },
-
-      strong:{
-        squat:"15 reps × 4 sets",
-        bridge:"15 reps × 4 sets",
-        row:"12 reps × 4 sets",
-        pushup:"12 reps × 4 sets",
-        leg:"12 each side × 4 sets",
-        plank:"45 seconds × 4 sets"
-      }
-
-    };
+}
 
 
-    const w =
-      workouts[level];
+/* =========================================================
+   TIMER CONTROLS
+   ========================================================= */
+
+function togglePause(){
+
+  timer.paused =
+    !timer.paused;
+
+  document.getElementById("pauseButton")
+    .textContent =
+      timer.paused
+      ? "▶ Resume"
+      : "⏸ Pause";
+
+}
 
 
-    list += exercise(
-      "Squat",
-      w.squat,
-      setting === "home"
-        ? "Bodyweight squat. Use a sturdy chair for support if needed."
-        : "Use a dumbbell, barbell or Smith machine. Keep your knees tracking over your feet.",
-      "squat",
-      {
-        beginner:"10–20 lb",
-        building:"20–40 lb",
-        strong:"30–60 lb"
-      }
+function skipTimer(){
+
+  clearInterval(timer.interval);
+
+  if(timer.mode==="rest"){
+
+    advanceExercise();
+
+  }else{
+
+    restPeriod();
+
+  }
+
+}
+
+
+function stopWorkout(){
+
+  clearInterval(timer.interval);
+
+  timer.running=false;
+  timer.paused=false;
+
+  showPage("move");
+
+}
+
+
+function finishWorkout(){
+
+  clearInterval(timer.interval);
+
+  timer.running=false;
+
+  if(
+    !state.completedDays.includes(
+      timer.workout.day
+    )
+  ){
+
+    state.completedDays.push(
+      timer.workout.day
     );
 
+    state.workoutsCompleted++;
 
-    list += exercise(
-      "Glute Bridge",
-      w.bridge,
-      setting === "home"
-        ? "Lie on your back with knees bent. Drive through your heels and squeeze your glutes at the top."
-        : "Use a dumbbell or barbell across the hips if comfortable.",
-      "bridge",
-      {
-        beginner:"10–20 lb",
-        building:"20–40 lb",
-        strong:"40–70 lb"
-      }
+  }
+
+  state.currentDay =
+    Math.min(
+      30,
+      timer.workout.day+1
     );
 
+  state.streak =
+    state.completedDays.length;
 
-    list += exercise(
-      setting === "gym"
-        ? "Cable / Dumbbell Row"
-        : "Bent-Over Row",
-      w.row,
-      "Keep your back neutral. Pull toward your ribs and lower slowly.",
-      "row",
-      {
-        beginner:"5–10 lb each hand",
-        building:"10–20 lb each hand",
-        strong:"15–30 lb each hand"
-      }
+  saveState();
+
+  showCompletionMessage();
+
+}
+
+
+function showCompletionMessage(){
+
+  showPage("grow");
+
+  setTimeout(()=>{
+
+    alert(
+      "CHAIN BREAKER! 🔥\n\n" +
+      "You finished your workout.\n\n" +
+      "You showed up for yourself today. Keep going!"
     );
 
+  },300);
 
-    list += exercise(
-      "Push-Up",
-      w.pushup,
-      setting === "home"
-        ? "Beginner: wall. Building: counter. Strong: floor or knees as needed."
-        : "Use a bench or elevated surface if needed.",
-      "pushup"
+}
+
+
+/* =========================================================
+   CHECK-IN
+   ========================================================= */
+
+function saveCheckIn(){
+
+  const move =
+    document.getElementById("checkMove");
+
+  const faith =
+    document.getElementById("checkFaith");
+
+  const choice =
+    document.getElementById("checkChoice");
+
+  state.checkMove =
+    move?.checked || false;
+
+  state.checkFaith =
+    faith?.checked || false;
+
+  state.checkChoice =
+    choice?.checked || false;
+
+  saveState();
+
+}
+
+
+/* =========================================================
+   MOOD
+   ========================================================= */
+
+function setMood(button,mood){
+
+  document.querySelectorAll(".mood")
+    .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  state.mood=mood;
+
+  saveState();
+
+}
+
+
+/* =========================================================
+   SELF CARE
+   ========================================================= */
+
+function saveSelfCare(){
+
+  const checks =
+    document.querySelectorAll(
+      "#healPage .check-item input"
     );
 
+  const completed =
+    Array.from(checks)
+      .filter(c=>c.checked)
+      .length;
 
-    if(n % 2 === 1){
+  if(completed>=3){
 
-      list += exercise(
-        "Step-Up",
-        w.leg,
-        setting === "home"
-          ? "Use a sturdy step. Hold a wall or railing for balance."
-          : "Use a stable gym step or platform.",
-        "stepUp",
-        {
-          beginner:"Bodyweight or 5 lb each hand",
-          building:"5–15 lb each hand",
-          strong:"10–25 lb each hand"
-        }
+    state.selfCareDays =
+      Math.max(
+        state.selfCareDays,
+        state.completedDays.length+1
       );
 
-    }else{
-
-      list += exercise(
-        "Reverse Lunge",
-        w.leg,
-        setting === "home"
-          ? "Use a wall or chair for balance if needed."
-          : "Hold dumbbells only if you can maintain excellent balance and control.",
-        "reverseLunge",
-        {
-          beginner:"Bodyweight or 5 lb each hand",
-          building:"5–15 lb each hand",
-          strong:"10–25 lb each hand"
-        }
-      );
-
-    }
-
-
-    list += exercise(
-      "Plank",
-      w.plank,
-      setting === "home"
-        ? "Use knees or an elevated surface if needed."
-        : "Use a mat or elevated surface if needed.",
-      "plank"
-    );
-
-
-    list += `
-
-      <div class="note">
-        💡 <b>Weight rule:</b>
-        These are starting ranges, not requirements.
-        If you cannot complete every rep with controlled
-        form, lower the weight. If the final reps feel
-        very easy, increase slightly next time.
-      </div>
-
-    `;
-
   }
 
+  saveState();
 
-  else if(type === "Recovery"){
+}
 
-    list += exercise(
-      "Easy Walk",
-      "10–20 minutes",
-      "Comfortable recovery pace.",
-      "walking"
-    );
 
-    list += exercise(
-      "Gentle Stretch",
-      "5–10 minutes",
-      "Move slowly. Never force a painful range.",
-      "stretch"
-    );
+/* =========================================================
+   JOURNAL
+   ========================================================= */
 
+function saveJournal(){
+
+  state.gratitude =
+    document.getElementById("gratitude")
+      ?.value || "";
+
+  state.journal =
+    document.getElementById("journal")
+      ?.value || "";
+
+  state.win =
+    document.getElementById("win")
+      ?.value || "";
+
+  saveState();
+
+}
+
+
+/* =========================================================
+   COMMUNITY
+   ========================================================= */
+
+const communityQuotes = [
+
+  "Your story isn't over. Keep going.",
+  "You are allowed to start again.",
+  "Small steps still move you forward.",
+  "Your comeback can be stronger than your setback.",
+  "You don't have to be perfect to make progress.",
+  "One healthy choice can change the direction of a day.",
+  "You are stronger than the version of you that gave up.",
+  "Keep becoming."
+
+];
+
+function shareWin(){
+
+  const input =
+    document.getElementById("communityInput");
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    alert("Write your win first 💗");
+
+    return;
   }
 
+  state.community.unshift({
 
-  else if(type === "Rest"){
+    text:text,
 
-    list = `
+    date:new Date().toLocaleDateString()
 
-      <div class="note">
+  });
 
-        ❤️ <b>REST DAY</b>
+  input.value="";
 
-        <br><br>
+  saveState();
 
-        Hydrate, breathe, reflect and let your body recover.
+  renderCommunity();
 
-        <br><br>
+}
 
-        You are still making progress today.
 
-      </div>
+function sendSuggestion(){
 
-    `;
+  const input =
+    document.getElementById("suggestion");
 
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    alert("Write your suggestion first 💗");
+
+    return;
   }
 
-
-  else if(type === "Choice"){
-
-    list += exercise(
-      "Your Choice",
-      "20–30 minutes",
-      "Choose a safe activity that makes you feel strong and proud.",
-      "walking"
+  const subject =
+    encodeURIComponent(
+      "Beyond the Chains Suggestion"
     );
 
+  const body =
+    encodeURIComponent(
+      text
+    );
+
+  window.location.href =
+    `mailto:${JODI_EMAIL}?subject=${subject}&body=${body}`;
+
+}
+
+
+function renderCommunity(){
+
+  const feed =
+    document.getElementById("communityFeed");
+
+  if(!feed){
+    return;
   }
 
+  const posts =
+    state.community || [];
 
-  else{
+  if(!posts.length){
 
-    list += exercise(
-      "Celebration Walk",
-      "10 minutes",
-      "Easy comfortable movement.",
-      "walking"
-    );
+    feed.innerHTML = `
 
-    list += `
+      <div class="community-post">
 
-      <div class="card heroCard">
-
-        <h2>🦋 You Made It!</h2>
+        <strong>Chain Breaker Community 💗</strong>
 
         <p>
-          Write down what you want your next 30 days to look like.
+          Your first win could be the one that encourages
+          another woman not to give up.
         </p>
 
       </div>
 
     `;
 
-  }
-
-
-  const exerciseList =
-    document.getElementById("exerciseList");
-
-
-  if(exerciseList){
-
-    exerciseList.innerHTML = list;
+    return;
 
   }
+
+  feed.innerHTML =
+    posts.map(post=>`
+
+      <div class="community-post">
+
+        <strong>Chain Breaker 💗</strong>
+
+        <p>${escapeHTML(post.text)}</p>
+
+        <small>${post.date}</small>
+
+      </div>
+
+    `).join("");
 
 }
 
 
-function completeDay(){
+/* =========================================================
+   MESSAGE JODI
+   ========================================================= */
 
-  const match =
-    document
-      .getElementById("detailKicker")
-      .textContent
-      .match(/\d+/);
+function messageJodi(){
 
-  if(!match){
+  const name =
+    document.getElementById("messageName")
+      .value.trim();
+
+  const message =
+    document.getElementById("messageText")
+      .value.trim();
+
+  if(!message){
+
+    alert("Please write a message first 💗");
+
     return;
   }
 
-  const n =
-    Number(match[0]);
-
-
-  if(!state.completed.includes(n)){
-
-    state.completed.push(n);
-
-  }
-
-
-  saveState();
-
-  toast(
-    `Day ${n} complete. Keep walking. 🦋`
-  );
-
-  renderDays();
-
-  showPage("progress");
-
-}
-
-
-function completeFaith(){
-
-  state.faith++;
-
-  saveState();
-
-  toast(
-    "Faith check-in saved ✝️"
-  );
-
-}
-
-
-function saveCheckin(){
-
-  state.checkins++;
-
-  saveState();
-
-  toast(
-    "Today's check-in is saved 💗"
-  );
-
-}
-
-
-function saveText(id,msg){
-
-  const el =
-    document.getElementById(id);
-
-  if(!el){
-    return;
-  }
-
-  localStorage.setItem(
-    "btc_" + id,
-    el.value
-  );
-
-  toast(msg);
-
-}
-
-
-function mood(v){
-
-  document.getElementById(
-    "moodResult"
-  ).textContent =
-    "Checked in: " +
-    v +
-    ". You are allowed to be honest about where you are today.";
-
-}
-
-
-function updateStats(){
-
-  const d =
-    state.completed.length;
-
-
-  document.getElementById(
-    "pDays"
-  ).textContent = d;
-
-
-  document.getElementById(
-    "pWorkouts"
-  ).textContent = d;
-
-
-  document.getElementById(
-    "pFaith"
-  ).textContent =
-    state.faith;
-
-
-  const nextDay =
-    Math.min(d + 1,30);
-
-
-  document.getElementById(
-    "homeDay"
-  ).textContent =
-    nextDay;
-
-
-  document.getElementById(
-    "todayNumber"
-  ).textContent =
-    nextDay;
-
-
-  document.getElementById(
-    "streakBadge"
-  ).textContent =
-    d +
-    " day" +
-    (d === 1 ? "" : "s") +
-    " completed";
-
-
-  document.getElementById(
-    "chain"
-  ).textContent =
-    d
-      ? Array.from(
-          {length:d},
-          (_,i) =>
-            i === 29
-              ? "🔓"
-              : "🔗"
-        ).join(" ")
-      : "🔗 🔗 🔗";
-
-
-  document.getElementById(
-    "progressMessage"
-  ).textContent =
-    d >= 30
-      ? "CHAIN BROKEN. YOU DIDN'T GIVE UP. 🦋"
-      : "Every completed day adds another link.";
-
-
-  if(daysData[nextDay - 1]){
-
-    document.getElementById(
-      "todaySummary"
-    ).textContent =
-      daysData[nextDay - 1][2];
-
-  }
-
-}
-
-
-function loadText(id){
-
-  const v =
-    localStorage.getItem(
-      "btc_" + id
+  const subject =
+    encodeURIComponent(
+      `Beyond the Chains Message${
+        name ? " from "+name : ""
+      }`
     );
 
-  if(v){
+  const body =
+    encodeURIComponent(
+      `${
+        name
+        ? "Name: "+name+"\n\n"
+        : ""
+      }${message}`
+    );
 
-    const el =
-      document.getElementById(id);
+  window.location.href =
+    `mailto:${JODI_EMAIL}?subject=${subject}&body=${body}`;
 
-    if(el){
-      el.value = v;
-    }
+}
+
+
+/* =========================================================
+   CHALLENGE LIST
+   ========================================================= */
+
+function renderChallenge(){
+
+  const container =
+    document.getElementById("challengeList");
+
+  if(!container){
+    return;
+  }
+
+  container.innerHTML =
+    workouts.map(w=>{
+
+      const done =
+        state.completedDays.includes(w.day);
+
+      return `
+
+        <button
+          class="workout-day"
+          onclick="openWorkout(${w.day})">
+
+          <div class="workout-day-top">
+
+            <div class="day-number">
+              ${w.day}
+            </div>
+
+            <div class="workout-meta">
+
+              <strong>
+                ${w.title}
+              </strong>
+
+              <small>
+                ${w.type}
+                •
+                ${w.setting==="gym"?"Gym":"Home"}
+              </small>
+
+            </div>
+
+            ${
+              done
+              ? `<div class="done-check">✓</div>`
+              : `<div>›</div>`
+            }
+
+          </div>
+
+        </button>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================================================
+   GROW / PROGRESS
+   ========================================================= */
+
+function updateGrow(){
+
+  const completed =
+    state.completedDays.length;
+
+  const percent =
+    Math.round(
+      (completed/30)*100
+    );
+
+  document.getElementById("statDays")
+    .textContent =
+    completed;
+
+  document.getElementById("statWorkouts")
+    .textContent =
+    state.workoutsCompleted;
+
+  document.getElementById("statFaith")
+    .textContent =
+    state.faithCheckins;
+
+  document.getElementById("statSelfCare")
+    .textContent =
+    state.selfCareDays;
+
+  document.getElementById("growProgressText")
+    .textContent =
+    percent+"%";
+
+  document.getElementById("growProgress")
+    .style.width =
+    percent+"%";
+
+  const chain =
+    document.getElementById("chainVisual");
+
+  if(completed===0){
+
+    chain.textContent="⛓️";
+
+  }else{
+
+    const links =
+      Math.min(completed,30);
+
+    chain.textContent =
+      "🔗".repeat(links);
 
   }
 
 }
 
 
-/* INITIALIZE APP */
+/* =========================================================
+   HOME
+   ========================================================= */
 
-renderDays();
+function updateHome(){
 
-updateStats();
+  const completed =
+    state.completedDays.length;
 
-updateDaySettingButtons();
+  document.getElementById("homeProgressText")
+    .textContent =
+    `${completed} / 30`;
 
-[
-  "gratitude",
-  "journal",
-  "win",
-  "suggestion"
-].forEach(loadText);
+  document.getElementById("homeProgress")
+    .style.width =
+    ((completed/30)*100)+"%";
+
+  document.getElementById("streakCount")
+    .textContent =
+    state.streak;
+
+  const current =
+    workouts.find(
+      w=>w.day===state.currentDay
+    ) || workouts[0];
+
+  document.getElementById("todayWorkoutName")
+    .textContent =
+    `Day ${current.day}: ${current.title}`;
+
+  document.getElementById("checkMove")
+    .checked =
+    state.checkMove;
+
+  document.getElementById("checkFaith")
+    .checked =
+    state.checkFaith;
+
+  document.getElementById("checkChoice")
+    .checked =
+    state.checkChoice;
+
+}
+
+
+/* =========================================================
+   LOAD SAVED HEAL DATA
+   ========================================================= */
+
+function loadSavedFields(){
+
+  const gratitude =
+    document.getElementById("gratitude");
+
+  const journal =
+    document.getElementById("journal");
+
+  const win =
+    document.getElementById("win");
+
+  if(gratitude){
+    gratitude.value =
+      state.gratitude || "";
+  }
+
+  if(journal){
+    journal.value =
+      state.journal || "";
+  }
+
+  if(win){
+    win.value =
+      state.win || "";
+  }
+
+}
+
+
+/* =========================================================
+   GENERAL UPDATE
+   ========================================================= */
+
+function updateAll(){
+
+  updateHome();
+  updateGrow();
+  renderWorkoutList();
+  renderChallenge();
+  renderCommunity();
+  loadSavedFields();
+
+}
+
+
+/* =========================================================
+   HTML SAFETY
+   ========================================================= */
+
+function escapeHTML(text){
+
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+function initialize(){
+
+  updateAll();
+
+  document.getElementById("communityQuote")
+    .textContent =
+    communityQuotes[
+      Math.floor(
+        Math.random()*communityQuotes.length
+      )
+    ];
+
+}
+
+initialize();
 
 </script>
 
