@@ -261,12 +261,43 @@ const daysData=[
 ["Break the Chain","Celebration","10 min easy walk • enjoyable activity 20–30 min • write your next goal"]
 ];
 
-const videos={
-squat:null,
-bridge:"https://www.youtube.com/embed/wPM8icPu6H8",
-reverseLunge:"https://www.youtube.com/embed/xrPteyQLGAo",
-stepUp:"https://www.youtube.com/embed/bm4SNkE7RvM",
-plank:null
+const videos = {
+  squat: {
+    home: "",
+    gym: ""
+  },
+  bridge: {
+    home: "",
+    gym: ""
+  },
+  row: {
+    home: "",
+    gym: ""
+  },
+  pushup: {
+    home: "",
+    gym: ""
+  },
+  reverseLunge: {
+    home: "",
+    gym: ""
+  },
+  stepUp: {
+    home: "",
+    gym: ""
+  },
+  plank: {
+    home: "",
+    gym: ""
+  },
+  walking: {
+    home: "",
+    gym: ""
+  },
+  stretch: {
+    home: "",
+    gym: ""
+  }
 };
 
 let state=JSON.parse(localStorage.getItem("btcState")||'{"level":"beginner","setting":"home","completed":[],"faith":0,"checkins":0}');
