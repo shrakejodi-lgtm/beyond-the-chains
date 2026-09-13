@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#b96f86">
 <title>Beyond the Chains</title>
 
@@ -25,6 +25,10 @@
 }
 
 *{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -49,10 +53,11 @@ button{
 }
 
 /* HEADER */
+
 header{
   background:linear-gradient(135deg,var(--rose),var(--teal));
   color:white;
-  padding:18px 16px 20px;
+  padding:18px 16px 22px;
   text-align:center;
   border-radius:0 0 28px 28px;
   box-shadow:var(--shadow);
@@ -67,18 +72,18 @@ header{
 }
 
 .textLogo{
-  display:none;
   font-weight:900;
-  font-size:24px;
+  font-size:25px;
   letter-spacing:1px;
 }
 
 .tagline{
   font-size:13px;
-  opacity:.95;
+  opacity:.96;
 }
 
 /* PAGES */
+
 .page{
   display:none;
   padding:18px 15px;
@@ -126,9 +131,11 @@ h1,h2,h3{
   margin:4px;
   color:white;
   background:var(--rose);
+  transition:.15s;
 }
 
 .btn:hover{
+  transform:translateY(-1px);
   filter:brightness(.96);
 }
 
@@ -164,10 +171,12 @@ h1,h2,h3{
 }
 
 /* STATS */
+
 .stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:9px;
+  margin-bottom:15px;
 }
 
 .stat{
@@ -189,7 +198,8 @@ h1,h2,h3{
   color:var(--brownLight);
 }
 
-/* CHECKBOXES */
+/* CHECKS */
+
 .check{
   display:flex;
   align-items:center;
@@ -205,7 +215,8 @@ h1,h2,h3{
   height:20px;
 }
 
-/* LEVELS */
+/* CHOICES */
+
 .choiceGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -229,6 +240,7 @@ h1,h2,h3{
 }
 
 /* WORKOUT LIST */
+
 .dayCard{
   background:white;
   border-radius:18px;
@@ -271,7 +283,8 @@ h1,h2,h3{
   color:var(--tealDark);
 }
 
-/* WORKOUT DETAIL */
+/* EXERCISE */
+
 .exercise{
   background:white;
   border-radius:20px;
@@ -297,18 +310,30 @@ h1,h2,h3{
   font-size:13px;
 }
 
+/* DEMO */
+
 .demo{
   position:relative;
-  height:205px;
+  height:230px;
   margin:14px 0;
   border-radius:18px;
   overflow:hidden;
   background:
-    radial-gradient(circle at 50% 30%,#fff 0,#fceef1 35%,#dcefed 100%);
+    radial-gradient(circle at 50% 25%,#fff 0,#fceef1 35%,#dcefed 100%);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+}
+
+.demo:before{
+  content:"";
+  position:absolute;
+  bottom:20px;
+  width:150px;
+  height:15px;
+  background:rgba(89,73,66,.12);
+  border-radius:50%;
 }
 
 .demo-label{
@@ -322,6 +347,7 @@ h1,h2,h3{
   font-size:10px;
   font-weight:800;
   letter-spacing:.5px;
+  z-index:10;
 }
 
 .demo-caption{
@@ -330,201 +356,280 @@ h1,h2,h3{
   font-size:11px;
   color:var(--brownLight);
   font-weight:bold;
+  z-index:10;
 }
 
-/* BLONDE FITNESS DEMO WOMAN */
+/* FITNESS WOMAN */
+
 .person{
-  width:82px;
-  height:125px;
+  width:90px;
+  height:135px;
   position:relative;
-  animation:fitGirlMove 1.7s infinite ease-in-out;
-}
-
-/* face */
-.person .head{
-  width:28px;
-  height:28px;
-  background:#e5ad87;
-  border-radius:50%;
-  position:absolute;
-  left:27px;
-  top:2px;
-  z-index:3;
-}
-
-/* blonde hair */
-.person .hair{
-  width:35px;
-  height:32px;
-  background:#e7c66d;
-  border-radius:50% 50% 42% 42%;
-  position:absolute;
-  left:23px;
-  top:-5px;
+  animation:demoIdle 1s infinite ease-in-out;
+  transform-origin:center bottom;
   z-index:4;
 }
 
-/* long blonde hair */
+.person .head{
+  width:30px;
+  height:30px;
+  background:#e3aa82;
+  border-radius:50%;
+  position:absolute;
+  left:30px;
+  top:2px;
+  z-index:5;
+}
+
+.person .hair{
+  width:39px;
+  height:35px;
+  background:#e6c36b;
+  border-radius:50% 50% 45% 45%;
+  position:absolute;
+  left:25px;
+  top:-5px;
+  z-index:6;
+}
+
+.person .hair:before{
+  content:"";
+  position:absolute;
+  width:13px;
+  height:46px;
+  background:#e6c36b;
+  left:-1px;
+  top:18px;
+  border-radius:0 0 12px 12px;
+}
+
 .person .hair:after{
   content:"";
   position:absolute;
   width:13px;
-  height:42px;
-  background:#e7c66d;
-  border-radius:0 0 12px 12px;
-  left:2px;
+  height:46px;
+  background:#e6c36b;
+  right:-1px;
   top:18px;
-  box-shadow:23px 0 0 #e7c66d;
+  border-radius:0 0 12px 12px;
 }
 
-/* athletic top */
 .person .body{
-  width:34px;
-  height:52px;
-  background:linear-gradient(180deg,#b96f86,#d991a8);
+  width:38px;
+  height:55px;
+  background:linear-gradient(#c87991,#a95875);
   border-radius:15px 15px 9px 9px;
   position:absolute;
-  left:24px;
-  top:29px;
-  z-index:2;
-}
-
-/* arms + legs */
-.person .arm,
-.person .leg{
-  position:absolute;
-  background:#e5ad87;
-  border-radius:12px;
-  transform-origin:top center;
-  z-index:1;
+  left:26px;
+  top:31px;
+  z-index:3;
 }
 
 .person .arm{
   width:10px;
-  height:43px;
-  top:32px;
+  height:46px;
+  background:#e3aa82;
+  border-radius:10px;
+  position:absolute;
+  top:34px;
+  z-index:2;
+  transform-origin:top center;
 }
 
 .person .arm.left{
   left:17px;
-  transform:rotate(25deg);
 }
 
 .person .arm.right{
-  left:56px;
-  transform:rotate(-25deg);
+  left:63px;
 }
 
 .person .leg{
-  width:12px;
-  height:50px;
-  top:77px;
+  width:13px;
+  height:54px;
+  background:#e3aa82;
+  border-radius:10px;
+  position:absolute;
+  top:80px;
+  z-index:1;
+  transform-origin:top center;
 }
 
 .person .leg.left{
-  left:27px;
-  transform:rotate(10deg);
+  left:28px;
 }
 
 .person .leg.right{
-  left:45px;
-  transform:rotate(-10deg);
+  left:48px;
 }
 
-/* leggings/shorts */
 .person:after{
   content:"";
   position:absolute;
-  width:34px;
-  height:25px;
+  width:38px;
+  height:27px;
   background:#397875;
-  border-radius:7px 7px 5px 5px;
-  left:24px;
-  top:68px;
-  z-index:2;
+  border-radius:7px;
+  left:26px;
+  top:69px;
+  z-index:4;
 }
 
-@keyframes fitGirlMove{
-  0%,100%{
-    transform:translateY(4px) scale(.98);
-  }
-  50%{
-    transform:translateY(-5px) scale(1.02);
-  }
+/* MOVEMENTS */
+
+.person.demo-squat{
+  animation:demoSquat .8s infinite ease-in-out;
 }
 
-.weightBox{
-  background:var(--tealLight);
-  border-radius:14px;
-  padding:12px;
-  margin-top:10px;
+.person.demo-lunge{
+  animation:demoLunge 1s infinite ease-in-out;
 }
 
-.weightBox strong{
-  color:var(--tealDark);
+.person.demo-punch{
+  animation:demoPunch .45s infinite alternate ease-in-out;
 }
 
-.exerciseActions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:10px;
+.person.demo-jump{
+  animation:demoJump .55s infinite ease-in-out;
+}
+
+.person.demo-cardio{
+  animation:demoCardio .45s infinite ease-in-out;
+}
+
+.person.demo-core{
+  animation:demoCore .8s infinite ease-in-out;
+}
+
+.person.demo-row{
+  animation:demoRow .8s infinite ease-in-out;
+}
+
+.person.demo-press{
+  animation:demoPress .7s infinite ease-in-out;
+}
+
+.person.demo-kick{
+  animation:demoKick .6s infinite ease-in-out;
+}
+
+.person.demo-stretch{
+  animation:demoStretch 2s infinite ease-in-out;
+}
+
+.person.demo-glute{
+  animation:demoGlute .8s infinite ease-in-out;
+}
+
+@keyframes demoIdle{
+  0%,100%{transform:translateY(2px)}
+  50%{transform:translateY(-3px)}
+}
+
+@keyframes demoSquat{
+  0%,100%{transform:translateY(0) scaleY(1)}
+  50%{transform:translateY(17px) scaleY(.82)}
+}
+
+@keyframes demoLunge{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(13px) translateY(8px)}
+}
+
+@keyframes demoPunch{
+  0%{transform:translateX(-2px)}
+  100%{transform:translateX(7px) rotate(-2deg)}
+}
+
+@keyframes demoJump{
+  0%,100%{transform:translateY(5px)}
+  50%{transform:translateY(-22px)}
+}
+
+@keyframes demoCardio{
+  0%,100%{transform:translateY(4px) rotate(-2deg)}
+  50%{transform:translateY(-7px) rotate(2deg)}
+}
+
+@keyframes demoCore{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(-12deg) translateY(5px)}
+}
+
+@keyframes demoRow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(8px) rotate(-8deg)}
+}
+
+@keyframes demoPress{
+  0%,100%{transform:translateY(5px)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes demoKick{
+  0%,100%{transform:rotate(0)}
+  50%{transform:rotate(-7deg) translateX(9px)}
+}
+
+@keyframes demoStretch{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08) translateY(-3px)}
+}
+
+@keyframes demoGlute{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px) rotate(-5deg)}
 }
 
 /* TIMER */
+
 .timerBox{
   text-align:center;
   background:linear-gradient(135deg,var(--roseDark),var(--tealDark));
   color:white;
-  padding:28px 18px;
   border-radius:25px;
-  margin-bottom:16px;
-}
-
-.timerStatus{
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:13px;
+  padding:25px 18px;
+  margin-bottom:15px;
 }
 
 .timerNumber{
-  font-size:70px;
+  font-size:68px;
   font-weight:900;
-  margin:10px 0;
+  line-height:1;
+  margin:18px 0;
 }
 
-.progressBar{
-  height:9px;
-  background:#eadfdc;
-  border-radius:10px;
+.timerMode{
+  font-size:12px;
+  letter-spacing:2px;
+  opacity:.9;
+}
+
+.timerControls{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:5px;
+}
+
+/* PROGRESS */
+
+.progress{
+  height:12px;
+  background:#eadeda;
+  border-radius:20px;
   overflow:hidden;
 }
 
-.progressFill{
+.progressBar{
   height:100%;
-  background:var(--rose);
+  background:linear-gradient(90deg,var(--rose),var(--teal));
   width:0%;
-}
-
-/* FORMS */
-input[type="text"],
-input[type="email"],
-textarea{
-  width:100%;
-  border:1px solid #e1d4d0;
-  border-radius:13px;
-  padding:13px;
-  background:#fff;
-  color:var(--brown);
-  margin:6px 0 10px;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
+  transition:.4s;
 }
 
 /* MOOD */
+
 .moodGrid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -533,18 +638,53 @@ textarea{
 
 .mood{
   border:2px solid #ead9d5;
-  border-radius:13px;
+  border-radius:14px;
+  padding:12px 5px;
   background:white;
-  padding:12px 4px;
   text-align:center;
 }
 
 .mood.selected{
-  border-color:var(--rose);
-  background:var(--pinkLight);
+  border-color:var(--teal);
+  background:var(--tealLight);
 }
 
-/* NAV */
+/* COMMUNITY */
+
+.post{
+  background:white;
+  padding:15px;
+  border-radius:18px;
+  margin-bottom:10px;
+  box-shadow:var(--shadow);
+}
+
+.postName{
+  font-weight:800;
+  color:var(--roseDark);
+}
+
+textarea,input{
+  width:100%;
+  border:2px solid #ead9d5;
+  border-radius:14px;
+  padding:12px;
+  outline:none;
+  background:white;
+  color:var(--brown);
+}
+
+textarea:focus,input:focus{
+  border-color:var(--teal);
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+/* BOTTOM NAV */
+
 .bottomNav{
   position:fixed;
   bottom:0;
@@ -552,20 +692,21 @@ textarea{
   transform:translateX(-50%);
   width:min(680px,100%);
   background:white;
-  box-shadow:0 -5px 20px rgba(0,0,0,.12);
+  border-top:1px solid #ead9d5;
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  padding:7px 4px;
+  padding:8px 4px;
   z-index:100;
+  box-shadow:0 -5px 20px rgba(89,73,66,.10);
 }
 
 .navBtn{
   border:0;
-  background:transparent;
-  padding:8px 2px;
+  background:white;
   color:var(--brownLight);
   font-size:10px;
-  font-weight:bold;
+  font-weight:700;
+  padding:8px 2px;
 }
 
 .navBtn.active{
@@ -574,57 +715,46 @@ textarea{
 
 .navIcon{
   display:block;
-  font-size:20px;
+  font-size:21px;
   margin-bottom:2px;
 }
 
-/* CHAIN */
-.chain{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  justify-content:center;
-  margin:15px 0;
-}
+/* MESSAGE */
 
-.chain span{
-  width:28px;
-  height:28px;
-  border:3px solid #d9c9c4;
-  border-radius:50%;
-}
-
-.chain span.done{
-  border-color:var(--rose);
-  background:var(--pink);
-}
-
-/* QUOTE */
-.quote{
+.messageBox{
   background:linear-gradient(135deg,var(--pinkLight),var(--tealLight));
+  padding:20px;
   border-radius:20px;
-  padding:22px;
   text-align:center;
-  font-weight:700;
-  line-height:1.6;
+}
+
+/* CELEBRATION */
+
+.celebrate{
+  text-align:center;
+  background:linear-gradient(135deg,#fff0f4,#e0f1ef);
+  border-radius:24px;
+  padding:25px 18px;
+}
+
+.chain{
+  font-size:55px;
+  margin:5px;
 }
 
 /* RESPONSIVE */
-@media(max-width:430px){
-  .stats{
-    gap:6px;
-  }
 
-  .stat strong{
-    font-size:21px;
+@media(max-width:420px){
+  .choiceGrid{
+    grid-template-columns:1fr;
   }
 
   .moodGrid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .choiceGrid{
-    grid-template-columns:1fr;
+  .timerNumber{
+    font-size:58px;
   }
 }
 </style>
@@ -637,37 +767,34 @@ textarea{
 <header>
   <img
     class="logo-img"
-    id="logoImage"
     src="file_0000000069f4822fa3dbc47f5a5b266f.png"
-    alt="Beyond the Chains"
     onerror="this.style.display='none';document.getElementById('textLogo').style.display='block';"
-  >
+    alt="Beyond the Chains">
 
-  <div class="textLogo" id="textLogo">
-    BEYOND THE CHAINS
-  </div>
+  <div id="textLogo" class="textLogo">BEYOND THE CHAINS</div>
 
   <div class="tagline">
     Breaking Free. Growing Strong. Walking with Purpose.
   </div>
 </header>
 
+
 <!-- HOME -->
-<section class="page active" id="homePage">
+
+<section id="home" class="page active">
 
   <div class="hero">
-    <h1>Welcome, Chain Breaker 💗</h1>
+    <h1>One choice. One step. One day at a time.</h1>
     <p>
-      One choice. One step. One day at a time.
-      You are building a stronger body, stronger faith,
-      and stronger future.
+      You don't have to become a different woman.
+      You're becoming the woman you were meant to be.
     </p>
 
-    <button class="btn" onclick="showPage('move')">
-      💪 Today's Move
+    <button class="btn full" onclick="showPage('move')">
+      💪 Start Today's Workout
     </button>
 
-    <button class="btn teal" onclick="showPage('believe')">
+    <button class="btn teal full" onclick="showPage('believe')">
       🙏 Spend Time With God
     </button>
   </div>
@@ -685,233 +812,267 @@ textarea{
 
     <div class="stat">
       <strong id="homeFaith">0</strong>
-      <span>Faith Days</span>
+      <span>Faith</span>
     </div>
   </div>
 
   <div class="card">
-    <h2>🌸 Today's Check-In</h2>
+    <h3>Today's Check-In</h3>
 
     <label class="check">
-      <input type="checkbox" id="checkMove" onchange="saveCheck()">
-      <span>I moved my body</span>
+      <input id="checkMove" type="checkbox">
+      I moved my body
     </label>
 
     <label class="check">
-      <input type="checkbox" id="checkFaith" onchange="saveCheck()">
-      <span>I spent time with God</span>
+      <input id="checkFaith" type="checkbox">
+      I spent time with God
     </label>
 
     <label class="check">
-      <input type="checkbox" id="checkHealthy" onchange="saveCheck()">
-      <span>I made one healthy choice</span>
+      <input id="checkHealthy" type="checkbox">
+      I made one healthy choice
     </label>
 
-    <button class="btn full" onclick="completeToday()">
-      🔗 Break Today's Chain
+    <button class="btn full" onclick="saveCheck()">
+      Save Today's Check-In
     </button>
-  </div>
-
-  <div class="card center">
-    <h2>🔗 Your Chain</h2>
-    <div class="chain" id="homeChain"></div>
-    <strong id="chainMessage">
-      Your next step matters.
-    </strong>
   </div>
 
   <div class="card">
-    <h2>✨ Quick Menu</h2>
+    <h3>30-Day Foundation</h3>
 
-    <button class="btn light full" onclick="showPage('heal')">
-      💗 Self-Care & Healing
-    </button>
+    <div class="progress">
+      <div id="homeProgress" class="progressBar"></div>
+    </div>
 
-    <button class="btn light full" onclick="showPage('community')">
-      👭 Chain Breakers Community
-    </button>
+    <p id="homeProgressText" class="small">
+      Your chain-breaking journey starts here.
+    </p>
 
     <button class="btn light full" onclick="showPage('grow')">
-      🌱 See My Growth
+      View My Progress
     </button>
+  </div>
 
-    <button class="btn light full" onclick="showPage('message')">
-      💌 Message Jodi
+  <div class="card">
+    <h3>Today's Reminder</h3>
+    <p>
+      You don't need a perfect day.
+      You need one more healthy choice than yesterday.
+    </p>
+
+    <button class="btn gold full" onclick="showPage('heal')">
+      ❤️ Self-Care Check-In
     </button>
   </div>
 
 </section>
 
+
 <!-- MOVE -->
-<section class="page" id="movePage">
+
+<section id="move" class="page">
 
   <div class="card">
-    <h2>💪 30-Day Foundation</h2>
+    <h2>💪 Move</h2>
+
     <p class="small">
-      Choose your level and where you're working out.
-      Your workout suggestions will adjust automatically.
+      Pick your level and where you're working out.
     </p>
 
-    <h3>My Level</h3>
+    <h3>Your Level</h3>
 
     <div class="choiceGrid">
-      <button class="choice" id="levelBeginner"
+
+      <button id="levelBeginner"
+              class="choice"
               onclick="setLevel('beginner')">
         🌱 Beginner<br>
-        <small>Low Impact</small>
+        <span class="small">Low Impact</span>
       </button>
 
-      <button class="choice" id="levelBuilding"
+      <button id="levelBuilding"
+              class="choice"
               onclick="setLevel('building')">
         🔥 Building<br>
-        <small>Moderate</small>
+        <span class="small">Moderate</span>
       </button>
 
-      <button class="choice" id="levelStrong"
+      <button id="levelStrong"
+              class="choice"
               onclick="setLevel('strong')">
         💪 Strong<br>
-        <small>Challenge</small>
+        <span class="small">Challenge</span>
       </button>
+
     </div>
 
-    <h3 style="margin-top:20px">Workout Setting</h3>
+    <h3 style="margin-top:18px;">Workout Setting</h3>
 
     <div class="choiceGrid">
-      <button class="choice" id="settingHome"
+
+      <button id="settingHome"
+              class="choice"
               onclick="setSetting('home')">
         🏠 At Home<br>
-        <small>No Gym Required</small>
+        <span class="small">No gym required</span>
       </button>
 
-      <button class="choice" id="settingGym"
+      <button id="settingGym"
+              class="choice"
               onclick="setSetting('gym')">
-        🏋️ At The Gym<br>
-        <small>Equipment Options</small>
+        🏋️ At the Gym<br>
+        <span class="small">Equipment options</span>
       </button>
-    </div>
 
-    <button class="btn gold full" onclick="surpriseWorkout()">
-      🎲 Surprise Me!
-    </button>
+    </div>
   </div>
 
   <div id="workoutList"></div>
 
 </section>
 
-<!-- DETAIL -->
-<section class="page" id="detailPage">
+
+<!-- WORKOUT DETAIL -->
+
+<section id="workout" class="page">
 
   <button class="btn light" onclick="showPage('move')">
-    ← Back
+    ← Back to Workouts
   </button>
 
-  <div id="detailContent"></div>
+  <div id="workoutDetail"></div>
 
 </section>
 
+
 <!-- TIMER -->
-<section class="page" id="timerPage">
+
+<section id="timer" class="page">
 
   <div class="timerBox">
-    <div class="timerStatus" id="timerStatus">
-      GET READY
+
+    <div class="timerMode" id="timerMode">
+      WORKOUT
     </div>
+
+    <h2 id="timerExercise">
+      Let's Go!
+    </h2>
 
     <div class="timerNumber" id="timerNumber">
-      00
+      30
     </div>
 
-    <div id="timerExercise">
-      Workout
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="progressBar">
-      <div class="progressFill" id="timerProgress"></div>
+    <div id="timerStatus">
+      Get ready!
     </div>
 
-    <div class="center" style="margin-top:15px">
+    <div class="timerControls">
+
       <button class="btn" onclick="pauseTimer()" id="pauseBtn">
         ⏸ Pause
       </button>
 
-      <button class="btn teal" onclick="skipTimer()">
+      <button class="btn gold" onclick="skipTimer()">
         ⏭ Skip
       </button>
 
       <button class="btn light" onclick="stopTimer()">
-        Stop
+        ✕ Stop
       </button>
+
     </div>
+
   </div>
+
+  <div id="timerDemo"></div>
 
 </section>
 
+
 <!-- BELIEVE -->
-<section class="page" id="believePage">
+
+<section id="believe" class="page">
 
   <div class="hero">
     <h1>🙏 Believe</h1>
+
     <p>
-      Strong body. Strong mind. Strong faith.
+      Strength isn't only built in your body.
+      It is built in your faith.
     </p>
   </div>
 
   <div class="card">
-    <h2>📖 Today's Verse</h2>
 
-    <div class="quote">
+    <h2>Today's Scripture</h2>
+
+    <p>
+      <strong>Joshua 1:9</strong>
+    </p>
+
+    <p>
       "Be strong and courageous. Do not be afraid;
       do not be discouraged, for the Lord your God
       will be with you wherever you go."
-      <br><br>
-      Joshua 1:9
-    </div>
+    </p>
+
   </div>
 
   <div class="card">
-    <h2>🙏 Prayer</h2>
+
+    <h3>🙏 Prayer</h3>
 
     <p>
       Lord, help me keep moving forward.
       Give me strength when I feel weak,
       courage when I feel afraid,
-      and wisdom to make choices that bring
-      me closer to the woman You created me to be.
+      and wisdom to make choices that honor
+      the woman You are helping me become.
+      Amen.
     </p>
+
   </div>
 
   <div class="card">
-    <h2>🌸 Gratitude</h2>
 
-    <textarea
-      id="gratitude"
-      placeholder="What are you thankful for today?"
-    ></textarea>
+    <h3>Gratitude</h3>
+
+    <textarea id="gratitude"
+      placeholder="What are you thankful for today?"></textarea>
 
     <button class="btn teal full" onclick="saveGratitude()">
       Save Gratitude
     </button>
+
   </div>
 
 </section>
 
+
 <!-- HEAL -->
-<section class="page" id="healPage">
+
+<section id="heal" class="page">
 
   <div class="hero">
-    <h1>💗 Heal</h1>
+
+    <h1>❤️ Heal</h1>
+
     <p>
-      Healing is part of becoming who you were meant to be.
+      Healing isn't about pretending everything is okay.
+      It's about giving yourself permission to keep going.
     </p>
+
   </div>
 
   <div class="card">
-    <h2>How are you feeling?</h2>
+
+    <h3>How are you feeling?</h3>
 
     <div class="moodGrid">
+
       <button class="mood" onclick="setMood('Good',this)">
         😊<br>Good
       </button>
@@ -927,315 +1088,244 @@ textarea{
       <button class="mood" onclick="setMood('Fighting',this)">
         🔥<br>Fighting
       </button>
+
     </div>
+
   </div>
 
   <div class="card">
-    <h2>🛁 Self-Care</h2>
 
-    <label class="check">
-      <input type="checkbox">
-      <span>Drink some water</span>
-    </label>
+    <h3>Journal</h3>
 
-    <label class="check">
-      <input type="checkbox">
-      <span>Take a shower or relaxing bath</span>
-    </label>
-
-    <label class="check">
-      <input type="checkbox">
-      <span>Read something encouraging</span>
-    </label>
-
-    <label class="check">
-      <input type="checkbox">
-      <span>Get outside</span>
-    </label>
-
-    <label class="check">
-      <input type="checkbox">
-      <span>Do something just for me</span>
-    </label>
-  </div>
-
-  <div class="card">
-    <h2>📓 Journal</h2>
-
-    <textarea
-      id="journal"
-      placeholder="Write what is on your heart..."
-    ></textarea>
+    <textarea id="journal"
+      placeholder="Write what's on your heart..."></textarea>
 
     <button class="btn full" onclick="saveJournal()">
       Save Journal
     </button>
+
   </div>
 
   <div class="card">
-    <h2>🏆 Today's Win</h2>
 
-    <input
-      type="text"
-      id="winInput"
-      placeholder="What did you do today that you're proud of?"
-    >
+    <h3>🏆 Today's Win</h3>
+
+    <textarea id="win"
+      placeholder="What did you do today that you're proud of?"></textarea>
 
     <button class="btn green full" onclick="saveWin()">
       Save My Win
     </button>
+
   </div>
 
 </section>
+
 
 <!-- COMMUNITY -->
-<section class="page" id="communityPage">
+
+<section id="community" class="page">
 
   <div class="hero">
+
     <h1>👭 The Chain Breakers</h1>
+
     <p>
-      Nobody has to walk this road alone.
+      Women encouraging women.
+      No judgment. No competition. Just progress.
     </p>
+
   </div>
 
-  <div class="quote">
-    "You don't have to have it all figured out.
-    You just have to keep taking the next step."
-  </div>
+  <div class="post">
 
-  <div class="card">
-    <h2>💬 Share Your Win</h2>
+    <div class="postName">Sarah ❤️</div>
 
-    <textarea
-      id="communityPost"
-      placeholder="Tell the Chain Breakers what you're proud of..."
-    ></textarea>
+    <p>
+      "I almost skipped today's workout.
+      But I did ten minutes anyway.
+      Ten minutes became the win I needed."
+    </p>
 
-    <button class="btn teal full" onclick="sharePost()">
-      Share With The Community
+    <button class="btn light"
+      onclick="sharePost('Sarah')">
+      ❤️ Encourage Sarah
     </button>
+
+  </div>
+
+  <div class="post">
+
+    <div class="postName">Amanda 💪</div>
+
+    <p>
+      "Day 12 finished! I never thought I'd make it this far."
+    </p>
+
+    <button class="btn light"
+      onclick="sharePost('Amanda')">
+      🔥 Cheer Her On
+    </button>
+
   </div>
 
   <div class="card">
-    <h2>👭 Community</h2>
 
-    <div id="communityFeed">
-      <p>
-        <strong>Sarah:</strong>
-        "Day 7 completed! I almost skipped today,
-        but I showed up anyway. ❤️"
-      </p>
+    <h3>💡 Suggestion Box</h3>
 
-      <hr>
+    <textarea id="suggestion"
+      placeholder="What would make Beyond the Chains better?"></textarea>
 
-      <p>
-        <strong>Amanda:</strong>
-        "Remember ladies, progress doesn't have to
-        be perfect."
-      </p>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>💡 Suggestion Box</h2>
-
-    <textarea
-      id="suggestion"
-      placeholder="What would you love to see added to Beyond the Chains?"
-    ></textarea>
-
-    <button class="btn gold full" onclick="sendSuggestion()">
+    <button class="btn teal full" onclick="sendSuggestion()">
       Send Suggestion
     </button>
+
   </div>
 
-  <button class="btn full" onclick="showPage('message')">
-    💌 Message Jodi Directly
-  </button>
+  <div class="messageBox">
+
+    <h3>💌 Message Jodi</h3>
+
+    <p class="small">
+      Have a workout question or need help?
+      Send Jodi a message.
+    </p>
+
+    <button class="btn full" onclick="messageJodi()">
+      Message Jodi
+    </button>
+
+  </div>
 
 </section>
 
+
 <!-- GROW -->
-<section class="page" id="growPage">
+
+<section id="grow" class="page">
 
   <div class="hero">
+
     <h1>🌱 Grow</h1>
+
     <p>
       Look how far you've come.
     </p>
+
   </div>
 
-  <div class="stats">
-    <div class="stat">
-      <strong id="growDays">0</strong>
-      <span>Days</span>
+  <div class="card">
+
+    <h3>30-Day Foundation</h3>
+
+    <div class="progress">
+      <div id="growProgress" class="progressBar"></div>
     </div>
 
-    <div class="stat">
-      <strong id="growWorkouts">0</strong>
-      <span>Workouts</span>
-    </div>
+    <h2 id="growPercent">0%</h2>
 
-    <div class="stat">
-      <strong id="growWins">0</strong>
-      <span>Wins</span>
-    </div>
-  </div>
-
-  <div class="card center">
-    <h2>🔗 Chain Strength</h2>
-
-    <div class="chain" id="growChain"></div>
-
-    <p id="progressText">
+    <p id="growMessage">
       Your story is still being written.
     </p>
-  </div>
 
-  <div class="card">
-    <h2>🏆 Your Next Goal</h2>
-
-    <p>
-      Finish the 30-Day Foundation.
-      Then keep going.
-    </p>
-
-    <button class="btn gold full" onclick="showPage('challenge')">
-      See All 30 Days
-    </button>
-
-    <button class="btn teal full" onclick="showPage('nextChallenge')">
-      🔥 Next 30-Day Challenge
-    </button>
-  </div>
-
-</section>
-
-<!-- CHALLENGE -->
-<section class="page" id="challengePage">
-
-  <button class="btn light" onclick="showPage('move')">
-    ← Back
-  </button>
-
-  <div class="hero">
-    <h1>🔗 30-Day Foundation</h1>
-    <p>
-      Thirty days. Thirty chances to choose yourself.
-    </p>
-  </div>
-
-  <div id="challengeList"></div>
-
-</section>
-
-<!-- MESSAGE -->
-<section class="page" id="messagePage">
-
-  <div class="hero">
-    <h1>💌 Message Jodi</h1>
-    <p>
-      Questions about a workout?
-      Need encouragement?
-      Have an idea?
-      Send it here.
-    </p>
   </div>
 
   <div class="card">
 
-    <label>Your Name</label>
+    <h3>🔥 Your Journey</h3>
 
-    <input
-      type="text"
-      id="messageName"
-      placeholder="Your name"
-    >
+    <p>
+      Completed workouts:
+      <strong id="growWorkouts">0</strong>
+    </p>
 
-    <label>Your Message</label>
+    <p>
+      Faith check-ins:
+      <strong id="growFaith">0</strong>
+    </p>
 
-    <textarea
-      id="jodiMessage"
-      placeholder="Type your message..."
-    ></textarea>
-
-    <button class="btn full" onclick="messageJodi()">
-      Send Message to Jodi 💗
-    </button>
-
-    <p class="small center">
-      Email: jodicrowe1724@gmail.com
+    <p>
+      Healthy choices:
+      <strong id="growHealthy">0</strong>
     </p>
 
   </div>
 
+  <div id="challengeBox"></div>
+
 </section>
+
 
 <!-- NEXT CHALLENGE -->
-<section class="page" id="nextChallengePage">
 
-  <div class="hero">
-    <h1>🔥 Rise & Rebuild</h1>
-    <p>
-      You broke the first chain.
-      Now build something stronger.
-    </p>
-  </div>
+<section id="nextChallenge" class="page">
 
-  <div class="card">
-    <h2>Coming After Day 30</h2>
+  <div class="celebrate">
+
+    <div class="chain">⛓️</div>
+
+    <h1>CHAIN BROKEN</h1>
 
     <p>
-      The next challenge is designed to keep things
-      fresh, challenging and exciting.
+      You finished the 30-Day Foundation.
     </p>
 
-    <ul>
-      <li>🏋️ Strength combinations</li>
-      <li>🥊 Boxing-inspired workouts</li>
-      <li>💃 Dance cardio</li>
-      <li>🔥 Glute and core challenges</li>
-      <li>🧘 Recovery days</li>
-      <li>🙏 Faith-focused reset days</li>
-      <li>🎯 New personal goals</li>
-    </ul>
+    <p>
+      But this isn't the end.
+      It's the beginning of what comes next.
+    </p>
 
-    <button class="btn gold full" onclick="showPage('move')">
-      Start Moving
+    <button class="btn gold full"
+      onclick="startNextChallenge()">
+      🔥 Start My Next 30 Days
     </button>
+
+    <button class="btn teal full"
+      onclick="showPage('move')">
+      💪 Back to Move
+    </button>
+
   </div>
 
 </section>
 
+
 <!-- BOTTOM NAV -->
+
 <nav class="bottomNav">
 
-  <button class="navBtn active" onclick="showPage('home')">
+  <button class="navBtn active" data-page="home"
+    onclick="showPage('home')">
     <span class="navIcon">🏠</span>
     Home
   </button>
 
-  <button class="navBtn" onclick="showPage('move')">
+  <button class="navBtn" data-page="move"
+    onclick="showPage('move')">
     <span class="navIcon">💪</span>
     Move
   </button>
 
-  <button class="navBtn" onclick="showPage('believe')">
+  <button class="navBtn" data-page="believe"
+    onclick="showPage('believe')">
     <span class="navIcon">🙏</span>
     Believe
   </button>
 
-  <button class="navBtn" onclick="showPage('heal')">
-    <span class="navIcon">💗</span>
+  <button class="navBtn" data-page="heal"
+    onclick="showPage('heal')">
+    <span class="navIcon">❤️</span>
     Heal
   </button>
 
-  <button class="navBtn" onclick="showPage('grow')">
+  <button class="navBtn" data-page="grow"
+    onclick="showPage('grow')">
     <span class="navIcon">🌱</span>
     Grow
   </button>
 
-  <button class="navBtn" onclick="showPage('community')">
+  <button class="navBtn" data-page="community"
+    onclick="showPage('community')">
     <span class="navIcon">👭</span>
     Community
   </button>
@@ -1244,865 +1334,1102 @@ textarea{
 
 </div>
 
+
 <script>
 
-/* =========================================================
-   BEYOND THE CHAINS
-   ========================================================= */
+/* =========================================
+   APP SETTINGS
+   ========================================= */
 
 const JODI_EMAIL = "jodicrowe1724@gmail.com";
 
 let state = JSON.parse(
-  localStorage.getItem("btc_state") || "{}"
+  localStorage.getItem("btcState") || "{}"
 );
 
 state.level = state.level || "beginner";
 state.setting = state.setting || "home";
 state.completed = state.completed || [];
-state.workouts = state.workouts || 0;
 state.faith = state.faith || 0;
+state.healthy = state.healthy || 0;
 state.days = state.days || 0;
-state.wins = state.wins || 0;
-state.mood = state.mood || "";
-state.posts = state.posts || [];
+state.workouts = state.workouts || 0;
 
-let currentDay = 1;
-let timerInterval = null;
-let timerSeconds = 0;
-let timerPaused = false;
-let timerMode = "";
-let timerExerciseIndex = 0;
+let currentDay = 0;
 let currentExercises = [];
 
-/* =========================================================
-   30 DAYS
-   ========================================================= */
+let timerSeconds = 30;
+let timerInterval = null;
+let timerPaused = false;
+let timerExerciseIndex = 0;
+let timerMode = "TIME";
+
+
+/* =========================================
+   30 DAY WORKOUTS
+   ========================================= */
 
 const workouts = [
 
 {
-day:1,
 title:"Strong Start",
-type:"Strength",
+type:"Full Body",
 home:[
-["Bodyweight Squat","3 x 12"],
-["Wall Push-Up","3 x 10"],
-["Glute Bridge","3 x 15"],
-["Standing Knee Drive","3 x 40 sec"],
-["Dead Bug","3 x 10"]
+["Chair Squat","12 reps"],
+["Wall Push-Up","10 reps"],
+["March + Reach","45 sec"],
+["Glute Bridge","15 reps"],
+["Standing Knee Drive","12 each"]
 ],
 gym:[
-["Goblet Squat","3 x 12",10,20,30],
-["Dumbbell Chest Press","3 x 10",8,15,25],
-["Seated Cable Row","3 x 12",25,40,60],
-["Walking Lunges","3 x 10","Bodyweight",10,20],
-["Dead Bug","3 x 10"]
-]
+["Goblet Squat","12 reps"],
+["Chest Press","10 reps"],
+["Treadmill Incline Walk","60 sec"],
+["Hip Thrust","15 reps"],
+["Cable Knee Drive","12 each"]
+],
+weights:[5,15,25]
 },
 
 {
-day:2,
 title:"Cardio Party",
 type:"Cardio",
 home:[
-["Step Touch + Punch","3 x 45 sec"],
-["Standing Knee Drives","3 x 40 sec"],
-["Skater Steps","3 x 40 sec"],
-["Shadow Boxing","4 x 45 sec"],
-["Fast Feet","4 x 20 sec"]
+["Fast Feet","30 sec"],
+["Step Touch + Punch","45 sec"],
+["Marching High Knees","45 sec"],
+["Skater Steps","30 sec"],
+["Dance Burst","60 sec"]
 ],
 gym:[
-["Treadmill Brisk Walk","8 min"],
-["Step Touch + Punch","3 x 45 sec"],
-["Shadow Boxing","4 x 45 sec"],
-["Incline Walk","5 min"],
-["Fast Feet","4 x 20 sec"]
-]
+["Bike Sprint","30 sec"],
+["Battle Rope Waves","30 sec"],
+["Treadmill Fast Walk","60 sec"],
+["Lateral Step","45 sec"],
+["Elliptical Push","60 sec"]
+],
+weights:[0,0,0]
 },
 
 {
-day:3,
 title:"Booty Builder",
 type:"Glutes",
 home:[
-["Glute Bridge","4 x 15"],
-["Donkey Kick","3 x 15 each"],
-["Fire Hydrant","3 x 15 each"],
-["Curtsy Lunge","3 x 12"],
-["Frog Pumps","3 x 20"]
+["Glute Bridge","15 reps"],
+["Donkey Kick","12 each"],
+["Fire Hydrant","12 each"],
+["Reverse Lunge","10 each"],
+["Frog Pumps","20 reps"]
 ],
 gym:[
-["Hip Thrust","4 x 10",45,75,115],
-["Leg Press","3 x 12",70,120,180],
-["Cable Kickback","3 x 15",5,10,20],
-["Romanian Deadlift","3 x 10",10,20,30],
-["Banded Side Steps","3 x 20","Light","Medium","Heavy"]
-]
+["Hip Thrust","12 reps"],
+["Cable Kickback","12 each"],
+["Abductor Machine","15 reps"],
+["Walking Lunge","10 each"],
+["Glute Kick Machine","15 reps"]
+],
+weights:[5,15,30]
 },
 
 {
-day:4,
 title:"Core & Confidence",
 type:"Core",
 home:[
-["Bear Plank Shoulder Tap","3 x 12"],
-["Bicycle Crunch","3 x 16"],
-["Plank Reach","3 x 10"],
-["Glute Bridge March","3 x 16"],
-["Dead Bug Press","3 x 10"]
+["Dead Bug","10 each"],
+["Standing Oblique Crunch","12 each"],
+["Bird Dog","10 each"],
+["Heel Taps","20 reps"],
+["Plank Shoulder Tap","10 each"]
 ],
 gym:[
-["Cable Pallof Press","3 x 12",10,20,30],
-["Captain's Chair Knee Raise","3 x 12"],
-["Cable Wood Chop","3 x 12",10,20,30],
-["Dead Bug","3 x 10"],
-["Plank","3 x 30 sec"]
-]
+["Cable Pallof Press","12 each"],
+["Captain's Chair Knee Raise","10 reps"],
+["Cable Crunch","15 reps"],
+["Dead Bug","10 each"],
+["Plank","30 sec"]
+],
+weights:[0,10,20]
 },
 
 {
-day:5,
 title:"Upper Body Glow-Up",
 type:"Upper Body",
 home:[
-["Incline Push-Up","3 x 10"],
-["Bent-Over Row","3 x 12"],
-["Shoulder Tap","3 x 12"],
-["Triceps Dips","3 x 10"],
-["Arm Circles","3 x 40 sec"]
+["Wall Push-Up","12 reps"],
+["Bent-Over Backpack Row","12 reps"],
+["Shoulder Press","12 reps"],
+["Biceps Curl","12 reps"],
+["Triceps Kickback","12 reps"]
 ],
 gym:[
-["Lat Pulldown","3 x 12",30,50,70],
-["Dumbbell Shoulder Press","3 x 10",5,10,15],
-["Cable Triceps Pushdown","3 x 15",10,20,30],
-["Dumbbell Curl","3 x 12",5,10,15],
-["Battle Rope Waves","4 x 30 sec"]
-]
+["Chest Press","12 reps"],
+["Seated Row","12 reps"],
+["Shoulder Press","12 reps"],
+["Biceps Curl","12 reps"],
+["Triceps Pushdown","12 reps"]
+],
+weights:[5,15,25]
 },
 
 {
-day:6,
 title:"Fun Sweat Circuit",
-type:"Full Body",
+type:"Circuit",
 home:[
-["Squat + Knee Lift","3 x 16"],
-["Shadow Boxing Combo","3 x 45 sec"],
-["Curtsy Lunges","3 x 12"],
-["Inchworm","3 x 8"],
-["Lateral Shuffle","4 x 30 sec"]
+["Squat + Reach","12 reps"],
+["Punch Combo","30 sec"],
+["Reverse Lunge","10 each"],
+["Fast Feet","30 sec"],
+["Mountain Climber","20 reps"]
 ],
 gym:[
-["Dumbbell Thruster","3 x 10",5,10,15],
-["Battle Rope Waves","3 x 30 sec"],
-["Step-Ups","3 x 12","Bodyweight",10,20],
-["Cable Row","3 x 12",25,40,60],
-["Bike Sprint","5 x 30 sec"]
-]
+["Leg Press","12 reps"],
+["Cable Punch","30 sec"],
+["Walking Lunge","10 each"],
+["Bike Sprint","30 sec"],
+["Sled Push","20 sec"]
+],
+weights:[10,25,50]
 },
 
 {
-day:7,
 title:"Recovery & Reset",
 type:"Recovery",
 home:[
-["Cat Cow","2 x 10"],
-["World's Greatest Stretch","2 x 6"],
-["Glute Bridge","3 x 15"],
-["Bird Dog","3 x 10"],
-["Standing Side Stretch","2 x 8"]
+["Cat Cow","45 sec"],
+["Hip Stretch","30 sec"],
+["Child's Pose","45 sec"],
+["Standing Side Stretch","30 sec"],
+["Deep Breathing","60 sec"]
 ],
 gym:[
-["Easy Bike","8 min"],
-["Cat Cow","2 x 10"],
-["Hip Flexor Stretch","2 x 30 sec"],
-["Bird Dog","3 x 10"],
-["Easy Walk","8 min"]
-]
+["Mobility Flow","45 sec"],
+["Hip Mobility","30 sec"],
+["Child's Pose","45 sec"],
+["Side Stretch","30 sec"],
+["Breathing Reset","60 sec"]
+],
+weights:[0,0,0]
 },
 
 {
-day:8,
 title:"Back & Core Power",
 type:"Back",
 home:[
-["Superman","3 x 12"],
-["Bird Dog","3 x 10"],
-["Reverse Snow Angel","3 x 12"],
-["Plank Reach","3 x 10"],
-["Heel Taps","3 x 20"]
+["Backpack Row","12 reps"],
+["Bird Dog","10 each"],
+["Superman","12 reps"],
+["Plank Reach","10 each"],
+["Reverse Snow Angel","12 reps"]
 ],
 gym:[
-["Lat Pulldown","3 x 10",30,50,75],
-["Single Arm Dumbbell Row","3 x 12",10,20,30],
-["Pallof Press","3 x 12",10,20,30],
-["Back Extension","3 x 12","Bodyweight",10,20],
-["Farmer Carry","3 x 30 sec",10,20,30]
-]
+["Lat Pulldown","12 reps"],
+["Seated Row","12 reps"],
+["Back Extension","12 reps"],
+["Cable Row","12 reps"],
+["Pallof Press","10 each"]
+],
+weights:[5,15,30]
 },
 
 {
-day:9,
 title:"Dance Cardio",
-type:"Dance",
+type:"Cardio",
 home:[
-["Grapevine + Reach","3 x 45 sec"],
-["Salsa Steps","3 x 45 sec"],
-["Knee Repeater","3 x 40 sec"],
-["Squat Pulse + Arms","3 x 40 sec"],
-["Dance Freestyle","2 x 90 sec"]
+["Grapevine","45 sec"],
+["Side Step + Punch","45 sec"],
+["Knee Drive Dance","45 sec"],
+["Hip Shake Step","45 sec"],
+["Victory Dance","60 sec"]
 ],
 gym:[
-["Dance Step","3 x 45 sec"],
-["Salsa Steps","3 x 45 sec"],
-["Knee Repeater","3 x 40 sec"],
-["Bike Sprint","4 x 30 sec"],
-["Dance Freestyle","2 x 90 sec"]
-]
+["Dance Cardio","45 sec"],
+["Elliptical","60 sec"],
+["Step Mill","45 sec"],
+["Bike Dance Sprint","45 sec"],
+["Treadmill Walk","60 sec"]
+],
+weights:[0,0,0]
 },
 
 {
-day:10,
 title:"Leg Day Remix",
 type:"Legs",
 home:[
-["Reverse Lunge","3 x 10"],
-["Chair Squat","3 x 15"],
-["Single Leg Glute Bridge","3 x 10"],
-["Calf Raise","3 x 20"],
-["Wall Sit","3 x 30 sec"]
+["Sumo Squat","15 reps"],
+["Reverse Lunge","10 each"],
+["Wall Sit","30 sec"],
+["Side Leg Lift","15 each"],
+["Calf Raise","20 reps"]
 ],
 gym:[
-["Bulgarian Split Squat","3 x 10","Bodyweight",10,20],
-["Seated Leg Curl","3 x 12",25,40,60],
-["Leg Extension","3 x 12",20,35,50],
-["Cable Pull Through","3 x 15",20,35,50],
-["Standing Calf Raise","3 x 15","Bodyweight",20,40]
-]
+["Leg Press","15 reps"],
+["Split Squat","10 each"],
+["Wall Sit","30 sec"],
+["Hip Abductor","15 reps"],
+["Calf Raise","20 reps"]
+],
+weights:[10,25,45]
 },
 
 {
-day:11,
 title:"Boxing & Burn",
 type:"Boxing",
 home:[
-["Jab + Cross","4 x 40 sec"],
-["Hook Combo","4 x 40 sec"],
-["Uppercuts","3 x 40 sec"],
-["Squat Punches","3 x 40 sec"],
-["Mountain Climbers","3 x 30 sec"]
+["Jab Cross","30 sec"],
+["Hook Combo","30 sec"],
+["Uppercut","30 sec"],
+["Knee Strike","30 sec"],
+["Boxing Shuffle","45 sec"]
 ],
 gym:[
-["Jab + Cross","4 x 40 sec"],
-["Battle Rope Waves","4 x 30 sec"],
-["Shadow Boxing","4 x 45 sec"],
-["Medicine Ball Slams","3 x 10",8,12,20],
-["Bike Sprint","4 x 30 sec"]
-]
+["Heavy Bag Punch","30 sec"],
+["Cable Punch","30 sec"],
+["Battle Rope","30 sec"],
+["Knee Drive","30 sec"],
+["Boxing Footwork","45 sec"]
+],
+weights:[0,5,10]
 },
 
 {
-day:12,
 title:"Kettlebell Flow",
-type:"Kettlebell",
+type:"Strength",
 home:[
-["Kettlebell Deadlift","3 x 12"],
-["Kettlebell Swing","4 x 15"],
-["Goblet Squat","3 x 12"],
-["Suitcase Carry","3 x 30 sec"],
-["March in Place","3 x 45 sec"]
+["Kettlebell Deadlift","12 reps"],
+["Kettlebell Swing","15 reps"],
+["Goblet Squat","12 reps"],
+["Kettlebell Row","10 each"],
+["Farmer Carry","30 sec"]
 ],
 gym:[
-["Kettlebell Deadlift","3 x 12",15,25,35],
-["Kettlebell Swing","4 x 15",15,25,35],
-["Goblet Squat","3 x 12",10,20,30],
-["Kettlebell Clean + Press","3 x 8",10,15,25],
-["Suitcase Carry","3 x 30 sec",10,20,30]
-]
+["Kettlebell Deadlift","12 reps"],
+["Kettlebell Swing","15 reps"],
+["Goblet Squat","12 reps"],
+["Kettlebell Row","10 each"],
+["Farmer Carry","30 sec"]
+],
+weights:[10,20,35]
 },
 
 {
-day:13,
 title:"Push Power",
 type:"Upper Body",
 home:[
-["Incline Push-Up","3 x 10"],
-["Pike Push-Up","3 x 8"],
-["Triceps Dip","3 x 10"],
-["Plank Shoulder Tap","3 x 12"],
-["Arm Pulse","3 x 40 sec"]
+["Incline Push-Up","12 reps"],
+["Shoulder Press","12 reps"],
+["Chest Fly","12 reps"],
+["Triceps Dip","10 reps"],
+["Plank Push-Up","8 reps"]
 ],
 gym:[
-["Incline Dumbbell Press","3 x 10",8,15,25],
-["Chest Fly","3 x 12",10,20,30],
-["Lateral Raise","3 x 15",3,5,10],
-["Overhead Triceps Extension","3 x 12",5,10,15],
-["Incline Push-Up","3 x 10"]
-]
+["Chest Press","12 reps"],
+["Shoulder Press","12 reps"],
+["Cable Fly","12 reps"],
+["Triceps Dip","10 reps"],
+["Assisted Push-Up","8 reps"]
+],
+weights:[5,15,25]
 },
 
 {
-day:14,
 title:"Mobility + Faith",
 type:"Recovery",
 home:[
-["90/90 Hip Switch","2 x 10"],
-["Hip Flexor Stretch","2 x 30 sec"],
-["Thoracic Rotation","2 x 8"],
-["Hamstring Sweep","2 x 10"],
-["Slow Breathing","3 x 45 sec"]
+["Sun Salutation","60 sec"],
+["Hip Opener","45 sec"],
+["Spinal Twist","30 sec"],
+["Hamstring Stretch","30 sec"],
+["Prayer Breathing","60 sec"]
 ],
 gym:[
-["Easy Treadmill Walk","8 min"],
-["90/90 Hip Switch","2 x 10"],
-["Thoracic Rotation","2 x 8"],
-["Hamstring Sweep","2 x 10"],
-["Slow Breathing","3 x 45 sec"]
-]
+["Mobility Flow","60 sec"],
+["Hip Opener","45 sec"],
+["Spinal Twist","30 sec"],
+["Hamstring Stretch","30 sec"],
+["Breathing Reset","60 sec"]
+],
+weights:[0,0,0]
 },
 
 {
-day:15,
 title:"Full Body Ladder",
 type:"Full Body",
 home:[
-["Dumbbell Squat to Press","3 x 10"],
-["Dumbbell Row","3 x 12"],
-["Step-Ups","3 x 10"],
-["Romanian Deadlift","3 x 10"],
-["Plank Dumbbell Drag","3 x 8"]
+["Squat","10 reps"],
+["Push-Up","8 reps"],
+["Reverse Lunge","10 reps"],
+["Row","10 reps"],
+["Mountain Climber","20 reps"]
 ],
 gym:[
-["Dumbbell Squat to Press","3 x 10",5,10,15],
-["Dumbbell Row","3 x 12",10,20,30],
-["Step-Ups","3 x 10","Bodyweight",10,20],
-["Romanian Deadlift","3 x 10",10,20,30],
-["Plank Dumbbell Drag","3 x 8",5,10,15]
-]
+["Leg Press","10 reps"],
+["Chest Press","8 reps"],
+["Walking Lunge","10 reps"],
+["Seated Row","10 reps"],
+["Mountain Climber","20 reps"]
+],
+weights:[10,20,40]
 },
 
 {
-day:16,
 title:"Cardio Kickbox",
-type:"Kickboxing",
+type:"Cardio",
 home:[
-["Jab Cross","3 x 45 sec"],
-["Front Kicks","3 x 40 sec"],
-["Knee Strikes","3 x 40 sec"],
-["Lateral Punches","3 x 40 sec"],
-["Fast Feet","4 x 20 sec"]
+["Jab Cross","30 sec"],
+["Front Kick","30 sec"],
+["Hook Punch","30 sec"],
+["Knee Strike","30 sec"],
+["Fast Feet","30 sec"]
 ],
 gym:[
-["Jab Cross","3 x 45 sec"],
-["Front Kicks","3 x 40 sec"],
-["Battle Rope","3 x 30 sec"],
-["Knee Strikes","3 x 40 sec"],
-["Fast Feet","4 x 20 sec"]
-]
+["Heavy Bag","30 sec"],
+["Kick Pad","30 sec"],
+["Cable Punch","30 sec"],
+["Knee Drive","30 sec"],
+["Bike Sprint","30 sec"]
+],
+weights:[0,5,10]
 },
 
 {
-day:17,
 title:"Hamstrings & Glutes",
-type:"Glutes",
+type:"Lower Body",
 home:[
-["Romanian Deadlift","4 x 10"],
-["Glute Bridge","3 x 15"],
-["Reverse Lunge","3 x 10"],
-["Hamstring Walkout","3 x 8"],
-["Fire Hydrant","3 x 15"]
+["Romanian Deadlift","12 reps"],
+["Glute Bridge","15 reps"],
+["Single Leg Bridge","10 each"],
+["Good Morning","12 reps"],
+["Frog Pump","20 reps"]
 ],
 gym:[
-["Romanian Deadlift","4 x 10",10,20,30],
-["Seated Leg Curl","3 x 12",25,40,60],
-["Hip Thrust","3 x 12",45,75,115],
-["Reverse Lunge","3 x 10","Bodyweight",10,20],
-["Hip Abduction","3 x 15",30,50,70]
-]
+["Romanian Deadlift","12 reps"],
+["Hip Thrust","15 reps"],
+["Single Leg Press","10 each"],
+["Back Extension","12 reps"],
+["Abductor Machine","20 reps"]
+],
+weights:[10,25,45]
 },
 
 {
-day:18,
 title:"Core + Cardio",
 type:"Core",
 home:[
-["Dead Bug","3 x 10"],
-["Heel Taps","3 x 20"],
-["Mountain Climbers","4 x 30 sec"],
-["Low Impact Plank Jack","3 x 30 sec"],
-["Bear Crawl","3 x 30 sec"]
+["High Knee March","45 sec"],
+["Dead Bug","10 each"],
+["Skater Step","30 sec"],
+["Heel Tap","20 reps"],
+["Standing Knee Crunch","12 each"]
 ],
 gym:[
-["Cable Crunch","3 x 12",15,25,40],
-["Mountain Climbers","4 x 30 sec"],
-["Pallof Press","3 x 12",10,20,30],
-["Bike Sprint","4 x 30 sec"],
-["Bear Crawl","3 x 30 sec"]
-]
+["Bike Sprint","45 sec"],
+["Cable Crunch","12 reps"],
+["Elliptical","45 sec"],
+["Pallof Press","10 each"],
+["Captain's Chair","12 reps"]
+],
+weights:[0,10,20]
 },
 
 {
-day:19,
 title:"Back & Biceps",
 type:"Upper Body",
 home:[
-["Bent Over Row","3 x 12"],
-["Reverse Fly","3 x 12"],
-["Superman","3 x 12"],
-["Biceps Curl","3 x 12"],
-["Plank Row","3 x 8"]
+["Backpack Row","12 reps"],
+["Reverse Fly","12 reps"],
+["Biceps Curl","12 reps"],
+["Hammer Curl","12 reps"],
+["Superman","12 reps"]
 ],
 gym:[
-["Lat Pulldown","3 x 12",30,50,70],
-["Seated Cable Row","3 x 12",25,40,60],
-["Face Pull","3 x 15",10,20,30],
-["Incline Dumbbell Curl","3 x 12",5,10,15],
-["Hammer Curl","3 x 12",5,10,15]
-]
+["Lat Pulldown","12 reps"],
+["Seated Row","12 reps"],
+["Biceps Curl","12 reps"],
+["Hammer Curl","12 reps"],
+["Back Extension","12 reps"]
+],
+weights:[5,15,25]
 },
 
 {
-day:20,
-title:"Low-Impact Sweat",
+title:"Low Impact Sweat",
 type:"Low Impact",
 home:[
-["March + Arms","3 x 60 sec"],
-["Side Step + Reach","3 x 45 sec"],
-["Chair Squat","3 x 12"],
-["Step Back + Reach","3 x 12"],
-["Standing Knee Crunch","3 x 16"]
+["March + Punch","45 sec"],
+["Step Touch","45 sec"],
+["Chair Squat","12 reps"],
+["Standing Knee Drive","12 each"],
+["Side Step","45 sec"]
 ],
 gym:[
-["Treadmill Walk","8 min"],
-["Side Step + Reach","3 x 45 sec"],
-["Cable Row","3 x 12",25,40,60],
-["Step Back + Reach","3 x 12"],
-["Bike Easy Ride","8 min"]
-]
+["Treadmill Walk","60 sec"],
+["Bike","60 sec"],
+["Leg Press","12 reps"],
+["Cable Knee Drive","12 each"],
+["Elliptical","60 sec"]
+],
+weights:[5,15,25]
 },
 
 {
-day:21,
 title:"Recovery Flow",
 type:"Recovery",
 home:[
-["Cat Cow","2 x 10"],
-["Child's Pose","2 x 45 sec"],
-["Bird Dog","3 x 10"],
-["Glute Bridge","3 x 15"],
-["Box Breathing","3 x 60 sec"]
+["Cat Cow","45 sec"],
+["Bird Dog","10 each"],
+["Child's Pose","45 sec"],
+["Figure Four Stretch","30 sec"],
+["Breathing","60 sec"]
 ],
 gym:[
-["Easy Bike","8 min"],
-["Cat Cow","2 x 10"],
-["Child's Pose","2 x 45 sec"],
-["Bird Dog","3 x 10"],
-["Box Breathing","3 x 60 sec"]
-]
+["Mobility Flow","45 sec"],
+["Bird Dog","10 each"],
+["Child's Pose","45 sec"],
+["Figure Four Stretch","30 sec"],
+["Breathing","60 sec"]
+],
+weights:[0,0,0]
 },
 
 {
-day:22,
 title:"Strong Legs",
 type:"Legs",
 home:[
-["Tempo Squat","3 x 12"],
-["Reverse Lunge","3 x 10"],
-["Step-Up","3 x 12"],
-["Calf Raise","3 x 18"],
-["Wall Sit","3 x 40 sec"]
+["Tempo Squat","12 reps"],
+["Curtsy Lunge","10 each"],
+["Wall Sit","45 sec"],
+["Step-Up","10 each"],
+["Calf Raise","20 reps"]
 ],
 gym:[
-["Smith Machine Squat","3 x 10",45,65,95],
-["Leg Press","3 x 12",70,120,180],
-["Walking Lunges","3 x 12","Bodyweight",10,20],
-["Leg Extension","3 x 15",20,35,50],
-["Calf Raise","3 x 18","Bodyweight",20,40]
-]
+["Hack Squat","12 reps"],
+["Curtsy Lunge","10 each"],
+["Leg Extension","15 reps"],
+["Step-Up","10 each"],
+["Calf Raise","20 reps"]
+],
+weights:[10,25,50]
 },
 
 {
-day:23,
 title:"Cardio Carnival",
 type:"Cardio",
 home:[
-["Dance Step","3 x 45 sec"],
-["Skater Reach","3 x 40 sec"],
-["Punch Party","3 x 45 sec"],
-["Knee Drives","3 x 40 sec"],
-["Toe Taps","4 x 30 sec"]
+["Jumping Jack","30 sec"],
+["Skater","30 sec"],
+["High Knees","30 sec"],
+["Punch Combo","30 sec"],
+["Dance Burst","60 sec"]
 ],
 gym:[
-["Treadmill Incline Walk","6 min"],
-["Dance Step","3 x 45 sec"],
-["Punch Party","3 x 45 sec"],
-["Rowing Machine","4 x 30 sec"],
-["Toe Taps","4 x 30 sec"]
-]
+["Bike Sprint","30 sec"],
+["Step Mill","30 sec"],
+["Treadmill Jog","30 sec"],
+["Battle Rope","30 sec"],
+["Elliptical Sprint","60 sec"]
+],
+weights:[0,0,0]
 },
 
 {
-day:24,
 title:"Dumbbell Full Body",
-type:"Full Body",
+type:"Strength",
 home:[
-["Dumbbell Thruster","3 x 10"],
-["Dumbbell RDL","3 x 12"],
-["Dumbbell Row","3 x 12"],
-["Reverse Lunge","3 x 10"],
-["Floor Press","3 x 10"]
+["Dumbbell Squat","12 reps"],
+["Dumbbell Row","12 reps"],
+["Shoulder Press","12 reps"],
+["Romanian Deadlift","12 reps"],
+["Farmer Carry","30 sec"]
 ],
 gym:[
-["Dumbbell Thruster","3 x 10",5,10,15],
-["Dumbbell RDL","3 x 12",10,20,30],
-["Dumbbell Row","3 x 12",10,20,30],
-["Reverse Lunge","3 x 10","Bodyweight",10,20],
-["Floor Press","3 x 10",8,15,25]
-]
+["Dumbbell Squat","12 reps"],
+["Dumbbell Row","12 reps"],
+["Shoulder Press","12 reps"],
+["Romanian Deadlift","12 reps"],
+["Farmer Carry","30 sec"]
+],
+weights:[5,15,25]
 },
 
 {
-day:25,
 title:"Glute Focus",
 type:"Glutes",
 home:[
-["Hip Thrust","4 x 15"],
-["Step-Up","3 x 10"],
-["Donkey Kick","3 x 15"],
-["Hip Abduction","3 x 20"],
-["Frog Pumps","3 x 20"]
+["Hip Thrust","15 reps"],
+["Frog Pump","20 reps"],
+["Fire Hydrant","15 each"],
+["Donkey Kick","15 each"],
+["Side Leg Lift","15 each"]
 ],
 gym:[
-["Hip Thrust","4 x 10",45,75,115],
-["Step-Up","3 x 10","Bodyweight",10,20],
-["Cable Kickback","3 x 15",5,10,20],
-["Hip Abduction","3 x 20",30,50,70],
-["Frog Pumps","3 x 20","Bodyweight",10,20]
-]
+["Hip Thrust","15 reps"],
+["Cable Kickback","15 each"],
+["Abductor Machine","20 reps"],
+["Glute Kickback","15 each"],
+["Step-Up","15 each"]
+],
+weights:[5,20,40]
 },
 
 {
-day:26,
 title:"Core Crusher",
 type:"Core",
 home:[
-["Forearm Plank","3 x 30 sec"],
-["Reverse Crunch","3 x 12"],
-["Bicycle Crunch","3 x 20"],
-["Toe Taps","3 x 20"],
-["Side Plank","2 x 25 sec"]
+["Bicycle Crunch","20 reps"],
+["Leg Raise","10 reps"],
+["Plank","30 sec"],
+["Russian Twist","20 reps"],
+["Dead Bug","10 each"]
 ],
 gym:[
-["Cable Crunch","3 x 12",15,25,40],
-["Reverse Crunch","3 x 12"],
-["Pallof Press","3 x 12",10,20,30],
-["Hanging Knee Raise","3 x 10"],
-["Side Plank","2 x 25 sec"]
-]
+["Cable Crunch","15 reps"],
+["Captain's Chair","10 reps"],
+["Plank","30 sec"],
+["Russian Twist","20 reps"],
+["Pallof Press","10 each"]
+],
+weights:[0,10,20]
 },
 
 {
-day:27,
 title:"Upper Body Sculpt",
 type:"Upper Body",
 home:[
-["Push-Up","3 x 8"],
-["Bent-Over Row","3 x 12"],
-["Lateral Raise","3 x 15"],
-["Triceps Dip","3 x 12"],
-["Biceps Curl","3 x 12"]
+["Push-Up","10 reps"],
+["Lateral Raise","12 reps"],
+["Biceps Curl","12 reps"],
+["Triceps Kickback","12 reps"],
+["Front Raise","12 reps"]
 ],
 gym:[
-["Lat Pulldown","3 x 10",30,50,70],
-["Incline Chest Press","3 x 10",8,15,25],
-["Lateral Raise","3 x 15",3,5,10],
-["Seated Row","3 x 12",25,40,60],
-["Triceps Rope Pushdown","3 x 15",10,20,30],
-["Dumbbell Curl","3 x 12",5,10,15]
-]
+["Chest Press","10 reps"],
+["Lateral Raise","12 reps"],
+["Biceps Curl","12 reps"],
+["Triceps Pushdown","12 reps"],
+["Front Raise","12 reps"]
+],
+weights:[5,10,20]
 },
 
 {
-day:28,
 title:"Adventure Circuit",
-type:"Circuit",
+type:"Full Body",
 home:[
-["Step-Ups","3 x 45 sec"],
-["Suitcase March","3 x 40 sec"],
-["Squat + Reach","3 x 45 sec"],
-["Bear Crawl","3 x 30 sec"],
-["Shadow Boxing","3 x 45 sec"]
+["Bear Crawl","20 sec"],
+["Squat Reach","12 reps"],
+["Mountain Climber","20 reps"],
+["Reverse Lunge","10 each"],
+["Plank Jack","20 reps"]
 ],
 gym:[
-["Step-Ups","3 x 45 sec"],
-["Farmer Carry","3 x 40 sec",10,20,30],
-["Squat + Reach","3 x 45 sec"],
-["Sled Push","3 x 30 sec"],
-["Shadow Boxing","3 x 45 sec"]
-]
+["Sled Push","20 sec"],
+["Leg Press","12 reps"],
+["Battle Rope","20 sec"],
+["Walking Lunge","10 each"],
+["Sled Pull","20 sec"]
+],
+weights:[10,25,50]
 },
 
 {
-day:29,
 title:"Your Favorite Moves",
-type:"Custom",
-home:[
-["Favorite Squat","3 x 12"],
-["Favorite Upper Body Move","3 x 12"],
-["Favorite Cardio Move","3 x 45 sec"],
-["Favorite Core Move","3 x 15"],
-["Favorite Finisher","3 x 45 sec"]
-],
-gym:[
-["Favorite Leg Exercise","3 x 10",20,40,60],
-["Favorite Upper Body Exercise","3 x 10",5,15,25],
-["Favorite Cardio Exercise","3 x 45 sec"],
-["Favorite Core Exercise","3 x 15"],
-["Favorite Finisher","3 x 45 sec"]
-]
-},
-
-{
-day:30,
-title:"CHAIN BREAKER CELEBRATION",
 type:"Celebration",
 home:[
-["Victory Walk","1 x 120 sec"],
-["Dance Party","3 x 60 sec"],
-["Squat + Reach","3 x 15"],
-["Shadow Boxing","3 x 45 sec"],
-["Core Finisher","3 x 30 sec"],
-["Victory Stretch","2 x 60 sec"]
+["Your Favorite Squat","12 reps"],
+["Your Favorite Cardio","45 sec"],
+["Your Favorite Upper Body","12 reps"],
+["Your Favorite Core","30 sec"],
+["Your Favorite Glute Move","15 reps"]
 ],
 gym:[
-["Victory Walk","1 x 120 sec"],
-["Dance Party","3 x 60 sec"],
-["Goblet Squat","3 x 15",10,20,30],
-["Shadow Boxing","3 x 45 sec"],
-["Cable Core Finisher","3 x 30 sec",10,20,30],
-["Victory Stretch","2 x 60 sec"]
-]
+["Favorite Leg Exercise","12 reps"],
+["Favorite Cardio","45 sec"],
+["Favorite Upper Body","12 reps"],
+["Favorite Core","30 sec"],
+["Favorite Glute Exercise","15 reps"]
+],
+weights:[10,20,35]
+},
+
+{
+title:"CHAIN BREAKER CELEBRATION",
+type:"Victory",
+home:[
+["Dance Party","60 sec"],
+["Victory Squats","15 reps"],
+["Punch the Air","30 sec"],
+["Power March","60 sec"],
+["Celebrate Yourself","60 sec"]
+],
+gym:[
+["Cardio Celebration","60 sec"],
+["Victory Squats","15 reps"],
+["Boxing Celebration","30 sec"],
+["Power Walk","60 sec"],
+["Celebrate Yourself","60 sec"]
+],
+weights:[5,15,25]
 }
 
 ];
 
-/* =========================================================
-   SAVE
-   ========================================================= */
+
+/* =========================================
+   SAVE STATE
+   ========================================= */
 
 function saveState(){
-  localStorage.setItem("btc_state",JSON.stringify(state));
+  localStorage.setItem(
+    "btcState",
+    JSON.stringify(state)
+  );
 }
 
-/* =========================================================
+
+/* =========================================
    NAVIGATION
-   ========================================================= */
+   ========================================= */
 
-function showPage(name){
+function showPage(page){
 
-  document.querySelectorAll(".page").forEach(p=>{
-    p.classList.remove("active");
-  });
+  document.querySelectorAll(".page")
+    .forEach(p=>p.classList.remove("active"));
 
-  const page=document.getElementById(name+"Page");
+  const target=document.getElementById(page);
 
-  if(page){
-    page.classList.add("active");
+  if(target){
+    target.classList.add("active");
   }
 
-  document.querySelectorAll(".navBtn").forEach(btn=>{
-    btn.classList.remove("active");
+  document.querySelectorAll(".navBtn")
+    .forEach(btn=>{
+      btn.classList.toggle(
+        "active",
+        btn.dataset.page===page
+      );
+    });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
   });
 
-  const navMap={
-    home:0,
-    move:1,
-    believe:2,
-    heal:3,
-    grow:4,
-    community:5
-  };
-
-  if(navMap[name]!==undefined){
-    document.querySelectorAll(".navBtn")[navMap[name]]
-      .classList.add("active");
-  }
-
-  window.scrollTo(0,0);
-
-  if(name==="home") updateHome();
-  if(name==="move") renderWorkoutList();
-  if(name==="grow") updateGrow();
-  if(name==="challenge") renderChallenge();
+  if(page==="home") updateHome();
+  if(page==="move") renderWorkoutList();
+  if(page==="grow") updateGrow();
 }
 
-/* =========================================================
-   LEVEL + SETTING
-   ========================================================= */
+
+/* =========================================
+   LEVEL
+   ========================================= */
 
 function setLevel(level){
+
   state.level=level;
   saveState();
+
   updateChoices();
   renderWorkoutList();
 
-  if(document.getElementById("detailPage").classList.contains("active")){
-    renderDetail(currentDay);
-  }
 }
+
+
+/* =========================================
+   SETTING
+   ========================================= */
 
 function setSetting(setting){
+
   state.setting=setting;
   saveState();
+
   updateChoices();
   renderWorkoutList();
 
-  if(document.getElementById("detailPage").classList.contains("active")){
-    renderDetail(currentDay);
-  }
 }
+
+
+/* =========================================
+   CHOICES
+   ========================================= */
 
 function updateChoices(){
 
-  ["beginner","building","strong"].forEach(x=>{
-    const id="level"+x.charAt(0).toUpperCase()+x.slice(1);
-    const el=document.getElementById(id);
-    if(el) el.classList.toggle("selected",state.level===x);
-  });
+  document
+    .getElementById("levelBeginner")
+    .classList.toggle(
+      "selected",
+      state.level==="beginner"
+    );
 
-  document.getElementById("settingHome")
-    .classList.toggle("selected",state.setting==="home");
+  document
+    .getElementById("levelBuilding")
+    .classList.toggle(
+      "selected",
+      state.level==="building"
+    );
 
-  document.getElementById("settingGym")
-    .classList.toggle("selected",state.setting==="gym");
+  document
+    .getElementById("levelStrong")
+    .classList.toggle(
+      "selected",
+      state.level==="strong"
+    );
+
+  document
+    .getElementById("settingHome")
+    .classList.toggle(
+      "selected",
+      state.setting==="home"
+    );
+
+  document
+    .getElementById("settingGym")
+    .classList.toggle(
+      "selected",
+      state.setting==="gym"
+    );
 }
 
+
 function levelName(){
+
   if(state.level==="beginner") return "Beginner";
+
   if(state.level==="building") return "Building";
+
   return "Strong";
 }
 
-/* =========================================================
+
+/* =========================================
    WORKOUT LIST
-   ========================================================= */
+   ========================================= */
 
 function renderWorkoutList(){
 
-  const container=document.getElementById("workoutList");
+  const box=
+    document.getElementById("workoutList");
 
-  container.innerHTML=workouts.map(w=>{
+  if(!box) return;
 
-    const done=state.completed.includes(w.day);
+  box.innerHTML="";
 
-    return `
+  workouts.forEach((day,index)=>{
+
+    const done=
+      state.completed.includes(index);
+
+    box.innerHTML+=`
+
       <div class="dayCard ${done?"done":""}">
 
         <div class="dayInfo">
 
           <div class="dayNumber">
-            Day ${w.day}
+            Day ${index+1}
           </div>
 
           <div class="dayTitle">
-            ${w.title}
+            ${day.title}
           </div>
 
           <span class="badge">
-            ${w.type}
+            ${day.type}
           </span>
 
           ${done
-            ? `<span class="badge">✓ Complete</span>`
+            ? `<span class="badge"
+                 style="background:#e5f1e6;color:#4e7952;">
+                 ✓ Complete
+               </span>`
             : ""
           }
 
         </div>
 
         <button class="btn"
-          onclick="openWorkout(${w.day})">
-          ${done?"Review":"Start"}
+          onclick="openWorkout(${index})">
+          ${done ? "Review" : "Start"}
         </button>
 
       </div>
+
     `;
 
-  }).join("");
+  });
+
 }
 
-/* =========================================================
-   WORKOUT DETAIL
-   ========================================================= */
 
-function openWorkout(day){
-  currentDay=day;
-  renderDetail(day);
-  showPage("detail");
-}
+/* =========================================
+   OPEN WORKOUT
+   ========================================= */
 
-function renderDetail(day){
+function openWorkout(index){
 
-  const workout=workouts.find(w=>w.day===day);
+  currentDay=index;
 
-  if(!workout) return;
+  const day=workouts[index];
 
   currentExercises=
-    state.setting==="gym"
-      ? workout.gym
-      : workout.home;
+    state.setting==="home"
+      ? day.home
+      : day.gym;
 
-  const levelIndex={
-    beginner:2,
-    building:3,
-    strong:4
-  }[state.level];
+  renderDetail();
 
-  document.getElementById("detailContent").innerHTML=`
+  showPage("workout");
+
+}
+
+
+/* =========================================
+   MOVEMENT TYPE
+   ========================================= */
+
+function getMovementClass(name){
+
+  const n=name.toLowerCase();
+
+  if(
+    n.includes("squat") ||
+    n.includes("thruster")
+  ){
+    return "demo-squat";
+  }
+
+  if(
+    n.includes("lunge") ||
+    n.includes("split squat")
+  ){
+    return "demo-lunge";
+  }
+
+  if(
+    n.includes("punch") ||
+    n.includes("boxing") ||
+    n.includes("jab") ||
+    n.includes("hook") ||
+    n.includes("uppercut")
+  ){
+    return "demo-punch";
+  }
+
+  if(
+    n.includes("jump") ||
+    n.includes("jack") ||
+    n.includes("fast feet")
+  ){
+    return "demo-jump";
+  }
+
+  if(
+    n.includes("walk") ||
+    n.includes("march") ||
+    n.includes("dance") ||
+    n.includes("step") ||
+    n.includes("cardio") ||
+    n.includes("shuffle")
+  ){
+    return "demo-cardio";
+  }
+
+  if(
+    n.includes("plank") ||
+    n.includes("crunch") ||
+    n.includes("dead bug") ||
+    n.includes("core") ||
+    n.includes("pallof") ||
+    n.includes("toe tap") ||
+    n.includes("bird dog")
+  ){
+    return "demo-core";
+  }
+
+  if(
+    n.includes("row") ||
+    n.includes("pulldown") ||
+    n.includes("lat")
+  ){
+    return "demo-row";
+  }
+
+  if(
+    n.includes("press") ||
+    n.includes("curl") ||
+    n.includes("raise") ||
+    n.includes("triceps") ||
+    n.includes("fly")
+  ){
+    return "demo-press";
+  }
+
+  if(
+    n.includes("kick") ||
+    n.includes("knee") ||
+    n.includes("strike")
+  ){
+    return "demo-kick";
+  }
+
+  if(
+    n.includes("stretch") ||
+    n.includes("mobility") ||
+    n.includes("breathing") ||
+    n.includes("child")
+  ){
+    return "demo-stretch";
+  }
+
+  if(
+    n.includes("bridge") ||
+    n.includes("glute") ||
+    n.includes("hip") ||
+    n.includes("frog") ||
+    n.includes("hydrant")
+  ){
+    return "demo-glute";
+  }
+
+  return "demo-cardio";
+}
+
+
+/* =========================================
+   DEMO HTML
+   ========================================= */
+
+function demoHTML(exerciseName="Workout"){
+
+  const movement=
+    getMovementClass(exerciseName);
+
+  return `
+
+    <div class="demo">
+
+      <div class="demo-label">
+        LIVE WORKOUT DEMO
+      </div>
+
+      <div class="person ${movement}">
+
+        <div class="head"></div>
+
+        <div class="hair"></div>
+
+        <div class="body"></div>
+
+        <div class="arm left"></div>
+
+        <div class="arm right"></div>
+
+        <div class="leg left"></div>
+
+        <div class="leg right"></div>
+
+      </div>
+
+      <div class="demo-caption">
+        Follow the movement 💪
+      </div>
+
+    </div>
+
+  `;
+}
+
+
+/* =========================================
+   RENDER WORKOUT DETAIL
+   ========================================= */
+
+function renderDetail(){
+
+  const day=workouts[currentDay];
+
+  const box=
+    document.getElementById("workoutDetail");
+
+  currentExercises=
+    state.setting==="home"
+      ? day.home
+      : day.gym;
+
+  box.innerHTML=`
 
     <div class="hero">
 
-      <div class="small">
-        DAY ${workout.day} • ${workout.type}
+      <div class="dayNumber">
+        DAY ${currentDay+1}
       </div>
 
-      <h1>${workout.title}</h1>
+      <h1>${day.title}</h1>
 
       <p>
-        ${levelName()} •
-        ${state.setting==="gym"?"Gym":"At Home"}
+        ${day.type} • ${levelName()} •
+        ${state.setting==="home" ? "At Home" : "At the Gym"}
       </p>
 
-      <button class="btn light"
-        onclick="toggleWorkoutSetting()">
-        Switch to
-        ${state.setting==="gym"?"Home":"Gym"}
-      </button>
+    </div>
+
+    <div class="card">
+
+      <h3>
+        ${state.setting==="home"
+          ? "🏠 Home Workout"
+          : "🏋️ Gym Workout"}
+      </h3>
+
+      <p class="small">
+        Your exercises automatically adjust
+        for your level.
+      </p>
+
+      <div class="choiceGrid">
+
+        <button class="choice ${
+          state.setting==="home" ? "selected" : ""
+        }"
+        onclick="setSetting('home');renderDetail()">
+          🏠 Home
+        </button>
+
+        <button class="choice ${
+          state.setting==="gym" ? "selected" : ""
+        }"
+        onclick="setSetting('gym');renderDetail()">
+          🏋️ Gym
+        </button>
+
+      </div>
 
     </div>
 
     ${currentExercises.map((ex,i)=>{
 
-      const hasWeights=ex.length>=5;
+      let weight="";
 
-      let weightText="";
+      if(state.setting==="gym"){
 
-      if(hasWeights){
+        const w=
+          day.weights[
+            state.level==="beginner"
+              ? 0
+              : state.level==="building"
+              ? 1
+              : 2
+          ];
 
-        const weight=
-          ex[levelIndex]!==undefined
-            ? ex[levelIndex]
-            : "";
-
-        weightText=`
-          <div class="weightBox">
-            <strong>Suggested ${levelName()} Weight:</strong>
-            ${weight}
-            ${typeof weight==="number"?" lb":""}
-            <br>
-            <span class="small">
-              Start lighter if needed. Form comes first.
-            </span>
-          </div>
-        `;
+        if(w>0){
+          weight=
+            `<div class="small">
+              Suggested weight:
+              <strong>${w} lb</strong>
+            </div>`;
+        }
       }
 
       return `
@@ -2111,39 +2438,35 @@ function renderDetail(day){
 
           <div class="exerciseTop">
 
-            <div>
-              <div class="exerciseName">
-                ${ex[0]}
-              </div>
-
-              <div class="exerciseTarget">
-                ${ex[1]}
-              </div>
+            <div class="exerciseName">
+              ${i+1}. ${ex[0]}
             </div>
 
-            <div>
-              #${i+1}
+            <div class="exerciseTarget">
+              ${ex[1]}
             </div>
 
           </div>
 
-          ${demoHTML()}
+          ${demoHTML(ex[0])}
 
-          ${weightText}
+          ${weight}
 
-          <div class="exerciseActions">
+          <button
+            class="btn full"
+            onclick="startExercise(${i})">
 
-            <button class="btn"
-              onclick="startExercise(${i})">
-              ▶ Start
-            </button>
+            ▶ Start ${ex[0]}
 
-            <button class="btn teal"
-              onclick="quickRepTimer(${i})">
-              🔢 Rep Countdown
-            </button>
+          </button>
 
-          </div>
+          <button
+            class="btn teal full"
+            onclick="quickRepTimer(${i})">
+
+            🔢 Rep Countdown
+
+          </button>
 
         </div>
 
@@ -2151,658 +2474,700 @@ function renderDetail(day){
 
     }).join("")}
 
-    <div class="card center">
+    <button
+      class="btn green full"
+      onclick="completeWorkout()">
 
-      <h2>
-        ${state.completed.includes(day)
-          ?"🎉 Day Complete!"
-          :"Ready?"
-        }
-      </h2>
+      ✓ Complete Day ${currentDay+1}
 
-      <button class="btn green"
-        onclick="completeWorkout(${day})">
-        ✓ Complete Day ${day}
-      </button>
+    </button>
 
-    </div>
   `;
+
 }
 
-function demoHTML(){
-  return `
-    <div class="demo">
 
-      <div class="demo-label">
-        WORKOUT DEMO
-      </div>
-
-      <div class="person">
-
-        <div class="head"></div>
-        <div class="hair"></div>
-        <div class="body"></div>
-
-        <div class="arm left"></div>
-        <div class="arm right"></div>
-
-        <div class="leg left"></div>
-        <div class="leg right"></div>
-
-      </div>
-
-      <div class="demo-caption">
-        Fit • Strong • Keep Going 💗
-      </div>
-
-    </div>
-  `;
-}
-
-function toggleWorkoutSetting(){
-  state.setting=state.setting==="gym"?"home":"gym";
-  saveState();
-  updateChoices();
-  renderDetail(currentDay);
-}
-
-/* =========================================================
-   TIMER
-   ========================================================= */
+/* =========================================
+   START EXERCISE
+   ========================================= */
 
 function startExercise(index){
 
+  const ex=
+    currentExercises[index];
+
   timerExerciseIndex=index;
 
-  const ex=currentExercises[index];
+  const exerciseName=ex[0];
 
-  let target=ex[1]||"30 sec";
+  timerMode="TIME";
 
   let seconds=30;
 
-  const match=target.match(/(\d+)\s*sec/i);
+  const target=ex[1] || "30 sec";
 
-  if(match){
-    seconds=parseInt(match[1]);
+  const timeMatch=
+    target.match(/(\d+)\s*sec/i);
+
+  const repMatch=
+    target.match(/(\d+)\s*reps?/i);
+
+  if(timeMatch){
+    seconds=parseInt(timeMatch[1]);
+    timerMode="TIME";
   }
-
-  const reps=target.match(/x\s*(\d+)/i);
-
-  if(reps && !match){
-    seconds=parseInt(reps[1]);
+  else if(repMatch){
+    seconds=parseInt(repMatch[1]);
+    timerMode="REPS";
   }
 
   timerSeconds=seconds;
-  timerMode=match?"TIME":"REPS";
   timerPaused=false;
 
-  document.getElementById("timerExercise").textContent=ex[0];
+  document.getElementById("timerExercise")
+    .textContent=exerciseName;
+
+  document.getElementById("timerStatus")
+    .textContent=
+    timerMode==="REPS"
+      ? "Rep countdown"
+      : "Work hard. You've got this.";
+
+  document.getElementById("timerMode")
+    .textContent=
+    timerMode==="REPS"
+      ? "REPS"
+      : "SECONDS";
+
+  document.getElementById("timerDemo")
+    .innerHTML=
+      demoHTML(exerciseName);
+
+  updateTimerDisplay();
 
   showPage("timer");
 
   startTimerLoop();
+
 }
+
+
+/* =========================================
+   REP TIMER
+   ========================================= */
 
 function quickRepTimer(index){
 
-  currentExercises=
-    state.setting==="gym"
-      ? workouts[currentDay-1].gym
-      : workouts[currentDay-1].home;
+  const ex=
+    currentExercises[index];
 
   timerExerciseIndex=index;
 
-  const ex=currentExercises[index];
+  const match=
+    ex[1].match(/(\d+)\s*reps?/i);
 
-  let reps=12;
+  let reps=
+    match
+      ? parseInt(match[1])
+      : 10;
 
-  const match=(ex[1]||"").match(/x\s*(\d+)/i);
-
-  if(match){
-    reps=parseInt(match[1]);
-  }
-
-  timerSeconds=reps;
   timerMode="REPS";
+  timerSeconds=reps;
   timerPaused=false;
 
-  document.getElementById("timerExercise").textContent=
-    ex[0];
+  document.getElementById("timerExercise")
+    .textContent=ex[0];
+
+  document.getElementById("timerMode")
+    .textContent="REPS";
+
+  document.getElementById("timerStatus")
+    .textContent="One rep at a time. Keep going!";
+
+  document.getElementById("timerDemo")
+    .innerHTML=
+      demoHTML(ex[0]);
+
+  updateTimerDisplay();
 
   showPage("timer");
 
   startTimerLoop();
+
 }
+
+
+/* =========================================
+   TIMER LOOP
+   ========================================= */
 
 function startTimerLoop(){
 
   clearInterval(timerInterval);
 
-  updateTimerDisplay();
+  timerInterval=
+    setInterval(()=>{
 
-  timerInterval=setInterval(()=>{
+      if(timerPaused) return;
 
-    if(timerPaused) return;
+      timerSeconds--;
 
-    timerSeconds--;
+      updateTimerDisplay();
 
-    updateTimerDisplay();
+      if(timerSeconds<=0){
 
-    if(timerSeconds<=0){
+        clearInterval(timerInterval);
 
-      clearInterval(timerInterval);
+        document.getElementById("timerStatus")
+          .textContent=
+          "🔥 Great job!";
 
-      startRestTimer();
+        setTimeout(()=>{
 
-    }
+          const next=
+            timerExerciseIndex+1;
 
-  },1000);
+          if(next<currentExercises.length){
+
+            startExercise(next);
+
+          }
+          else{
+
+            document.getElementById("timerStatus")
+              .textContent=
+              "Workout complete!";
+
+          }
+
+        },900);
+
+      }
+
+    },1000);
+
 }
 
-function startRestTimer(){
 
-  timerSeconds=15;
-  timerMode="REST";
-  timerPaused=false;
-
-  document.getElementById("timerStatus").textContent=
-    "REST";
-
-  clearInterval(timerInterval);
-
-  timerInterval=setInterval(()=>{
-
-    if(timerPaused) return;
-
-    timerSeconds--;
-
-    updateTimerDisplay();
-
-    if(timerSeconds<=0){
-
-      clearInterval(timerInterval);
-
-      document.getElementById("timerStatus").textContent=
-        "DONE!";
-
-      document.getElementById("timerNumber").textContent=
-        "✓";
-
-    }
-
-  },1000);
-
-  updateTimerDisplay();
-}
+/* =========================================
+   TIMER DISPLAY
+   ========================================= */
 
 function updateTimerDisplay(){
 
-  document.getElementById("timerNumber").textContent=
-    String(Math.max(0,timerSeconds)).padStart(2,"0");
+  const el=
+    document.getElementById("timerNumber");
 
-  if(timerMode!=="REST"){
-    document.getElementById("timerStatus").textContent=
-      timerMode==="REPS"
-        ?"REPS"
-        :"WORK";
+  if(el){
+    el.textContent=
+      Math.max(0,timerSeconds);
   }
 
-  let percent=100;
-
-  document.getElementById("timerProgress").style.width=
-    percent+"%";
 }
+
+
+/* =========================================
+   PAUSE
+   ========================================= */
 
 function pauseTimer(){
 
   timerPaused=!timerPaused;
 
-  document.getElementById("pauseBtn").textContent=
-    timerPaused?"▶ Resume":"⏸ Pause";
+  const btn=
+    document.getElementById("pauseBtn");
+
+  if(btn){
+
+    btn.textContent=
+      timerPaused
+        ? "▶ Resume"
+        : "⏸ Pause";
+
+  }
+
 }
+
+
+/* =========================================
+   SKIP
+   ========================================= */
 
 function skipTimer(){
 
   clearInterval(timerInterval);
-  startRestTimer();
+
+  const next=
+    timerExerciseIndex+1;
+
+  if(next<currentExercises.length){
+
+    startExercise(next);
+
+  }
+  else{
+
+    document.getElementById("timerStatus")
+      .textContent=
+      "🔥 You finished every exercise!";
+
+  }
+
 }
+
+
+/* =========================================
+   STOP
+   ========================================= */
 
 function stopTimer(){
 
   clearInterval(timerInterval);
-  timerPaused=false;
-  showPage("detail");
+
+  showPage("workout");
+
 }
 
-/* =========================================================
+
+/* =========================================
    COMPLETE WORKOUT
-   ========================================================= */
+   ========================================= */
 
-function completeWorkout(day){
+function completeWorkout(){
 
-  if(!state.completed.includes(day)){
-    state.completed.push(day);
+  if(!state.completed.includes(currentDay)){
+
+    state.completed.push(currentDay);
+
     state.workouts++;
-    state.days=Math.max(state.days,state.completed.length);
+
+    state.days=
+      state.completed.length;
+
+    saveState();
+
   }
 
-  saveState();
+  showPage("grow");
 
-  alert(
-    day===30
-      ?"🎉 CHAIN BREAKER! You completed all 30 days! 💗"
-      :"🎉 Workout complete! You showed up for yourself today."
-  );
+  updateGrow();
 
-  renderDetail(day);
-  updateHome();
 }
 
-/* =========================================================
+
+/* =========================================
    HOME
-   ========================================================= */
+   ========================================= */
 
 function updateHome(){
 
-  document.getElementById("homeDays").textContent=
-    state.days;
+  document.getElementById("homeDays")
+    .textContent=state.days;
 
-  document.getElementById("homeWorkouts").textContent=
-    state.workouts;
+  document.getElementById("homeWorkouts")
+    .textContent=state.workouts;
 
-  document.getElementById("homeFaith").textContent=
-    state.faith;
+  document.getElementById("homeFaith")
+    .textContent=state.faith;
 
-  const chain=
-    document.getElementById("homeChain");
+  const percent=
+    Math.round(
+      (state.completed.length/
+      workouts.length)*100
+    );
 
-  chain.innerHTML="";
+  document.getElementById("homeProgress")
+    .style.width=percent+"%";
 
-  for(let i=1;i<=30;i++){
+  document.getElementById("homeProgressText")
+    .textContent=
+      `${state.completed.length} of ${workouts.length} days complete • ${percent}%`;
 
-    const span=document.createElement("span");
-
-    if(state.completed.includes(i)){
-      span.classList.add("done");
-    }
-
-    chain.appendChild(span);
-  }
-
-  document.getElementById("chainMessage").textContent=
-    state.completed.length>=30
-      ?"CHAIN BROKEN! 🔗💗"
-      :`${30-state.completed.length} days left in your Foundation.`;
 }
 
-function completeToday(){
 
-  const move=document.getElementById("checkMove").checked;
-  const faith=document.getElementById("checkFaith").checked;
-  const healthy=document.getElementById("checkHealthy").checked;
+/* =========================================
+   CHECK-IN
+   ========================================= */
 
-  if(move && !state.completed.includes(currentDay)){
-    state.completed.push(currentDay);
-    state.workouts++;
-  }
+function saveCheck(){
+
+  const move=
+    document.getElementById("checkMove").checked;
+
+  const faith=
+    document.getElementById("checkFaith").checked;
+
+  const healthy=
+    document.getElementById("checkHealthy").checked;
 
   if(faith){
     state.faith++;
   }
 
-  if(move || faith || healthy){
-    state.days=Math.max(
-      state.days,
-      state.completed.length
-    );
+  if(healthy){
+    state.healthy++;
   }
 
   saveState();
 
-  alert("💗 Today counts. Keep moving forward.");
+  alert(
+    "Today's check-in is saved. ❤️ Keep going!"
+  );
 
   updateHome();
+
 }
 
-/* =========================================================
-   CHECK-IN
-   ========================================================= */
 
-function saveCheck(){
-  saveState();
-}
-
-/* =========================================================
-   BELIEVE
-   ========================================================= */
+/* =========================================
+   GRATITUDE
+   ========================================= */
 
 function saveGratitude(){
 
-  const value=
+  const text=
     document.getElementById("gratitude").value.trim();
 
-  if(!value){
-    alert("Write something you're thankful for first. 💗");
+  if(!text){
+
+    alert("Write something you're thankful for first. ❤️");
+
     return;
+
   }
 
-  localStorage.setItem("btc_gratitude",value);
+  localStorage.setItem(
+    "btcGratitude",
+    text
+  );
 
-  alert("🙏 Gratitude saved.");
+  alert("Gratitude saved. 🙏");
+
 }
 
-/* =========================================================
-   HEAL
-   ========================================================= */
+
+/* =========================================
+   MOOD
+   ========================================= */
 
 function setMood(mood,button){
 
-  state.mood=mood;
-  saveState();
-
-  document.querySelectorAll(".mood")
-    .forEach(x=>x.classList.remove("selected"));
+  document
+    .querySelectorAll(".mood")
+    .forEach(b=>
+      b.classList.remove("selected")
+    );
 
   button.classList.add("selected");
+
+  localStorage.setItem(
+    "btcMood",
+    mood
+  );
+
 }
+
+
+/* =========================================
+   JOURNAL
+   ========================================= */
 
 function saveJournal(){
 
-  const value=
-    document.getElementById("journal").value.trim();
+  const text=
+    document.getElementById("journal")
+      .value.trim();
 
-  if(!value){
-    alert("Write something first. Your story matters.");
+  if(!text){
+
+    alert("Write something first. ❤️");
+
     return;
+
   }
 
-  localStorage.setItem("btc_journal",value);
+  localStorage.setItem(
+    "btcJournal",
+    text
+  );
 
-  alert("📓 Journal saved.");
+  alert("Your journal entry is saved.");
+
 }
+
+
+/* =========================================
+   WIN
+   ========================================= */
 
 function saveWin(){
 
-  const value=
-    document.getElementById("winInput").value.trim();
+  const text=
+    document.getElementById("win")
+      .value.trim();
 
-  if(!value){
-    alert("Tell yourself one thing you did well today.");
+  if(!text){
+
+    alert("Write down your win first! 🏆");
+
     return;
+
   }
 
-  state.wins++;
-  saveState();
+  localStorage.setItem(
+    "btcWin",
+    text
+  );
 
-  document.getElementById("winInput").value="";
+  alert("WIN SAVED! 🏆");
 
-  alert("🏆 WIN SAVED! You should be proud of that.");
-  updateGrow();
 }
 
-/* =========================================================
+
+/* =========================================
    COMMUNITY
-   ========================================================= */
+   ========================================= */
 
-function sharePost(){
+function sharePost(name){
 
-  const input=
-    document.getElementById("communityPost");
+  alert(
+    `❤️ Encouragement sent to ${name}!`
+  );
 
-  const value=input.value.trim();
-
-  if(!value){
-    alert("Write something to share first.");
-    return;
-  }
-
-  state.posts.push({
-    name:"You",
-    text:value
-  });
-
-  saveState();
-
-  input.value="";
-
-  renderCommunity();
-
-  alert("👭 Your encouragement was shared!");
 }
 
-function renderCommunity(){
-
-  const feed=
-    document.getElementById("communityFeed");
-
-  const posts=state.posts.map(post=>`
-    <p>
-      <strong>${escapeHTML(post.name)}:</strong>
-      ${escapeHTML(post.text)}
-    </p>
-    <hr>
-  `).join("");
-
-  feed.innerHTML=`
-
-    ${posts}
-
-    <p>
-      <strong>Sarah:</strong>
-      "Day 7 completed! I almost skipped today,
-      but I showed up anyway. ❤️"
-    </p>
-
-    <hr>
-
-    <p>
-      <strong>Amanda:</strong>
-      "Remember ladies, progress doesn't have to
-      be perfect."
-    </p>
-  `;
-}
 
 function sendSuggestion(){
 
-  const value=
-    document.getElementById("suggestion").value.trim();
+  const text=
+    document.getElementById("suggestion")
+      .value.trim();
 
-  if(!value){
-    alert("Write your suggestion first.");
+  if(!text){
+
+    alert("Tell Jodi what you'd like to see.");
+
     return;
+
   }
 
-  const subject=
-    encodeURIComponent(
-      "Beyond the Chains Suggestion"
-    );
+  localStorage.setItem(
+    "btcSuggestion",
+    text
+  );
 
-  const body=
-    encodeURIComponent(value);
+  document.getElementById("suggestion")
+    .value="";
 
-  window.location.href=
-    `mailto:${JODI_EMAIL}?subject=${subject}&body=${body}`;
+  alert(
+    "Thank you! Your suggestion has been saved. 💗"
+  );
+
 }
 
-/* =========================================================
+
+/* =========================================
    MESSAGE JODI
-   ========================================================= */
+   ========================================= */
 
 function messageJodi(){
 
-  const name=
-    document.getElementById("messageName").value.trim();
-
-  const message=
-    document.getElementById("jodiMessage").value.trim();
-
-  if(!message){
-    alert("Please write a message first.");
-    return;
-  }
-
-  const subject=
-    encodeURIComponent(
-      "Beyond the Chains Message"
-    );
-
-  const body=
-    encodeURIComponent(
-      `Name: ${name || "Chain Breaker"}\n\n${message}`
-    );
-
   window.location.href=
-    `mailto:${JODI_EMAIL}?subject=${subject}&body=${body}`;
+    "mailto:"+JODI_EMAIL+
+    "?subject=Beyond%20the%20Chains%20Question"+
+    "&body=Hi%20Jodi,%0A%0AI%20have%20a%20question%20about%20Beyond%20the%20Chains.";
+
 }
 
-/* =========================================================
+
+/* =========================================
    GROW
-   ========================================================= */
+   ========================================= */
 
 function updateGrow(){
 
-  document.getElementById("growDays").textContent=
-    state.days;
-
-  document.getElementById("growWorkouts").textContent=
-    state.workouts;
-
-  document.getElementById("growWins").textContent=
-    state.wins;
-
-  const chain=
-    document.getElementById("growChain");
-
-  chain.innerHTML="";
-
-  for(let i=1;i<=30;i++){
-
-    const span=document.createElement("span");
-
-    if(state.completed.includes(i)){
-      span.classList.add("done");
-    }
-
-    chain.appendChild(span);
-  }
-
   const percent=
     Math.round(
-      (state.completed.length/30)*100
+      (state.completed.length/
+      workouts.length)*100
     );
 
-  document.getElementById("progressText").textContent=
-    `${percent}% of your 30-Day Foundation is complete. Keep going!`;
+  document.getElementById("growProgress")
+    .style.width=percent+"%";
+
+  document.getElementById("growPercent")
+    .textContent=percent+"%";
+
+  document.getElementById("growWorkouts")
+    .textContent=state.workouts;
+
+  document.getElementById("growFaith")
+    .textContent=state.faith;
+
+  document.getElementById("growHealthy")
+    .textContent=state.healthy;
+
+  let message=
+    "Your story is still being written.";
+
+  if(percent>=25)
+    message=
+      "You're building momentum. Keep going! 🔥";
+
+  if(percent>=50)
+    message=
+      "Halfway there. Look at the woman you're becoming. 💪";
+
+  if(percent>=75)
+    message=
+      "You're almost at the chain-breaking finish line! ⛓️";
+
+  if(percent>=100)
+    message=
+      "YOU DID IT! CHAIN BROKEN! 🔥";
+
+  document.getElementById("growMessage")
+    .textContent=message;
+
+  renderChallenge();
+
 }
 
-/* =========================================================
+
+/* =========================================
    CHALLENGE
-   ========================================================= */
+   ========================================= */
 
 function renderChallenge(){
 
-  const container=
-    document.getElementById("challengeList");
+  const box=
+    document.getElementById("challengeBox");
 
-  container.innerHTML=
-    workouts.map(w=>`
+  if(state.completed.length>=30){
 
-      <div class="dayCard
-        ${state.completed.includes(w.day)?"done":""}">
+    box.innerHTML=`
 
-        <div class="dayInfo">
+      <div class="celebrate">
 
-          <div class="dayNumber">
-            Day ${w.day}
-          </div>
-
-          <div class="dayTitle">
-            ${w.title}
-          </div>
-
-          <span class="badge">
-            ${w.type}
-          </span>
-
+        <div class="chain">
+          ⛓️
         </div>
 
-        <button class="btn"
-          onclick="openWorkout(${w.day})">
-          ${state.completed.includes(w.day)
-            ?"✓"
-            :"Go"
-          }
+        <h2>
+          CHAIN BROKEN!
+        </h2>
+
+        <p>
+          You completed the 30-Day Foundation.
+        </p>
+
+        <button
+          class="btn gold full"
+          onclick="showPage('nextChallenge')">
+
+          🔥 See What's Next
+
         </button>
 
       </div>
 
-    `).join("");
+    `;
+
+  }
+  else{
+
+    box.innerHTML=`
+
+      <div class="card">
+
+        <h3>
+          🔥 Your Next Challenge
+        </h3>
+
+        <p>
+          Finish the Foundation and unlock
+          your next 30-day challenge.
+        </p>
+
+        <p class="small">
+          No boredom. No cookie-cutter workouts.
+          Just another level to grow into.
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
 }
 
-/* =========================================================
-   SURPRISE WORKOUT
-   ========================================================= */
 
-function surpriseWorkout(){
+/* =========================================
+   NEXT CHALLENGE
+   ========================================= */
 
-  const available=
-    workouts.filter(
-      w=>!state.completed.includes(w.day)
-    );
+function startNextChallenge(){
 
-  const list=
-    available.length
-      ? available
-      : workouts;
+  alert(
+    "Your next 30-day challenge is coming next! 🔥"
+  );
 
-  const choice=
-    list[Math.floor(Math.random()*list.length)];
+  showPage("move");
 
-  openWorkout(choice.day);
 }
 
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
 
-function escapeHTML(str){
+/* =========================================
+   LOAD SAVED DATA
+   ========================================= */
 
-  return str
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+function loadSavedData(){
+
+  const gratitude=
+    localStorage.getItem("btcGratitude");
+
+  if(gratitude){
+    document.getElementById("gratitude")
+      .value=gratitude;
+  }
+
+  const journal=
+    localStorage.getItem("btcJournal");
+
+  if(journal){
+    document.getElementById("journal")
+      .value=journal;
+  }
+
+  const win=
+    localStorage.getItem("btcWin");
+
+  if(win){
+    document.getElementById("win")
+      .value=win;
+  }
+
 }
 
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
+
+/* =========================================
+   START APP
+   ========================================= */
 
 function initialize(){
 
   updateChoices();
-  updateHome();
-  updateGrow();
+
   renderWorkoutList();
-  renderCommunity();
 
-  const gratitude=
-    localStorage.getItem("btc_gratitude");
+  updateHome();
 
-  if(gratitude){
-    document.getElementById("gratitude").value=
-      gratitude;
-  }
+  updateGrow();
 
-  const journal=
-    localStorage.getItem("btc_journal");
+  loadSavedData();
 
-  if(journal){
-    document.getElementById("journal").value=
-      journal;
-  }
 }
 
 initialize();
