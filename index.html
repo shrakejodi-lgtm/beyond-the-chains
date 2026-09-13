@@ -8,754 +8,516 @@
 
 <style>
 :root{
-  --rose:#b96f86;
-  --roseDark:#8f4d65;
-  --pink:#f3c7d3;
-  --pinkLight:#fff0f4;
-  --teal:#5f9e9a;
-  --tealDark:#397875;
-  --tealLight:#e0f1ef;
-  --cream:#fff9f4;
-  --brown:#594942;
-  --brownLight:#806f67;
-  --white:#fff;
-  --green:#719b76;
-  --gold:#d8aa55;
-  --shadow:0 8px 25px rgba(89,73,66,.12);
+--rose:#b96f86;
+--roseDark:#8f4d65;
+--pink:#f3c7d3;
+--pinkLight:#fff0f4;
+--teal:#5f9e9a;
+--tealDark:#397875;
+--tealLight:#e0f1ef;
+--cream:#fff9f4;
+--brown:#594942;
+--brownLight:#806f67;
+--white:#fff;
+--green:#719b76;
+--gold:#d8aa55;
+--shadow:0 8px 25px rgba(89,73,66,.12);
 }
 
 *{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  background:var(--cream);
-  color:var(--brown);
-  font-family:Arial,Helvetica,sans-serif;
+margin:0;
+background:var(--cream);
+color:var(--brown);
+font-family:Arial,Helvetica,sans-serif;
 }
 
-button,input,textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
 
 .app{
-  max-width:680px;
-  margin:auto;
-  min-height:100vh;
-  padding-bottom:90px;
+max-width:680px;
+margin:auto;
+min-height:100vh;
+padding-bottom:90px;
 }
 
 /* HEADER */
 
 header{
-  background:linear-gradient(135deg,var(--rose),var(--teal));
-  color:white;
-  padding:18px 16px 22px;
-  text-align:center;
-  border-radius:0 0 28px 28px;
-  box-shadow:var(--shadow);
+background:linear-gradient(135deg,var(--rose),var(--teal));
+color:white;
+padding:18px 16px 22px;
+text-align:center;
+border-radius:0 0 28px 28px;
+box-shadow:var(--shadow);
 }
 
 .logo-img{
-  max-width:180px;
-  max-height:90px;
-  object-fit:contain;
-  display:block;
-  margin:0 auto 6px;
+max-width:180px;
+max-height:90px;
+object-fit:contain;
+display:block;
+margin:0 auto 6px;
 }
 
 .textLogo{
-  font-weight:900;
-  font-size:25px;
-  letter-spacing:1px;
+font-weight:900;
+font-size:25px;
+letter-spacing:1px;
 }
 
 .tagline{
-  font-size:13px;
-  opacity:.96;
+font-size:13px;
+opacity:.96;
 }
 
 /* PAGES */
 
 .page{
-  display:none;
-  padding:18px 15px;
+display:none;
+padding:18px 15px;
 }
 
-.page.active{
-  display:block;
-}
+.page.active{display:block}
 
-h1,h2,h3{
-  margin-top:0;
-}
+h1,h2,h3{margin-top:0}
 
 .card{
-  background:white;
-  border-radius:20px;
-  padding:18px;
-  margin-bottom:15px;
-  box-shadow:var(--shadow);
+background:white;
+border-radius:20px;
+padding:18px;
+margin-bottom:15px;
+box-shadow:var(--shadow);
 }
 
 .hero{
-  background:linear-gradient(135deg,var(--pinkLight),var(--tealLight));
-  border-radius:25px;
-  padding:24px 20px;
-  margin-bottom:16px;
-  text-align:center;
+background:linear-gradient(135deg,var(--pinkLight),var(--tealLight));
+border-radius:25px;
+padding:24px 20px;
+margin-bottom:16px;
+text-align:center;
 }
 
 .hero h1{
-  font-size:28px;
-  margin-bottom:8px;
+font-size:28px;
+margin-bottom:8px;
 }
 
 .hero p{
-  color:var(--brownLight);
-  line-height:1.5;
+color:var(--brownLight);
+line-height:1.5;
 }
 
 .btn{
-  border:0;
-  border-radius:14px;
-  padding:13px 17px;
-  font-weight:700;
-  margin:4px;
-  color:white;
-  background:var(--rose);
-  transition:.15s;
+border:0;
+border-radius:14px;
+padding:13px 17px;
+font-weight:700;
+margin:4px;
+color:white;
+background:var(--rose);
+transition:.15s;
 }
 
 .btn:hover{
-  transform:translateY(-1px);
-  filter:brightness(.96);
+transform:translateY(-1px);
+filter:brightness(.96);
 }
 
-.btn.teal{
-  background:var(--tealDark);
-}
-
+.btn.teal{background:var(--tealDark)}
 .btn.light{
-  background:var(--pinkLight);
-  color:var(--roseDark);
+background:var(--pinkLight);
+color:var(--roseDark);
 }
-
-.btn.gold{
-  background:var(--gold);
-}
-
-.btn.green{
-  background:var(--green);
-}
-
+.btn.gold{background:var(--gold)}
+.btn.green{background:var(--green)}
 .btn.full{
-  width:100%;
-  margin:5px 0;
+width:100%;
+margin:5px 0;
 }
 
 .small{
-  font-size:13px;
-  color:var(--brownLight);
+font-size:13px;
+color:var(--brownLight);
 }
 
-.center{
-  text-align:center;
-}
+.center{text-align:center}
 
 /* STATS */
 
 .stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-  margin-bottom:15px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:9px;
+margin-bottom:15px;
 }
 
 .stat{
-  background:white;
-  border-radius:17px;
-  padding:14px 8px;
-  text-align:center;
-  box-shadow:var(--shadow);
+background:white;
+border-radius:17px;
+padding:14px 8px;
+text-align:center;
+box-shadow:var(--shadow);
 }
 
 .stat strong{
-  display:block;
-  font-size:24px;
-  color:var(--roseDark);
+display:block;
+font-size:24px;
+color:var(--roseDark);
 }
 
 .stat span{
-  font-size:12px;
-  color:var(--brownLight);
+font-size:12px;
+color:var(--brownLight);
 }
 
 /* CHECKS */
 
 .check{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  background:var(--pinkLight);
-  border-radius:13px;
-  margin:8px 0;
+display:flex;
+align-items:center;
+gap:10px;
+padding:12px;
+background:var(--pinkLight);
+border-radius:13px;
+margin:8px 0;
 }
 
 .check input{
-  width:20px;
-  height:20px;
+width:20px;
+height:20px;
 }
 
 /* CHOICES */
 
 .choiceGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
 }
 
 .choice{
-  border:2px solid #ead9d5;
-  background:white;
-  padding:13px;
-  border-radius:15px;
-  text-align:center;
-  font-weight:700;
-  color:var(--brown);
+border:2px solid #ead9d5;
+background:white;
+padding:13px;
+border-radius:15px;
+text-align:center;
+font-weight:700;
+color:var(--brown);
 }
 
 .choice.selected{
-  border-color:var(--rose);
-  background:var(--pinkLight);
-  color:var(--roseDark);
+border-color:var(--rose);
+background:var(--pinkLight);
+color:var(--roseDark);
 }
 
 /* WORKOUT LIST */
 
 .dayCard{
-  background:white;
-  border-radius:18px;
-  padding:15px;
-  margin-bottom:11px;
-  box-shadow:var(--shadow);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
+background:white;
+border-radius:18px;
+padding:15px;
+margin-bottom:11px;
+box-shadow:var(--shadow);
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
 }
 
 .dayCard.done{
-  border-left:6px solid var(--green);
+border-left:6px solid var(--green);
 }
 
-.dayInfo{
-  flex:1;
-}
+.dayInfo{flex:1}
 
 .dayNumber{
-  font-size:12px;
-  font-weight:bold;
-  color:var(--rose);
-  text-transform:uppercase;
+font-size:12px;
+font-weight:bold;
+color:var(--rose);
+text-transform:uppercase;
 }
 
 .dayTitle{
-  font-size:17px;
-  font-weight:800;
-  margin:4px 0;
+font-size:17px;
+font-weight:800;
+margin:4px 0;
 }
 
 .badge{
-  display:inline-block;
-  font-size:11px;
-  padding:5px 8px;
-  border-radius:10px;
-  background:var(--tealLight);
-  color:var(--tealDark);
+display:inline-block;
+font-size:11px;
+padding:5px 8px;
+border-radius:10px;
+background:var(--tealLight);
+color:var(--tealDark);
 }
 
 /* EXERCISE */
 
 .exercise{
-  background:white;
-  border-radius:20px;
-  padding:16px;
-  margin-bottom:15px;
-  box-shadow:var(--shadow);
+background:white;
+border-radius:20px;
+padding:16px;
+margin-bottom:15px;
+box-shadow:var(--shadow);
 }
 
 .exerciseTop{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
+display:flex;
+justify-content:space-between;
+gap:8px;
 }
 
 .exerciseName{
-  font-size:18px;
-  font-weight:800;
+font-size:18px;
+font-weight:800;
 }
 
 .exerciseTarget{
-  color:var(--roseDark);
-  font-weight:bold;
-  font-size:13px;
+color:var(--roseDark);
+font-weight:bold;
+font-size:13px;
 }
 
-/* DEMO */
+/* YOUTUBE */
 
-.demo{
-  position:relative;
-  height:230px;
-  margin:14px 0;
-  border-radius:18px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 25%,#fff 0,#fceef1 35%,#dcefed 100%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+.videoBox{
+position:relative;
+height:210px;
+margin:14px 0;
+border-radius:18px;
+overflow:hidden;
+background:linear-gradient(135deg,#f9dce4,#dcefed);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
 }
 
-.demo:before{
-  content:"";
-  position:absolute;
-  bottom:20px;
-  width:150px;
-  height:15px;
-  background:rgba(89,73,66,.12);
-  border-radius:50%;
+.youtubeIcon{
+font-size:55px;
+margin-bottom:8px;
 }
 
-.demo-label{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:white;
-  color:var(--roseDark);
-  border-radius:10px;
-  padding:6px 9px;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.5px;
-  z-index:10;
+.videoTitle{
+font-size:17px;
+font-weight:800;
+margin-bottom:5px;
 }
 
-.demo-caption{
-  position:absolute;
-  bottom:8px;
-  font-size:11px;
-  color:var(--brownLight);
-  font-weight:bold;
-  z-index:10;
+.videoText{
+font-size:12px;
+color:var(--brownLight);
 }
 
-/* FITNESS WOMAN */
-
-.person{
-  width:90px;
-  height:135px;
-  position:relative;
-  animation:demoIdle 1s infinite ease-in-out;
-  transform-origin:center bottom;
-  z-index:4;
+.youtubeBtn{
+display:inline-block;
+background:#d92323;
+color:white;
+text-decoration:none;
+border-radius:14px;
+padding:13px 18px;
+font-weight:800;
+margin-top:12px;
 }
 
-.person .head{
-  width:30px;
-  height:30px;
-  background:#e3aa82;
-  border-radius:50%;
-  position:absolute;
-  left:30px;
-  top:2px;
-  z-index:5;
-}
-
-.person .hair{
-  width:39px;
-  height:35px;
-  background:#e6c36b;
-  border-radius:50% 50% 45% 45%;
-  position:absolute;
-  left:25px;
-  top:-5px;
-  z-index:6;
-}
-
-.person .hair:before{
-  content:"";
-  position:absolute;
-  width:13px;
-  height:46px;
-  background:#e6c36b;
-  left:-1px;
-  top:18px;
-  border-radius:0 0 12px 12px;
-}
-
-.person .hair:after{
-  content:"";
-  position:absolute;
-  width:13px;
-  height:46px;
-  background:#e6c36b;
-  right:-1px;
-  top:18px;
-  border-radius:0 0 12px 12px;
-}
-
-.person .body{
-  width:38px;
-  height:55px;
-  background:linear-gradient(#c87991,#a95875);
-  border-radius:15px 15px 9px 9px;
-  position:absolute;
-  left:26px;
-  top:31px;
-  z-index:3;
-}
-
-.person .arm{
-  width:10px;
-  height:46px;
-  background:#e3aa82;
-  border-radius:10px;
-  position:absolute;
-  top:34px;
-  z-index:2;
-  transform-origin:top center;
-}
-
-.person .arm.left{
-  left:17px;
-}
-
-.person .arm.right{
-  left:63px;
-}
-
-.person .leg{
-  width:13px;
-  height:54px;
-  background:#e3aa82;
-  border-radius:10px;
-  position:absolute;
-  top:80px;
-  z-index:1;
-  transform-origin:top center;
-}
-
-.person .leg.left{
-  left:28px;
-}
-
-.person .leg.right{
-  left:48px;
-}
-
-.person:after{
-  content:"";
-  position:absolute;
-  width:38px;
-  height:27px;
-  background:#397875;
-  border-radius:7px;
-  left:26px;
-  top:69px;
-  z-index:4;
-}
-
-/* MOVEMENTS */
-
-.person.demo-squat{
-  animation:demoSquat .8s infinite ease-in-out;
-}
-
-.person.demo-lunge{
-  animation:demoLunge 1s infinite ease-in-out;
-}
-
-.person.demo-punch{
-  animation:demoPunch .45s infinite alternate ease-in-out;
-}
-
-.person.demo-jump{
-  animation:demoJump .55s infinite ease-in-out;
-}
-
-.person.demo-cardio{
-  animation:demoCardio .45s infinite ease-in-out;
-}
-
-.person.demo-core{
-  animation:demoCore .8s infinite ease-in-out;
-}
-
-.person.demo-row{
-  animation:demoRow .8s infinite ease-in-out;
-}
-
-.person.demo-press{
-  animation:demoPress .7s infinite ease-in-out;
-}
-
-.person.demo-kick{
-  animation:demoKick .6s infinite ease-in-out;
-}
-
-.person.demo-stretch{
-  animation:demoStretch 2s infinite ease-in-out;
-}
-
-.person.demo-glute{
-  animation:demoGlute .8s infinite ease-in-out;
-}
-
-@keyframes demoIdle{
-  0%,100%{transform:translateY(2px)}
-  50%{transform:translateY(-3px)}
-}
-
-@keyframes demoSquat{
-  0%,100%{transform:translateY(0) scaleY(1)}
-  50%{transform:translateY(17px) scaleY(.82)}
-}
-
-@keyframes demoLunge{
-  0%,100%{transform:translateX(0)}
-  50%{transform:translateX(13px) translateY(8px)}
-}
-
-@keyframes demoPunch{
-  0%{transform:translateX(-2px)}
-  100%{transform:translateX(7px) rotate(-2deg)}
-}
-
-@keyframes demoJump{
-  0%,100%{transform:translateY(5px)}
-  50%{transform:translateY(-22px)}
-}
-
-@keyframes demoCardio{
-  0%,100%{transform:translateY(4px) rotate(-2deg)}
-  50%{transform:translateY(-7px) rotate(2deg)}
-}
-
-@keyframes demoCore{
-  0%,100%{transform:rotate(0)}
-  50%{transform:rotate(-12deg) translateY(5px)}
-}
-
-@keyframes demoRow{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(8px) rotate(-8deg)}
-}
-
-@keyframes demoPress{
-  0%,100%{transform:translateY(5px)}
-  50%{transform:translateY(-8px)}
-}
-
-@keyframes demoKick{
-  0%,100%{transform:rotate(0)}
-  50%{transform:rotate(-7deg) translateX(9px)}
-}
-
-@keyframes demoStretch{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.08) translateY(-3px)}
-}
-
-@keyframes demoGlute{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px) rotate(-5deg)}
+.youtubeBtn:hover{
+filter:brightness(.9);
+transform:translateY(-1px);
 }
 
 /* TIMER */
 
 .timerBox{
-  text-align:center;
-  background:linear-gradient(135deg,var(--roseDark),var(--tealDark));
-  color:white;
-  border-radius:25px;
-  padding:25px 18px;
-  margin-bottom:15px;
+text-align:center;
+background:linear-gradient(135deg,var(--roseDark),var(--tealDark));
+color:white;
+border-radius:25px;
+padding:25px 18px;
+margin-bottom:15px;
 }
 
 .timerNumber{
-  font-size:68px;
-  font-weight:900;
-  line-height:1;
-  margin:18px 0;
+font-size:68px;
+font-weight:900;
+line-height:1;
+margin:18px 0;
 }
 
 .timerMode{
-  font-size:12px;
-  letter-spacing:2px;
-  opacity:.9;
+font-size:12px;
+letter-spacing:2px;
+opacity:.9;
 }
 
 .timerControls{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:5px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:5px;
+}
+
+.timerVideo{
+background:white;
+border-radius:20px;
+padding:18px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.timerVideo .youtubeIcon{
+font-size:45px;
 }
 
 /* PROGRESS */
 
 .progress{
-  height:12px;
-  background:#eadeda;
-  border-radius:20px;
-  overflow:hidden;
+height:12px;
+background:#eadeda;
+border-radius:20px;
+overflow:hidden;
 }
 
 .progressBar{
-  height:100%;
-  background:linear-gradient(90deg,var(--rose),var(--teal));
-  width:0%;
-  transition:.4s;
+height:100%;
+background:linear-gradient(90deg,var(--rose),var(--teal));
+width:0%;
+transition:.4s;
 }
 
 /* MOOD */
 
 .moodGrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:7px;
 }
 
 .mood{
-  border:2px solid #ead9d5;
-  border-radius:14px;
-  padding:12px 5px;
-  background:white;
-  text-align:center;
+border:2px solid #ead9d5;
+border-radius:14px;
+padding:12px 5px;
+background:white;
+text-align:center;
 }
 
 .mood.selected{
-  border-color:var(--teal);
-  background:var(--tealLight);
+border-color:var(--teal);
+background:var(--tealLight);
 }
 
 /* COMMUNITY */
 
 .post{
-  background:white;
-  padding:15px;
-  border-radius:18px;
-  margin-bottom:10px;
-  box-shadow:var(--shadow);
+background:white;
+padding:15px;
+border-radius:18px;
+margin-bottom:10px;
+box-shadow:var(--shadow);
 }
 
 .postName{
-  font-weight:800;
-  color:var(--roseDark);
+font-weight:800;
+color:var(--roseDark);
 }
 
 textarea,input{
-  width:100%;
-  border:2px solid #ead9d5;
-  border-radius:14px;
-  padding:12px;
-  outline:none;
-  background:white;
-  color:var(--brown);
+width:100%;
+border:2px solid #ead9d5;
+border-radius:14px;
+padding:12px;
+outline:none;
+background:white;
+color:var(--brown);
 }
 
 textarea:focus,input:focus{
-  border-color:var(--teal);
+border-color:var(--teal);
 }
 
 textarea{
-  min-height:100px;
-  resize:vertical;
+min-height:100px;
+resize:vertical;
 }
 
 /* BOTTOM NAV */
 
 .bottomNav{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(680px,100%);
-  background:white;
-  border-top:1px solid #ead9d5;
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  padding:8px 4px;
-  z-index:100;
-  box-shadow:0 -5px 20px rgba(89,73,66,.10);
+position:fixed;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:min(680px,100%);
+background:white;
+border-top:1px solid #ead9d5;
+display:grid;
+grid-template-columns:repeat(6,1fr);
+padding:8px 4px;
+z-index:100;
+box-shadow:0 -5px 20px rgba(89,73,66,.10);
 }
 
 .navBtn{
-  border:0;
-  background:white;
-  color:var(--brownLight);
-  font-size:10px;
-  font-weight:700;
-  padding:8px 2px;
+border:0;
+background:white;
+color:var(--brownLight);
+font-size:10px;
+font-weight:700;
+padding:8px 2px;
 }
 
-.navBtn.active{
-  color:var(--roseDark);
-}
+.navBtn.active{color:var(--roseDark)}
 
 .navIcon{
-  display:block;
-  font-size:21px;
-  margin-bottom:2px;
+display:block;
+font-size:21px;
+margin-bottom:2px;
 }
 
 /* MESSAGE */
 
 .messageBox{
-  background:linear-gradient(135deg,var(--pinkLight),var(--tealLight));
-  padding:20px;
-  border-radius:20px;
-  text-align:center;
+background:linear-gradient(135deg,var(--pinkLight),var(--tealLight));
+padding:20px;
+border-radius:20px;
+text-align:center;
 }
 
 /* CELEBRATION */
 
 .celebrate{
-  text-align:center;
-  background:linear-gradient(135deg,#fff0f4,#e0f1ef);
-  border-radius:24px;
-  padding:25px 18px;
+text-align:center;
+background:linear-gradient(135deg,#fff0f4,#e0f1ef);
+border-radius:24px;
+padding:25px 18px;
 }
 
 .chain{
-  font-size:55px;
-  margin:5px;
+font-size:55px;
+margin:5px;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:420px){
-  .choiceGrid{
-    grid-template-columns:1fr;
-  }
 
-  .moodGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
+.choiceGrid{
+grid-template-columns:1fr;
+}
 
-  .timerNumber{
-    font-size:58px;
-  }
+.moodGrid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.timerNumber{
+font-size:58px;
+}
+
 }
 </style>
 </head>
@@ -765,17 +527,23 @@ textarea{
 <div class="app">
 
 <header>
-  <img
-    class="logo-img"
-    src="file_0000000069f4822fa3dbc47f5a5b266f.png"
-    onerror="this.style.display='none';document.getElementById('textLogo').style.display='block';"
-    alt="Beyond the Chains">
 
-  <div id="textLogo" class="textLogo">BEYOND THE CHAINS</div>
+<img
+class="logo-img"
+src="file_0000000069f4822fa3dbc47f5a5b266f.png"
+onerror="this.style.display='none';document.getElementById('textLogo').style.display='block';"
+alt="Beyond the Chains">
 
-  <div class="tagline">
-    Breaking Free. Growing Strong. Walking with Purpose.
-  </div>
+<div id="textLogo"
+class="textLogo"
+style="display:none">
+BEYOND THE CHAINS
+</div>
+
+<div class="tagline">
+Breaking Free. Growing Strong. Walking with Purpose.
+</div>
+
 </header>
 
 
@@ -783,89 +551,112 @@ textarea{
 
 <section id="home" class="page active">
 
-  <div class="hero">
-    <h1>One choice. One step. One day at a time.</h1>
-    <p>
-      You don't have to become a different woman.
-      You're becoming the woman you were meant to be.
-    </p>
+<div class="hero">
 
-    <button class="btn full" onclick="showPage('move')">
-      💪 Start Today's Workout
-    </button>
+<h1>One choice. One step. One day at a time.</h1>
 
-    <button class="btn teal full" onclick="showPage('believe')">
-      🙏 Spend Time With God
-    </button>
-  </div>
+<p>
+You don't have to become a different woman.
+You're becoming the woman you were meant to be.
+</p>
 
-  <div class="stats">
-    <div class="stat">
-      <strong id="homeDays">0</strong>
-      <span>Days</span>
-    </div>
+<button class="btn full"
+onclick="showPage('move')">
+💪 Start Today's Workout
+</button>
 
-    <div class="stat">
-      <strong id="homeWorkouts">0</strong>
-      <span>Workouts</span>
-    </div>
+<button class="btn teal full"
+onclick="showPage('believe')">
+🙏 Spend Time With God
+</button>
 
-    <div class="stat">
-      <strong id="homeFaith">0</strong>
-      <span>Faith</span>
-    </div>
-  </div>
+</div>
 
-  <div class="card">
-    <h3>Today's Check-In</h3>
 
-    <label class="check">
-      <input id="checkMove" type="checkbox">
-      I moved my body
-    </label>
+<div class="stats">
 
-    <label class="check">
-      <input id="checkFaith" type="checkbox">
-      I spent time with God
-    </label>
+<div class="stat">
+<strong id="homeDays">0</strong>
+<span>Days</span>
+</div>
 
-    <label class="check">
-      <input id="checkHealthy" type="checkbox">
-      I made one healthy choice
-    </label>
+<div class="stat">
+<strong id="homeWorkouts">0</strong>
+<span>Workouts</span>
+</div>
 
-    <button class="btn full" onclick="saveCheck()">
-      Save Today's Check-In
-    </button>
-  </div>
+<div class="stat">
+<strong id="homeFaith">0</strong>
+<span>Faith</span>
+</div>
 
-  <div class="card">
-    <h3>30-Day Foundation</h3>
+</div>
 
-    <div class="progress">
-      <div id="homeProgress" class="progressBar"></div>
-    </div>
 
-    <p id="homeProgressText" class="small">
-      Your chain-breaking journey starts here.
-    </p>
+<div class="card">
 
-    <button class="btn light full" onclick="showPage('grow')">
-      View My Progress
-    </button>
-  </div>
+<h3>Today's Check-In</h3>
 
-  <div class="card">
-    <h3>Today's Reminder</h3>
-    <p>
-      You don't need a perfect day.
-      You need one more healthy choice than yesterday.
-    </p>
+<label class="check">
+<input id="checkMove" type="checkbox">
+I moved my body
+</label>
 
-    <button class="btn gold full" onclick="showPage('heal')">
-      ❤️ Self-Care Check-In
-    </button>
-  </div>
+<label class="check">
+<input id="checkFaith" type="checkbox">
+I spent time with God
+</label>
+
+<label class="check">
+<input id="checkHealthy" type="checkbox">
+I made one healthy choice
+</label>
+
+<button class="btn full"
+onclick="saveCheck()">
+Save Today's Check-In
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>30-Day Foundation</h3>
+
+<div class="progress">
+<div id="homeProgress"
+class="progressBar"></div>
+</div>
+
+<p id="homeProgressText"
+class="small">
+Your chain-breaking journey starts here.
+</p>
+
+<button class="btn light full"
+onclick="showPage('grow')">
+View My Progress
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>Today's Reminder</h3>
+
+<p>
+You don't need a perfect day.
+You need one more healthy choice than yesterday.
+</p>
+
+<button class="btn gold full"
+onclick="showPage('heal')">
+❤️ Self-Care Check-In
+</button>
+
+</div>
 
 </section>
 
@@ -874,62 +665,66 @@ textarea{
 
 <section id="move" class="page">
 
-  <div class="card">
-    <h2>💪 Move</h2>
+<div class="card">
 
-    <p class="small">
-      Pick your level and where you're working out.
-    </p>
+<h2>💪 Move</h2>
 
-    <h3>Your Level</h3>
+<p class="small">
+Pick your level and where you're working out.
+</p>
 
-    <div class="choiceGrid">
+<h3>Your Level</h3>
 
-      <button id="levelBeginner"
-              class="choice"
-              onclick="setLevel('beginner')">
-        🌱 Beginner<br>
-        <span class="small">Low Impact</span>
-      </button>
+<div class="choiceGrid">
 
-      <button id="levelBuilding"
-              class="choice"
-              onclick="setLevel('building')">
-        🔥 Building<br>
-        <span class="small">Moderate</span>
-      </button>
+<button id="levelBeginner"
+class="choice"
+onclick="setLevel('beginner')">
+🌱 Beginner<br>
+<span class="small">Low Impact</span>
+</button>
 
-      <button id="levelStrong"
-              class="choice"
-              onclick="setLevel('strong')">
-        💪 Strong<br>
-        <span class="small">Challenge</span>
-      </button>
+<button id="levelBuilding"
+class="choice"
+onclick="setLevel('building')">
+🔥 Building<br>
+<span class="small">Moderate</span>
+</button>
 
-    </div>
+<button id="levelStrong"
+class="choice"
+onclick="setLevel('strong')">
+💪 Strong<br>
+<span class="small">Challenge</span>
+</button>
 
-    <h3 style="margin-top:18px;">Workout Setting</h3>
+</div>
 
-    <div class="choiceGrid">
+<h3 style="margin-top:18px;">
+Workout Setting
+</h3>
 
-      <button id="settingHome"
-              class="choice"
-              onclick="setSetting('home')">
-        🏠 At Home<br>
-        <span class="small">No gym required</span>
-      </button>
+<div class="choiceGrid">
 
-      <button id="settingGym"
-              class="choice"
-              onclick="setSetting('gym')">
-        🏋️ At the Gym<br>
-        <span class="small">Equipment options</span>
-      </button>
+<button id="settingHome"
+class="choice"
+onclick="setSetting('home')">
+🏠 At Home<br>
+<span class="small">No gym required</span>
+</button>
 
-    </div>
-  </div>
+<button id="settingGym"
+class="choice"
+onclick="setSetting('gym')">
+🏋️ At the Gym<br>
+<span class="small">Equipment options</span>
+</button>
 
-  <div id="workoutList"></div>
+</div>
+
+</div>
+
+<div id="workoutList"></div>
 
 </section>
 
@@ -938,11 +733,12 @@ textarea{
 
 <section id="workout" class="page">
 
-  <button class="btn light" onclick="showPage('move')">
-    ← Back to Workouts
-  </button>
+<button class="btn light"
+onclick="showPage('move')">
+← Back to Workouts
+</button>
 
-  <div id="workoutDetail"></div>
+<div id="workoutDetail"></div>
 
 </section>
 
@@ -951,43 +747,49 @@ textarea{
 
 <section id="timer" class="page">
 
-  <div class="timerBox">
+<div class="timerBox">
 
-    <div class="timerMode" id="timerMode">
-      WORKOUT
-    </div>
+<div class="timerMode"
+id="timerMode">
+WORKOUT
+</div>
 
-    <h2 id="timerExercise">
-      Let's Go!
-    </h2>
+<h2 id="timerExercise">
+Let's Go!
+</h2>
 
-    <div class="timerNumber" id="timerNumber">
-      30
-    </div>
+<div class="timerNumber"
+id="timerNumber">
+30
+</div>
 
-    <div id="timerStatus">
-      Get ready!
-    </div>
+<div id="timerStatus">
+Get ready!
+</div>
 
-    <div class="timerControls">
+<div class="timerControls">
 
-      <button class="btn" onclick="pauseTimer()" id="pauseBtn">
-        ⏸ Pause
-      </button>
+<button class="btn"
+onclick="pauseTimer()"
+id="pauseBtn">
+⏸ Pause
+</button>
 
-      <button class="btn gold" onclick="skipTimer()">
-        ⏭ Skip
-      </button>
+<button class="btn gold"
+onclick="skipTimer()">
+⏭ Skip
+</button>
 
-      <button class="btn light" onclick="stopTimer()">
-        ✕ Stop
-      </button>
+<button class="btn light"
+onclick="stopTimer()">
+✕ Stop
+</button>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <div id="timerDemo"></div>
+<div id="timerVideo"></div>
 
 </section>
 
@@ -996,58 +798,64 @@ textarea{
 
 <section id="believe" class="page">
 
-  <div class="hero">
-    <h1>🙏 Believe</h1>
+<div class="hero">
 
-    <p>
-      Strength isn't only built in your body.
-      It is built in your faith.
-    </p>
-  </div>
+<h1>🙏 Believe</h1>
 
-  <div class="card">
+<p>
+Strength isn't only built in your body.
+It is built in your faith.
+</p>
 
-    <h2>Today's Scripture</h2>
+</div>
 
-    <p>
-      <strong>Joshua 1:9</strong>
-    </p>
 
-    <p>
-      "Be strong and courageous. Do not be afraid;
-      do not be discouraged, for the Lord your God
-      will be with you wherever you go."
-    </p>
+<div class="card">
 
-  </div>
+<h2>Today's Scripture</h2>
 
-  <div class="card">
+<p><strong>Joshua 1:9</strong></p>
 
-    <h3>🙏 Prayer</h3>
+<p>
+"Be strong and courageous. Do not be afraid;
+do not be discouraged, for the Lord your God
+will be with you wherever you go."
+</p>
 
-    <p>
-      Lord, help me keep moving forward.
-      Give me strength when I feel weak,
-      courage when I feel afraid,
-      and wisdom to make choices that honor
-      the woman You are helping me become.
-      Amen.
-    </p>
+</div>
 
-  </div>
 
-  <div class="card">
+<div class="card">
 
-    <h3>Gratitude</h3>
+<h3>🙏 Prayer</h3>
 
-    <textarea id="gratitude"
-      placeholder="What are you thankful for today?"></textarea>
+<p>
+Lord, help me keep moving forward.
+Give me strength when I feel weak,
+courage when I feel afraid,
+and wisdom to make choices that honor
+the woman You are helping me become.
+Amen.
+</p>
 
-    <button class="btn teal full" onclick="saveGratitude()">
-      Save Gratitude
-    </button>
+</div>
 
-  </div>
+
+<div class="card">
+
+<h3>Gratitude</h3>
+
+<textarea
+id="gratitude"
+placeholder="What are you thankful for today?">
+</textarea>
+
+<button class="btn teal full"
+onclick="saveGratitude()">
+Save Gratitude
+</button>
+
+</div>
 
 </section>
 
@@ -1056,68 +864,81 @@ textarea{
 
 <section id="heal" class="page">
 
-  <div class="hero">
+<div class="hero">
 
-    <h1>❤️ Heal</h1>
+<h1>❤️ Heal</h1>
 
-    <p>
-      Healing isn't about pretending everything is okay.
-      It's about giving yourself permission to keep going.
-    </p>
+<p>
+Healing isn't about pretending everything is okay.
+It's about giving yourself permission to keep going.
+</p>
 
-  </div>
+</div>
 
-  <div class="card">
 
-    <h3>How are you feeling?</h3>
+<div class="card">
 
-    <div class="moodGrid">
+<h3>How are you feeling?</h3>
 
-      <button class="mood" onclick="setMood('Good',this)">
-        😊<br>Good
-      </button>
+<div class="moodGrid">
 
-      <button class="mood" onclick="setMood('Okay',this)">
-        🙂<br>Okay
-      </button>
+<button class="mood"
+onclick="setMood('Good',this)">
+😊<br>Good
+</button>
 
-      <button class="mood" onclick="setMood('Struggling',this)">
-        😔<br>Struggling
-      </button>
+<button class="mood"
+onclick="setMood('Okay',this)">
+🙂<br>Okay
+</button>
 
-      <button class="mood" onclick="setMood('Fighting',this)">
-        🔥<br>Fighting
-      </button>
+<button class="mood"
+onclick="setMood('Struggling',this)">
+😔<br>Struggling
+</button>
 
-    </div>
+<button class="mood"
+onclick="setMood('Fighting',this)">
+🔥<br>Fighting
+</button>
 
-  </div>
+</div>
 
-  <div class="card">
+</div>
 
-    <h3>Journal</h3>
 
-    <textarea id="journal"
-      placeholder="Write what's on your heart..."></textarea>
+<div class="card">
 
-    <button class="btn full" onclick="saveJournal()">
-      Save Journal
-    </button>
+<h3>Journal</h3>
 
-  </div>
+<textarea
+id="journal"
+placeholder="Write what's on your heart...">
+</textarea>
 
-  <div class="card">
+<button class="btn full"
+onclick="saveJournal()">
+Save Journal
+</button>
 
-    <h3>🏆 Today's Win</h3>
+</div>
 
-    <textarea id="win"
-      placeholder="What did you do today that you're proud of?"></textarea>
 
-    <button class="btn green full" onclick="saveWin()">
-      Save My Win
-    </button>
+<div class="card">
 
-  </div>
+<h3>🏆 Today's Win</h3>
+
+<textarea
+id="win"
+placeholder="What did you do today that you're proud of?">
+</textarea>
+
+<button class="btn green full"
+onclick="saveWin()">
+Save My Win
+</button>
+
+</div>
 
 </section>
 
@@ -1126,76 +947,84 @@ textarea{
 
 <section id="community" class="page">
 
-  <div class="hero">
+<div class="hero">
 
-    <h1>👭 The Chain Breakers</h1>
+<h1>👭 The Chain Breakers</h1>
 
-    <p>
-      Women encouraging women.
-      No judgment. No competition. Just progress.
-    </p>
+<p>
+Women encouraging women.
+No judgment. No competition. Just progress.
+</p>
 
-  </div>
+</div>
 
-  <div class="post">
 
-    <div class="postName">Sarah ❤️</div>
+<div class="post">
 
-    <p>
-      "I almost skipped today's workout.
-      But I did ten minutes anyway.
-      Ten minutes became the win I needed."
-    </p>
+<div class="postName">Sarah ❤️</div>
 
-    <button class="btn light"
-      onclick="sharePost('Sarah')">
-      ❤️ Encourage Sarah
-    </button>
+<p>
+"I almost skipped today's workout.
+But I did ten minutes anyway.
+Ten minutes became the win I needed."
+</p>
 
-  </div>
+<button class="btn light"
+onclick="sharePost('Sarah')">
+❤️ Encourage Sarah
+</button>
 
-  <div class="post">
+</div>
 
-    <div class="postName">Amanda 💪</div>
 
-    <p>
-      "Day 12 finished! I never thought I'd make it this far."
-    </p>
+<div class="post">
 
-    <button class="btn light"
-      onclick="sharePost('Amanda')">
-      🔥 Cheer Her On
-    </button>
+<div class="postName">Amanda 💪</div>
 
-  </div>
+<p>
+"Day 12 finished! I never thought I'd make it this far."
+</p>
 
-  <div class="card">
+<button class="btn light"
+onclick="sharePost('Amanda')">
+🔥 Cheer Her On
+</button>
 
-    <h3>💡 Suggestion Box</h3>
+</div>
 
-    <textarea id="suggestion"
-      placeholder="What would make Beyond the Chains better?"></textarea>
 
-    <button class="btn teal full" onclick="sendSuggestion()">
-      Send Suggestion
-    </button>
+<div class="card">
 
-  </div>
+<h3>💡 Suggestion Box</h3>
 
-  <div class="messageBox">
+<textarea
+id="suggestion"
+placeholder="What would make Beyond the Chains better?">
+</textarea>
 
-    <h3>💌 Message Jodi</h3>
+<button class="btn teal full"
+onclick="sendSuggestion()">
+Send Suggestion
+</button>
 
-    <p class="small">
-      Have a workout question or need help?
-      Send Jodi a message.
-    </p>
+</div>
 
-    <button class="btn full" onclick="messageJodi()">
-      Message Jodi
-    </button>
 
-  </div>
+<div class="messageBox">
+
+<h3>💌 Message Jodi</h3>
+
+<p class="small">
+Have a workout question or need help?
+Send Jodi a message.
+</p>
+
+<button class="btn full"
+onclick="messageJodi()">
+Message Jodi
+</button>
+
+</div>
 
 </section>
 
@@ -1204,54 +1033,57 @@ textarea{
 
 <section id="grow" class="page">
 
-  <div class="hero">
+<div class="hero">
 
-    <h1>🌱 Grow</h1>
+<h1>🌱 Grow</h1>
 
-    <p>
-      Look how far you've come.
-    </p>
+<p>
+Look how far you've come.
+</p>
 
-  </div>
+</div>
 
-  <div class="card">
 
-    <h3>30-Day Foundation</h3>
+<div class="card">
 
-    <div class="progress">
-      <div id="growProgress" class="progressBar"></div>
-    </div>
+<h3>30-Day Foundation</h3>
 
-    <h2 id="growPercent">0%</h2>
+<div class="progress">
+<div id="growProgress"
+class="progressBar"></div>
+</div>
 
-    <p id="growMessage">
-      Your story is still being written.
-    </p>
+<h2 id="growPercent">0%</h2>
 
-  </div>
+<p id="growMessage">
+Your story is still being written.
+</p>
 
-  <div class="card">
+</div>
 
-    <h3>🔥 Your Journey</h3>
 
-    <p>
-      Completed workouts:
-      <strong id="growWorkouts">0</strong>
-    </p>
+<div class="card">
 
-    <p>
-      Faith check-ins:
-      <strong id="growFaith">0</strong>
-    </p>
+<h3>🔥 Your Journey</h3>
 
-    <p>
-      Healthy choices:
-      <strong id="growHealthy">0</strong>
-    </p>
+<p>
+Completed workouts:
+<strong id="growWorkouts">0</strong>
+</p>
 
-  </div>
+<p>
+Faith check-ins:
+<strong id="growFaith">0</strong>
+</p>
 
-  <div id="challengeBox"></div>
+<p>
+Healthy choices:
+<strong id="growHealthy">0</strong>
+</p>
+
+</div>
+
+<div id="challengeBox"></div>
 
 </section>
 
@@ -1260,75 +1092,81 @@ textarea{
 
 <section id="nextChallenge" class="page">
 
-  <div class="celebrate">
+<div class="celebrate">
 
-    <div class="chain">⛓️</div>
+<div class="chain">⛓️</div>
 
-    <h1>CHAIN BROKEN</h1>
+<h1>CHAIN BROKEN</h1>
 
-    <p>
-      You finished the 30-Day Foundation.
-    </p>
+<p>
+You finished the 30-Day Foundation.
+</p>
 
-    <p>
-      But this isn't the end.
-      It's the beginning of what comes next.
-    </p>
+<p>
+But this isn't the end.
+It's the beginning of what comes next.
+</p>
 
-    <button class="btn gold full"
-      onclick="startNextChallenge()">
-      🔥 Start My Next 30 Days
-    </button>
+<button class="btn gold full"
+onclick="startNextChallenge()">
+🔥 Start My Next 30 Days
+</button>
 
-    <button class="btn teal full"
-      onclick="showPage('move')">
-      💪 Back to Move
-    </button>
+<button class="btn teal full"
+onclick="showPage('move')">
+💪 Back to Move
+</button>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- BOTTOM NAV -->
+<!-- NAV -->
 
 <nav class="bottomNav">
 
-  <button class="navBtn active" data-page="home"
-    onclick="showPage('home')">
-    <span class="navIcon">🏠</span>
-    Home
-  </button>
+<button class="navBtn active"
+data-page="home"
+onclick="showPage('home')">
+<span class="navIcon">🏠</span>
+Home
+</button>
 
-  <button class="navBtn" data-page="move"
-    onclick="showPage('move')">
-    <span class="navIcon">💪</span>
-    Move
-  </button>
+<button class="navBtn"
+data-page="move"
+onclick="showPage('move')">
+<span class="navIcon">💪</span>
+Move
+</button>
 
-  <button class="navBtn" data-page="believe"
-    onclick="showPage('believe')">
-    <span class="navIcon">🙏</span>
-    Believe
-  </button>
+<button class="navBtn"
+data-page="believe"
+onclick="showPage('believe')">
+<span class="navIcon">🙏</span>
+Believe
+</button>
 
-  <button class="navBtn" data-page="heal"
-    onclick="showPage('heal')">
-    <span class="navIcon">❤️</span>
-    Heal
-  </button>
+<button class="navBtn"
+data-page="heal"
+onclick="showPage('heal')">
+<span class="navIcon">❤️</span>
+Heal
+</button>
 
-  <button class="navBtn" data-page="grow"
-    onclick="showPage('grow')">
-    <span class="navIcon">🌱</span>
-    Grow
-  </button>
+<button class="navBtn"
+data-page="grow"
+onclick="showPage('grow')">
+<span class="navIcon">🌱</span>
+Grow
+</button>
 
-  <button class="navBtn" data-page="community"
-    onclick="showPage('community')">
-    <span class="navIcon">👭</span>
-    Community
-  </button>
+<button class="navBtn"
+data-page="community"
+onclick="showPage('community')">
+<span class="navIcon">👭</span>
+Community
+</button>
 
 </nav>
 
@@ -1338,38 +1176,38 @@ textarea{
 <script>
 
 /* =========================================
-   APP SETTINGS
-   ========================================= */
+   SETTINGS
+========================================= */
 
-const JODI_EMAIL = "jodicrowe1724@gmail.com";
+const JODI_EMAIL="jodicrowe1724@gmail.com";
 
-let state = JSON.parse(
-  localStorage.getItem("btcState") || "{}"
+let state=JSON.parse(
+localStorage.getItem("btcState")||"{}"
 );
 
-state.level = state.level || "beginner";
-state.setting = state.setting || "home";
-state.completed = state.completed || [];
-state.faith = state.faith || 0;
-state.healthy = state.healthy || 0;
-state.days = state.days || 0;
-state.workouts = state.workouts || 0;
+state.level=state.level||"beginner";
+state.setting=state.setting||"home";
+state.completed=state.completed||[];
+state.faith=state.faith||0;
+state.healthy=state.healthy||0;
+state.days=state.days||0;
+state.workouts=state.workouts||0;
 
-let currentDay = 0;
-let currentExercises = [];
+let currentDay=0;
+let currentExercises=[];
 
-let timerSeconds = 30;
-let timerInterval = null;
-let timerPaused = false;
-let timerExerciseIndex = 0;
-let timerMode = "TIME";
+let timerSeconds=30;
+let timerInterval=null;
+let timerPaused=false;
+let timerExerciseIndex=0;
+let timerMode="TIME";
 
 
 /* =========================================
-   30 DAY WORKOUTS
-   ========================================= */
+   30 DAYS
+========================================= */
 
-const workouts = [
+const workouts=[
 
 {
 title:"Strong Start",
@@ -1379,14 +1217,14 @@ home:[
 ["Wall Push-Up","10 reps"],
 ["March + Reach","45 sec"],
 ["Glute Bridge","15 reps"],
-["Standing Knee Drive","12 each"]
+["Standing Knee Drive","12 reps each"]
 ],
 gym:[
 ["Goblet Squat","12 reps"],
 ["Chest Press","10 reps"],
 ["Treadmill Incline Walk","60 sec"],
 ["Hip Thrust","15 reps"],
-["Cable Knee Drive","12 each"]
+["Cable Knee Drive","12 reps each"]
 ],
 weights:[5,15,25]
 },
@@ -1416,16 +1254,16 @@ title:"Booty Builder",
 type:"Glutes",
 home:[
 ["Glute Bridge","15 reps"],
-["Donkey Kick","12 each"],
-["Fire Hydrant","12 each"],
-["Reverse Lunge","10 each"],
+["Donkey Kick","12 reps each"],
+["Fire Hydrant","12 reps each"],
+["Reverse Lunge","10 reps each"],
 ["Frog Pumps","20 reps"]
 ],
 gym:[
 ["Hip Thrust","12 reps"],
-["Cable Kickback","12 each"],
+["Cable Kickback","12 reps each"],
 ["Abductor Machine","15 reps"],
-["Walking Lunge","10 each"],
+["Walking Lunge","10 reps each"],
 ["Glute Kick Machine","15 reps"]
 ],
 weights:[5,15,30]
@@ -1435,17 +1273,17 @@ weights:[5,15,30]
 title:"Core & Confidence",
 type:"Core",
 home:[
-["Dead Bug","10 each"],
-["Standing Oblique Crunch","12 each"],
-["Bird Dog","10 each"],
+["Dead Bug","10 reps each"],
+["Standing Oblique Crunch","12 reps each"],
+["Bird Dog","10 reps each"],
 ["Heel Taps","20 reps"],
-["Plank Shoulder Tap","10 each"]
+["Plank Shoulder Tap","10 reps each"]
 ],
 gym:[
-["Cable Pallof Press","12 each"],
+["Cable Pallof Press","12 reps each"],
 ["Captain's Chair Knee Raise","10 reps"],
 ["Cable Crunch","15 reps"],
-["Dead Bug","10 each"],
+["Dead Bug","10 reps each"],
 ["Plank","30 sec"]
 ],
 weights:[0,10,20]
@@ -1477,14 +1315,14 @@ type:"Circuit",
 home:[
 ["Squat + Reach","12 reps"],
 ["Punch Combo","30 sec"],
-["Reverse Lunge","10 each"],
+["Reverse Lunge","10 reps each"],
 ["Fast Feet","30 sec"],
 ["Mountain Climber","20 reps"]
 ],
 gym:[
 ["Leg Press","12 reps"],
 ["Cable Punch","30 sec"],
-["Walking Lunge","10 each"],
+["Walking Lunge","10 reps each"],
 ["Bike Sprint","30 sec"],
 ["Sled Push","20 sec"]
 ],
@@ -1516,9 +1354,9 @@ title:"Back & Core Power",
 type:"Back",
 home:[
 ["Backpack Row","12 reps"],
-["Bird Dog","10 each"],
+["Bird Dog","10 reps each"],
 ["Superman","12 reps"],
-["Plank Reach","10 each"],
+["Plank Reach","10 reps each"],
 ["Reverse Snow Angel","12 reps"]
 ],
 gym:[
@@ -1526,7 +1364,7 @@ gym:[
 ["Seated Row","12 reps"],
 ["Back Extension","12 reps"],
 ["Cable Row","12 reps"],
-["Pallof Press","10 each"]
+["Pallof Press","10 reps each"]
 ],
 weights:[5,15,30]
 },
@@ -1556,14 +1394,14 @@ title:"Leg Day Remix",
 type:"Legs",
 home:[
 ["Sumo Squat","15 reps"],
-["Reverse Lunge","10 each"],
+["Reverse Lunge","10 reps each"],
 ["Wall Sit","30 sec"],
-["Side Leg Lift","15 each"],
+["Side Leg Lift","15 reps each"],
 ["Calf Raise","20 reps"]
 ],
 gym:[
 ["Leg Press","15 reps"],
-["Split Squat","10 each"],
+["Split Squat","10 reps each"],
 ["Wall Sit","30 sec"],
 ["Hip Abductor","15 reps"],
 ["Calf Raise","20 reps"]
@@ -1598,14 +1436,14 @@ home:[
 ["Kettlebell Deadlift","12 reps"],
 ["Kettlebell Swing","15 reps"],
 ["Goblet Squat","12 reps"],
-["Kettlebell Row","10 each"],
+["Kettlebell Row","10 reps each"],
 ["Farmer Carry","30 sec"]
 ],
 gym:[
 ["Kettlebell Deadlift","12 reps"],
 ["Kettlebell Swing","15 reps"],
 ["Goblet Squat","12 reps"],
-["Kettlebell Row","10 each"],
+["Kettlebell Row","10 reps each"],
 ["Farmer Carry","30 sec"]
 ],
 weights:[10,20,35]
@@ -1697,14 +1535,14 @@ type:"Lower Body",
 home:[
 ["Romanian Deadlift","12 reps"],
 ["Glute Bridge","15 reps"],
-["Single Leg Bridge","10 each"],
+["Single Leg Bridge","10 reps each"],
 ["Good Morning","12 reps"],
 ["Frog Pump","20 reps"]
 ],
 gym:[
 ["Romanian Deadlift","12 reps"],
 ["Hip Thrust","15 reps"],
-["Single Leg Press","10 each"],
+["Single Leg Press","10 reps each"],
 ["Back Extension","12 reps"],
 ["Abductor Machine","20 reps"]
 ],
@@ -1716,16 +1554,16 @@ title:"Core + Cardio",
 type:"Core",
 home:[
 ["High Knee March","45 sec"],
-["Dead Bug","10 each"],
+["Dead Bug","10 reps each"],
 ["Skater Step","30 sec"],
 ["Heel Tap","20 reps"],
-["Standing Knee Crunch","12 each"]
+["Standing Knee Crunch","12 reps each"]
 ],
 gym:[
 ["Bike Sprint","45 sec"],
 ["Cable Crunch","12 reps"],
 ["Elliptical","45 sec"],
-["Pallof Press","10 each"],
+["Pallof Press","10 reps each"],
 ["Captain's Chair","12 reps"]
 ],
 weights:[0,10,20]
@@ -1758,14 +1596,14 @@ home:[
 ["March + Punch","45 sec"],
 ["Step Touch","45 sec"],
 ["Chair Squat","12 reps"],
-["Standing Knee Drive","12 each"],
+["Standing Knee Drive","12 reps each"],
 ["Side Step","45 sec"]
 ],
 gym:[
 ["Treadmill Walk","60 sec"],
 ["Bike","60 sec"],
 ["Leg Press","12 reps"],
-["Cable Knee Drive","12 each"],
+["Cable Knee Drive","12 reps each"],
 ["Elliptical","60 sec"]
 ],
 weights:[5,15,25]
@@ -1776,14 +1614,14 @@ title:"Recovery Flow",
 type:"Recovery",
 home:[
 ["Cat Cow","45 sec"],
-["Bird Dog","10 each"],
+["Bird Dog","10 reps each"],
 ["Child's Pose","45 sec"],
 ["Figure Four Stretch","30 sec"],
 ["Breathing","60 sec"]
 ],
 gym:[
 ["Mobility Flow","45 sec"],
-["Bird Dog","10 each"],
+["Bird Dog","10 reps each"],
 ["Child's Pose","45 sec"],
 ["Figure Four Stretch","30 sec"],
 ["Breathing","60 sec"]
@@ -1796,16 +1634,16 @@ title:"Strong Legs",
 type:"Legs",
 home:[
 ["Tempo Squat","12 reps"],
-["Curtsy Lunge","10 each"],
+["Curtsy Lunge","10 reps each"],
 ["Wall Sit","45 sec"],
-["Step-Up","10 each"],
+["Step-Up","10 reps each"],
 ["Calf Raise","20 reps"]
 ],
 gym:[
 ["Hack Squat","12 reps"],
-["Curtsy Lunge","10 each"],
+["Curtsy Lunge","10 reps each"],
 ["Leg Extension","15 reps"],
-["Step-Up","10 each"],
+["Step-Up","10 reps each"],
 ["Calf Raise","20 reps"]
 ],
 weights:[10,25,50]
@@ -1857,16 +1695,16 @@ type:"Glutes",
 home:[
 ["Hip Thrust","15 reps"],
 ["Frog Pump","20 reps"],
-["Fire Hydrant","15 each"],
-["Donkey Kick","15 each"],
-["Side Leg Lift","15 each"]
+["Fire Hydrant","15 reps each"],
+["Donkey Kick","15 reps each"],
+["Side Leg Lift","15 reps each"]
 ],
 gym:[
 ["Hip Thrust","15 reps"],
-["Cable Kickback","15 each"],
+["Cable Kickback","15 reps each"],
 ["Abductor Machine","20 reps"],
-["Glute Kickback","15 each"],
-["Step-Up","15 each"]
+["Glute Kickback","15 reps each"],
+["Step-Up","15 reps each"]
 ],
 weights:[5,20,40]
 },
@@ -1879,14 +1717,14 @@ home:[
 ["Leg Raise","10 reps"],
 ["Plank","30 sec"],
 ["Russian Twist","20 reps"],
-["Dead Bug","10 each"]
+["Dead Bug","10 reps each"]
 ],
 gym:[
 ["Cable Crunch","15 reps"],
 ["Captain's Chair","10 reps"],
 ["Plank","30 sec"],
 ["Russian Twist","20 reps"],
-["Pallof Press","10 each"]
+["Pallof Press","10 reps each"]
 ],
 weights:[0,10,20]
 },
@@ -1918,14 +1756,14 @@ home:[
 ["Bear Crawl","20 sec"],
 ["Squat Reach","12 reps"],
 ["Mountain Climber","20 reps"],
-["Reverse Lunge","10 each"],
+["Reverse Lunge","10 reps each"],
 ["Plank Jack","20 reps"]
 ],
 gym:[
 ["Sled Push","20 sec"],
 ["Leg Press","12 reps"],
 ["Battle Rope","20 sec"],
-["Walking Lunge","10 each"],
+["Walking Lunge","10 reps each"],
 ["Sled Pull","20 sec"]
 ],
 weights:[10,25,50]
@@ -1975,1198 +1813,1108 @@ weights:[5,15,25]
 
 
 /* =========================================
-   SAVE STATE
-   ========================================= */
+   YOUTUBE
+========================================= */
+
+function youtubeSearch(exercise){
+
+return "https://www.youtube.com/results?search_query="+
+encodeURIComponent(
+exercise+
+" exercise demonstration proper form"
+);
+
+}
+
+
+function youtubeHTML(exercise){
+
+return `
+
+<div class="videoBox">
+
+<div>
+
+<div class="youtubeIcon">
+▶️
+</div>
+
+<div class="videoTitle">
+${exercise}
+</div>
+
+<div class="videoText">
+Watch a demonstration of this exercise on YouTube.
+</div>
+
+<a
+class="youtubeBtn"
+href="${youtubeSearch(exercise)}"
+target="_blank"
+rel="noopener">
+▶ Watch Exercise Demo
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================
+   SAVE
+========================================= */
 
 function saveState(){
-  localStorage.setItem(
-    "btcState",
-    JSON.stringify(state)
-  );
+
+localStorage.setItem(
+"btcState",
+JSON.stringify(state)
+);
+
 }
 
 
 /* =========================================
    NAVIGATION
-   ========================================= */
+========================================= */
 
 function showPage(page){
 
-  document.querySelectorAll(".page")
-    .forEach(p=>p.classList.remove("active"));
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
 
-  const target=document.getElementById(page);
+const target=document.getElementById(page);
 
-  if(target){
-    target.classList.add("active");
-  }
+if(target){
+target.classList.add("active");
+}
 
-  document.querySelectorAll(".navBtn")
-    .forEach(btn=>{
-      btn.classList.toggle(
-        "active",
-        btn.dataset.page===page
-      );
-    });
+document.querySelectorAll(".navBtn")
+.forEach(btn=>{
+btn.classList.toggle(
+"active",
+btn.dataset.page===page
+);
+});
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
-  if(page==="home") updateHome();
-  if(page==="move") renderWorkoutList();
-  if(page==="grow") updateGrow();
+if(page==="home")updateHome();
+if(page==="move")renderWorkoutList();
+if(page==="grow")updateGrow();
+
 }
 
 
 /* =========================================
    LEVEL
-   ========================================= */
+========================================= */
 
 function setLevel(level){
 
-  state.level=level;
-  saveState();
+state.level=level;
 
-  updateChoices();
-  renderWorkoutList();
+saveState();
+
+updateChoices();
+
+renderWorkoutList();
 
 }
 
 
 /* =========================================
    SETTING
-   ========================================= */
+========================================= */
 
 function setSetting(setting){
 
-  state.setting=setting;
-  saveState();
+state.setting=setting;
 
-  updateChoices();
-  renderWorkoutList();
+saveState();
+
+updateChoices();
+
+renderWorkoutList();
 
 }
 
 
 /* =========================================
    CHOICES
-   ========================================= */
+========================================= */
 
 function updateChoices(){
 
-  document
-    .getElementById("levelBeginner")
-    .classList.toggle(
-      "selected",
-      state.level==="beginner"
-    );
+document
+.getElementById("levelBeginner")
+.classList.toggle(
+"selected",
+state.level==="beginner"
+);
 
-  document
-    .getElementById("levelBuilding")
-    .classList.toggle(
-      "selected",
-      state.level==="building"
-    );
+document
+.getElementById("levelBuilding")
+.classList.toggle(
+"selected",
+state.level==="building"
+);
 
-  document
-    .getElementById("levelStrong")
-    .classList.toggle(
-      "selected",
-      state.level==="strong"
-    );
+document
+.getElementById("levelStrong")
+.classList.toggle(
+"selected",
+state.level==="strong"
+);
 
-  document
-    .getElementById("settingHome")
-    .classList.toggle(
-      "selected",
-      state.setting==="home"
-    );
+document
+.getElementById("settingHome")
+.classList.toggle(
+"selected",
+state.setting==="home"
+);
 
-  document
-    .getElementById("settingGym")
-    .classList.toggle(
-      "selected",
-      state.setting==="gym"
-    );
+document
+.getElementById("settingGym")
+.classList.toggle(
+"selected",
+state.setting==="gym"
+);
+
 }
 
 
 function levelName(){
 
-  if(state.level==="beginner") return "Beginner";
+if(state.level==="beginner")
+return "Beginner";
 
-  if(state.level==="building") return "Building";
+if(state.level==="building")
+return "Building";
 
-  return "Strong";
+return "Strong";
+
 }
 
 
 /* =========================================
    WORKOUT LIST
-   ========================================= */
+========================================= */
 
 function renderWorkoutList(){
 
-  const box=
-    document.getElementById("workoutList");
+const box=document.getElementById("workoutList");
 
-  if(!box) return;
+if(!box)return;
 
-  box.innerHTML="";
+box.innerHTML="";
 
-  workouts.forEach((day,index)=>{
+workouts.forEach((day,index)=>{
 
-    const done=
-      state.completed.includes(index);
+const done=
+state.completed.includes(index);
 
-    box.innerHTML+=`
+box.innerHTML+=`
 
-      <div class="dayCard ${done?"done":""}">
+<div class="dayCard ${done?"done":""}">
 
-        <div class="dayInfo">
+<div class="dayInfo">
 
-          <div class="dayNumber">
-            Day ${index+1}
-          </div>
+<div class="dayNumber">
+Day ${index+1}
+</div>
 
-          <div class="dayTitle">
-            ${day.title}
-          </div>
+<div class="dayTitle">
+${day.title}
+</div>
 
-          <span class="badge">
-            ${day.type}
-          </span>
+<span class="badge">
+${day.type}
+</span>
 
-          ${done
-            ? `<span class="badge"
-                 style="background:#e5f1e6;color:#4e7952;">
-                 ✓ Complete
-               </span>`
-            : ""
-          }
+${done?
+`<span class="badge"
+style="background:#e5f1e6;color:#4e7952;">
+✓ Complete
+</span>`:""}
 
-        </div>
+</div>
 
-        <button class="btn"
-          onclick="openWorkout(${index})">
-          ${done ? "Review" : "Start"}
-        </button>
+<button class="btn"
+onclick="openWorkout(${index})">
+${done?"Review":"Start"}
+</button>
 
-      </div>
+</div>
 
-    `;
+`;
 
-  });
+});
 
 }
 
 
 /* =========================================
    OPEN WORKOUT
-   ========================================= */
+========================================= */
 
 function openWorkout(index){
 
-  currentDay=index;
+currentDay=index;
 
-  const day=workouts[index];
+currentExercises=
+state.setting==="home"
+?workouts[index].home
+:workouts[index].gym;
 
-  currentExercises=
-    state.setting==="home"
-      ? day.home
-      : day.gym;
+renderDetail();
 
-  renderDetail();
-
-  showPage("workout");
+showPage("workout");
 
 }
 
 
 /* =========================================
-   MOVEMENT TYPE
-   ========================================= */
-
-function getMovementClass(name){
-
-  const n=name.toLowerCase();
-
-  if(
-    n.includes("squat") ||
-    n.includes("thruster")
-  ){
-    return "demo-squat";
-  }
-
-  if(
-    n.includes("lunge") ||
-    n.includes("split squat")
-  ){
-    return "demo-lunge";
-  }
-
-  if(
-    n.includes("punch") ||
-    n.includes("boxing") ||
-    n.includes("jab") ||
-    n.includes("hook") ||
-    n.includes("uppercut")
-  ){
-    return "demo-punch";
-  }
-
-  if(
-    n.includes("jump") ||
-    n.includes("jack") ||
-    n.includes("fast feet")
-  ){
-    return "demo-jump";
-  }
-
-  if(
-    n.includes("walk") ||
-    n.includes("march") ||
-    n.includes("dance") ||
-    n.includes("step") ||
-    n.includes("cardio") ||
-    n.includes("shuffle")
-  ){
-    return "demo-cardio";
-  }
-
-  if(
-    n.includes("plank") ||
-    n.includes("crunch") ||
-    n.includes("dead bug") ||
-    n.includes("core") ||
-    n.includes("pallof") ||
-    n.includes("toe tap") ||
-    n.includes("bird dog")
-  ){
-    return "demo-core";
-  }
-
-  if(
-    n.includes("row") ||
-    n.includes("pulldown") ||
-    n.includes("lat")
-  ){
-    return "demo-row";
-  }
-
-  if(
-    n.includes("press") ||
-    n.includes("curl") ||
-    n.includes("raise") ||
-    n.includes("triceps") ||
-    n.includes("fly")
-  ){
-    return "demo-press";
-  }
-
-  if(
-    n.includes("kick") ||
-    n.includes("knee") ||
-    n.includes("strike")
-  ){
-    return "demo-kick";
-  }
-
-  if(
-    n.includes("stretch") ||
-    n.includes("mobility") ||
-    n.includes("breathing") ||
-    n.includes("child")
-  ){
-    return "demo-stretch";
-  }
-
-  if(
-    n.includes("bridge") ||
-    n.includes("glute") ||
-    n.includes("hip") ||
-    n.includes("frog") ||
-    n.includes("hydrant")
-  ){
-    return "demo-glute";
-  }
-
-  return "demo-cardio";
-}
-
-
-/* =========================================
-   DEMO HTML
-   ========================================= */
-
-function demoHTML(exerciseName="Workout"){
-
-  const movement=
-    getMovementClass(exerciseName);
-
-  return `
-
-    <div class="demo">
-
-      <div class="demo-label">
-        LIVE WORKOUT DEMO
-      </div>
-
-      <div class="person ${movement}">
-
-        <div class="head"></div>
-
-        <div class="hair"></div>
-
-        <div class="body"></div>
-
-        <div class="arm left"></div>
-
-        <div class="arm right"></div>
-
-        <div class="leg left"></div>
-
-        <div class="leg right"></div>
-
-      </div>
-
-      <div class="demo-caption">
-        Follow the movement 💪
-      </div>
-
-    </div>
-
-  `;
-}
-
-
-/* =========================================
-   RENDER WORKOUT DETAIL
-   ========================================= */
+   WORKOUT DETAIL
+========================================= */
 
 function renderDetail(){
 
-  const day=workouts[currentDay];
+const day=workouts[currentDay];
 
-  const box=
-    document.getElementById("workoutDetail");
+const box=
+document.getElementById("workoutDetail");
 
-  currentExercises=
-    state.setting==="home"
-      ? day.home
-      : day.gym;
+currentExercises=
+state.setting==="home"
+?day.home
+:day.gym;
 
-  box.innerHTML=`
+box.innerHTML=`
 
-    <div class="hero">
+<div class="hero">
 
-      <div class="dayNumber">
-        DAY ${currentDay+1}
-      </div>
+<div class="dayNumber">
+DAY ${currentDay+1}
+</div>
 
-      <h1>${day.title}</h1>
+<h1>${day.title}</h1>
 
-      <p>
-        ${day.type} • ${levelName()} •
-        ${state.setting==="home" ? "At Home" : "At the Gym"}
-      </p>
+<p>
+${day.type} • ${levelName()} •
+${state.setting==="home"?"At Home":"At the Gym"}
+</p>
 
-    </div>
+</div>
 
-    <div class="card">
 
-      <h3>
-        ${state.setting==="home"
-          ? "🏠 Home Workout"
-          : "🏋️ Gym Workout"}
-      </h3>
+<div class="card">
 
-      <p class="small">
-        Your exercises automatically adjust
-        for your level.
-      </p>
+<h3>Choose Your Workout</h3>
 
-      <div class="choiceGrid">
+<div class="choiceGrid">
 
-        <button class="choice ${
-          state.setting==="home" ? "selected" : ""
-        }"
-        onclick="setSetting('home');renderDetail()">
-          🏠 Home
-        </button>
+<button
+class="choice ${
+state.setting==="home"?"selected":""
+}"
+onclick="setSetting('home');renderDetail()">
+🏠 Home
+</button>
 
-        <button class="choice ${
-          state.setting==="gym" ? "selected" : ""
-        }"
-        onclick="setSetting('gym');renderDetail()">
-          🏋️ Gym
-        </button>
+<button
+class="choice ${
+state.setting==="gym"?"selected":""
+}"
+onclick="setSetting('gym');renderDetail()">
+🏋️ Gym
+</button>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-    ${currentExercises.map((ex,i)=>{
 
-      let weight="";
+${currentExercises.map((ex,i)=>{
 
-      if(state.setting==="gym"){
+let weight="";
 
-        const w=
-          day.weights[
-            state.level==="beginner"
-              ? 0
-              : state.level==="building"
-              ? 1
-              : 2
-          ];
+if(state.setting==="gym"){
 
-        if(w>0){
-          weight=
-            `<div class="small">
-              Suggested weight:
-              <strong>${w} lb</strong>
-            </div>`;
-        }
-      }
+const w=
+day.weights[
+state.level==="beginner"
+?0
+:state.level==="building"
+?1
+:2
+];
 
-      return `
+if(w>0){
 
-        <div class="exercise">
+weight=`
+<div class="small">
+Suggested weight:
+<strong>${w} lb</strong>
+</div>
+`;
 
-          <div class="exerciseTop">
+}
 
-            <div class="exerciseName">
-              ${i+1}. ${ex[0]}
-            </div>
+}
 
-            <div class="exerciseTarget">
-              ${ex[1]}
-            </div>
+return `
 
-          </div>
+<div class="exercise">
 
-          ${demoHTML(ex[0])}
+<div class="exerciseTop">
 
-          ${weight}
+<div class="exerciseName">
+${i+1}. ${ex[0]}
+</div>
 
-          <button
-            class="btn full"
-            onclick="startExercise(${i})">
+<div class="exerciseTarget">
+${ex[1]}
+</div>
 
-            ▶ Start ${ex[0]}
+</div>
 
-          </button>
+${youtubeHTML(ex[0])}
 
-          <button
-            class="btn teal full"
-            onclick="quickRepTimer(${i})">
+${weight}
 
-            🔢 Rep Countdown
+<button
+class="btn full"
+onclick="startExercise(${i})">
+▶ Start ${ex[0]}
+</button>
 
-          </button>
+<button
+class="btn teal full"
+onclick="quickRepTimer(${i})">
+🔢 Rep Countdown
+</button>
 
-        </div>
+</div>
 
-      `;
+`;
 
-    }).join("")}
+}).join("")}
 
-    <button
-      class="btn green full"
-      onclick="completeWorkout()">
 
-      ✓ Complete Day ${currentDay+1}
+<button
+class="btn green full"
+onclick="completeWorkout()">
+✓ Complete Day ${currentDay+1}
+</button>
 
-    </button>
-
-  `;
+`;
 
 }
 
 
 /* =========================================
    START EXERCISE
-   ========================================= */
+========================================= */
 
 function startExercise(index){
 
-  const ex=
-    currentExercises[index];
+const ex=currentExercises[index];
 
-  timerExerciseIndex=index;
+timerExerciseIndex=index;
 
-  const exerciseName=ex[0];
+const target=ex[1]||"30 sec";
 
-  timerMode="TIME";
+let seconds=30;
 
-  let seconds=30;
+const timeMatch=
+target.match(/(\d+)\s*sec/i);
 
-  const target=ex[1] || "30 sec";
+const repMatch=
+target.match(/(\d+)\s*reps?/i);
 
-  const timeMatch=
-    target.match(/(\d+)\s*sec/i);
+if(timeMatch){
 
-  const repMatch=
-    target.match(/(\d+)\s*reps?/i);
+seconds=parseInt(timeMatch[1]);
 
-  if(timeMatch){
-    seconds=parseInt(timeMatch[1]);
-    timerMode="TIME";
-  }
-  else if(repMatch){
-    seconds=parseInt(repMatch[1]);
-    timerMode="REPS";
-  }
+timerMode="TIME";
 
-  timerSeconds=seconds;
-  timerPaused=false;
+}else if(repMatch){
 
-  document.getElementById("timerExercise")
-    .textContent=exerciseName;
+seconds=parseInt(repMatch[1]);
 
-  document.getElementById("timerStatus")
-    .textContent=
-    timerMode==="REPS"
-      ? "Rep countdown"
-      : "Work hard. You've got this.";
+timerMode="REPS";
 
-  document.getElementById("timerMode")
-    .textContent=
-    timerMode==="REPS"
-      ? "REPS"
-      : "SECONDS";
+}
 
-  document.getElementById("timerDemo")
-    .innerHTML=
-      demoHTML(exerciseName);
+timerSeconds=seconds;
 
-  updateTimerDisplay();
+timerPaused=false;
 
-  showPage("timer");
+document.getElementById("timerExercise")
+.textContent=ex[0];
 
-  startTimerLoop();
+document.getElementById("timerMode")
+.textContent=
+timerMode==="REPS"
+?"REPS"
+:"SECONDS";
+
+document.getElementById("timerStatus")
+.textContent=
+timerMode==="REPS"
+?"Rep countdown"
+:"Work hard. You've got this!";
+
+document.getElementById("timerVideo").innerHTML=`
+
+<div class="timerVideo">
+
+<div class="youtubeIcon">
+▶️
+</div>
+
+<h3>
+${ex[0]}
+</h3>
+
+<p class="small">
+Keep the demonstration open while
+you complete your set.
+</p>
+
+<a
+class="youtubeBtn"
+href="${youtubeSearch(ex[0])}"
+target="_blank"
+rel="noopener">
+▶ Watch ${ex[0]} Demo
+</a>
+
+</div>
+
+`;
+
+updateTimerDisplay();
+
+showPage("timer");
+
+startTimerLoop();
 
 }
 
 
 /* =========================================
-   REP TIMER
-   ========================================= */
+   REP COUNTDOWN
+========================================= */
 
 function quickRepTimer(index){
 
-  const ex=
-    currentExercises[index];
+const ex=currentExercises[index];
 
-  timerExerciseIndex=index;
+const match=
+ex[1].match(/(\d+)\s*reps?/i);
 
-  const match=
-    ex[1].match(/(\d+)\s*reps?/i);
+let reps=
+match?parseInt(match[1]):10;
 
-  let reps=
-    match
-      ? parseInt(match[1])
-      : 10;
+timerExerciseIndex=index;
 
-  timerMode="REPS";
-  timerSeconds=reps;
-  timerPaused=false;
+timerMode="REPS";
 
-  document.getElementById("timerExercise")
-    .textContent=ex[0];
+timerSeconds=reps;
 
-  document.getElementById("timerMode")
-    .textContent="REPS";
+timerPaused=false;
 
-  document.getElementById("timerStatus")
-    .textContent="One rep at a time. Keep going!";
+document.getElementById("timerExercise")
+.textContent=ex[0];
 
-  document.getElementById("timerDemo")
-    .innerHTML=
-      demoHTML(ex[0]);
+document.getElementById("timerMode")
+.textContent="REPS";
 
-  updateTimerDisplay();
+document.getElementById("timerStatus")
+.textContent=
+"One rep at a time. Keep going!";
 
-  showPage("timer");
+document.getElementById("timerVideo").innerHTML=`
 
-  startTimerLoop();
+<div class="timerVideo">
+
+<div class="youtubeIcon">
+▶️
+</div>
+
+<h3>${ex[0]}</h3>
+
+<a
+class="youtubeBtn"
+href="${youtubeSearch(ex[0])}"
+target="_blank"
+rel="noopener">
+▶ Watch Demo
+</a>
+
+</div>
+
+`;
+
+updateTimerDisplay();
+
+showPage("timer");
+
+startTimerLoop();
 
 }
 
 
 /* =========================================
-   TIMER LOOP
-   ========================================= */
+   TIMER
+========================================= */
 
 function startTimerLoop(){
 
-  clearInterval(timerInterval);
+clearInterval(timerInterval);
 
-  timerInterval=
-    setInterval(()=>{
+timerInterval=setInterval(()=>{
 
-      if(timerPaused) return;
+if(timerPaused)return;
 
-      timerSeconds--;
+timerSeconds--;
 
-      updateTimerDisplay();
+updateTimerDisplay();
 
-      if(timerSeconds<=0){
+if(timerSeconds<=0){
 
-        clearInterval(timerInterval);
+clearInterval(timerInterval);
 
-        document.getElementById("timerStatus")
-          .textContent=
-          "🔥 Great job!";
+document.getElementById("timerStatus")
+.textContent=
+"🔥 Great job!";
 
-        setTimeout(()=>{
+setTimeout(()=>{
 
-          const next=
-            timerExerciseIndex+1;
+const next=timerExerciseIndex+1;
 
-          if(next<currentExercises.length){
+if(next<currentExercises.length){
 
-            startExercise(next);
+startExercise(next);
 
-          }
-          else{
+}else{
 
-            document.getElementById("timerStatus")
-              .textContent=
-              "Workout complete!";
-
-          }
-
-        },900);
-
-      }
-
-    },1000);
+document.getElementById("timerStatus")
+.textContent=
+"Workout complete!";
 
 }
 
+},900);
 
-/* =========================================
-   TIMER DISPLAY
-   ========================================= */
+}
+
+},1000);
+
+}
+
 
 function updateTimerDisplay(){
 
-  const el=
-    document.getElementById("timerNumber");
+const el=
+document.getElementById("timerNumber");
 
-  if(el){
-    el.textContent=
-      Math.max(0,timerSeconds);
-  }
+if(el){
+
+el.textContent=
+Math.max(0,timerSeconds);
 
 }
 
+}
 
-/* =========================================
-   PAUSE
-   ========================================= */
 
 function pauseTimer(){
 
-  timerPaused=!timerPaused;
+timerPaused=!timerPaused;
 
-  const btn=
-    document.getElementById("pauseBtn");
+const btn=
+document.getElementById("pauseBtn");
 
-  if(btn){
+if(btn){
 
-    btn.textContent=
-      timerPaused
-        ? "▶ Resume"
-        : "⏸ Pause";
-
-  }
+btn.textContent=
+timerPaused
+?"▶ Resume"
+:"⏸ Pause";
 
 }
 
+}
 
-/* =========================================
-   SKIP
-   ========================================= */
 
 function skipTimer(){
 
-  clearInterval(timerInterval);
+clearInterval(timerInterval);
 
-  const next=
-    timerExerciseIndex+1;
+const next=
+timerExerciseIndex+1;
 
-  if(next<currentExercises.length){
+if(next<currentExercises.length){
 
-    startExercise(next);
+startExercise(next);
 
-  }
-  else{
+}else{
 
-    document.getElementById("timerStatus")
-      .textContent=
-      "🔥 You finished every exercise!";
-
-  }
+document.getElementById("timerStatus")
+.textContent=
+"🔥 You finished every exercise!";
 
 }
 
+}
 
-/* =========================================
-   STOP
-   ========================================= */
 
 function stopTimer(){
 
-  clearInterval(timerInterval);
+clearInterval(timerInterval);
 
-  showPage("workout");
+showPage("workout");
 
 }
 
 
 /* =========================================
-   COMPLETE WORKOUT
-   ========================================= */
+   COMPLETE
+========================================= */
 
 function completeWorkout(){
 
-  if(!state.completed.includes(currentDay)){
+if(!state.completed.includes(currentDay)){
 
-    state.completed.push(currentDay);
+state.completed.push(currentDay);
 
-    state.workouts++;
+state.workouts++;
 
-    state.days=
-      state.completed.length;
+state.days=
+state.completed.length;
 
-    saveState();
+saveState();
 
-  }
+}
 
-  showPage("grow");
+showPage("grow");
 
-  updateGrow();
+updateGrow();
 
 }
 
 
 /* =========================================
    HOME
-   ========================================= */
+========================================= */
 
 function updateHome(){
 
-  document.getElementById("homeDays")
-    .textContent=state.days;
+document.getElementById("homeDays")
+.textContent=state.days;
 
-  document.getElementById("homeWorkouts")
-    .textContent=state.workouts;
+document.getElementById("homeWorkouts")
+.textContent=state.workouts;
 
-  document.getElementById("homeFaith")
-    .textContent=state.faith;
+document.getElementById("homeFaith")
+.textContent=state.faith;
 
-  const percent=
-    Math.round(
-      (state.completed.length/
-      workouts.length)*100
-    );
+const percent=
+Math.round(
+(state.completed.length/workouts.length)*100
+);
 
-  document.getElementById("homeProgress")
-    .style.width=percent+"%";
+document.getElementById("homeProgress")
+.style.width=percent+"%";
 
-  document.getElementById("homeProgressText")
-    .textContent=
-      `${state.completed.length} of ${workouts.length} days complete • ${percent}%`;
+document.getElementById("homeProgressText")
+.textContent=
+`${state.completed.length} of ${workouts.length} days complete • ${percent}%`;
 
 }
 
 
 /* =========================================
    CHECK-IN
-   ========================================= */
+========================================= */
 
 function saveCheck(){
 
-  const move=
-    document.getElementById("checkMove").checked;
+const move=
+document.getElementById("checkMove").checked;
 
-  const faith=
-    document.getElementById("checkFaith").checked;
+const faith=
+document.getElementById("checkFaith").checked;
 
-  const healthy=
-    document.getElementById("checkHealthy").checked;
+const healthy=
+document.getElementById("checkHealthy").checked;
 
-  if(faith){
-    state.faith++;
-  }
+if(faith)state.faith++;
 
-  if(healthy){
-    state.healthy++;
-  }
+if(healthy)state.healthy++;
 
-  saveState();
+saveState();
 
-  alert(
-    "Today's check-in is saved. ❤️ Keep going!"
-  );
+alert(
+"Today's check-in is saved. ❤️ Keep going!"
+);
 
-  updateHome();
+updateHome();
 
 }
 
 
 /* =========================================
    GRATITUDE
-   ========================================= */
+========================================= */
 
 function saveGratitude(){
 
-  const text=
-    document.getElementById("gratitude").value.trim();
+const text=
+document.getElementById("gratitude")
+.value.trim();
 
-  if(!text){
+if(!text){
 
-    alert("Write something you're thankful for first. ❤️");
+alert(
+"Write something you're thankful for first. ❤️"
+);
 
-    return;
+return;
+}
 
-  }
+localStorage.setItem(
+"btcGratitude",
+text
+);
 
-  localStorage.setItem(
-    "btcGratitude",
-    text
-  );
-
-  alert("Gratitude saved. 🙏");
+alert("Gratitude saved. 🙏");
 
 }
 
 
 /* =========================================
    MOOD
-   ========================================= */
+========================================= */
 
 function setMood(mood,button){
 
-  document
-    .querySelectorAll(".mood")
-    .forEach(b=>
-      b.classList.remove("selected")
-    );
+document
+.querySelectorAll(".mood")
+.forEach(b=>
+b.classList.remove("selected")
+);
 
-  button.classList.add("selected");
+button.classList.add("selected");
 
-  localStorage.setItem(
-    "btcMood",
-    mood
-  );
+localStorage.setItem(
+"btcMood",
+mood
+);
 
 }
 
 
 /* =========================================
    JOURNAL
-   ========================================= */
+========================================= */
 
 function saveJournal(){
 
-  const text=
-    document.getElementById("journal")
-      .value.trim();
+const text=
+document.getElementById("journal")
+.value.trim();
 
-  if(!text){
+if(!text){
 
-    alert("Write something first. ❤️");
+alert("Write something first. ❤️");
 
-    return;
+return;
+}
 
-  }
+localStorage.setItem(
+"btcJournal",
+text
+);
 
-  localStorage.setItem(
-    "btcJournal",
-    text
-  );
-
-  alert("Your journal entry is saved.");
+alert("Your journal entry is saved.");
 
 }
 
 
 /* =========================================
    WIN
-   ========================================= */
+========================================= */
 
 function saveWin(){
 
-  const text=
-    document.getElementById("win")
-      .value.trim();
+const text=
+document.getElementById("win")
+.value.trim();
 
-  if(!text){
+if(!text){
 
-    alert("Write down your win first! 🏆");
+alert(
+"Write down your win first! 🏆"
+);
 
-    return;
+return;
+}
 
-  }
+localStorage.setItem(
+"btcWin",
+text
+);
 
-  localStorage.setItem(
-    "btcWin",
-    text
-  );
-
-  alert("WIN SAVED! 🏆");
+alert("WIN SAVED! 🏆");
 
 }
 
 
 /* =========================================
    COMMUNITY
-   ========================================= */
+========================================= */
 
 function sharePost(name){
 
-  alert(
-    `❤️ Encouragement sent to ${name}!`
-  );
+alert(
+`❤️ Encouragement sent to ${name}!`
+);
 
 }
 
 
 function sendSuggestion(){
 
-  const text=
-    document.getElementById("suggestion")
-      .value.trim();
+const text=
+document.getElementById("suggestion")
+.value.trim();
 
-  if(!text){
+if(!text){
 
-    alert("Tell Jodi what you'd like to see.");
+alert(
+"Tell Jodi what you'd like to see."
+);
 
-    return;
+return;
+}
 
-  }
+localStorage.setItem(
+"btcSuggestion",
+text
+);
 
-  localStorage.setItem(
-    "btcSuggestion",
-    text
-  );
+document.getElementById("suggestion")
+.value="";
 
-  document.getElementById("suggestion")
-    .value="";
-
-  alert(
-    "Thank you! Your suggestion has been saved. 💗"
-  );
+alert(
+"Thank you! Your suggestion has been saved. 💗"
+);
 
 }
 
 
 /* =========================================
    MESSAGE JODI
-   ========================================= */
+========================================= */
 
 function messageJodi(){
 
-  window.location.href=
-    "mailto:"+JODI_EMAIL+
-    "?subject=Beyond%20the%20Chains%20Question"+
-    "&body=Hi%20Jodi,%0A%0AI%20have%20a%20question%20about%20Beyond%20the%20Chains.";
+window.location.href=
+"mailto:"+JODI_EMAIL+
+"?subject=Beyond%20the%20Chains%20Question"+
+"&body=Hi%20Jodi,%0A%0AI%20have%20a%20question%20about%20Beyond%20the%20Chains.";
 
 }
 
 
 /* =========================================
    GROW
-   ========================================= */
+========================================= */
 
 function updateGrow(){
 
-  const percent=
-    Math.round(
-      (state.completed.length/
-      workouts.length)*100
-    );
+const percent=
+Math.round(
+(state.completed.length/workouts.length)*100
+);
 
-  document.getElementById("growProgress")
-    .style.width=percent+"%";
+document.getElementById("growProgress")
+.style.width=percent+"%";
 
-  document.getElementById("growPercent")
-    .textContent=percent+"%";
+document.getElementById("growPercent")
+.textContent=percent+"%";
 
-  document.getElementById("growWorkouts")
-    .textContent=state.workouts;
+document.getElementById("growWorkouts")
+.textContent=state.workouts;
 
-  document.getElementById("growFaith")
-    .textContent=state.faith;
+document.getElementById("growFaith")
+.textContent=state.faith;
 
-  document.getElementById("growHealthy")
-    .textContent=state.healthy;
+document.getElementById("growHealthy")
+.textContent=state.healthy;
 
-  let message=
-    "Your story is still being written.";
+let message=
+"Your story is still being written.";
 
-  if(percent>=25)
-    message=
-      "You're building momentum. Keep going! 🔥";
+if(percent>=25)
+message=
+"You're building momentum. Keep going! 🔥";
 
-  if(percent>=50)
-    message=
-      "Halfway there. Look at the woman you're becoming. 💪";
+if(percent>=50)
+message=
+"Halfway there. Look at the woman you're becoming. 💪";
 
-  if(percent>=75)
-    message=
-      "You're almost at the chain-breaking finish line! ⛓️";
+if(percent>=75)
+message=
+"You're almost at the chain-breaking finish line! ⛓️";
 
-  if(percent>=100)
-    message=
-      "YOU DID IT! CHAIN BROKEN! 🔥";
+if(percent>=100)
+message=
+"YOU DID IT! CHAIN BROKEN! 🔥";
 
-  document.getElementById("growMessage")
-    .textContent=message;
+document.getElementById("growMessage")
+.textContent=message;
 
-  renderChallenge();
+renderChallenge();
 
 }
 
 
 /* =========================================
    CHALLENGE
-   ========================================= */
+========================================= */
 
 function renderChallenge(){
 
-  const box=
-    document.getElementById("challengeBox");
+const box=
+document.getElementById("challengeBox");
 
-  if(state.completed.length>=30){
+if(state.completed.length>=30){
 
-    box.innerHTML=`
+box.innerHTML=`
 
-      <div class="celebrate">
+<div class="celebrate">
 
-        <div class="chain">
-          ⛓️
-        </div>
+<div class="chain">⛓️</div>
 
-        <h2>
-          CHAIN BROKEN!
-        </h2>
+<h2>
+CHAIN BROKEN!
+</h2>
 
-        <p>
-          You completed the 30-Day Foundation.
-        </p>
+<p>
+You completed the 30-Day Foundation.
+</p>
 
-        <button
-          class="btn gold full"
-          onclick="showPage('nextChallenge')">
+<button
+class="btn gold full"
+onclick="showPage('nextChallenge')">
+🔥 See What's Next
+</button>
 
-          🔥 See What's Next
+</div>
 
-        </button>
+`;
 
-      </div>
+}else{
 
-    `;
+box.innerHTML=`
 
-  }
-  else{
+<div class="card">
 
-    box.innerHTML=`
+<h3>
+🔥 Your Next Challenge
+</h3>
 
-      <div class="card">
+<p>
+Finish the Foundation and unlock
+your next 30-day challenge.
+</p>
 
-        <h3>
-          🔥 Your Next Challenge
-        </h3>
+<p class="small">
+No boredom. No cookie-cutter workouts.
+Just another level to grow into.
+</p>
 
-        <p>
-          Finish the Foundation and unlock
-          your next 30-day challenge.
-        </p>
+</div>
 
-        <p class="small">
-          No boredom. No cookie-cutter workouts.
-          Just another level to grow into.
-        </p>
+`;
 
-      </div>
-
-    `;
-
-  }
+}
 
 }
 
 
 /* =========================================
    NEXT CHALLENGE
-   ========================================= */
+========================================= */
 
 function startNextChallenge(){
 
-  alert(
-    "Your next 30-day challenge is coming next! 🔥"
-  );
+alert(
+"Your next 30-day challenge is coming next! 🔥"
+);
 
-  showPage("move");
+showPage("move");
 
 }
 
 
 /* =========================================
-   LOAD SAVED DATA
-   ========================================= */
+   LOAD
+========================================= */
 
 function loadSavedData(){
 
-  const gratitude=
-    localStorage.getItem("btcGratitude");
+const gratitude=
+localStorage.getItem("btcGratitude");
 
-  if(gratitude){
-    document.getElementById("gratitude")
-      .value=gratitude;
-  }
+if(gratitude)
+document.getElementById("gratitude")
+.value=gratitude;
 
-  const journal=
-    localStorage.getItem("btcJournal");
+const journal=
+localStorage.getItem("btcJournal");
 
-  if(journal){
-    document.getElementById("journal")
-      .value=journal;
-  }
+if(journal)
+document.getElementById("journal")
+.value=journal;
 
-  const win=
-    localStorage.getItem("btcWin");
+const win=
+localStorage.getItem("btcWin");
 
-  if(win){
-    document.getElementById("win")
-      .value=win;
-  }
+if(win)
+document.getElementById("win")
+.value=win;
 
 }
 
 
 /* =========================================
-   START APP
-   ========================================= */
+   START
+========================================= */
 
 function initialize(){
 
-  updateChoices();
+updateChoices();
 
-  renderWorkoutList();
+renderWorkoutList();
 
-  updateHome();
+updateHome();
 
-  updateGrow();
+updateGrow();
 
-  loadSavedData();
+loadSavedData();
 
 }
 
