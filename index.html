@@ -6,104 +6,540 @@
 <meta name="theme-color" content="#b96f86">
 <meta name="description" content="Beyond the Chains: Breaking Free. Growing Strong. Walking with Purpose.">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="file_0000000069f4822fa3dbc47f5a5b266f.png">
 <title>Beyond the Chains</title>
+
 <style>
 :root{
-  --rose:#b96f86;--rose-dark:#8e4d64;--pink:#f3c7d3;--teal:#5f9e9a;
-  --teal-dark:#3f7773;--cream:#fff9f4;--brown:#594942;--white:#fff;
-  --muted:#7b6c67;--shadow:0 10px 30px rgba(89,73,66,.12);
+  --rose:#b96f86;
+  --rose-dark:#8e4d64;
+  --pink:#f3c7d3;
+  --teal:#5f9e9a;
+  --teal-dark:#3f7773;
+  --cream:#fff9f4;
+  --brown:#594942;
+  --white:#fff;
+  --muted:#7b6c67;
+  --shadow:0 10px 30px rgba(89,73,66,.12);
   --radius:22px;
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(135deg,#fff9f4 0%,#fff 55%,#f7eeee 100%);
-font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--brown);
--webkit-tap-highlight-color:transparent}
+
+body{
+  margin:0;
+  background:linear-gradient(135deg,#fff9f4 0%,#fff 55%,#f7eeee 100%);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--brown);
+  -webkit-tap-highlight-color:transparent
+}
+
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
-.app{max-width:920px;margin:auto;min-height:100vh;padding-bottom:88px}
-header{position:sticky;top:0;z-index:20;background:rgba(255,249,244,.94);backdrop-filter:blur(14px);
-padding:12px 16px;border-bottom:1px solid rgba(89,73,66,.08)}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:48px;height:48px;border-radius:14px;box-shadow:var(--shadow)}
-.brand strong{display:block;font-size:17px}.brand span{font-size:11px;color:var(--muted)}
-.icon-btn{border:0;background:#fff;border-radius:14px;padding:10px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+
+.app{
+  max-width:920px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:88px
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,249,244,.94);
+  backdrop-filter:blur(14px);
+  padding:12px 16px;
+  border-bottom:1px solid rgba(89,73,66,.08)
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+
+.brand img{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  object-fit:cover
+}
+
+.brand strong{
+  display:block;
+  font-size:17px
+}
+
+.brand span{
+  font-size:11px;
+  color:var(--muted)
+}
+
+.icon-btn{
+  border:0;
+  background:#fff;
+  border-radius:14px;
+  padding:10px;
+  box-shadow:0 4px 14px rgba(0,0,0,.06)
+}
+
 main{padding:16px}
-.hero{border-radius:30px;padding:24px;background:linear-gradient(120deg,#b96f86,#5f9e9a);color:#fff;box-shadow:var(--shadow)}
-.hero img{display:block;width:120px;height:120px;border-radius:22px;margin:0 auto 12px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
-.hero h1{text-align:center;font-size:30px;line-height:1.05;margin:8px 0}
-.hero p{text-align:center;margin:8px auto;max-width:650px}
-.tag{text-align:center;font-size:13px;opacity:.92}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.card{background:#fff;border-radius:var(--radius);padding:17px;box-shadow:var(--shadow);border:1px solid rgba(89,73,66,.06)}
+
+.hero{
+  border-radius:30px;
+  padding:24px;
+  background:linear-gradient(120deg,#b96f86,#5f9e9a);
+  color:#fff;
+  box-shadow:var(--shadow)
+}
+
+.hero img{
+  display:block;
+  width:120px;
+  height:120px;
+  border-radius:22px;
+  margin:0 auto 12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  object-fit:cover
+}
+
+.hero h1{
+  text-align:center;
+  font-size:30px;
+  line-height:1.05;
+  margin:8px 0
+}
+
+.hero p{
+  text-align:center;
+  margin:8px auto;
+  max-width:650px
+}
+
+.tag{
+  text-align:center;
+  font-size:13px;
+  opacity:.92
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:17px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(89,73,66,.06)
+}
+
 .card h2,.card h3{margin:0 0 8px}
-.card p{margin:6px 0;color:var(--muted);line-height:1.45}
-.section-title{margin:24px 2px 12px;display:flex;justify-content:space-between;align-items:end}
-.section-title h2{margin:0;font-size:21px}
-.section-title span{font-size:12px;color:var(--muted)}
-.btn{border:0;border-radius:15px;padding:12px 16px;font-weight:750;transition:.15s}
+
+.card p{
+  margin:6px 0;
+  color:var(--muted);
+  line-height:1.45
+}
+
+.section-title{
+  margin:24px 2px 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:end
+}
+
+.section-title h2{
+  margin:0;
+  font-size:21px
+}
+
+.section-title span{
+  font-size:12px;
+  color:var(--muted)
+}
+
+.btn{
+  border:0;
+  border-radius:15px;
+  padding:12px 16px;
+  font-weight:750;
+  transition:.15s
+}
+
 .btn:active{transform:scale(.98)}
-.btn-primary{background:var(--rose);color:#fff}.btn-teal{background:var(--teal);color:#fff}
-.btn-light{background:#f7edf0;color:var(--rose-dark)}.btn-white{background:#fff;color:var(--brown)}
+
+.btn-primary{
+  background:var(--rose);
+  color:#fff
+}
+
+.btn-teal{
+  background:var(--teal);
+  color:#fff
+}
+
+.btn-light{
+  background:#f7edf0;
+  color:var(--rose-dark)
+}
+
+.btn-white{
+  background:#fff;
+  color:var(--brown)
+}
+
 .btn-full{width:100%}
-.action-card{display:flex;gap:13px;align-items:center;min-height:105px}
+
+.action-card{
+  display:flex;
+  gap:13px;
+  align-items:center;
+  min-height:105px
+}
+
 .action-icon{font-size:30px}
-.progress{height:12px;background:#f0e6e4;border-radius:999px;overflow:hidden}
-.progress>div{height:100%;background:linear-gradient(90deg,var(--rose),var(--teal));border-radius:999px;transition:.3s}
-.stat{text-align:center}.stat b{display:block;font-size:28px;color:var(--rose)}
+
+.progress{
+  height:12px;
+  background:#f0e6e4;
+  border-radius:999px;
+  overflow:hidden
+}
+
+.progress>div{
+  height:100%;
+  background:linear-gradient(90deg,var(--rose),var(--teal));
+  border-radius:999px;
+  transition:.3s
+}
+
+.stat{text-align:center}
+
+.stat b{
+  display:block;
+  font-size:28px;
+  color:var(--rose)
+}
+
 .stat small{color:var(--muted)}
-.exercise{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #eee}
+
+.exercise{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #eee
+}
+
 .exercise:last-child{border-bottom:0}
-.demo{width:76px;height:76px;flex:none;border-radius:18px;background:linear-gradient(145deg,#f7d8e1,#d9eeee);
-display:grid;place-items:center;position:relative;overflow:hidden}
-.demo .woman{font-size:42px;filter:saturate(.85)}
-.pill{display:inline-block;border-radius:999px;padding:6px 9px;background:#f5ecee;color:var(--rose-dark);font-size:11px;font-weight:700}
-.levels{display:flex;gap:7px;flex-wrap:wrap}.level{border:2px solid #eadcdf;background:#fff;padding:9px 12px;border-radius:12px}
-.level.active{border-color:var(--rose);background:#fbebf0;color:var(--rose-dark);font-weight:800}
-.toggle{display:flex;background:#f1e8e6;border-radius:14px;padding:4px;gap:4px}
-.toggle button{flex:1;border:0;background:transparent;border-radius:10px;padding:10px;color:var(--muted);font-weight:700}
-.toggle button.active{background:#fff;color:var(--teal-dark);box-shadow:0 2px 7px rgba(0,0,0,.06)}
-.day-card{position:relative;overflow:hidden}
-.day-card .daynum{position:absolute;right:12px;top:12px;color:var(--rose);font-weight:900}
-.day-card.done{outline:2px solid rgba(95,158,154,.35)}
-.done-mark{color:var(--teal-dark);font-weight:800}
-.quote{font-size:18px;line-height:1.5;font-weight:650}
-.bottomnav{position:fixed;z-index:30;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);
-backdrop-filter:blur(14px);border-top:1px solid rgba(89,73,66,.1);padding:7px max(7px,env(safe-area-inset-left)) max(8px,env(safe-area-inset-bottom))}
-.navinner{max-width:920px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:2px}
-.navbtn{border:0;background:transparent;color:#746764;font-size:11px;font-weight:700;padding:6px 2px;border-radius:12px}
-.navbtn .emoji{display:block;font-size:22px;line-height:1.1}.navbtn.active{background:#f7e9ed;color:var(--rose-dark)}
-.modal-back{position:fixed;inset:0;background:rgba(39,29,26,.55);z-index:60;display:none;padding:18px;overflow:auto}
+
+.demo{
+  width:76px;
+  height:76px;
+  flex:none;
+  border-radius:18px;
+  background:linear-gradient(145deg,#f7d8e1,#d9eeee);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden
+}
+
+.demo .woman{
+  font-size:42px;
+  filter:saturate(.85)
+}
+
+.pill{
+  display:inline-block;
+  border-radius:999px;
+  padding:6px 9px;
+  background:#f5ecee;
+  color:var(--rose-dark);
+  font-size:11px;
+  font-weight:700
+}
+
+.levels{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap
+}
+
+.level{
+  border:2px solid #eadcdf;
+  background:#fff;
+  padding:9px 12px;
+  border-radius:12px
+}
+
+.level.active{
+  border-color:var(--rose);
+  background:#fbebf0;
+  color:var(--rose-dark);
+  font-weight:800
+}
+
+.toggle{
+  display:flex;
+  background:#f1e8e6;
+  border-radius:14px;
+  padding:4px;
+  gap:4px
+}
+
+.toggle button{
+  flex:1;
+  border:0;
+  background:transparent;
+  border-radius:10px;
+  padding:10px;
+  color:var(--muted);
+  font-weight:700
+}
+
+.toggle button.active{
+  background:#fff;
+  color:var(--teal-dark);
+  box-shadow:0 2px 7px rgba(0,0,0,.06)
+}
+
+.day-card{
+  position:relative;
+  overflow:hidden
+}
+
+.day-card .daynum{
+  position:absolute;
+  right:12px;
+  top:12px;
+  color:var(--rose);
+  font-weight:900
+}
+
+.day-card.done{
+  outline:2px solid rgba(95,158,154,.35)
+}
+
+.done-mark{
+  color:var(--teal-dark);
+  font-weight:800
+}
+
+.quote{
+  font-size:18px;
+  line-height:1.5;
+  font-weight:650
+}
+
+.bottomnav{
+  position:fixed;
+  z-index:30;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  border-top:1px solid rgba(89,73,66,.1);
+  padding:7px max(7px,env(safe-area-inset-left)) max(8px,env(safe-area-inset-bottom))
+}
+
+.navinner{
+  max-width:920px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:2px
+}
+
+.navbtn{
+  border:0;
+  background:transparent;
+  color:#746764;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 2px;
+  border-radius:12px
+}
+
+.navbtn .emoji{
+  display:block;
+  font-size:22px;
+  line-height:1.1
+}
+
+.navbtn.active{
+  background:#f7e9ed;
+  color:var(--rose-dark)
+}
+
+.modal-back{
+  position:fixed;
+  inset:0;
+  background:rgba(39,29,26,.55);
+  z-index:60;
+  display:none;
+  padding:18px;
+  overflow:auto
+}
+
 .modal-back.show{display:block}
-.modal{max-width:720px;margin:30px auto;background:var(--cream);border-radius:28px;padding:20px;box-shadow:0 20px 70px rgba(0,0,0,.25)}
-.modal-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
-.close{border:0;background:#eee1df;border-radius:12px;padding:8px 12px}
-label{display:block;font-size:13px;font-weight:800;margin:12px 0 6px}
-input,textarea,select{width:100%;border:1px solid #e3d7d3;background:#fff;border-radius:14px;padding:12px;color:var(--brown);outline:none}
-textarea{min-height:120px;resize:vertical}
-.notice{background:#e9f5f3;color:#316c68;border-radius:15px;padding:12px;font-size:13px}
-.warning{background:#fff1e9;color:#8b5438;border-radius:15px;padding:12px;font-size:13px}
-.empty{text-align:center;padding:25px;color:var(--muted)}
-.toast{position:fixed;left:50%;bottom:94px;transform:translateX(-50%) translateY(20px);background:#3d3431;color:#fff;
-padding:11px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:100;font-size:13px}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.small{font-size:12px;color:var(--muted)}
-.install-banner{display:none;background:#fff0f4;border:1px solid #eccbd5;border-radius:18px;padding:14px;margin-top:12px}
-@media(max-width:620px){.grid,.grid3{grid-template-columns:1fr}.hero h1{font-size:27px}.brand span{display:none}.modal{margin:8px auto}}
+
+.modal{
+  max-width:720px;
+  margin:30px auto;
+  background:var(--cream);
+  border-radius:28px;
+  padding:20px;
+  box-shadow:0 20px 70px rgba(0,0,0,.25)
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:start
+}
+
+.close{
+  border:0;
+  background:#eee1df;
+  border-radius:12px;
+  padding:8px 12px
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin:12px 0 6px
+}
+
+input,textarea,select{
+  width:100%;
+  border:1px solid #e3d7d3;
+  background:#fff;
+  border-radius:14px;
+  padding:12px;
+  color:var(--brown);
+  outline:none
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical
+}
+
+.notice{
+  background:#e9f5f3;
+  color:#316c68;
+  border-radius:15px;
+  padding:12px;
+  font-size:13px
+}
+
+.warning{
+  background:#fff1e9;
+  color:#8b5438;
+  border-radius:15px;
+  padding:12px;
+  font-size:13px
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:var(--muted)
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:94px;
+  transform:translateX(-50%) translateY(20px);
+  background:#3d3431;
+  color:#fff;
+  padding:11px 16px;
+  border-radius:999px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:100;
+  font-size:13px
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0)
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted)
+}
+
+.install-banner{
+  display:none;
+  background:#fff0f4;
+  border:1px solid #eccbd5;
+  border-radius:18px;
+  padding:14px;
+  margin-top:12px
+}
+
+@media(max-width:620px){
+  .grid,.grid3{grid-template-columns:1fr}
+  .hero h1{font-size:27px}
+  .brand span{display:none}
+  .modal{margin:8px auto}
+}
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
 <header>
   <div class="topbar">
+
     <div class="brand">
-      <img src="icon.svg" alt="Beyond the Chains">
-      <div><strong>Beyond the Chains</strong><span>Breaking Free. Growing Strong. Walking with Purpose.</span></div>
+      <img
+        src="file_0000000069f4822fa3dbc47f5a5b266f.png"
+        alt="Beyond the Chains"
+      >
+
+      <div>
+        <strong>Beyond the Chains</strong>
+        <span>Breaking Free. Growing Strong. Walking with Purpose.</span>
+      </div>
     </div>
-    <button class="icon-btn" onclick="showInstall()" aria-label="Install app">📲</button>
+
+    <button class="icon-btn" onclick="showInstall()" aria-label="Install app">
+      📲
+    </button>
+
   </div>
 </header>
 
@@ -111,284 +547,1842 @@ padding:11px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.
 
 <nav class="bottomnav">
  <div class="navinner">
-  <button class="navbtn active" data-page="home"><span class="emoji">🏠</span>Home</button>
-  <button class="navbtn" data-page="move"><span class="emoji">💪</span>Move</button>
-  <button class="navbtn" data-page="believe"><span class="emoji">🙏</span>Believe</button>
-  <button class="navbtn" data-page="heal"><span class="emoji">💗</span>Heal</button>
-  <button class="navbtn" data-page="grow"><span class="emoji">🌱</span>Grow</button>
-  <button class="navbtn" data-page="community"><span class="emoji">👭</span>Community</button>
+
+  <button class="navbtn active" data-page="home">
+    <span class="emoji">🏠</span>Home
+  </button>
+
+  <button class="navbtn" data-page="move">
+    <span class="emoji">💪</span>Move
+  </button>
+
+  <button class="navbtn" data-page="believe">
+    <span class="emoji">🙏</span>Believe
+  </button>
+
+  <button class="navbtn" data-page="heal">
+    <span class="emoji">💗</span>Heal
+  </button>
+
+  <button class="navbtn" data-page="grow">
+    <span class="emoji">🌱</span>Grow
+  </button>
+
+  <button class="navbtn" data-page="community">
+    <span class="emoji">👭</span>Community
+  </button>
+
  </div>
 </nav>
+
 </div>
 
-<div class="modal-back" id="modalBack" onclick="if(event.target===this)closeModal()"><div class="modal" id="modal"></div></div>
+<div
+  class="modal-back"
+  id="modalBack"
+  onclick="if(event.target===this)closeModal()"
+>
+  <div class="modal" id="modal"></div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
+
+const LOGO =
+"file_0000000069f4822fa3dbc47f5a5b266f.png";
+
 const scriptures=[
-["Joshua 1:9","Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go."],
-["Isaiah 41:10","Do not fear, for I am with you. I will strengthen you and help you."],
-["Philippians 4:13","I can do all things through Christ who strengthens me."],
-["Psalm 46:5","God is within her, she will not fall; God will help her at break of day."],
-["2 Corinthians 5:17","If anyone is in Christ, the new creation has come: the old has gone, the new is here."],
-["Psalm 34:18","The Lord is close to the brokenhearted and saves those who are crushed in spirit."],
-["Galatians 6:9","Let us not become weary in doing good, for at the proper time we will reap a harvest."]
+[
+"Joshua 1:9",
+"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go."
+],
+[
+"Isaiah 41:10",
+"Do not fear, for I am with you. I will strengthen you and help you."
+],
+[
+"Philippians 4:13",
+"I can do all things through Christ who strengthens me."
+],
+[
+"Psalm 46:5",
+"God is within her, she will not fall; God will help her at break of day."
+],
+[
+"2 Corinthians 5:17",
+"If anyone is in Christ, the new creation has come: the old has gone, the new is here."
+],
+[
+"Psalm 34:18",
+"The Lord is close to the brokenhearted and saves those who are crushed in spirit."
+],
+[
+"Galatians 6:9",
+"Let us not become weary in doing good, for at the proper time we will reap a harvest."
+]
 ];
 
 const workouts=[
-["Strong Start","Full-body foundation","Squat to reach • Incline push-up • Glute bridge • Marching dead bug • Fast walk"],
-["Build Your Foundation","Lower-body strength","Chair squat • Reverse lunge • Hip bridge • Calf raise • Wall sit"],
-["Upper Body Unlocked","Arms, shoulders and back","Wall push-up • Bent-over row • Shoulder press • Biceps curl • Triceps kickback"],
-["Core & Courage","Core stability","Dead bug • Bird dog • Heel taps • Plank • Standing knee drive"],
-["Cardio Confidence","Low-impact cardio","Step touch • Knee drives • Boxer shuffle • Side steps • Power march"],
-["Booty Builder","Glutes and legs","Goblet squat • Romanian deadlift • Step-up • Glute bridge • Kickback"],
-["Strong & Steady","Balance and control","Split squat • Single-leg reach • Calf raise • Bird dog • Farmer march"],
-["Sweat & Shine","Cardio intervals","March sprint • Squat reach • Shadow boxing • Step jacks • Mountain climber"],
-["Back to Me","Mindful full body","Sit-to-stand • Row • Hip hinge • Dead bug • Walk"],
-["Core Crusher","Core challenge","Plank shoulder tap • Bicycle • Dead bug • Side plank • Knee tuck"],
-["Leg Day Remix","Leg strength","Sumo squat • Reverse lunge • Wall sit • Hip thrust • Calf raise"],
-["Arms & Attitude","Upper body","Chest press • Cable row • Shoulder press • Curl • Triceps pressdown"],
-["Walk It Out","Cardio recovery","Brisk walk • Side step • Knee lift • Heel dig • Cool-down walk"],
-["Strong Mama Energy","Functional strength","Squat • Carry • Hinge • Push • Step-up"],
-["Power & Purpose","Full body intervals","Squat press • Row • Lunge • Push-up • Fast feet"],
-["Glutes & Grit","Posterior chain","Hip thrust • RDL • Kickback • Step-up • Frog pump"],
-["Core Confidence","Core and posture","Dead bug • Pallof press • Bird dog • Plank • Suitcase march"],
-["Cardio Glow","Fun cardio","Boxer shuffle • Step jack • Knee drive • Skater step • Power march"],
-["Full Body Fire","Strength circuit","Goblet squat • Row • Chest press • RDL • Plank"],
-["Recovery Reset","Mobility and easy movement","Cat-cow • Hip opener • Thoracic reach • Glute bridge • Walk"],
-["Strong Legs Club","Legs and balance","Split squat • Step-up • Sumo squat • Calf raise • Wall sit"],
-["Push Pull Power","Upper body","Chest press • Row • Shoulder press • Curl • Triceps extension"],
-["Sweat With Purpose","Cardio + core","March sprint • Knee drive • Plank • Boxer punch • Side step"],
-["Glute Game","Glutes","Hip thrust • RDL • Lateral band walk • Kickback • Bridge"],
-["Core & Calm","Core + breathing","Dead bug • Bird dog • Side plank • Heel taps • Box breathing"],
-["Challenge Yourself","Full body","Squat press • Reverse lunge • Row • Push-up • Mountain climber"],
-["Rise & Rebuild","Strength endurance","Goblet squat • RDL • Chest press • Row • Plank"],
-["Break Through","Intervals","Fast feet • Squat • Boxer punch • Step-up • Mountain climber"],
-["Finish Strong","Full body challenge","Squat press • Lunge • Row • Push-up • Dead bug"],
-["Chain Broken","Celebration workout","Favorite moves • Power walk • Strength circuit • Stretch • Gratitude"]
+
+["Strong Start","Full-body foundation",
+"Squat to reach • Incline push-up • Glute bridge • Marching dead bug • Fast walk"],
+
+["Build Your Foundation","Lower-body strength",
+"Chair squat • Reverse lunge • Hip bridge • Calf raise • Wall sit"],
+
+["Upper Body Unlocked","Arms, shoulders and back",
+"Wall push-up • Bent-over row • Shoulder press • Biceps curl • Triceps kickback"],
+
+["Core & Courage","Core stability",
+"Dead bug • Bird dog • Heel taps • Plank • Standing knee drive"],
+
+["Cardio Confidence","Low-impact cardio",
+"Step touch • Knee drives • Boxer shuffle • Side steps • Power march"],
+
+["Booty Builder","Glutes and legs",
+"Goblet squat • Romanian deadlift • Step-up • Glute bridge • Kickback"],
+
+["Strong & Steady","Balance and control",
+"Split squat • Single-leg reach • Calf raise • Bird dog • Farmer march"],
+
+["Sweat & Shine","Cardio intervals",
+"March sprint • Squat reach • Shadow boxing • Step jacks • Mountain climber"],
+
+["Back to Me","Mindful full body",
+"Sit-to-stand • Row • Hip hinge • Dead bug • Walk"],
+
+["Core Crusher","Core challenge",
+"Plank shoulder tap • Bicycle • Dead bug • Side plank • Knee tuck"],
+
+["Leg Day Remix","Leg strength",
+"Sumo squat • Reverse lunge • Wall sit • Hip thrust • Calf raise"],
+
+["Arms & Attitude","Upper body",
+"Chest press • Cable row • Shoulder press • Curl • Triceps pressdown"],
+
+["Walk It Out","Cardio recovery",
+"Brisk walk • Side step • Knee lift • Heel dig • Cool-down walk"],
+
+["Strong Mama Energy","Functional strength",
+"Squat • Carry • Hinge • Push • Step-up"],
+
+["Power & Purpose","Full body intervals",
+"Squat press • Row • Lunge • Push-up • Fast feet"],
+
+["Glutes & Grit","Posterior chain",
+"Hip thrust • RDL • Kickback • Step-up • Frog pump"],
+
+["Core Confidence","Core and posture",
+"Dead bug • Pallof press • Bird dog • Plank • Suitcase march"],
+
+["Cardio Glow","Fun cardio",
+"Boxer shuffle • Step jack • Knee drive • Skater step • Power march"],
+
+["Full Body Fire","Strength circuit",
+"Goblet squat • Row • Chest press • RDL • Plank"],
+
+["Recovery Reset","Mobility and easy movement",
+"Cat-cow • Hip opener • Thoracic reach • Glute bridge • Walk"],
+
+["Strong Legs Club","Legs and balance",
+"Split squat • Step-up • Sumo squat • Calf raise • Wall sit"],
+
+["Push Pull Power","Upper body",
+"Chest press • Row • Shoulder press • Curl • Triceps extension"],
+
+["Sweat With Purpose","Cardio + core",
+"March sprint • Knee drive • Plank • Boxer punch • Side step"],
+
+["Glute Game","Glutes",
+"Hip thrust • RDL • Lateral band walk • Kickback • Bridge"],
+
+["Core & Calm","Core + breathing",
+"Dead bug • Bird dog • Side plank • Heel taps • Box breathing"],
+
+["Challenge Yourself","Full body",
+"Squat press • Reverse lunge • Row • Push-up • Mountain climber"],
+
+["Rise & Rebuild","Strength endurance",
+"Goblet squat • RDL • Chest press • Row • Plank"],
+
+["Break Through","Intervals",
+"Fast feet • Squat • Boxer punch • Step-up • Mountain climber"],
+
+["Finish Strong","Full body challenge",
+"Squat press • Lunge • Row • Push-up • Dead bug"],
+
+["Chain Broken","Celebration workout",
+"Favorite moves • Power walk • Strength circuit • Stretch • Gratitude"]
+
 ];
 
 const exDetails={
-"Squat to reach":["Bodyweight","12 reps","Stand tall, sit hips back, then reach overhead as you stand."],
-"Incline push-up":["Bodyweight","8 reps","Use a sturdy counter or bench. Keep your body straight."],
-"Glute bridge":["Bodyweight","15 reps","Drive through your heels and squeeze your glutes at the top."],
-"Marching dead bug":["Bodyweight","10/side","Brace your core while slowly alternating legs."],
-"Fast walk":["Cardio","5 min","Walk tall and use a comfortable pace."],
-"Chair squat":["Bodyweight","12 reps","Tap the chair lightly, then stand tall."],
-"Reverse lunge":["Bodyweight","8/side","Step back gently and keep the front knee tracking over the foot."],
-"Hip bridge":["Bodyweight","15 reps","Pause and squeeze at the top."],
-"Calf raise":["Bodyweight","15 reps","Rise onto the balls of your feet with control."],
-"Wall sit":["Bodyweight","30 sec","Back against the wall, knees comfortable, breathe steadily."],
-"Wall push-up":["Bodyweight","10 reps","Hands on wall, body straight, bend elbows and press."],
-"Bent-over row":["Light weight","10 reps","Hinge at the hips and pull elbows toward your ribs."],
-"Shoulder press":["Light weight","10 reps","Press weights overhead without locking the elbows."],
-"Biceps curl":["Light weight","12 reps","Keep elbows near your sides and control the lowering."],
-"Triceps kickback":["Light weight","10 reps","Hinge forward and extend the arms behind you."],
-"Dead bug":["Bodyweight","10/side","Keep your lower back gently supported as you alternate."],
-"Bird dog":["Bodyweight","8/side","Reach opposite arm and leg while keeping hips steady."],
-"Heel taps":["Bodyweight","16 total","Brace your core and reach side to side."],
-"Plank":["Bodyweight","20 sec","Use knees down if needed. Keep your body long."],
-"Standing knee drive":["Bodyweight","12/side","Drive the knee up while staying tall."],
-"Step touch":["Cardio","60 sec","Step side to side and swing your arms naturally."],
-"Power march":["Cardio","60 sec","March with purpose and pump your arms."],
-"Boxer shuffle":["Cardio","60 sec","Light feet, relaxed shoulders, easy punches."],
-"Side steps":["Cardio","60 sec","Step side to side at a pace you can control."],
-"Squat to reach":["Bodyweight","12 reps","Sit back, stand tall, reach up."],
-"Goblet squat":["Weight","10 reps","Hold one weight at chest level and squat with control."],
-"Romanian deadlift":["Weight","10 reps","Hinge at hips with a neutral back and soft knees."],
-"Step-up":["Bodyweight/weight","8/side","Use a stable step and drive through the working leg."],
-"Kickback":["Bodyweight/band","12/side","Keep your core steady and move from the hip."],
-"Single-leg reach":["Bodyweight","8/side","Hinge slightly and reach while balancing."],
-"Farmer march":["Weight","30 sec","Hold weights at your sides and march slowly."],
-"Step jacks":["Cardio","60 sec","Step one foot out at a time while raising your arms."],
-"Mountain climber":["Bodyweight","20 sec","Slow it down as needed and keep your core braced."],
-"Sit-to-stand":["Bodyweight","12 reps","Stand from a chair without using your hands if comfortable."],
-"Squat reach":["Bodyweight","12 reps","Squat and reach diagonally upward."],
-"Skater step":["Cardio","45 sec","Step behind and across gently, then switch."],
-"Chest press":["Weight","10 reps","Press away from the chest with controlled motion."],
-"Cable row":["Weight","10 reps","Pull toward your ribs and squeeze your shoulder blades."],
-"Triceps pressdown":["Weight","10 reps","Keep elbows tucked and press down."],
-"Shadow boxing":["Cardio","60 sec","Punch lightly with control and rotate through the torso."],
-"Fast feet":["Cardio","30 sec","Quick small steps while staying light and controlled."],
-"Squat press":["Weight","10 reps","Squat, stand, then press weights overhead."],
-"Lunge":["Bodyweight/weight","8/side","Use a comfortable range and keep your torso tall."],
-"Suitcase march":["Weight","30 sec/side","Hold one weight on one side and resist leaning."],
-"Pallof press":["Band/cable","10/side","Press straight out and resist rotation."],
-"Skater step":["Cardio","45 sec","Move side to side with balance and control."],
-"Thoracic reach":["Mobility","8/side","Rotate gently through your upper back."],
-"Cat-cow":["Mobility","8 reps","Move slowly with your breath."],
-"Hip opener":["Mobility","8/side","Use a gentle controlled range."],
-"Box breathing":["Breathing","4 rounds","Inhale 4, hold 4, exhale 4, hold 4."]
+
+"Squat to reach":[
+"Bodyweight",
+"12 reps",
+"Stand tall, sit hips back, then reach overhead as you stand."
+],
+
+"Incline push-up":[
+"Bodyweight",
+"8 reps",
+"Use a sturdy counter or bench. Keep your body straight."
+],
+
+"Glute bridge":[
+"Bodyweight",
+"15 reps",
+"Drive through your heels and squeeze your glutes at the top."
+],
+
+"Marching dead bug":[
+"Bodyweight",
+"10/side",
+"Brace your core while slowly alternating legs."
+],
+
+"Fast walk":[
+"Cardio",
+"5 min",
+"Walk tall and use a comfortable pace."
+],
+
+"Chair squat":[
+"Bodyweight",
+"12 reps",
+"Tap the chair lightly, then stand tall."
+],
+
+"Reverse lunge":[
+"Bodyweight",
+"8/side",
+"Step back gently and keep the front knee tracking over the foot."
+],
+
+"Hip bridge":[
+"Bodyweight",
+"15 reps",
+"Pause and squeeze at the top."
+],
+
+"Calf raise":[
+"Bodyweight",
+"15 reps",
+"Rise onto the balls of your feet with control."
+],
+
+"Wall sit":[
+"Bodyweight",
+"30 sec",
+"Back against the wall, knees comfortable, breathe steadily."
+],
+
+"Wall push-up":[
+"Bodyweight",
+"10 reps",
+"Hands on wall, body straight, bend elbows and press."
+],
+
+"Bent-over row":[
+"Light weight",
+"10 reps",
+"Hinge at the hips and pull elbows toward your ribs."
+],
+
+"Shoulder press":[
+"Light weight",
+"10 reps",
+"Press weights overhead without locking the elbows."
+],
+
+"Biceps curl":[
+"Light weight",
+"12 reps",
+"Keep elbows near your sides and control the lowering."
+],
+
+"Triceps kickback":[
+"Light weight",
+"10 reps",
+"Hinge forward and extend the arms behind you."
+],
+
+"Dead bug":[
+"Bodyweight",
+"10/side",
+"Keep your lower back gently supported as you alternate."
+],
+
+"Bird dog":[
+"Bodyweight",
+"8/side",
+"Reach opposite arm and leg while keeping hips steady."
+],
+
+"Heel taps":[
+"Bodyweight",
+"16 total",
+"Brace your core and reach side to side."
+],
+
+"Plank":[
+"Bodyweight",
+"20 sec",
+"Use knees down if needed. Keep your body long."
+],
+
+"Standing knee drive":[
+"Bodyweight",
+"12/side",
+"Drive the knee up while staying tall."
+],
+
+"Step touch":[
+"Cardio",
+"60 sec",
+"Step side to side and swing your arms naturally."
+],
+
+"Power march":[
+"Cardio",
+"60 sec",
+"March with purpose and pump your arms."
+],
+
+"Boxer shuffle":[
+"Cardio",
+"60 sec",
+"Light feet, relaxed shoulders, easy punches."
+],
+
+"Side steps":[
+"Cardio",
+"60 sec",
+"Step side to side at a pace you can control."
+],
+
+"Goblet squat":[
+"Weight",
+"10 reps",
+"Hold one weight at chest level and squat with control."
+],
+
+"Romanian deadlift":[
+"Weight",
+"10 reps",
+"Hinge at hips with a neutral back and soft knees."
+],
+
+"Step-up":[
+"Bodyweight/weight",
+"8/side",
+"Use a stable step and drive through the working leg."
+],
+
+"Kickback":[
+"Bodyweight/band",
+"12/side",
+"Keep your core steady and move from the hip."
+],
+
+"Single-leg reach":[
+"Bodyweight",
+"8/side",
+"Hinge slightly and reach while balancing."
+],
+
+"Farmer march":[
+"Weight",
+"30 sec",
+"Hold weights at your sides and march slowly."
+],
+
+"Step jacks":[
+"Cardio",
+"60 sec",
+"Step one foot out at a time while raising your arms."
+],
+
+"Mountain climber":[
+"Bodyweight",
+"20 sec",
+"Slow it down as needed and keep your core braced."
+],
+
+"Sit-to-stand":[
+"Bodyweight",
+"12 reps",
+"Stand from a chair without using your hands if comfortable."
+],
+
+"Squat reach":[
+"Bodyweight",
+"12 reps",
+"Squat and reach diagonally upward."
+],
+
+"Skater step":[
+"Cardio",
+"45 sec",
+"Step behind and across gently, then switch."
+],
+
+"Chest press":[
+"Weight",
+"10 reps",
+"Press away from the chest with controlled motion."
+],
+
+"Cable row":[
+"Weight",
+"10 reps",
+"Pull toward your ribs and squeeze your shoulder blades."
+],
+
+"Triceps pressdown":[
+"Weight",
+"10 reps",
+"Keep elbows tucked and press down."
+],
+
+"Shadow boxing":[
+"Cardio",
+"60 sec",
+"Punch lightly with control and rotate through the torso."
+],
+
+"Fast feet":[
+"Cardio",
+"30 sec",
+"Quick small steps while staying light and controlled."
+],
+
+"Squat press":[
+"Weight",
+"10 reps",
+"Squat, stand, then press weights overhead."
+],
+
+"Lunge":[
+"Bodyweight/weight",
+"8/side",
+"Use a comfortable range and keep your torso tall."
+],
+
+"Suitcase march":[
+"Weight",
+"30 sec/side",
+"Hold one weight on one side and resist leaning."
+],
+
+"Pallof press":[
+"Band/cable",
+"10/side",
+"Press straight out and resist rotation."
+],
+
+"Thoracic reach":[
+"Mobility",
+"8/side",
+"Rotate gently through your upper back."
+],
+
+"Cat-cow":[
+"Mobility",
+"8 reps",
+"Move slowly with your breath."
+],
+
+"Hip opener":[
+"Mobility",
+"8/side",
+"Use a gentle controlled range."
+],
+
+"Box breathing":[
+"Breathing",
+"4 rounds",
+"Inhale 4, hold 4, exhale 4, hold 4."
+]
+
 };
 
 const levels={
-beginner:{name:"Beginner",mult:.75,rest:35},
-intermediate:{name:"Intermediate",mult:1,rest:30},
-advanced:{name:"Advanced",mult:1.25,rest:20}
+beginner:{
+name:"Beginner",
+mult:.75,
+rest:35
+},
+intermediate:{
+name:"Intermediate",
+mult:1,
+rest:30
+},
+advanced:{
+name:"Advanced",
+mult:1.25,
+rest:20
+}
 };
 
 const defaultState={
- page:"home",day:1,level:"beginner",setting:"home",completed:[],posts:[],messages:[],
- faith:0,selfCare:0,installSeen:false
+page:"home",
+day:1,
+level:"beginner",
+setting:"home",
+completed:[],
+posts:[],
+messages:[],
+faith:0,
+selfCare:0,
+installSeen:false
 };
+
 let savedState={};
-try{savedState=JSON.parse(localStorage.getItem("btc_state")||"{}")}catch(e){savedState={};}
-let state={...defaultState,...savedState};
+
+try{
+ savedState=JSON.parse(localStorage.getItem("btc_state")||"{}")
+}catch(e){
+ savedState={}
+}
+
+let state={
+ ...defaultState,
+ ...savedState
+};
+
 state.completed=Array.isArray(state.completed)?state.completed:[];
 state.posts=Array.isArray(state.posts)?state.posts:[];
 state.messages=Array.isArray(state.messages)?state.messages:[];
 state.faith=Number.isFinite(Number(state.faith))?Number(state.faith):0;
 state.day=Math.min(30,Math.max(1,Number(state.day)||1));
-if(!levels[state.level])state.level="beginner";
-if(!["home","gym"].includes(state.setting))state.setting="home";
-function save(){localStorage.setItem("btc_state",JSON.stringify(state))}
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
-function go(p){state.page=p;save();render();window.scrollTo({top:0,behavior:"smooth"})}
-document.querySelectorAll(".navbtn").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+
+if(!levels[state.level])
+ state.level="beginner";
+
+if(!["home","gym"].includes(state.setting))
+ state.setting="home";
+
+function save(){
+ localStorage.setItem("btc_state",JSON.stringify(state))
+}
+
+function esc(s){
+ return String(s??"").replace(/[&<>"']/g,m=>({
+   "&":"&amp;",
+   "<":"&lt;",
+   ">":"&gt;",
+   '"':"&quot;",
+   "'":"&#039;"
+ }[m]))
+}
+
+function toast(t){
+ const x=document.getElementById("toast");
+ x.textContent=t;
+ x.classList.add("show");
+ setTimeout(()=>x.classList.remove("show"),2200)
+}
+
+function go(p){
+ state.page=p;
+ save();
+ render();
+ window.scrollTo({
+   top:0,
+   behavior:"smooth"
+ })
+}
+
+document.querySelectorAll(".navbtn").forEach(b=>{
+ b.addEventListener("click",()=>go(b.dataset.page))
+});
 
 function render(){
- document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===state.page));
- const pages={home:homePage,move:movePage,believe:believePage,heal:healPage,grow:growPage,community:communityPage};
+
+ document.querySelectorAll(".navbtn").forEach(b=>{
+   b.classList.toggle("active",b.dataset.page===state.page)
+ });
+
+ const pages={
+   home:homePage,
+   move:movePage,
+   believe:believePage,
+   heal:healPage,
+   grow:growPage,
+   community:communityPage
+ };
+
  document.getElementById("main").innerHTML=pages[state.page]();
+
  bindDynamic();
 }
-function progress(){return Math.round(state.completed.length/30*100)}
-function homePage(){
- const pct=progress(), today=state.day;
- return `<section class="hero">
-  <img src="icon.svg" alt="">
-  <div class="tag">BREAKING FREE • GROWING STRONG • WALKING WITH PURPOSE</div>
-  <h1>One choice. One step.<br>One day at a time.</h1>
-  <p>You don't have to become a different woman. You're becoming the woman you were meant to be.</p>
-  <div style="margin-top:16px"><div style="display:flex;justify-content:space-between;font-size:12px"><b>30-Day Foundation</b><b>${state.completed.length}/30</b></div><div class="progress" style="margin-top:7px"><div style="width:${pct}%"></div></div></div>
- </section>
- <div class="install-banner" id="installBanner"><b>📲 Make Beyond the Chains an app</b><p class="small">Install it on your phone for quick access.</p><button class="btn btn-primary" onclick="installApp()">Install Beyond the Chains</button></div>
- <div class="section-title"><h2>Today's Move</h2><span>Day ${today}</span></div>
- <div class="card action-card"><div class="action-icon">💪</div><div style="flex:1"><h3>${workouts[today-1][0]}</h3><p>${workouts[today-1][1]}</p></div><button class="btn btn-primary" onclick="openWorkout(${today})">Start</button></div>
- <div class="section-title"><h2>Your 4 anchors</h2></div>
- <div class="grid">
-  <button class="card action-card" style="text-align:left;border:0" onclick="go('move')"><div class="action-icon">🏋️</div><div><h3>Move</h3><p>Build strength and confidence.</p></div></button>
-  <button class="card action-card" style="text-align:left;border:0" onclick="go('believe')"><div class="action-icon">🙏</div><div><h3>Believe</h3><p>Feed your faith.</p></div></button>
-  <button class="card action-card" style="text-align:left;border:0" onclick="go('heal')"><div class="action-icon">💗</div><div><h3>Heal</h3><p>Make space for yourself.</p></div></button>
-  <button class="card action-card" style="text-align:left;border:0" onclick="go('community')"><div class="action-icon">👭</div><div><h3>Community</h3><p>Encourage and be encouraged.</p></div></button>
- </div>
- <div class="section-title"><h2>Keep going</h2></div>
- <div class="grid">
-  <button class="card" onclick="openMessage()"><h3>💌 Message Jodi</h3><p>Send a private question, idea or encouragement.</p></button>
-  <button class="card" onclick="go('grow')"><h3>🌱 Next Challenge</h3><p>RISE & REBUILD is waiting after Day 30.</p></button>
- </div>`;
-}
-function movePage(){
- let cards=workouts.map((w,i)=>{let d=i+1,done=state.completed.includes(d);
- return `<button class="card day-card" style="text-align:left;border:0;min-height:150px" onclick="openWorkout(${d})">
- <span class="daynum">DAY ${d}</span><div style="font-size:25px;margin-bottom:8px">${done?"🔥":"💪"}</div>
- <h3>${esc(w[0])}</h3><p>${esc(w[1])}</p><span class="pill">${done?"Completed":"Open workout"}</span></button>`}).join("");
- return `<div class="section-title"><h2>30-Day Foundation</h2><span>${state.completed.length}/30 complete</span></div>
- <div class="card" style="margin-bottom:14px"><div class="progress"><div style="width:${progress()}%"></div></div><p>${progress()}% complete. Every day counts.</p>
- <div class="levels">${Object.entries(levels).map(([k,v])=>`<button class="level ${state.level===k?"active":""}" onclick="setLevel('${k}')">${v.name}</button>`).join("")}</div>
- <div class="toggle" style="margin-top:12px"><button class="${state.setting==="home"?"active":""}" onclick="setSetting('home')">🏠 At Home</button><button class="${state.setting==="gym"?"active":""}" onclick="setSetting('gym')">🏋️ At the Gym</button></div></div>
- <div class="grid">${cards}</div>`;
-}
-function believePage(){
- const s=scriptures[new Date().getDate()%scriptures.length];
- return `<div class="section-title"><h2>Believe</h2><span>Faith for today</span></div>
- <div class="card"><div class="pill">TODAY'S WORD</div><p class="quote">“${s[1]}”</p><b>${s[0]}</b><br><button class="btn btn-primary" style="margin-top:14px" onclick="completeFaith()">🙏 I spent time with God</button></div>
- <div class="section-title"><h2>A simple prayer</h2></div>
- <div class="card"><p>Lord, help me take the next right step. Give me strength for what I can change, courage for what I cannot, and a heart that remembers I am never walking alone. Amen.</p></div>
- <div class="section-title"><h2>Gratitude</h2></div>
- <div class="card"><textarea id="gratitude" placeholder="What are you grateful for today?"></textarea><button class="btn btn-teal btn-full" style="margin-top:9px" onclick="saveGratitude()">Save gratitude</button></div>`;
-}
-function healPage(){
- return `<div class="section-title"><h2>Heal</h2><span>Self-care is part of the work</span></div>
- <div class="card"><h3>💗 Today's self-care check-in</h3><p>Pick one small thing that helps you feel cared for.</p>
- <div class="grid">
- ${["Take a 10-minute quiet break","Drink water and eat something nourishing","Stretch and breathe for 5 minutes","Take a shower and reset","Step outside for fresh air","Write down what you're feeling"].map((x,i)=>`<button class="btn btn-light" onclick="selfCare(${i})">${x}</button>`).join("")}</div>
- <p id="selfCareMsg" class="notice" style="display:${state.selfCare?"block":"none"}">You showed up for yourself today. 💗</p></div>
- <div class="section-title"><h2>Reset, don't punish</h2></div>
- <div class="card"><p>Missed a day? Ate something you didn't plan? Lost your rhythm? You don't need a perfect streak. You need your next choice.</p><button class="btn btn-primary" onclick="toast('Your next choice starts now. 💗')">Take the next step</button></div>`;
-}
-function growPage(){
- const complete=state.completed.length===30;
- return `<div class="section-title"><h2>Grow</h2><span>Your progress</span></div>
- <div class="grid3"><div class="card stat"><b>${state.completed.length}</b><small>Days</small></div><div class="card stat"><b>${state.completed.length}</b><small>Workouts</small></div><div class="card stat"><b>${state.faith}</b><small>Faith check-ins</small></div></div>
- <div class="section-title"><h2>${complete?"CHAIN BROKEN":"Keep building"}</h2></div>
- <div class="card">${complete?`<h2>🔥 You finished the Foundation!</h2><p>Take a moment to celebrate the woman who kept choosing forward.</p>`:`<h2>Day ${state.day} is waiting.</h2><p>You are ${30-state.completed.length} workout${30-state.completed.length===1?"":"s"} away from finishing your first 30-day foundation.</p>`}
- <button class="btn btn-primary" onclick="${complete?"go('community')":`openWorkout(${state.day})`}">${complete?"Share your win":"Start Day "+state.day}</button></div>
- <div class="section-title"><h2>Next 30-Day Challenge</h2></div>
- <div class="card"><span class="pill">RISE & REBUILD</span><h2 style="margin-top:10px">A new chapter after the foundation.</h2>
- <div class="grid">
- <div><b>RESET</b><p>Recovery, mobility, mindset.</p></div><div><b>BUILD</b><p>Strength and consistency.</p></div>
- <div><b>BREAK THROUGH</b><p>New challenges and confidence.</p></div><div><b>RISE</b><p>Celebrate how far you've come.</p></div></div></div>
- <div class="card warning" style="margin-top:12px">Workout weights are suggestions, not requirements. Choose a load you can control with good form.</div>
- <button class="btn btn-light btn-full" style="margin-top:12px" onclick="resetProgress()">Reset local progress</button>`;
-}
-function communityPage(){
- const posts=state.posts.map(p=>`<div class="card"><b>${esc(p.name||"Chain Breaker")}</b><p>${esc(p.text)}</p><span class="small">${esc(p.time)}</span></div>`).join("");
- return `<div class="section-title"><h2>The Chain Breakers</h2><span>Encourage one another</span></div>
- <div class="card"><h3>Share a win 💗</h3><input id="postName" placeholder="Your name (optional)"><textarea id="postText" placeholder="What are you proud of today?"></textarea><button class="btn btn-primary btn-full" style="margin-top:8px" onclick="addPost()">Share</button></div>
- <div class="section-title"><h2>Community feed</h2></div>${posts||`<div class="card empty">Your first win could start the conversation. 🌱</div>`}
- <div class="section-title"><h2>Need something more personal?</h2></div>
- <button class="card" style="text-align:left;border:0;width:100%" onclick="openMessage()"><h3>💌 Message Jodi directly</h3><p>Questions, suggestions or encouragement can stay private.</p></button>`;
+
+function bindDynamic(){}
+
+function progress(){
+ return Math.round(state.completed.length/30*100)
 }
 
-function setLevel(k){state.level=k;save();render();toast(levels[k].name+" level selected")}
-function setSetting(k){state.setting=k;save();render();toast(k==="home"?"At-home workouts selected":"Gym workouts selected")}
-function completeFaith(){state.faith++;save();toast("Faith check-in saved. 🙏");render()}
-function selfCare(){state.selfCare=1;save();toast("Self-care check-in saved. 💗");render()}
-function saveGratitude(){let v=document.getElementById("gratitude").value.trim();if(!v)return toast("Write one thing first.");localStorage.setItem("btc_gratitude",v);toast("Gratitude saved. 🌷")}
-function addPost(){let n=document.getElementById("postName").value.trim(),t=document.getElementById("postText").value.trim();if(!t)return toast("Write a win first.");state.posts.unshift({name:n||"Chain Breaker",text:t,time:new Date().toLocaleString()});save();render();toast("Your win is posted! 💗")}
-function resetProgress(){if(confirm("Reset your local workout progress?")){state.completed=[];state.day=1;save();render();toast("Progress reset.")}}
+function homePage(){
+
+ const pct=progress();
+ const today=state.day;
+
+ return `
+ <section class="hero">
+
+  <img
+    src="${LOGO}"
+    alt="Beyond the Chains"
+  >
+
+  <div class="tag">
+    BREAKING FREE • GROWING STRONG • WALKING WITH PURPOSE
+  </div>
+
+  <h1>
+    One choice. One step.<br>
+    One day at a time.
+  </h1>
+
+  <p>
+    You don't have to become a different woman.
+    You're becoming the woman you were meant to be.
+  </p>
+
+  <div style="margin-top:16px">
+
+   <div style="display:flex;justify-content:space-between;font-size:12px">
+    <b>30-Day Foundation</b>
+    <b>${state.completed.length}/30</b>
+   </div>
+
+   <div class="progress" style="margin-top:7px">
+    <div style="width:${pct}%"></div>
+   </div>
+
+  </div>
+
+ </section>
+
+ <div
+   class="install-banner"
+   id="installBanner"
+ >
+   <b>📲 Make Beyond the Chains an app</b>
+
+   <p class="small">
+     Install it on your phone for quick access.
+   </p>
+
+   <button
+     class="btn btn-primary"
+     onclick="installApp()"
+   >
+     Install Beyond the Chains
+   </button>
+ </div>
+
+ <div class="section-title">
+   <h2>Today's Move</h2>
+   <span>Day ${today}</span>
+ </div>
+
+ <div class="card action-card">
+
+   <div class="action-icon">💪</div>
+
+   <div style="flex:1">
+
+     <h3>
+       ${workouts[today-1][0]}
+     </h3>
+
+     <p>
+       ${workouts[today-1][1]}
+     </p>
+
+   </div>
+
+   <button
+     class="btn btn-primary"
+     onclick="openWorkout(${today})"
+   >
+     Start
+   </button>
+
+ </div>
+
+ <div class="section-title">
+   <h2>Your 4 anchors</h2>
+ </div>
+
+ <div class="grid">
+
+  <button
+    class="card action-card"
+    style="text-align:left;border:0"
+    onclick="go('move')"
+  >
+    <div class="action-icon">🏋️</div>
+    <div>
+      <h3>Move</h3>
+      <p>Build strength and confidence.</p>
+    </div>
+  </button>
+
+  <button
+    class="card action-card"
+    style="text-align:left;border:0"
+    onclick="go('believe')"
+  >
+    <div class="action-icon">🙏</div>
+    <div>
+      <h3>Believe</h3>
+      <p>Feed your faith.</p>
+    </div>
+  </button>
+
+  <button
+    class="card action-card"
+    style="text-align:left;border:0"
+    onclick="go('heal')"
+  >
+    <div class="action-icon">💗</div>
+    <div>
+      <h3>Heal</h3>
+      <p>Make space for yourself.</p>
+    </div>
+  </button>
+
+  <button
+    class="card action-card"
+    style="text-align:left;border:0"
+    onclick="go('community')"
+  >
+    <div class="action-icon">👭</div>
+    <div>
+      <h3>Community</h3>
+      <p>Encourage and be encouraged.</p>
+    </div>
+  </button>
+
+ </div>
+
+ <div class="section-title">
+   <h2>Keep going</h2>
+ </div>
+
+ <div class="grid">
+
+  <button
+    class="card"
+    onclick="openMessage()"
+  >
+    <h3>💌 Message Jodi</h3>
+    <p>
+      Send a private question, idea or encouragement.
+    </p>
+  </button>
+
+  <button
+    class="card"
+    onclick="go('grow')"
+  >
+    <h3>🌱 Next Challenge</h3>
+    <p>
+      RISE & REBUILD is waiting after Day 30.
+    </p>
+  </button>
+
+ </div>
+ `;
+}
+
+function movePage(){
+
+ let cards=workouts.map((w,i)=>{
+
+   let d=i+1;
+   let done=state.completed.includes(d);
+
+   return `
+   <button
+     class="card day-card"
+     style="text-align:left;border:0;min-height:150px"
+     onclick="openWorkout(${d})"
+   >
+
+    <span class="daynum">
+      DAY ${d}
+    </span>
+
+    <div style="font-size:25px;margin-bottom:8px">
+      ${done?"🔥":"💪"}
+    </div>
+
+    <h3>${esc(w[0])}</h3>
+
+    <p>${esc(w[1])}</p>
+
+    <span class="pill">
+      ${done?"Completed":"Open workout"}
+    </span>
+
+   </button>
+   `
+
+ }).join("");
+
+ return `
+
+ <div class="section-title">
+   <h2>30-Day Foundation</h2>
+   <span>
+     ${state.completed.length}/30 complete
+   </span>
+ </div>
+
+ <div
+   class="card"
+   style="margin-bottom:14px"
+ >
+
+  <div class="progress">
+   <div style="width:${progress()}%"></div>
+  </div>
+
+  <p>
+    ${progress()}% complete.
+    Every day counts.
+  </p>
+
+  <div class="levels">
+
+   ${Object.entries(levels).map(([k,v])=>`
+
+    <button
+      class="level ${state.level===k?"active":""}"
+      onclick="setLevel('${k}')"
+    >
+      ${v.name}
+    </button>
+
+   `).join("")}
+
+  </div>
+
+  <div
+    class="toggle"
+    style="margin-top:12px"
+  >
+
+   <button
+     class="${state.setting==="home"?"active":""}"
+     onclick="setSetting('home')"
+   >
+     🏠 At Home
+   </button>
+
+   <button
+     class="${state.setting==="gym"?"active":""}"
+     onclick="setSetting('gym')"
+   >
+     🏋️ At the Gym
+   </button>
+
+  </div>
+
+ </div>
+
+ <div class="grid">
+   ${cards}
+ </div>
+
+ `;
+}
+
+function believePage(){
+
+ const s=
+ scriptures[new Date().getDate()%scriptures.length];
+
+ return `
+
+ <div class="section-title">
+   <h2>Believe</h2>
+   <span>Faith for today</span>
+ </div>
+
+ <div class="card">
+
+   <div class="pill">
+     TODAY'S WORD
+   </div>
+
+   <p class="quote">
+     “${s[1]}”
+   </p>
+
+   <b>${s[0]}</b>
+
+   <br>
+
+   <button
+     class="btn btn-primary"
+     style="margin-top:14px"
+     onclick="completeFaith()"
+   >
+     🙏 I spent time with God
+   </button>
+
+ </div>
+
+ <div class="section-title">
+   <h2>A simple prayer</h2>
+ </div>
+
+ <div class="card">
+
+  <p>
+   Lord, help me take the next right step.
+   Give me strength for what I can change,
+   courage for what I cannot, and a heart
+   that remembers I am never walking alone.
+   Amen.
+  </p>
+
+ </div>
+
+ <div class="section-title">
+   <h2>Gratitude</h2>
+ </div>
+
+ <div class="card">
+
+  <textarea
+    id="gratitude"
+    placeholder="What are you grateful for today?"
+  ></textarea>
+
+  <button
+    class="btn btn-teal btn-full"
+    style="margin-top:9px"
+    onclick="saveGratitude()"
+  >
+    Save gratitude
+  </button>
+
+ </div>
+
+ `;
+}
+
+function healPage(){
+
+ return `
+
+ <div class="section-title">
+   <h2>Heal</h2>
+   <span>Self-care is part of the work</span>
+ </div>
+
+ <div class="card">
+
+  <h3>
+    💗 Today's self-care check-in
+  </h3>
+
+  <p>
+    Pick one small thing that helps you feel cared for.
+  </p>
+
+  <div class="grid">
+
+   ${[
+    "Take a 10-minute quiet break",
+    "Drink water and eat something nourishing",
+    "Stretch and breathe for 5 minutes",
+    "Take a shower and reset",
+    "Step outside for fresh air",
+    "Write down what you're feeling"
+   ].map((x,i)=>`
+
+    <button
+      class="btn btn-light"
+      onclick="selfCare(${i})"
+    >
+      ${x}
+    </button>
+
+   `).join("")}
+
+  </div>
+
+  <p
+    id="selfCareMsg"
+    class="notice"
+    style="display:${state.selfCare?"block":"none"}"
+  >
+    You showed up for yourself today. 💗
+  </p>
+
+ </div>
+
+ <div class="section-title">
+   <h2>Reset, don't punish</h2>
+ </div>
+
+ <div class="card">
+
+  <p>
+   Missed a day?
+   Ate something you didn't plan?
+   Lost your rhythm?
+   You don't need a perfect streak.
+   You need your next choice.
+  </p>
+
+  <button
+    class="btn btn-primary"
+    onclick="toast('Your next choice starts now. 💗')"
+  >
+    Take the next step
+  </button>
+
+ </div>
+
+ `;
+}
+
+function growPage(){
+
+ const complete=
+   state.completed.length===30;
+
+ return `
+
+ <div class="section-title">
+   <h2>Grow</h2>
+   <span>Your progress</span>
+ </div>
+
+ <div class="grid3">
+
+  <div class="card stat">
+   <b>${state.completed.length}</b>
+   <small>Days</small>
+  </div>
+
+  <div class="card stat">
+   <b>${state.completed.length}</b>
+   <small>Workouts</small>
+  </div>
+
+  <div class="card stat">
+   <b>${state.faith}</b>
+   <small>Faith check-ins</small>
+  </div>
+
+ </div>
+
+ <div class="section-title">
+   <h2>
+     ${complete?"CHAIN BROKEN":"Keep building"}
+   </h2>
+ </div>
+
+ <div class="card">
+
+ ${
+ complete
+ ?
+ `
+ <h2>
+   🔥 You finished the Foundation!
+ </h2>
+
+ <p>
+   Take a moment to celebrate the woman
+   who kept choosing forward.
+ </p>
+ `
+ :
+ `
+ <h2>
+   Day ${state.day} is waiting.
+ </h2>
+
+ <p>
+   You are ${30-state.completed.length}
+   workout${30-state.completed.length===1?"":"s"}
+   away from finishing your first
+   30-day foundation.
+ </p>
+ `
+ }
+
+ <button
+   class="btn btn-primary"
+   onclick="${
+     complete
+     ?"go('community')"
+     :`openWorkout(${state.day})`
+   }"
+ >
+   ${
+     complete
+     ?"Share your win"
+     :"Start Day "+state.day
+   }
+ </button>
+
+ </div>
+
+ <div class="section-title">
+   <h2>Next 30-Day Challenge</h2>
+ </div>
+
+ <div class="card">
+
+  <span class="pill">
+    RISE & REBUILD
+  </span>
+
+  <h2 style="margin-top:10px">
+    A new chapter after the foundation.
+  </h2>
+
+  <div class="grid">
+
+   <div>
+    <b>RESET</b>
+    <p>Recovery, mobility, mindset.</p>
+   </div>
+
+   <div>
+    <b>BUILD</b>
+    <p>Strength and consistency.</p>
+   </div>
+
+   <div>
+    <b>BREAK THROUGH</b>
+    <p>New challenges and confidence.</p>
+   </div>
+
+   <div>
+    <b>RISE</b>
+    <p>Celebrate how far you've come.</p>
+   </div>
+
+  </div>
+
+ </div>
+
+ <div
+   class="card warning"
+   style="margin-top:12px"
+ >
+  Workout weights are suggestions, not requirements.
+  Choose a load you can control with good form.
+ </div>
+
+ <button
+   class="btn btn-light btn-full"
+   style="margin-top:12px"
+   onclick="resetProgress()"
+ >
+   Reset local progress
+ </button>
+
+ `;
+}
+
+function communityPage(){
+
+ const posts=state.posts.map(p=>`
+
+  <div class="card">
+
+   <b>
+     ${esc(p.name||"Chain Breaker")}
+   </b>
+
+   <p>
+     ${esc(p.text)}
+   </p>
+
+   <span class="small">
+     ${esc(p.time)}
+   </span>
+
+  </div>
+
+ `).join("");
+
+ return `
+
+ <div class="section-title">
+   <h2>The Chain Breakers</h2>
+   <span>Encourage one another</span>
+ </div>
+
+ <div class="card">
+
+  <h3>
+    Share a win 💗
+  </h3>
+
+  <input
+    id="postName"
+    placeholder="Your name (optional)"
+  >
+
+  <textarea
+    id="postText"
+    placeholder="What are you proud of today?"
+  ></textarea>
+
+  <button
+    class="btn btn-primary btn-full"
+    style="margin-top:8px"
+    onclick="addPost()"
+  >
+    Share
+  </button>
+
+ </div>
+
+ <div class="section-title">
+   <h2>Community feed</h2>
+ </div>
+
+ ${
+   posts ||
+   `
+   <div class="card empty">
+     Your first win could start the conversation. 🌱
+   </div>
+   `
+ }
+
+ <div class="section-title">
+   <h2>Need something more personal?</h2>
+ </div>
+
+ <button
+   class="card"
+   style="text-align:left;border:0;width:100%"
+   onclick="openMessage()"
+ >
+
+  <h3>
+    💌 Message Jodi directly
+  </h3>
+
+  <p>
+    Questions, suggestions or encouragement
+    can stay private.
+  </p>
+
+ </button>
+
+ `;
+}
+
+function setLevel(k){
+
+ state.level=k;
+ save();
+ render();
+
+ toast(levels[k].name+" level selected");
+}
+
+function setSetting(k){
+
+ state.setting=k;
+ save();
+ render();
+
+ toast(
+   k==="home"
+   ?"At-home workouts selected"
+   :"Gym workouts selected"
+ );
+}
+
+function completeFaith(){
+
+ state.faith++;
+
+ save();
+
+ toast("Faith check-in saved. 🙏");
+
+ render();
+}
+
+function selfCare(){
+
+ state.selfCare=1;
+
+ save();
+
+ toast("Self-care check-in saved. 💗");
+
+ render();
+}
+
+function saveGratitude(){
+
+ let v=
+   document.getElementById("gratitude")
+   .value
+   .trim();
+
+ if(!v)
+   return toast("Write one thing first.");
+
+ localStorage.setItem(
+   "btc_gratitude",
+   v
+ );
+
+ toast("Gratitude saved. 🌷");
+}
+
+function addPost(){
+
+ let n=
+   document.getElementById("postName")
+   .value
+   .trim();
+
+ let t=
+   document.getElementById("postText")
+   .value
+   .trim();
+
+ if(!t)
+   return toast("Write a win first.");
+
+ state.posts.unshift({
+   name:n||"Chain Breaker",
+   text:t,
+   time:new Date().toLocaleString()
+ });
+
+ save();
+
+ render();
+
+ toast("Your win is posted! 💗");
+}
+
+function resetProgress(){
+
+ if(
+   confirm(
+     "Reset your local workout progress?"
+   )
+ ){
+
+   state.completed=[];
+   state.day=1;
+
+   save();
+
+   render();
+
+   toast("Progress reset.");
+ }
+}
 
 function weightFor(ex){
- if(state.setting!=="gym")return "Bodyweight / no equipment";
- const base=state.level==="beginner"?5:state.level==="intermediate"?10:15;
- const heavy=/squat|deadlift|row|press|curl|extension|thrust|carry|march/i.test(ex);
- return heavy?`Suggested: ${base}${base===15?"–25":"–"+(base+10)} lb`:"Use bodyweight or a light load";
+
+ if(state.setting!=="gym")
+   return "Bodyweight / no equipment";
+
+ const base=
+   state.level==="beginner"
+   ?5
+   :state.level==="intermediate"
+   ?10
+   :15;
+
+ const heavy=
+   /squat|deadlift|row|press|curl|extension|thrust|carry|march/i
+   .test(ex);
+
+ return heavy
+   ?
+   `Suggested: ${base}${base===15?"–25":"–"+(base+10)} lb`
+   :
+   "Use bodyweight or a light load";
 }
+
 function openWorkout(day){
+
  const w=workouts[day-1];
- const list=w[2] ? w[2].split(" • ") : w[2];
- const names=list || w[4].split(" • ");
- const items=names.map((ex,i)=>{
-  let d=exDetails[ex]||["Exercise",`${Math.round(10*levels[state.level].mult)} reps`,"Move with control and stop if you feel pain."];
-  return `<div class="exercise"><div class="demo"><span class="woman">🏃‍♀️</span></div><div style="flex:1"><b>${esc(ex)}</b><div class="small">${esc(d[0])} • ${esc(d[1])}</div><div class="small">${esc(weightFor(ex))}</div><p class="small">${esc(d[2])}</p></div><button class="btn btn-light" onclick='startTimer(${JSON.stringify(ex)},${JSON.stringify(d[1])})'>⏱️</button></div>`
+
+ const names=
+   w[2]
+   ?
+   w[2].split(" • ")
+   :
+   [];
+
+ const items=
+ names.map((ex,i)=>{
+
+  let d=
+    exDetails[ex]||
+    [
+      "Exercise",
+      `${Math.round(10*levels[state.level].mult)} reps`,
+      "Move with control and stop if you feel pain."
+    ];
+
+  return `
+
+  <div class="exercise">
+
+   <div class="demo">
+    <span class="woman">🏃‍♀️</span>
+   </div>
+
+   <div style="flex:1">
+
+    <b>${esc(ex)}</b>
+
+    <div class="small">
+      ${esc(d[0])} • ${esc(d[1])}
+    </div>
+
+    <div class="small">
+      ${esc(weightFor(ex))}
+    </div>
+
+    <p class="small">
+      ${esc(d[2])}
+    </p>
+
+   </div>
+
+   <button
+     class="btn btn-light"
+     onclick='startTimer(
+       ${JSON.stringify(ex)},
+       ${JSON.stringify(d[1])}
+     )'
+   >
+     ⏱️
+   </button>
+
+  </div>
+
+  `
+
  }).join("");
- openModal(`<div class="modal-head"><div><span class="pill">DAY ${day}</span><h2>${esc(w[0])}</h2><p>${esc(w[1])}</p></div><button class="close" onclick="closeModal()">✕</button></div>
- <div class="levels">${Object.entries(levels).map(([k,v])=>`<button class="level ${state.level===k?"active":""}" onclick="state.level='${k}';save();openWorkout(${day})">${v.name}</button>`).join("")}</div>
- <div class="toggle" style="margin:12px 0"><button class="${state.setting==="home"?"active":""}" onclick="state.setting='home';save();openWorkout(${day})">🏠 Home</button><button class="${state.setting==="gym"?"active":""}" onclick="state.setting='gym';save();openWorkout(${day})">🏋️ Gym</button></div>
- <div class="notice">Choose a level and setting that fit you today. You can modify the load, reps or range of motion to match your ability.</div>
- <div style="margin-top:8px">${items}</div>
- <button class="btn btn-primary btn-full" style="margin-top:12px" onclick="completeWorkout(${day})">${state.completed.includes(day)?"✓ Workout completed":"Mark workout complete"}</button>`);
+
+ openModal(`
+
+ <div class="modal-head">
+
+  <div>
+
+   <span class="pill">
+     DAY ${day}
+   </span>
+
+   <h2>
+     ${esc(w[0])}
+   </h2>
+
+   <p>
+     ${esc(w[1])}
+   </p>
+
+  </div>
+
+  <button
+    class="close"
+    onclick="closeModal()"
+  >
+    ✕
+  </button>
+
+ </div>
+
+ <div class="levels">
+
+  ${Object.entries(levels).map(([k,v])=>`
+
+   <button
+     class="level ${state.level===k?"active":""}"
+     onclick="
+       state.level='${k}';
+       save();
+       openWorkout(${day})
+     "
+   >
+     ${v.name}
+   </button>
+
+  `).join("")}
+
+ </div>
+
+ <div
+   class="toggle"
+   style="margin:12px 0"
+ >
+
+  <button
+    class="${state.setting==="home"?"active":""}"
+    onclick="
+      state.setting='home';
+      save();
+      openWorkout(${day})
+    "
+  >
+    🏠 Home
+  </button>
+
+  <button
+    class="${state.setting==="gym"?"active":""}"
+    onclick="
+      state.setting='gym';
+      save();
+      openWorkout(${day})
+    "
+  >
+    🏋️ Gym
+  </button>
+
+ </div>
+
+ <div class="notice">
+
+  Choose a level and setting that fit you today.
+  You can modify the load, reps or range of motion
+  to match your ability.
+
+ </div>
+
+ <div style="margin-top:8px">
+   ${items}
+ </div>
+
+ <button
+   class="btn btn-primary btn-full"
+   style="margin-top:12px"
+   onclick="completeWorkout(${day})"
+ >
+   ${
+     state.completed.includes(day)
+     ?"✓ Workout completed"
+     :"Mark workout complete"
+   }
+ </button>
+
+ `);
 }
+
 function startTimer(ex,label){
- let secs=/sec/i.test(label)?parseInt(label):30;
- openModal(`<div class="modal-head"><div><span class="pill">REP / TIME COACH</span><h2>${esc(ex)}</h2></div><button class="close" onclick="closeModal()">✕</button></div>
- <div style="text-align:center;padding:20px"><div id="timer" style="font-size:72px;font-weight:900;color:var(--rose)">${secs}</div><p>Move with control. Breathe. You don't have to rush.</p><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`);
- const timer=setInterval(()=>{const el=document.getElementById("timer");if(!el){clearInterval(timer);return}secs--;el.textContent=secs;if(secs<=0){clearInterval(timer);el.textContent="GO!";toast("Nice work! 🔥")}},1000)
+
+ let secs=
+   /sec/i.test(label)
+   ?
+   parseInt(label)
+   :
+   30;
+
+ openModal(`
+
+ <div class="modal-head">
+
+  <div>
+
+   <span class="pill">
+     REP / TIME COACH
+   </span>
+
+   <h2>
+     ${esc(ex)}
+   </h2>
+
+  </div>
+
+  <button
+    class="close"
+    onclick="closeModal()"
+  >
+    ✕
+  </button>
+
+ </div>
+
+ <div
+   style="text-align:center;padding:20px"
+ >
+
+  <div
+    id="timer"
+    style="
+      font-size:72px;
+      font-weight:900;
+      color:var(--rose)
+    "
+  >
+    ${secs}
+  </div>
+
+  <p>
+    Move with control.
+    Breathe.
+    You don't have to rush.
+  </p>
+
+  <button
+    class="btn btn-primary"
+    onclick="closeModal()"
+  >
+    Done
+  </button>
+
+ </div>
+
+ `);
+
+ const timer=
+   setInterval(()=>{
+
+    const el=
+      document.getElementById("timer");
+
+    if(!el){
+      clearInterval(timer);
+      return;
+    }
+
+    secs--;
+
+    el.textContent=secs;
+
+    if(secs<=0){
+
+      clearInterval(timer);
+
+      el.textContent="GO!";
+
+      toast("Nice work! 🔥");
+    }
+
+   },1000);
 }
+
 function completeWorkout(day){
- if(!state.completed.includes(day))state.completed.push(day);
- if(day===state.day && state.day<30)state.day++;
- save();closeModal();toast(day===30?"CHAIN BROKEN! 🔥":"Workout complete! Keep going.");render()
+
+ if(!state.completed.includes(day))
+   state.completed.push(day);
+
+ if(
+   day===state.day &&
+   state.day<30
+ )
+   state.day++;
+
+ save();
+
+ closeModal();
+
+ toast(
+   day===30
+   ?"CHAIN BROKEN! 🔥"
+   :"Workout complete! Keep going."
+ );
+
+ render();
 }
+
 function openMessage(){
- openModal(`<div class="modal-head"><div><span class="pill">PRIVATE NOTE</span><h2>Message Jodi</h2><p>Your message is saved on this device in this version.</p></div><button class="close" onclick="closeModal()">✕</button></div>
- <label>Name</label><input id="msgName" placeholder="Your name">
- <label>Message</label><textarea id="msgText" placeholder="What's on your mind?"></textarea>
- <button class="btn btn-primary btn-full" style="margin-top:10px" onclick="saveMessage()">Send message</button>
- <p class="small" style="margin-top:10px">Note: this offline/free version does not send email or cloud messages yet.</p>`);
+
+ openModal(`
+
+ <div class="modal-head">
+
+  <div>
+
+   <span class="pill">
+     PRIVATE NOTE
+   </span>
+
+   <h2>
+     Message Jodi
+   </h2>
+
+   <p>
+     Your message is saved on this device in this version.
+   </p>
+
+  </div>
+
+  <button
+    class="close"
+    onclick="closeModal()"
+  >
+    ✕
+  </button>
+
+ </div>
+
+ <label>Name</label>
+
+ <input
+   id="msgName"
+   placeholder="Your name"
+ >
+
+ <label>Message</label>
+
+ <textarea
+   id="msgText"
+   placeholder="What's on your mind?"
+ ></textarea>
+
+ <button
+   class="btn btn-primary btn-full"
+   style="margin-top:10px"
+   onclick="saveMessage()"
+ >
+   Send message
+ </button>
+
+ <p
+   class="small"
+   style="margin-top:10px"
+ >
+   Note: this offline/free version does not
+   send email or cloud messages yet.
+ </p>
+
+ `);
 }
-function saveMessage(){let n=document.getElementById("msgName").value.trim(),t=document.getElementById("msgText").value.trim();if(!t)return toast("Write a message first.");state.messages.push({name:n||"Anonymous",text:t,time:new Date().toLocaleString()});save();closeModal();toast("Message saved on this device. 💌")}
-function openModal(html){document.getElementById("modal").innerHTML=html;document.getElementById("modalBack").classList.add("show")}
-function closeModal(){document.getElementById("modalBack").classList.remove("show")}
+
+function saveMessage(){
+
+ let n=
+   document.getElementById("msgName")
+   .value
+   .trim();
+
+ let t=
+   document.getElementById("msgText")
+   .value
+   .trim();
+
+ if(!t)
+   return toast("Write a message first.");
+
+ state.messages.push({
+   name:n||"Anonymous",
+   text:t,
+   time:new Date().toLocaleString()
+ });
+
+ save();
+
+ closeModal();
+
+ toast("Message saved on this device. 💌");
+}
+
+function openModal(html){
+
+ document.getElementById("modal").innerHTML=html;
+
+ document
+   .getElementById("modalBack")
+   .classList.add("show");
+}
+
+function closeModal(){
+
+ document
+   .getElementById("modalBack")
+   .classList.remove("show");
+}
 
 let deferredPrompt=null;
-window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;document.getElementById("installBanner")?.style.setProperty("display","block")});
-async function installApp(){if(!deferredPrompt){toast("Use Chrome menu → Install and create shortcut.");return}deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null}
-function showInstall(){if(deferredPrompt)installApp();else toast("Use Chrome's menu → Install and create shortcut.")}
-if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+
+window.addEventListener(
+ "beforeinstallprompt",
+ e=>{
+
+   e.preventDefault();
+
+   deferredPrompt=e;
+
+   document
+     .getElementById("installBanner")
+     ?.style
+     .setProperty("display","block");
+
+ }
+);
+
+async function installApp(){
+
+ if(!deferredPrompt){
+
+   toast(
+     "Use Chrome menu → Install and create shortcut."
+   );
+
+   return;
+ }
+
+ deferredPrompt.prompt();
+
+ await deferredPrompt.userChoice;
+
+ deferredPrompt=null;
+}
+
+function showInstall(){
+
+ if(deferredPrompt)
+   installApp();
+ else
+   toast(
+     "Use Chrome's menu → Install and create shortcut."
+   );
+}
+
+if("serviceWorker" in navigator){
+
+ window.addEventListener(
+   "load",
+   ()=>{
+     navigator.serviceWorker
+       .register("sw.js")
+       .catch(()=>{});
+   }
+ );
+
+}
+
+const savedGratitude=
+ localStorage.getItem("btc_gratitude");
+
 render();
+
 </script>
+
 </body>
 </html>
